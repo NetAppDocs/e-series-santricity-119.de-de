@@ -1,0 +1,81 @@
+---
+permalink: sm-storage/change-configuration-settings-for-a-volume-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configuration settings, volume group 
+summary: Sie können die Einstellungen für eine Volume-Gruppe bearbeiten, einschließlich ihres Namens und RAID-Levels. 
+---
+= Ändern Sie die Konfigurationseinstellungen für eine Volumengruppe im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für eine Volume-Gruppe bearbeiten, einschließlich ihres Namens und RAID-Levels.
+
+.Bevor Sie beginnen
+Wenn Sie den RAID-Level ändern, um den Leistungsanforderungen der Anwendungen, die auf die Volume-Gruppe zugreifen, gerecht zu werden, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
+
+* Die Volumengruppe muss sich im Optimal-Status befinden.
+* Sie müssen über ausreichend Kapazität in der Volume-Gruppe verfügen, um auf das neue RAID-Level zu konvertieren.
+
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Wählen Sie die Volume-Gruppe aus, die Sie bearbeiten möchten, und klicken Sie dann auf *View/Edit Settings*.
++
+Das Dialogfeld „Volume-Gruppeneinstellungen“ wird angezeigt.
+
+. Wählen Sie die Registerkarte *Einstellungen* aus und bearbeiten Sie dann die Einstellungen der Volume-Gruppe nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Name
+ a| 
+Sie können den vom Benutzer vergebenen Namen der Datenträgergruppe ändern. Die Angabe eines Namens für eine Datenträgergruppe ist erforderlich.
+
+
+
+ a| 
+RAID-Ebene
+ a| 
+Wählen Sie die neue RAID-Stufe aus dem Dropdown-Menü aus.
+
+** *RAID 0 Striping* – Bietet hohe Leistung, bietet jedoch keine Datenredundanz. Wenn ein Einzellaufwerk in der Volume-Gruppe ausfällt, fallen alle zugehörigen Volumes aus und alle Daten gehen verloren. Eine Striping-RAID-Gruppe kombiniert zwei oder mehr Laufwerke zu einem großen, logischen Laufwerk.
+** *RAID 1-Spiegelung* -- Bietet hohe Leistung und die beste Datenverfügbarkeit und eignet sich für die Speicherung sensibler Daten auf Unternehmens- oder persönlicher Ebene. Schützt Ihre Daten, indem der Inhalt eines Laufwerks automatisch auf das zweite Laufwerk im Spiegelpaar gespiegelt wird. Sie bietet Schutz im Falle eines Einzellaufwerk-Ausfalls.
+** *RAID 10 Striping/Mirroring* – Bietet eine Kombination aus RAID 0 (Striping) und RAID 1 (Mirroring) und wird erreicht, wenn vier oder mehr Laufwerke ausgewählt werden. RAID 10 eignet sich für Anwendungen mit hohem Transaktionsvolumen, wie eine Datenbank, die hohe Leistung und Fehlertoleranz erfordern.
+** *RAID 5* -- Optimal für Mehrbenutzerumgebungen (wie Datenbank- oder Dateisystemspeicherung), in denen die typische I/O-Größe klein ist und ein hoher Anteil an Leseaktivität vorliegt.
+** *RAID 6* -- Optimal für Umgebungen, die einen Redundanzschutz benötigen, der über RAID 5 hinausgeht, aber keine hohe Schreibleistung erfordern.
+
+
+RAID 3 kann nur Volumengruppen zugewiesen werden, wenn die Befehlszeilenschnittstelle (CLI) verwendet wird.
+
+Wenn Sie den RAID-Level ändern, können Sie diesen Vorgang nach seinem Beginn nicht mehr abbrechen. Während der Änderung bleiben Ihre Daten verfügbar.
+
+
+
+ a| 
+Optimierungskapazität (nur EF600-Arrays)
+ a| 
+Beim Erstellen einer Volumengruppe wird eine empfohlene Optimierungskapazität generiert, die ein ausgewogenes Verhältnis zwischen verfügbarer Kapazität, Leistung und Laufwerksverschleißlebensdauer bietet. Sie können dieses Gleichgewicht anpassen, indem Sie den Schieberegler nach rechts bewegen, um eine bessere Leistung und Laufwerksverschleißlebensdauer auf Kosten einer erhöhten verfügbaren Kapazität zu erzielen, oder nach links, um eine erhöhte verfügbare Kapazität auf Kosten einer besseren Leistung und Laufwerksverschleißlebensdauer zu erreichen.
+
+SSD-Laufwerke weisen eine längere Lebensdauer und eine bessere maximale Schreibleistung auf, wenn ein Teil ihrer Kapazität nicht zugewiesen ist. Bei Laufwerken, die einer Volume-Gruppe zugeordnet sind, setzt sich die nicht zugewiesene Kapazität aus der freien Kapazität der Gruppe (Kapazität, die nicht von Volumes genutzt wird) und einem Teil der nutzbaren Kapazität zusammen, der als zusätzliche Optimierungskapazität reserviert ist. Die zusätzliche Optimierungskapazität gewährleistet ein Mindestmaß an Optimierungskapazität, indem sie die nutzbare Kapazität reduziert und steht daher nicht für die Volume-Erstellung zur Verfügung.
+
+|===
+====
+. Klicken Sie auf *Speichern*.
++
+Ein Bestätigungsdialogfeld erscheint, wenn die Kapazität verringert wird, die Volumenredundanz verloren geht oder der Schutz vor Shelf/Drawer-Ausfall durch die Änderung des RAID-Levels verloren geht. Wählen Sie *Ja*, um fortzufahren; klicken Sie andernfalls auf *Nein*.
+
+
+
+.Ergebnisse
+Wenn Sie den RAID-Level einer Volume-Gruppe ändern, ändert System Manager die RAID-Level aller Volumes, aus denen die Volume-Gruppe besteht. Die Leistung kann während des Vorgangs geringfügig beeinträchtigt werden.

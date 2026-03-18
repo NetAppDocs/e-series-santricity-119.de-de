@@ -1,0 +1,77 @@
+---
+permalink: sm-settings/configure-mail-server-and-recipients-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, mail, server, recipients, alerts, 
+summary: Um E-Mail-Benachrichtigungen zu konfigurieren, müssen Sie eine Mailserveradresse und die E-Mail-Adressen der Benachrichtigungsempfänger angeben. Bis zu 20 E-Mail-Adressen sind zulässig. 
+---
+= Konfigurieren Sie den Mailserver und die Benachrichtigungsempfänger im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um E-Mail-Benachrichtigungen zu konfigurieren, müssen Sie eine Mailserveradresse und die E-Mail-Adressen der Benachrichtigungsempfänger angeben. Bis zu 20 E-Mail-Adressen sind zulässig.
+
+.Bevor Sie beginnen
+* Die Adresse des Mailservers muss verfügbar sein. Die Adresse kann eine IPv4- oder IPv6-Adresse oder eine vollqualifizierte Domain sein.
++
+[NOTE]
+====
+Um eine vollqualifizierte Domain zu verwenden, müssen Sie auf beiden Controllern einen DNS-Server konfigurieren. Sie können einen DNS-Server auf der Hardware-Seite konfigurieren.
+
+====
+* Die E-Mail-Adresse, die als Absender der Benachrichtigung verwendet werden soll, muss verfügbar sein. Diese Adresse erscheint im Feld „Von“ der Benachrichtigung. Im SMTP-Protokoll ist eine Absenderadresse erforderlich; ohne sie tritt ein Fehler auf.
+* Die E-Mail-Adresse(n) der Benachrichtigungsempfänger muss/müssen verfügbar sein. Der Empfänger ist in der Regel die Adresse eines Netzwerkadministrators oder Speicheradministrators. Sie können bis zu 20 E-Mail-Adressen eingeben.
+
+
+.Über diese Aufgabe
+Diese Aufgabe beschreibt, wie Sie den Mailserver konfigurieren, E-Mail-Adressen für Absender und Empfänger eingeben und alle eingegebenen E-Mail-Adressen von der Seite "Warnungen" aus testen.
+
+[NOTE]
+====
+E-Mail-Benachrichtigungen können auch über den Initial Setup-Assistenten konfiguriert werden.
+
+====
+.Schritte
+. Menü auswählen: Settings[Alerts].
+. Wählen Sie die Registerkarte *E-Mail* aus.
++
+Wenn noch kein E-Mail-Server konfiguriert ist, zeigt die Registerkarte „E-Mail“ „Mail Server konfigurieren“ an.
+
+. Wählen Sie *Configure Mail Server*.
++
+Das Dialogfeld „Mail Server konfigurieren“ wird geöffnet.
+
+. Geben Sie die Mailserver-Informationen ein und klicken Sie dann auf *Speichern*.
++
+** *Mailserveradresse* -- Geben Sie eine vollqualifizierte Domain, eine IPv4-Adresse oder eine IPv6-Adresse des Mailservers ein.
++
+[NOTE]
+====
+Um eine vollqualifizierte Domain zu verwenden, müssen Sie auf beiden Controllern einen DNS-Server konfigurieren. Sie können einen DNS-Server auf der Hardware-Seite konfigurieren.
+
+====
+** *E-Mail-Absenderadresse* – Geben Sie eine gültige E-Mail-Adresse ein, die als Absender der E-Mail verwendet werden soll. Diese Adresse wird im Feld „Von“ der E-Mail angezeigt.
+** *Verschlüsselung* – Wenn Sie Nachrichten verschlüsseln möchten, wählen Sie als Verschlüsselungstyp entweder *SMTPS* oder *STARTTLS* und anschließend die Portnummer für verschlüsselte Nachrichten. Andernfalls wählen Sie *None*.
+** *Benutzername und Passwort* -- Geben Sie bei Bedarf einen Benutzernamen und ein Passwort zur Authentifizierung mit dem ausgehenden Absender und dem Mailserver ein.
+** *Kontaktinformationen in E-Mail einfügen* -- Um die Kontaktinformationen des Absenders mit der Warnmeldung zu versenden, wählen Sie diese Option aus und geben Sie dann einen Namen und eine Telefonnummer ein.
++
+Nachdem Sie auf *Speichern* geklickt haben, erscheinen die E-Mail-Adressen auf der Registerkarte „E-Mail“ der Benachrichtigungsseite.
+
+
+
+. Wählen Sie *Add Emails* aus.
++
+Das Dialogfeld „E-Mails hinzufügen“ wird geöffnet.
+
+. Geben Sie eine oder mehrere E-Mail-Adressen für die Benachrichtigungsempfänger ein, und klicken Sie dann auf *Hinzufügen*.
++
+Die E-Mail-Adressen werden auf der Seite Alerts angezeigt.
+
+. Wenn Sie sicherstellen möchten, dass die E-Mail-Adressen gültig sind, klicken Sie auf *Alle E-Mails testen*, um Testnachrichten an die Empfänger zu senden.
+
+
+.Ergebnisse
+Nachdem Sie E-Mail-Benachrichtigungen konfiguriert haben, sendet der Ereignismonitor E-Mail-Nachrichten an die angegebenen Empfänger, wann immer ein alarmierbares Ereignis auftritt.

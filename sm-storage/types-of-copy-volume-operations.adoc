@@ -1,0 +1,101 @@
+---
+permalink: sm-storage/types-of-copy-volume-operations.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy, volume, 
+summary: Sie können entweder einen Offline-Kopiervorgang oder einen Online-Kopiervorgang durchführen. Ein Offline-Kopiervorgang liest Daten von einem Quellvolume und kopiert sie auf ein Ziel-Volume. Ein Online-Kopiervorgang verwendet ein Snapshot-Volume als Quelle und kopiert dessen Daten auf ein Ziel-Volume. 
+---
+= Erfahren Sie mehr über die Arten von Copy Volume-Vorgängen in SANtricity-Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können entweder einen _Offline_-Volume-Kopiervorgang oder einen _Online_-Volume-Kopiervorgang durchführen. Ein Offline-Vorgang liest Daten von einem Quellvolume und kopiert sie auf ein Ziel-Volume. Ein Online-Vorgang verwendet ein Snapshot-Volume als Quelle und kopiert dessen Daten auf ein Ziel-Volume.
+
+Um die Datenintegrität zu gewährleisten, werden alle E/A-Aktivitäten auf dem Ziel-Volume während beider Arten von Copy Volume-Vorgängen angehalten. Diese Anhaltung erfolgt, da der Zustand der Daten auf dem Ziel-Volume bis zum Abschluss des Verfahrens inkonsistent ist.
+
+Die Offline- und Online-Kopiervorgänge werden unten beschrieben.
+
+
+
+== Offline Copy Volume-Vorgang
+
+Die Offline-Kopierbeziehung besteht zwischen einem Quell-Volume und einem Ziel-Volume. Eine Offline-Kopie liest Daten vom Quell-Volume und kopiert sie auf ein Ziel-Volume, während alle Aktualisierungen des Quell-Volumes mit der laufenden Kopie ausgesetzt werden. Alle Aktualisierungen des Quell-Volumes werden ausgesetzt, um zu verhindern, dass auf dem Ziel-Volume chronologische Inkonsistenzen entstehen.
+
+[cols="25h,~"]
+|===
+2+| Was Sie über Offline-Kopiervorgänge wissen müssen 
+
+
+ a| 
+Lese- und Schreibanfragen
+ a| 
+* Quell-Volumes, die an einer Offline-Kopie beteiligt sind, stehen für Lese-E/A-Aktivitäten zur Verfügung, während eine Copy Volume-Operation den Status „In Bearbeitung“ oder „Ausstehend“ hat.
+* Schreibanforderungen sind zulässig, nachdem die Offline-Kopie abgeschlossen wurde.
+* Um Fehlermeldungen aufgrund von Schreibschutz zu vermeiden, greifen Sie nicht auf ein Quell-Volume zu, das an einer Copy Volume-Operation mit dem Status "In Progress" beteiligt ist.
+
+
+
+
+ a| 
+Journaling-Dateisystem
+ a| 
+* Wenn das Quellvolume mit einem Journaling-Dateisystem formatiert wurde, kann jeder Versuch, eine Leseanforderung an das Quellvolume zu stellen, von den Speicherarray-Controllern abgelehnt werden und eine Fehlermeldung kann angezeigt werden.
+* Der Treiber des Journaling-Dateisystems sendet eine Schreibanforderung, bevor er versucht, die Leseanforderung zu senden. Der Controller lehnt die Schreibanforderung ab, und die Leseanforderung wird möglicherweise aufgrund der abgelehnten Schreibanforderung nicht gesendet. Dieser Zustand kann dazu führen, dass eine Fehlermeldung angezeigt wird, die darauf hinweist, dass das Quell-Volume schreibgeschützt ist.
+* Um dieses Problem zu vermeiden, versuchen Sie nicht, auf ein Quellvolume zuzugreifen, das an einer Offline-Kopie beteiligt ist, während der Vorgang "Copy Volume" den Status "In Progress" hat.
+
+
+|===
+
+
+== Online Copy Volume-Vorgang
+
+Die Online Copy Volume-Beziehung besteht zwischen einem Snapshot-Volume und einem Ziel-Volume. Sie können eine Copy Volume-Operation starten, während das Quell-Volume online und für Daten-Schreibvorgänge verfügbar ist. Diese Funktion wird erreicht, indem ein Snapshot des Volumes erstellt und dieser Snapshot als tatsächliches Quell-Volume für die Kopie verwendet wird.
+
+Wenn Sie einen Copy Volume-Vorgang für ein Quellvolume initiieren, erstellt System Manager ein zeitpunktgenaues Image des Basisvolumes und eine Kopierbeziehung zwischen dem zeitpunktgenauen Image des Basisvolumes und einem Ziel-Volume. Die Verwendung des zeitpunktgenauen Images als Quellvolume ermöglicht es dem Storage-Array, weiterhin auf das Quellvolume zu schreiben, während die Kopie durchgeführt wird.
+
+Während eines Online-Kopiervorgangs wird aufgrund des Copy-on-Write-Verfahrens eine Leistungseinbuße festgestellt. Nach Abschluss des Online-Kopiervorgangs wird die Leistung des Basisvolumes wiederhergestellt.
+
+[cols="25h,~"]
+|===
+2+| Was Sie über Online-Kopiervorgänge wissen müssen 
+
+
+ a| 
+Welche Arten von Volumes können verwendet werden?
+ a| 
+* Das Volume, für das das zeitpunktgenaue Image erstellt wird, wird als Basis-Volume bezeichnet und muss ein Standard-Volume oder ein Thin-Volume auf dem Speicherarray sein.
+* Ein Ziel-Volume kann ein Standard-Volume in einer Volume-Gruppe oder ein Standard-Volume in einem Pool sein. Ein Ziel-Volume kann kein Thin Volume oder ein Basis-Volume in einer Snapshot-Gruppe sein.
+* Sie können die Online-Funktion „Copy Volume“ verwenden, um Daten von einem Thin Volume auf ein Standard Volume in einem Pool zu kopieren, der sich innerhalb desselben Storage Arrays befindet. Sie können die Funktion „Copy Volume“ jedoch nicht verwenden, um Daten von einem Standard Volume auf ein Thin Volume zu kopieren.
+
+
+
+
+ a| 
+Basis-Volume-Leistung
+ a| 
+* Wenn das als Kopierquelle verwendete Snapshot-Volume aktiv ist, wird die Leistung des Basis-Volumes durch Copy-on-Write-Vorgänge beeinträchtigt. Wenn die Kopie abgeschlossen ist, wird der Snapshot deaktiviert und die Leistung des Basis-Volumes wiederhergestellt. Obwohl der Snapshot deaktiviert ist, bleiben das reservierte Kapazitäts-Volume und die Kopierbeziehung erhalten.
+
+
+
+
+ a| 
+Arten der erstellten Volumes
+ a| 
+* Ein Snapshot-Volume und ein Volume mit reservierter Kapazität werden während des Online-Kopiervorgangs erstellt.
+* Das Snapshot-Volume ist kein tatsächliches Volume, das Daten enthält; vielmehr ist es eine Referenz auf die Daten, die zu einem bestimmten Zeitpunkt auf einem Volume enthalten waren.
+* Für jeden erstellten Snapshot wird ein reserviertes Kapazitäts-Volume angelegt, um die Daten für den Snapshot zu speichern. Das reservierte Kapazitäts-Volume wird ausschließlich zur Verwaltung des Snapshot-Images verwendet.
+
+
+
+
+ a| 
+Reserviertes Kapazitätsvolume
+ a| 
+* Bevor ein Datenblock auf dem Quell-Volume geändert wird, werden die Inhalte des zu ändernden Blocks zur sicheren Aufbewahrung auf das reservierte Kapazitäts-Volume kopiert.
+* Da das reservierte Kapazitätsvolume Kopien der Originaldaten in diesen Datenblöcken speichert, werden weitere Änderungen an diesen Datenblöcken nur auf das Quell-Volume geschrieben.
+* Der Online-Kopiervorgang benötigt weniger Speicherplatz als eine vollständige physische Kopie, da im reservierten Kapazitätsvolumen nur die Datenblöcke gespeichert werden, die sich seit dem Zeitpunkt des Snapshots geändert haben.
+
+
+|===

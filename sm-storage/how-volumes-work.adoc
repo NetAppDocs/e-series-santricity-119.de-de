@@ -1,0 +1,65 @@
+---
+permalink: sm-storage/how-volumes-work.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volume, copy, 
+summary: Volumes sind Datencontainer, die den Speicherplatz auf Ihrem Storage-Array verwalten und organisieren. 
+---
+= Wie Volumes in der SANtricity-Software funktionieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Volumes sind Datencontainer, die den Speicherplatz auf Ihrem Storage-Array verwalten und organisieren.
+
+Sie erstellen Volumes aus der verfügbaren Speicherkapazität Ihres Storage Arrays und machen es einfach, die Ressourcen Ihres Systems zu organisieren und zu nutzen. Dieses Konzept ähnelt der Verwendung von Ordnern/Verzeichnissen auf einem Computer, um Dateien für einen einfachen und schnellen Zugriff zu organisieren.
+
+Volumes sind die einzige für Hosts sichtbare Datenebene. In einer SAN-Umgebung werden Volumes logischen Einheitennummern (LUNs) zugeordnet, die für Hosts sichtbar sind. LUNs enthalten die Benutzerdaten, auf die über eines oder mehrere der vom Storage-Array unterstützten Host-Zugriffsprotokolle zugegriffen werden kann, einschließlich FC, iSCSI und SAS.
+
+
+
+== Volumentypen, die Sie aus Pools und Volumengruppen erstellen können
+
+Volumes beziehen ihre Kapazität aus Pools oder Volume-Gruppen. Sie können die folgenden Volume-Typen aus den auf Ihrem Storage Array vorhandenen Pools oder Volume-Gruppen erstellen.
+
+* *Aus Pools* – Sie können Volumes aus einem Pool entweder als _vollständig bereitgestellte (thick) Volumes_ oder als _dünn bereitgestellte (thin) Volumes_ erstellen.
++
+[NOTE]
+====
+Die System Manager-Oberfläche bietet keine Option zum Erstellen von Thin Volumes. Wenn Sie Thin Volumes erstellen möchten, verwenden Sie die Command Line Interface (CLI).
+
+====
+* *Aus Volumengruppen* -- Sie können Volumen aus einer Volumengruppe nur als _vollständig bereitgestellte (thick) Volumen_ erstellen.
+
+
+Dicke Volumes und dünne Volumes beziehen die Kapazität auf unterschiedliche Weise aus dem Storage-Array:
+
+* Die Kapazität für ein Thick-Volume wird bei der Erstellung des Volumens zugewiesen.
+* Die Kapazität für ein Thin Volume wird als Daten zugewiesen, wenn auf das Volume geschrieben wird.
+
+
+Thin Provisioning hilft, ungenutzte Speicherkapazität zu vermeiden und kann Unternehmen bei den anfänglichen Speicherkosten helfen. Full Provisioning hat jedoch den Vorteil geringerer Latenz, da der gesamte Speicherplatz bei der Erstellung von Thick Volumes gleichzeitig zugewiesen wird.
+
+[NOTE]
+====
+Die Speichersysteme EF600/EF600C und EF300/EF300C unterstützen kein Thin Provisioning.
+
+====
+
+
+== Eigenschaften von Volumes
+
+Jedes Volume in einem Pool oder einer Volume-Gruppe kann je nach Art der darin gespeicherten Daten individuelle Eigenschaften aufweisen. Zu diesen Eigenschaften gehören:
+
+* *Segmentgröße* – Ein Segment bezeichnet die Datenmenge in Kilobyte (KiB), die auf einer Festplatte gespeichert wird, bevor das Storage-Array zum nächsten Laufwerk im Stripe (RAID-Gruppe) wechselt. Die Segmentgröße ist gleich oder kleiner als die Kapazität der Volume-Gruppe. Die Segmentgröße ist fest und kann für Pools nicht geändert werden.
+* *Kapazität* -- Sie erstellen ein Volume aus der verfügbaren freien Kapazität in entweder einem Pool oder einer Volume-Gruppe. Bevor Sie ein Volume erstellen, muss der Pool oder die Volume-Gruppe bereits existieren und über ausreichend freie Kapazität verfügen, um das Volume zu erstellen.
+* *Controller-Zugehörigkeit* -- Alle Speichersysteme können entweder einen oder zwei Controller haben. Bei einem System mit einem Controller wird die Arbeitslast eines Volumes von einem einzelnen Controller verwaltet. Bei einem System mit zwei Controllern hat ein Volume einen bevorzugten Controller (A oder B), der das Volume „besitzt“. In einer Konfiguration mit zwei Controllern wird die Volume-Zugehörigkeit mithilfe der Funktion Automatischer Lastausgleich automatisch angepasst, um etwaige Lastausgleichsprobleme zu beheben, wenn sich die Arbeitslasten zwischen den Controllern verschieben. Automatischer Lastausgleich sorgt für eine automatisierte E/A-Arbeitslastverteilung und stellt sicher, dass der eingehende E/A-Datenverkehr von den Hosts dynamisch verwaltet und auf beide Controller verteilt wird.
+* *Volume-Zuweisung* -- Sie können Hosts Zugriff auf ein Volume gewähren, entweder bei dessen Erstellung oder zu einem späteren Zeitpunkt. Der gesamte Host-Zugriff wird über eine logische Einheitennummer (LUN) verwaltet. Hosts erkennen LUNs, die wiederum Volumes zugewiesen sind. Wenn Sie ein Volume mehreren Hosts zuweisen, verwenden Sie Clustering-Software, um sicherzustellen, dass das Volume für alle Hosts verfügbar ist.
++
+Der Hosttyp kann spezifische Beschränkungen hinsichtlich der Anzahl der Volumes haben, auf die der Host zugreifen kann. Beachten Sie diese Einschränkung, wenn Sie Volumes für die Verwendung durch einen bestimmten Host erstellen.
+
+* *Beschreibender Name* -- Sie können einem Volume einen beliebigen Namen geben, aber wir empfehlen, den Namen beschreibend zu wählen.
+
+
+Bei der Erstellung eines Volumes wird jedem Volume Kapazität zugewiesen und es erhält einen Namen, eine Segmentgröße (nur Volume-Gruppen), die Controller-Zuständigkeit sowie die Volume-zu-Host-Zuordnung. Volume-Daten werden bei Bedarf automatisch für den Lastausgleich auf die Controller verteilt.

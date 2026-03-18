@@ -1,0 +1,44 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, snapshot, volume 
+summary: Sie können die Einstellungen für ein Snapshot-Volume ändern, um den Prozentsatz festzulegen, bei dem das System eine Warnbenachrichtigung sendet, wenn die reservierte Kapazität für ein Snapshot-Volume fast voll ist. 
+---
+= Ändern Sie die Einstellungen für die reservierte Kapazität eines Snapshot-Volumes im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für ein Snapshot-Volume ändern, um den Prozentsatz festzulegen, bei dem das System eine Warnbenachrichtigung sendet, wenn die reservierte Kapazität für ein Snapshot-Volume fast voll ist.
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Klicken Sie auf die Registerkarte *Reserved Capacity*.
+. Wählen Sie das Snapshot-Volume aus, das Sie bearbeiten möchten, und klicken Sie dann auf *Einstellungen anzeigen/bearbeiten*.
++
+Das Dialogfeld „Snapshot Volume Reserved Capacity Settings“ wird angezeigt.
+
+. Ändern Sie die Einstellungen für die reservierte Kapazität des Snapshot-Volumes nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Benachrichtige mich, wenn...
+ a| 
+Verwenden Sie das Drehfeld, um den Prozentsatz einzustellen, bei dem das System eine Warnmeldung sendet, wenn die reservierte Kapazität für ein Mitgliedsvolume fast ausgeschöpft ist.
+
+Wenn die reservierte Kapazität für das Snapshot-Volume den festgelegten Schwellenwert überschreitet, sendet das System eine Warnung, sodass Sie Zeit haben, die reservierte Kapazität zu erhöhen oder unnötige Objekte zu löschen.
+
+|===
+====
+. Klicken Sie auf *Speichern*, um Ihre Änderungen an den Einstellungen für die reservierte Kapazität des Snapshot-Volumes zu übernehmen.
+

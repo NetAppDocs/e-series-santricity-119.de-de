@@ -1,0 +1,99 @@
+---
+permalink: sm-storage/faq-storage-array-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zu Speicherarray-Einstellungen für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was ist automatischer Lastausgleich?
+
+Die Funktion „Automatischer Lastausgleich“ bietet einen automatisierten I/O-Ausgleich und stellt sicher, dass der eingehende I/O-Datenverkehr von den Hosts dynamisch verwaltet und auf beide Controller ausgeglichen wird.
+
+Die automatische Lastverteilungsfunktion bietet ein verbessertes E/A-Ressourcenmanagement, indem sie dynamisch auf Laständerungen im Laufe der Zeit reagiert und die Zuständigkeit der Volume-Controller automatisch anpasst, um etwaige Lastungleichgewichte zu beheben, wenn sich die Arbeitslasten zwischen den Controllern verschieben.
+
+Die Auslastung jedes Controllers wird kontinuierlich überwacht und kann in Zusammenarbeit mit den auf den Hosts installierten Multipath-Treibern bei Bedarf automatisch ausgeglichen werden. Wenn die Last automatisch auf die Controller verteilt wird, wird der Speicheradministrator von der manuellen Anpassung der Volume-Controller-Zuordnung zur Berücksichtigung von Laständerungen auf dem Storage-Array entlastet.
+
+Wenn die automatische Lastverteilung aktiviert ist, werden die folgenden Funktionen ausgeführt:
+
+* Überwacht und gleicht automatisch die Ressourcenauslastung der Controller aus.
+* Passt bei Bedarf automatisch die Zuständigkeit für den Lautstärkeregler an und optimiert so die I/O-Bandbreite zwischen den Hosts und dem Speichersystem.
+
+
+[NOTE]
+====
+Jedes Volume, das dem SSD-Cache eines Controllers zugewiesen ist, ist nicht für eine automatische Lastausgleichsübertragung berechtigt.
+
+====
+
+
+== Was ist Controller-Cache?
+
+Der Controller-Cache ist ein physischer Speicherbereich, der zwei Arten von E/A (Ein-/Ausgabe)-Operationen optimiert: zwischen den Controllern und Hosts und zwischen den Controllern und Festplatten.
+
+Für Lese- und Schreib-Datentransfers kommunizieren Hosts und Controller über Hochgeschwindigkeitsverbindungen. Die Kommunikation vom Backend des Controllers zu den Festplatten ist jedoch langsamer, da Festplatten vergleichsweise langsame Geräte sind.
+
+Sobald der Controller-Cache Daten empfängt, signalisiert der Controller den Host-Anwendungen, dass er nun die Daten hält. So müssen die Host-Anwendungen nicht darauf warten, dass die E/A auf die Festplatte geschrieben wird. Stattdessen können Anwendungen ihre Operationen fortsetzen. Die zwischengespeicherten Daten sind zudem für Serveranwendungen direkt zugänglich, sodass keine zusätzlichen Festplattenzugriffe erforderlich sind.
+
+Der Controller-Cache beeinflusst die Gesamtleistung des Storage-Arrays auf verschiedene Weise:
+
+* Der Cache fungiert als Puffer, sodass Host- und Festplatten-Datentransfers nicht synchronisiert werden müssen.
+* Die Daten für einen Lese- oder Schreibvorgang vom Host könnten sich aus einem vorherigen Vorgang im Cache befinden, was den Zugriff auf die Festplatte überflüssig macht.
+* Wird Write-Caching verwendet, kann der Host nachfolgende Schreibbefehle senden, bevor die Daten eines vorherigen Schreibvorgangs auf die Festplatte geschrieben werden.
+* Wenn Cache-Prefetch aktiviert ist, wird der sequenzielle Lesezugriff optimiert. Cache-Prefetch macht es wahrscheinlicher, dass ein Lesevorgang seine Daten im Cache findet, anstatt die Daten von der Festplatte zu lesen.
+
+
+[CAUTION]
+====
+*Möglicher Datenverlust* – Wenn Sie die Option *Schreibcache ohne Batterien* aktivieren und kein universelles Netzteil zum Schutz verwenden, könnten Sie Daten verlieren. Außerdem könnten Sie Daten verlieren, wenn Sie keine Controller-Batterien besitzen und die Option *Schreibcache ohne Batterien* aktivieren.
+
+====
+
+
+== Was ist Cache-Flushing?
+
+Wenn die Menge an nicht geschriebenen Daten im Cache einen bestimmten Wert erreicht, schreibt der Controller die zwischengespeicherten Daten regelmäßig auf ein Laufwerk. Dieser Schreibvorgang wird als "Flushing" bezeichnet.
+
+Der Controller verwendet zwei Algorithmen zum Leeren des Caches: einen nach Bedarf (demand-based) und einen altersbasierten (age-based) Algorithmus. Der Controller verwendet einen demand-basierten Algorithmus, bis die Menge der zwischengespeicherten Daten unter den Schwellenwert für das Leeren des Caches fällt. Standardmäßig beginnt das Leeren des Caches, sobald 80 Prozent des Caches belegt sind.
+
+In System Manager können Sie den Schwellenwert „`Start demand cache flushing`" so einstellen, dass er den in Ihrer Umgebung verwendeten I/O-Typ optimal unterstützt. In einer Umgebung, die hauptsächlich aus Schreibvorgängen besteht, sollten Sie den Prozentsatz für „`Start demand cache flushing`" hoch einstellen, um die Wahrscheinlichkeit zu erhöhen, dass neue Schreibanforderungen vom Cache verarbeitet werden können, ohne auf die Festplatte zugreifen zu müssen. Eine hohe Prozenteinstellung begrenzt die Anzahl der Cache-Flushes, sodass mehr Daten im Cache verbleiben, was die Chance auf mehr Cache-Treffer erhöht.
+
+In einer Umgebung, in der die E/A unregelmäßig ist (mit Datenspitzen), können Sie eine niedrige Cache-Leerung verwenden, sodass das System den Cache zwischen den Datenspitzen häufig leert. In einer vielfältigen E/A-Umgebung, die verschiedene Lasten verarbeitet, oder wenn die Art der Lasten unbekannt ist, setzen Sie den Schwellenwert auf 50 Prozent als guten Mittelweg. Beachten Sie, dass bei der Wahl eines Startprozentsatzes unter 80 Prozent die Leistung sinken kann, da die für einen Host-Lesevorgang benötigten Daten möglicherweise nicht verfügbar sind. Die Wahl eines niedrigeren Prozentsatzes erhöht außerdem die Anzahl der erforderlichen Festplatten-Schreibvorgänge zur Aufrechterhaltung des Cache-Levels, was den System-Overhead erhöht.
+
+Der altersbasierte Algorithmus legt den Zeitraum fest, in dem Schreibdaten im Cache verbleiben können, bevor sie zum Löschen auf die Festplatten übertragen werden. Die Controller verwenden den altersbasierten Algorithmus, bis der Schwellenwert für das Cache-Löschen erreicht ist. Der Standardwert beträgt 10 Sekunden, aber dieser Zeitraum wird nur während Inaktivitätsphasen gezählt. Sie können das Löschintervall im System Manager nicht ändern; stattdessen müssen Sie den Befehl *Set Storage Array* in der Befehlszeilenschnittstelle (CLI) verwenden.
+
+[CAUTION]
+====
+*Möglicher Datenverlust* – Wenn Sie die Option *Schreibcache ohne Batterien* aktivieren und kein universelles Netzteil zum Schutz verwenden, könnten Sie Daten verlieren. Außerdem könnten Sie Daten verlieren, wenn Sie keine Controller-Batterien besitzen und die Option *Schreibcache ohne Batterien* aktivieren.
+
+====
+
+
+== Was ist die Cache-Blockgröße?
+
+Der Controller des Storage-Arrays organisiert seinen Cache in „Blöcken“, das sind Speicherbereiche, die 8, 16 oder 32 KiB groß sein können. Alle Volumes auf dem Storage-System teilen sich denselben Cache-Bereich; daher können die Volumes nur eine Cache-Blockgröße haben.
+
+Anwendungen verwenden unterschiedliche Blockgrößen, die sich auf die Storage-Performance auswirken können. Standardmäßig beträgt die Blockgröße in System Manager 32 KiB, aber Sie können den Wert auf 8, 16, 32 KiBs einstellen. Eine kleinere Größe ist eine gute Wahl für Dateisysteme oder Datenbank-Anwendungen. Eine größere Größe ist eine gute Wahl für Anwendungen, die großen Datentransfer, sequenzielle I/O oder hohe Bandbreite erfordern, wie z. B. Multimedia.
+
+
+
+== Wann sollte ich die Uhren des Speicherarrays synchronisieren?
+
+Sie sollten die Controller-Uhren im Storage-Array manuell synchronisieren, wenn Sie feststellen, dass die in SANtricity System Manager angezeigten Zeitstempel nicht mit den Zeitstempeln in Ihrem Management-Client (dem Computer, der über den Browser auf SANtricity System Manager zugreift) übereinstimmen. Diese Aufgabe ist nur erforderlich, wenn NTP (Network Time Protocol) in SANtricity System Manager nicht aktiviert ist.
+
+[NOTE]
+====
+Wir empfehlen dringend, einen NTP-Server anstelle der manuellen Uhrensynchronisierung zu verwenden. NTP synchronisiert die Uhren automatisch mit einem externen Server mithilfe von SNTP (Simple Network Time Protocol).
+
+====
+Den Synchronisierungsstatus können Sie im Dialogfeld „Synchronize Storage Array Clocks“ überprüfen, das Sie auf der Systemseite finden. Wenn die im Dialogfeld angezeigten Zeiten nicht übereinstimmen, führen Sie eine Synchronisierung durch. Sie können dieses Dialogfeld regelmäßig anzeigen, das angibt, ob die Zeitanzeigen der Controller-Uhren auseinandergewichen sind und nicht mehr synchronisiert sind.

@@ -1,0 +1,195 @@
+---
+permalink: sm-support/review-the-possible-software-and-firmware-upgrade-errors.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, software, firmware, upgrade, errors 
+summary: Fehler können sowohl während des Upgrades der Controller-Software als auch während des Upgrades der Laufwerk-Firmware auftreten. 
+---
+= Erfahren Sie mehr über SANtricity Software- und Firmware-Upgrade-Fehler
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Fehler können sowohl während des Upgrades der Controller-Software als auch während des Upgrades der Laufwerk-Firmware auftreten.
+
+[cols="25h,~,~"]
+|===
+| Fehler beim Herunterladen der Firmware | Beschreibung | Empfohlene Maßnahme 
+
+
+ a| 
+Fehlerhafte zugewiesene Laufwerke
+ a| 
+Fehler beim Upgrade eines zugewiesenen Laufwerks im Storage-Array.
+ a| 
+Eine mögliche Fehlerursache ist, dass das Laufwerk nicht über die erforderliche Signatur verfügt. Stellen Sie sicher, dass das betroffene Laufwerk ein autorisiertes Laufwerk ist. Wenden Sie sich für weitere Informationen an den technischen Support.
+
+Beim Austausch eines Laufwerks stellen Sie sicher, dass das Ersatzlaufwerk eine Kapazität hat, die gleich oder größer ist als die des ausgefallenen Laufwerks, das Sie ersetzen.
+
+Sie können das defekte Laufwerk austauschen, während das Speicher-Array E/A empfängt.
+
+
+
+ a| 
+Integrierte Hot-Spare-Laufwerke
+ a| 
+Wenn das Laufwerk als Hot Spare gekennzeichnet ist und für eine Volume-Gruppe verwendet wird, schlägt der Firmware-Upgrade-Prozess fehl.
+ a| 
+Dieser Fehler muss behoben werden, bevor Sie die Firmware aktualisieren können. Starten Sie System Manager und verwenden Sie den Recovery Guru, um das Problem zu lösen.
+
+
+
+ a| 
+Unvollständige Volumengruppen
+ a| 
+Wenn ein Laufwerk, das Teil einer Volume-Gruppe ist, umgangen, entfernt oder nicht reagiert, gilt es als unvollständige Volume-Gruppe. Eine unvollständige Volume-Gruppe verhindert Firmware-Upgrades.
+ a| 
+Wenn eine oder mehrere Volumengruppen oder Datenträgerpools unvollständig sind, müssen Sie diesen Fehler beheben, bevor Sie die Firmware aktualisieren können. Starten Sie System Manager und verwenden Sie den Recovery Guru, um das Problem zu lösen.
+
+
+
+ a| 
+Exklusive Operationen (außer Hintergrundmedien-/Paritätsscan), die derzeit auf beliebigen Volumengruppen ausgeführt werden
+ a| 
+Firmware kann nicht aktualisiert werden, wenn exklusive Vorgänge auf einem Volume ausgeführt werden.
+ a| 
+Falls ein oder mehrere exklusive Vorgänge laufen, müssen diese abgeschlossen sein, bevor die Firmware aktualisiert werden kann. Verwenden Sie System Manager, um den Fortschritt der Vorgänge zu überwachen.
+
+
+
+ a| 
+Fehlende Volumes
+ a| 
+Die Firmware kann nicht aktualisiert werden, wenn ein Volume fehlt.
+ a| 
+Sie müssen das Problem mit dem fehlenden Volume beheben, bevor die Firmware aktualisiert werden kann. Starten Sie System Manager und verwenden Sie den Recovery Guru, um das Problem zu lösen.
+
+
+
+ a| 
+Einer der Controller befindet sich in einem anderen Zustand als Optimal
+ a| 
+Die Firmware kann nicht aktualisiert werden, wenn sich einer der Controller in einem anderen Zustand als optimal befindet.
+ a| 
+Einer der Speicher-Array-Controller benötigt Aufmerksamkeit. Dieser Zustand muss behoben werden, bevor die Firmware aktualisiert werden kann. Starten Sie den System Manager und verwenden Sie den Recovery Guru, um das Problem zu beheben.
+
+
+
+ a| 
+SPM Verify Database Controller-Überprüfung schlägt fehl
+ a| 
+Das Firmware-Upgrade ist nicht möglich, da die Zuordnungsdatenbank der Speicherpartitionen beschädigt ist.
+ a| 
+Auf einem Controller ist ein Fehler in der Zuordnungsdatenbank der Speicherpartitionen aufgetreten. Wenden Sie sich an den technischen Support, um dieses Problem zu beheben.
+
+
+
+ a| 
+Validierung der Konfigurationsdatenbank (sofern von der Controller-Version des Storage-Arrays unterstützt)
+ a| 
+Das Firmware-Upgrade ist nicht möglich, da die Konfigurationsdatenbank beschädigt ist.
+ a| 
+Auf einem Controller ist ein Konfigurationsdatenbankfehler aufgetreten. Wenden Sie sich an den technischen Support, um dieses Problem zu beheben.
+
+
+
+ a| 
+MEL-bezogene Prüfungen
+ a| 
+Firmware kann nicht aktualisiert werden, da das Ereignisprotokoll Fehler enthält.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+Mehr als 10 DDE-Informations- oder kritische MEL-Ereignisse wurden in den letzten 7 Tagen gemeldet
+ a| 
+Das Firmware-Upgrade ist nicht möglich, da in den letzten sieben Tagen mehr als 10 DDE-Informations- oder kritische MEL-Ereignisse gemeldet wurden.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+Mehr als 2 Seite 2C kritische MEL-Ereignisse wurden in den letzten 7 Tagen gemeldet
+ a| 
+Das Firmware-Upgrade ist nicht möglich, da in den letzten sieben Tagen mehr als zwei kritische MEL Events der Seite 2C gemeldet wurden.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+In den letzten 7 Tagen wurden mehr als 2 kritische MEL-Ereignisse für einen degradierten Laufwerkskanal gemeldet
+ a| 
+Firmware kann nicht aktualisiert werden, da in den letzten sieben Tagen mehr als zwei kritische MEL-Ereignisse für degradierte Laufwerkskanäle gemeldet wurden.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+Mehr als 4 kritische MEL-Einträge in den letzten 7 Tagen
+ a| 
+Firmware kann nicht aktualisiert werden, da in den letzten sieben Tagen mehr als vier kritische Ereignisprotokolleinträge gemeldet wurden.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+Eine gültige Management-IP-Adresse ist erforderlich.
+ a| 
+Für diesen Vorgang wird eine gültige Controller-IP-Adresse benötigt.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+Für diesen Befehl muss für jeden Controller eine aktive Management-IP-Adresse angegeben werden.
+ a| 
+Für diesen Vorgang ist eine Controller-IP-Adresse für jeden Controller erforderlich, der mit dem Storage-Array verbunden ist.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+Nicht behandelter Download-Dateityp zurückgegeben.
+ a| 
+Die angegebene Download-Datei wird nicht unterstützt.
+ a| 
+Wenden Sie sich an den technischen Support, um dieses Problem zu lösen.
+
+
+
+ a| 
+Während des Firmware-Download-Upload-Vorgangs ist ein Fehler aufgetreten.
+ a| 
+Der Firmware-Download ist fehlgeschlagen, da der Controller die Anfrage nicht verarbeiten kann. Überprüfen Sie, ob das Storage-Array optimal ist, und wiederholen Sie den Vorgang.
+ a| 
+Wenn dieser Fehler nach Überprüfung, dass das Storage-Array optimal ist, erneut auftritt, wenden Sie sich an den technischen Support, um dieses Problem zu beheben.
+
+
+
+ a| 
+Bei der Aktivierung der Firmware ist ein Fehler aufgetreten.
+ a| 
+Die Firmware-Aktivierung ist fehlgeschlagen, da der Controller die Anfrage nicht verarbeiten konnte. Überprüfen Sie, ob das Storage-Array optimal ist, und wiederholen Sie den Vorgang.
+ a| 
+Wenn dieser Fehler nach Überprüfung, dass das Storage-Array optimal ist, erneut auftritt, wenden Sie sich an den technischen Support, um dieses Problem zu beheben.
+
+
+
+ a| 
+Zeitüberschreitung beim Warten auf den Neustart des Controllers {0}.
+ a| 
+Die Managementsoftware kann nach einem Neustart keine Verbindung zum Controller {0} herstellen. Überprüfen Sie, ob eine funktionierende Verbindung zum Storage-Array besteht, und wiederholen Sie den Vorgang, falls er nicht erfolgreich abgeschlossen wurde.
+ a| 
+Wenn dieser Fehler nach Überprüfung, dass das Storage-Array optimal ist, erneut auftritt, wenden Sie sich an den technischen Support, um dieses Problem zu beheben.
+
+|===
+Einige dieser Bedingungen können Sie mithilfe des Recovery Guru im System Manager beheben. Für einige dieser Bedingungen müssen Sie jedoch möglicherweise den technischen Support kontaktieren. Die Informationen über den neuesten Controller-Firmware-Download sind vom Storage Array verfügbar. Diese Informationen helfen dem technischen Support, die Fehlerbedingungen zu verstehen, die das Firmware-Upgrade und den Download verhindert haben.

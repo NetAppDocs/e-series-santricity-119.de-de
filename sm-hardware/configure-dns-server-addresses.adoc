@@ -1,0 +1,60 @@
+---
+permalink: sm-hardware/configure-dns-server-addresses.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, dns, server, addresses, 
+summary: 'Das Domain Name System (DNS) wird verwendet, um vollqualifizierte Domainnamen für die Controller und einen Network Time Protocol (NTP)-Server aufzulösen. Die Management-Ports des Storage-Arrays können gleichzeitig die Protokolle IPv4 oder IPv6 unterstützen.' 
+---
+= Konfigurieren Sie DNS-Serveradressen im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das Domain Name System (DNS) wird verwendet, um vollqualifizierte Domainnamen für die Controller und einen Network Time Protocol (NTP)-Server aufzulösen. Die Management-Ports des Storage-Arrays können gleichzeitig die Protokolle IPv4 oder IPv6 unterstützen.
+
+.Bevor Sie beginnen
+* In Ihrem Netzwerk muss ein DNS-Server installiert und konfiguriert sein.
+* Sie kennen die Adresse des primären DNS-Servers und eines optionalen Backup-DNS-Servers. Diese Adressen können IPv4-Adressen oder IPv6-Adressen sein.
+
+
+.Über diese Aufgabe
+Dieses Verfahren beschreibt, wie Sie eine primäre und eine Backup-DNS-Serveradresse festlegen. Der Backup-DNS-Server kann optional konfiguriert werden, um verwendet zu werden, falls ein primärer DNS-Server ausfällt.
+
+[NOTE]
+====
+Wenn Sie die Management-Ports des Speichersystems bereits mit Dynamic Host Configuration Protocol (DHCP) konfiguriert haben und einen oder mehrere DNS- oder NTP-Server mit der DHCP-Konfiguration verknüpft sind, müssen Sie DNS oder NTP nicht manuell konfigurieren. In diesem Fall sollte das Speichersystem die DNS-/NTP-Serveradressen bereits automatisch bezogen haben. Sie sollten jedoch trotzdem die folgenden Anweisungen befolgen, um das Dialogfeld zu öffnen und sicherzustellen, dass die korrekten Adressen erkannt werden.
+
+====
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Wählen Sie den zu konfigurierenden Controller aus.
++
+Das Kontextmenü des Controllers wird angezeigt.
+
+. Wählen Sie *DNS-Server konfigurieren* aus.
++
+Das Dialogfeld „Domain Name System (DNS) Server konfigurieren“ wird geöffnet.
+
+. Wählen Sie eine der folgenden Optionen:
++
+** *Automatisch DNS-Serveradressen vom DHCP-Server beziehen* -- Die ermittelten DNS-Serveradressen werden angezeigt.
++
+[NOTE]
+====
+Wenn das Speichersystem so konfiguriert ist, dass es eine statische DNS-Adresse verwendet, werden keine DNS-Server angezeigt.
+
+====
+** *DNS-Serveradressen manuell angeben* -- Geben Sie eine primäre DNS-Serveradresse und eine Backup-DNS-Serveradresse ein. Die Backup-Serveradresse ist optional. (Diese Adressfelder werden angezeigt, nachdem Sie die Optionsschaltfläche ausgewählt haben.) Diese Adressen können IPv4-Adressen oder IPv6-Adressen sein.
+
+
+. Klicken Sie auf *Speichern*.
+. Wiederholen Sie diese Schritte für den anderen Controller.
+
+
+.Ergebnisse
+Die DNS-Konfiguration wird in den Controller-Einstellungen, Registerkarte *DNS / NTP*, angezeigt.

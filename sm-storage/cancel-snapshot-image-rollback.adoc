@@ -1,0 +1,43 @@
+---
+permalink: sm-storage/cancel-snapshot-image-rollback.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, cancel, snapshot, image, rollback 
+summary: 'Sie können einen aktiven Rollback, der gerade läuft (aktiv Daten kopiert), einen ausstehenden Rollback (in einer Warteschlange, in der auf Ressourcen zum Starten gewartet wird), oder einen aufgrund eines Fehlers pausierten Rollback abbrechen.' 
+---
+= Snapshot-Image-Rollback im SANtricity System Manager abbrechen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen aktiven Rollback, der gerade läuft (aktiv Daten kopiert), einen ausstehenden Rollback (in einer Warteschlange, in der auf Ressourcen zum Starten gewartet wird), oder einen aufgrund eines Fehlers pausierten Rollback abbrechen.
+
+.Über diese Aufgabe
+Wenn Sie einen laufenden Rollback-Vorgang abbrechen, wird das Basisvolume in einen unbrauchbaren Zustand versetzt und als fehlerhaft angezeigt. Daher sollten Sie das Abbrechen eines Rollback-Vorgangs nur in Erwägung ziehen, wenn Wiederherstellungsoptionen für die Wiederherstellung des Inhalts des Basisvolumes existieren.
+
+[NOTE]
+====
+Wenn die Snapshot-Gruppe, in der sich das Snapshot-Image befindet, ein oder mehrere Snapshot-Images enthält, die automatisch gelöscht wurden, steht das für den Rollback-Vorgang verwendete Snapshot-Image möglicherweise für zukünftige Rollbacks nicht zur Verfügung.
+
+====
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Snapshot Images*.
+. Wählen Sie den aktiven oder pausierten Rollback aus und wählen Sie dann menu:Rollback[Cancel].
++
+Das Dialogfeld „Rollback bestätigen/abbrechen“ wird angezeigt.
+
+. Klicken Sie auf *Yes*, um zu bestätigen.
+
+
+.Ergebnisse
+System Manager stoppt den Rollback-Vorgang. Das Basisvolume ist nutzbar, kann jedoch Daten enthalten, die inkonsistent oder nicht intakt sind.
+
+.Nachdem Sie fertig sind
+Nachdem Sie einen Rollback-Vorgang abgebrochen haben, müssen Sie eine der folgenden Aktionen ausführen:
+
+* Den Inhalt des Basis-Volumes neu initialisieren.
+* Führen Sie einen neuen Rollback-Vorgang durch, um das Basisvolume wiederherzustellen, indem Sie entweder dasselbe Snapshot-Image verwenden, das beim Abbrechen des Rollback-Vorgangs verwendet wurde, oder ein anderes Snapshot-Image, um den neuen Rollback-Vorgang durchzuführen.
+

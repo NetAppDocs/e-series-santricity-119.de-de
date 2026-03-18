@@ -1,0 +1,85 @@
+---
+permalink: sm-mirroring/how-asynchronous-mirroring-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, asynchronous, mirroring, 
+summary: Die asynchrone Spiegelung kopiert Datenvolumina bedarfsgesteuert oder nach einem Zeitplan, wodurch Ausfallzeiten, die durch Datenbeschädigung oder Datenverlust entstehen könnten, minimiert oder vermieden werden. 
+---
+= Wie asynchrone Spiegelung im SANtricity System Manager funktioniert
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die asynchrone Spiegelung kopiert Datenvolumina bedarfsgesteuert oder nach einem Zeitplan, wodurch Ausfallzeiten, die durch Datenbeschädigung oder Datenverlust entstehen könnten, minimiert oder vermieden werden.
+
+Die asynchrone Spiegelung erfasst den Zustand des primären Volumes zu einem bestimmten Zeitpunkt und kopiert nur die Daten, die sich seit der letzten zeitpunktgenauen Image-Erstellung geändert haben. Der primäre Standort kann sofort aktualisiert werden und der sekundäre Standort kann aktualisiert werden, sobald die Bandbreite dies zulässt. Die Informationen werden zwischengespeichert und später gesendet, sobald Netzwerkressourcen verfügbar sind.
+
+Diese Art der Spiegelung eignet sich ideal für den Betrieb unterbrechungsfreier Prozesse und ist im Allgemeinen für periodische Vorgänge wie Backup und Archivierung deutlich netzwerkeffizienter. Die Gründe für die Verwendung von asynchroner Spiegelung sind unter anderem folgende:
+
+* Konsolidierung von Remote-Backups.
+* Schützen Sie sich vor lokalen oder großflächigen Katastrophen.
+* Anwendungsentwicklung und -tests anhand eines zeitpunktgenauen Image von Live-Daten.
+
+
+
+
+== Asynchrone Spiegelungssitzung
+
+Die asynchrone Spiegelung erfasst den Zustand des primären Volumes zu einem bestimmten Zeitpunkt und kopiert nur die Daten, die sich seit der letzten zeitpunktgenauen Image-Erstellung geändert haben. Die asynchrone Spiegelung ermöglicht es, dass der primäre Standort sofort aktualisiert wird und der sekundäre Standort aktualisiert wird, sobald die Bandbreite es zulässt. Die Informationen werden zwischengespeichert und später gesendet, sobald Netzwerkressourcen verfügbar sind.
+
+Es gibt vier Hauptschritte in einer aktiven asynchronen Spiegelungssitzung.
+
+image::../media/sam-1130-dwg-async-mirroring-session.gif[Asynchrone Spiegelungssitzung]
+
+. Ein Schreibvorgang erfolgt zuerst auf dem Speicherarray des primären Volumes.
+. Der Status des Vorgangs wird an den Host zurückgegeben.
+. Alle Änderungen am primären Volume werden protokolliert und nachverfolgt.
+. Alle Änderungen werden als Hintergrundprozess an das Speicherarray des sekundären Volumes gesendet.
+
+
+Diese Schritte werden entsprechend den festgelegten Synchronisationsintervallen wiederholt oder die Schritte können manuell wiederholt werden, wenn keine Intervalle festgelegt sind.
+
+Die asynchrone Spiegelung überträgt Daten nur in festgelegten Intervallen an den Remote-Standort, sodass die lokale E/A durch langsame Netzwerkverbindungen deutlich weniger beeinträchtigt wird. Da diese Übertragung nicht an die lokale E/A gekoppelt ist, wird die Anwendungsleistung nicht beeinträchtigt. Daher kann die asynchrone Spiegelung auch langsamere Verbindungen wie iSCSI nutzen und über größere Entfernungen zwischen den lokalen und Remote-Speichersystemen funktionieren.
+
+Die Speichersysteme müssen mindestens die Firmware-Version 7.84 haben. (Sie können jeweils unterschiedliche Betriebssystemversionen ausführen.)
+
+
+
+== Spiegelkonsistenzgruppen und gespiegelte Paare
+
+Sie erstellen eine Spiegelungs-Konsistenzgruppe, um die Spiegelungsbeziehung zwischen dem lokalen Storage-Array und dem Remote-Storage-Array herzustellen. Die asynchrone Spiegelungsbeziehung besteht aus einem gespiegelten Paar: einem primären Volume auf einem Storage-Array und einem sekundären Volume auf einem anderen Storage-Array.
+
+Das Speichersystem mit dem primären Volume befindet sich üblicherweise am primären Standort und dient den aktiven Hosts. Das Speichersystem mit dem sekundären Volume befindet sich üblicherweise an einem sekundären Standort und enthält eine Replik der Daten. Das sekundäre Volume enthält typischerweise eine Sicherungskopie der Daten und wird für die Notfallwiederherstellung verwendet.
+
+
+
+== Synchronisierungseinstellungen
+
+Wenn Sie ein gespiegeltes Paar erstellen, definieren Sie auch die Synchronisierungspriorität und die Resynchronisierungsrichtlinie, die das gespiegelte Paar verwendet, um den Resynchronisierungsvorgang nach einer Kommunikationsunterbrechung abzuschließen.
+
+Beim Erstellen einer Spiegel-Konsistenzgruppe definieren Sie auch die Synchronisierungspriorität und die Resynchronisierungsrichtlinie für alle gespiegelten Paare innerhalb der Gruppe. Die gespiegelten Paare verwenden die Synchronisierungspriorität und die Resynchronisierungsrichtlinie, um den Resynchronisierungsvorgang nach einer Kommunikationsunterbrechung abzuschließen.
+
+Die primären und sekundären Volumes eines gespiegelten Paares können unsynchron werden, wenn das Speichersystem des primären Volumes keine Daten auf das sekundäre Volume schreiben kann. Dieser Zustand kann durch folgende Probleme verursacht werden:
+
+* Netzwerkprobleme zwischen den lokalen und Remote-Speichersystemen.
+* Ein fehlgeschlagenes sekundäres Volume.
+* Die Synchronisierung wird am gespiegelten Paar manuell ausgesetzt.
+* Rollenkonflikt in der Spiegelgruppe.
+
+
+Sie können Daten auf dem Remote-Speichersystem entweder manuell oder automatisch synchronisieren.
+
+
+
+== Reservierte Kapazität und asynchrone Spiegelung
+
+Die reservierte Kapazität wird verwendet, um die Unterschiede zwischen dem primären und dem sekundären Volume nachzuverfolgen, wenn keine Synchronisierung stattfindet. Sie verfolgt außerdem die Synchronisierungsstatistiken für jedes gespiegelte Paar.
+
+Jedes Volume in einem gespiegelten Paar benötigt seine eigene reservierte Kapazität.
+
+
+
+== Konfiguration und Verwaltung
+
+Um die Spiegelung zwischen zwei Arrays zu aktivieren und zu konfigurieren, müssen Sie die Unified Manager-Oberfläche verwenden. Sobald die Spiegelung aktiviert ist, können Sie gespiegelte Paare und Synchronisierungseinstellungen im System Manager verwalten.

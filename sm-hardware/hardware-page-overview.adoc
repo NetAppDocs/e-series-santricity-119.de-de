@@ -1,0 +1,72 @@
+---
+permalink: sm-hardware/hardware-page-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hardware, page, components, 
+summary: Die Hardware-Seite bietet eine grafische Darstellung der physischen Komponenten des Storage-Arrays. Von hier aus können Sie den Status der Komponenten überprüfen und einige Funktionen im Zusammenhang mit diesen Komponenten ausführen. 
+---
+= SANtricity System Manager Hardwareseite und Komponenten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Hardware-Seite bietet eine grafische Darstellung der physischen Komponenten des Storage-Arrays. Von hier aus können Sie den Status der Komponenten überprüfen und einige Funktionen im Zusammenhang mit diesen Komponenten ausführen.
+
+
+
+== Shelfs
+
+Ein Shelf ist eine Komponente, die die Hardware für die Storage-Array enthält (Controller, Power/Fan-Canister und Laufwerke). Es gibt zwei Typen von Shelfs:
+
+* *Controller-Gehäuse* -- Enthält die Laufwerke, Netzteile/Lüfter-Module und Controller.
+* *Laufwerksschacht* (oder *Erweiterungsschacht*) -- Enthält Laufwerke, Netzteile/Lüftergehäuse und zwei Ein-/Ausgabemodule (IOMs). Die IOMs, auch bekannt als Umweltservicemodule (ESMs), verfügen über SAS-Anschlüsse, die den Laufwerksschacht mit dem Controller-Schacht verbinden.
+
+
+Die Gehäuse sind in drei Größen für bis zu 12, 24 oder 60 Laufwerke erhältlich. Jedes Gehäuse verfügt über eine ID-Nummer, die von der Controller-Firmware vergeben wird. Die ID wird oben links in der Gehäuseansicht angezeigt.
+
+Die Regalansicht auf der Hardwareseite zeigt die vorderen oder hinteren Komponenten. Sie können zwischen den beiden Ansichten wechseln, indem Sie entweder die Registerkarte *Drives* oder *Controller* oben rechts in der Regalansicht auswählen. Sie können auch unten auf der Seite *Show all front* oder *Show all back* auswählen. Die Vorder- und Rückansichten zeigen Folgendes:
+
+* *Vordere Komponenten* -- Laufwerke und leere Laufwerksschächte.
+* *Rückseitenkomponenten* -- Controller und Stromversorgungs-/Lüftergehäuse (für Controller-Shelfs) oder die IOMs und Stromversorgungs-/Lüftergehäuse (für Drive-Shelfs).
+
+
+Sie können die folgenden Funktionen im Zusammenhang mit Regalen ausführen:
+
+* Schalten Sie die Positionsleuchte des Regals ein, damit Sie den physischen Standort des Regals im Schrank oder Rack finden können.
+* Ändern Sie die ID-Nummer, die oben links in der Regalansicht angezeigt wird.
+* Zeigen Sie die Einstellungen des Laufwerksschachts an, wie die Typen der installierten Laufwerke und die Seriennummer.
+* Verschieben Sie die Regalansichten nach oben oder unten, um sie an das physische Layout im Storage-Array anzupassen.
+
+
+
+
+== Controller
+
+Ein Controller ist die kombinierte Hardware und Firmware, die Speicherarray- und Verwaltungsfunktionen implementiert. Er umfasst den Cache-Speicher, die Laufwerksunterstützung und die Host-Schnittstelle.
+
+Sie können die folgenden Funktionen im Zusammenhang mit Controllern ausführen:
+
+* Konfigurieren Sie die Management-Ports für IP-Adressen und Geschwindigkeit.
+* Konfigurieren Sie iSCSI-Hostverbindungen (wenn Sie iSCSI-Hosts haben).
+* Konfigurieren Sie einen Network Time Protocol (NTP)-Server und einen Domain Name System (DNS)-Server.
+* Controllerstatus und -einstellungen anzeigen.
+* Erlauben Sie Benutzern von außerhalb des lokalen Netzwerks, eine SSH-Sitzung zu starten und Einstellungen auf dem Controller zu ändern.
+* Schalten Sie den Controller offline, online oder in den Servicemodus.
+
+
+
+
+== Laufwerke
+
+Das Speichersystem kann Festplatten (HDDs) oder Solid-State-Drives (SSDs) umfassen. Je nach Gehäusegröße können bis zu 12, 24 oder 60 Laufwerke im Gehäuse installiert werden.
+
+Sie können die folgenden Funktionen im Zusammenhang mit Laufwerken ausführen:
+
+* Schalten Sie die Locator-Leuchte des Laufwerks ein, damit Sie den physischen Standort des Laufwerks im Regal finden können.
+* Laufwerksstatus und -einstellungen anzeigen.
+* Weisen Sie ein Laufwerk neu zu (ersetzen Sie ein ausgefallenes Laufwerk logisch durch ein nicht zugewiesenes Laufwerk), und rekonstruieren Sie das Laufwerk bei Bedarf manuell.
+* Ein Laufwerk manuell als defekt markieren, damit Sie es ersetzen können. (Das Markieren eines Laufwerks als defekt ermöglicht es Ihnen, die Inhalte des Laufwerks zu kopieren, bevor Sie es ersetzen.)
+* Hot-Spare-Geräte zuweisen oder die Zuweisung aufheben.
+* Laufwerke löschen.
+

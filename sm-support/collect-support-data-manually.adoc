@@ -1,0 +1,40 @@
+---
+permalink: sm-support/collect-support-data-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, collect, support, data, manually 
+summary: Sie können verschiedene Arten von Bestands-, Status- und Leistungsdaten Ihres Storage Arrays in einer einzigen Datei zusammenfassen. Der technische Support kann die Datei zur Fehlerbehebung und für weitere Analysen verwenden. 
+---
+= Supportdaten manuell im SANtricity System Manager erfassen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können verschiedene Arten von Bestands-, Status- und Leistungsdaten Ihres Storage Arrays in einer einzigen Datei zusammenfassen. Der technische Support kann die Datei zur Fehlerbehebung und für weitere Analysen verwenden.
+
+.Über diese Aufgabe
+++ ++
+
+[NOTE]
+====
+Wenn die AutoSupport-Funktion aktiviert ist, können Sie diese Daten auch erfassen, indem Sie zur *AutoSupport*-Registerkarte gehen und *Send AutoSupport Dispatch* auswählen.
+
+====
+Sie können jeweils nur einen Erfassungsvorgang ausführen. Wenn Sie versuchen, einen weiteren Vorgang zu starten, erhalten Sie eine Fehlermeldung.
+
+[NOTE]
+====
+Führen Sie diese Operation nur durch, wenn Sie vom technischen Support dazu aufgefordert werden.
+
+====
+.Schritte
+. Menü auswählen: Support [Support Center > Diagnostics] Registerkarte.
+. Wählen Sie *Collect Support Data*.
+. Klicken Sie auf *Collect*.
++
+Die Datei wird im Download-Ordner Ihres Browsers unter dem Namen `support-data.7z` gespeichert. Falls Ihr Regal Schubladen enthält, werden die Diagnosedaten für dieses Regal in einer separaten ZIP-Datei mit dem Namen `tray-component-state-capture.7z` archiviert.
+
+. Befolgen Sie die Anweisungen des technischen Supports, um die Datei an sie zu senden.
+

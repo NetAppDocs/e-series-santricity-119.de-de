@@ -1,0 +1,32 @@
+---
+permalink: sm-settings/access-management-tokens-edit.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access management, edit tokens 
+summary: Sie können die Einstellungen für Zugriffstoken bearbeiten, was die Ablaufzeiten und die Möglichkeit, neue Token zu erstellen, umfasst. 
+---
+= Zugriffstoken-Einstellungen im SANtricity System Manager bearbeiten
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für Zugriffstoken bearbeiten, was die Ablaufzeiten und die Möglichkeit, neue Token zu erstellen, umfasst.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *Access Tokens* aus.
+. Wählen Sie *View/Edit Access Token Settings* aus.
+. Im Dialogfeld können Sie eine oder beide dieser Aufgaben ausführen:
++
+** Token-Erstellung aktivieren oder deaktivieren.
+** Ändern Sie das Ablaufdatum vorhandener Token.
++
+
+NOTE: Wenn Sie die Einstellung *Zugriffstoken aktivieren* deaktivieren, wird sowohl die Token-Erstellung als auch die Token-Authentifizierung verhindert. Wenn Sie diese Einstellung später wieder aktivieren, können nicht abgelaufene Token erneut verwendet werden. Wenn Sie alle vorhandenen Token dauerhaft widerrufen möchten, siehe link:access-management-tokens-revoke.html["Zugriffstoken widerrufen"].
+
+
+
+. Klicken Sie auf *Speichern*.
+

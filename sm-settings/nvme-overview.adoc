@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/nvme-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, nvme, 
+summary: 'Einige Controller verfügen über einen Port zur Implementierung von NVMe (Non-Volatile Memory Express) über Fabrics. NVMe ermöglicht eine leistungsstarke Kommunikation zwischen Hosts und dem Storage-Array.' 
+---
+= Erfahren Sie mehr über NVMe und SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Einige Controller verfügen über einen Port zur Implementierung von NVMe (Non-Volatile Memory Express) über Fabrics. NVMe ermöglicht eine leistungsstarke Kommunikation zwischen Hosts und dem Storage-Array.
+
+
+
+== Was ist NVMe?
+
+_NVM_ steht für „Non-Volatile Memory“ (nichtflüchtiger Speicher) und ist ein persistenter Speicher, der in vielen Speichermedien verwendet wird. _NVMe_ (NVM Express) ist eine standardisierte Schnittstelle bzw. ein Protokoll, das speziell für die leistungsstarke Mehrwarteschlangenkommunikation mit NVM-Geräten entwickelt wurde.
+
+
+
+== Was ist NVMe over Fabrics?
+
+_NVMe over Fabrics (NVMe-oF)_ ist eine Technologiespezifikation, die die Übertragung von NVMe-Nachrichtenbefehlen und -Daten zwischen einem Host-Computer und einem Speicher über ein Netzwerk ermöglicht. Ein NVMe-Speicherarray (genannt _Subsystem_) kann von einem Host über ein Fabric angesprochen werden. NVMe-Befehle sind sowohl auf der Host-Seite als auch auf der Subsystem-Seite aktiviert und in Transportabstraktionsschichten gekapselt. Dadurch wird die leistungsstarke NVMe-Schnittstelle durchgängig vom Host bis zum Speicher erweitert und der Befehlssatz standardisiert und vereinfacht.
+
+NVMe-oF-Speicher wird einem Host als lokales Blockspeichergerät bereitgestellt. Das Volume (als _namespace_ bezeichnet) kann wie jedes andere Blockspeichergerät in ein Dateisystem eingebunden werden. Sie können die REST API, die SMcli oder SANtricity System Manager verwenden, um Ihren Speicher nach Bedarf bereitzustellen.
+
+
+
+== Was ist ein NVMe Qualified Name (NQN)?
+
+Der NVMe Qualified Name (NQN) dient zur Identifizierung des Remote-Speicherziels. Der NVMe Qualified Name für das Storage Array wird immer vom Subsystem vergeben und kann nicht geändert werden. Es gibt nur einen NVMe Qualified Name für das gesamte Array. Der NVMe Qualified Name ist auf 223 Zeichen begrenzt. Sie können ihn mit einem iSCSI Qualified Name vergleichen.
+
+
+
+== Was ist ein Namensraum und eine Namensraum-ID?
+
+Ein Namespace entspricht einer logischen Einheit in SCSI, die sich auf ein Volume im Array bezieht. Die Namespace-ID (NSID) entspricht einer logischen Einheitennummer (LUN) in SCSI. Sie erstellen die NSID zum Zeitpunkt der Namespace-Erstellung und können sie auf einen Wert zwischen 1 und 255 setzen.
+
+
+
+== Was ist ein NVMe-Controller?
+
+Ähnlich einem SCSI I_T-Nexus, der den Pfad vom Initiator des Hosts zum Ziel des Speichersystems darstellt, bietet ein während des Host-Verbindungsprozesses erstellter NVMe-Controller einen Zugriffspfad zwischen einem Host und den Namespaces im Speicherarray. Ein NQN für den Host plus eine Host-Port-Kennung identifizieren einen NVMe-Controller eindeutig. Während ein NVMe-Controller nur einem einzelnen Host zugeordnet werden kann, kann er auf mehrere Namespaces zugreifen.
+
+Sie konfigurieren, welche Hosts auf welche Namespaces zugreifen können, und legen die Namespace-ID für den Host mithilfe von SANtricity System Manager fest. Dann wird beim Erstellen des NVMe-Controllers die Liste der vom NVMe-Controller zugänglichen Namespace-IDs erstellt und zur Konfiguration der zulässigen Verbindungen verwendet.

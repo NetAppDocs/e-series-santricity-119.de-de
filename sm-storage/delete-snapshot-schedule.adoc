@@ -1,0 +1,27 @@
+---
+permalink: sm-storage/delete-snapshot-schedule.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, snapshot, schedule 
+summary: Wenn Sie keine Snapshot-Bilder mehr sammeln möchten, können Sie einen bestehenden Snapshot-Zeitplan löschen. 
+---
+= Löschen Sie einen Snapshot-Zeitplan im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie keine Snapshot-Bilder mehr sammeln möchten, können Sie einen bestehenden Snapshot-Zeitplan löschen.
+
+.Über diese Aufgabe
+Wenn Sie einen Snapshot-Zeitplan löschen, werden die zugehörigen Snapshot-Bilder nicht zusammen mit ihm gelöscht. Wenn Sie denken, dass die Sammlung von Snapshot-Bildern möglicherweise zu einem späteren Zeitpunkt fortgesetzt wird, sollten Sie den Snapshot-Zeitplan aussetzen, anstatt ihn zu löschen.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Schedules*.
+. Wählen Sie den Snapshot-Zeitplan aus, den Sie löschen möchten, und bestätigen Sie den Vorgang.
+
+
+.Ergebnisse
+Das System entfernt alle Zeitplanattribute aus dem Basis-Volume oder der Snapshot-Konsistenzgruppe.

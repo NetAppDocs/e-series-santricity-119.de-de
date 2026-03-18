@@ -1,0 +1,69 @@
+---
+permalink: sm-storage/overview-snapshots.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshots 
+summary: Mit der Snapshot-Funktion können Sie zeitpunktgenaue Abbilder von Storage-Array-Volumes erstellen, die Sie für Backups oder Tests verwenden können. 
+---
+= Erfahren Sie mehr über Snapshots im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit der Snapshot-Funktion können Sie zeitpunktgenaue Abbilder von Storage-Array-Volumes erstellen, die Sie für Backups oder Tests verwenden können.
+
+
+
+== Was sind Snapshot-Images?
+
+Ein Snapshot-Image ist eine logische Kopie von Volume-Daten, die zu einem bestimmten Zeitpunkt aufgenommen wurde. Wie ein Wiederherstellungspunkt ermöglicht ein Snapshot-Image das Zurücksetzen auf einen bekannten, guten Datensatz. Obwohl der Host auf das Snapshot-Image zugreifen kann, kann er es nicht direkt lesen oder darauf schreiben.
+
+Mehr erfahren:
+
+* link:how-snapshot-storage-works.html["Wie die Snapshot-Speicherung funktioniert"]
+* link:snapshot-terminology.html["Snapshot-Terminologie"]
+* link:base-volumes-reserved-capacity-and-snapshot-groups.html["Basis-Volumes, reservierte Kapazität und Snapshot-Gruppen"]
+* link:snapshot-schedules-and-snapshot-consistency-groups.html["Snapshot-Zeitpläne und Konsistenzgruppen"]
+* link:snapshot-volumes.html["Snapshot-Volumes"]
+
+
+
+
+== Wie erstelle ich Snapshots?
+
+Sie können manuell ein Snapshot-Image aus einem Basis-Volume oder einer Snapshot-Konsistenzgruppe erstellen. Dieses Verfahren ist über Menü:Storage[Snapshots] verfügbar.
+
+Mehr erfahren:
+
+* link:requirements-and-guidelines-for-snapshots.html["Anforderungen und Richtlinien für Snapshots"]
+* link:workflow-for-creating-snapshot-images-and-snapshot-volumes.html["Workflow zum Erstellen von Snapshot-Images und Volumes"]
+* link:create-snapshot-image.html["Erstellen Sie ein Snapshot-Image"]
+* link:schedule-snapshot-images.html["Snapshot-Images planen"]
+* link:create-snapshot-consistency-group.html["Erstellen einer Snapshot-Konsistenzgruppe"]
+* link:create-snapshot-volume.html["Erstellen Sie ein Snapshot-Volume"]
+
+
+
+
+== Wie stelle ich Daten aus einem Snapshot wieder her?
+
+Ein Rollback ist der Vorgang, bei dem Daten in einem Basis-Volume auf einen früheren Zeitpunkt zurückgesetzt werden. Sie können Snapshot-Daten über menu:Storage[Snapshots] zurücksetzen.
+
+Mehr erfahren:
+
+* link:snapshot-rollback.html["Snapshot-Rollback"]
+* link:start-snapshot-image-rollback-for-base-volume.html["Starten Sie einen Snapshot-Image-Rollback für ein Base-Volume"]
+* link:start-snapshot-image-rollback-for-consistency-group-member-volumes.html["Starten Sie einen Snapshot-Image-Rollback für ein Mitglied einer Konsistenzgruppe"]
+
+
+
+
+== Verwandte Informationen
+
+Erfahren Sie mehr über Aufgaben im Zusammenhang mit Snapshots:
+
+* link:change-the-reserved-capacity-settings-for-a-snapshot-volume.html["Reservierte Kapazität für ein Snapshot-Volume ändern"]
+* link:change-the-reserved-capacity-settings-for-a-snapshot-group.html["Reservierte Kapazität für eine Snapshot-Gruppe ändern"]
+

@@ -1,0 +1,48 @@
+---
+permalink: sm-hardware/solid-state-disks-ssds.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, solid, state, disk, SSD 
+summary: 'Solid-State-Disks (SSDs) sind Datenspeichergeräte, die Solid-State-Speicher (Flash) zur dauerhaften Speicherung von Daten verwenden. SSDs emulieren herkömmliche Festplatten und sind mit denselben Schnittstellen wie Festplatten erhältlich.' 
+---
+= Erfahren Sie mehr über Solid State Disks (SSDs) im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Solid-State-Disks (SSDs) sind Datenspeichergeräte, die Solid-State-Speicher (Flash) zur dauerhaften Speicherung von Daten verwenden. SSDs emulieren herkömmliche Festplatten und sind mit denselben Schnittstellen wie Festplatten erhältlich.
+
+
+
+== Vorteile von SSDs
+
+Zu den Vorteilen von SSDs gegenüber Festplatten gehören:
+
+* Schnellerer Start (kein Hochfahren)
+* Geringere Latenz
+* Höhere E/A-Operationen pro Sekunde (IOPS)
+* Höhere Zuverlässigkeit mit weniger beweglichen Teilen
+* Geringerer Stromverbrauch
+* Weniger Wärmeentwicklung und weniger Kühlung erforderlich
+
+
+
+
+== Identifizierung von SSDs
+
+Auf der Hardware-Seite können Sie die SSDs in der Frontansicht des Shelfs finden. Suchen Sie nach Laufwerksschächten, die ein Blitzsymbol anzeigen, was darauf hinweist, dass eine SSD installiert ist.
+
+
+
+== Volume-Gruppen
+
+Alle Laufwerke in einer Volume-Gruppe müssen vom gleichen Medientyp sein (entweder alle SSDs oder alle Festplatten). Volume-Gruppen können keine Mischung aus Medientypen oder Schnittstellentypen enthalten.
+
+
+
+== Caching
+
+Der Schreibcache des Controllers ist für SSDs immer aktiviert. Schreibcache verbessert die Leistung und verlängert die Lebensdauer der SSD.
+
+Zusätzlich zum Controller-Cache können Sie die SSD-Cache-Funktion implementieren, um die Gesamtleistung des Systems zu verbessern. Im SSD-Cache werden die Daten von den Volumes kopiert und auf zwei internen RAID-Volumes (einem pro Controller) gespeichert.

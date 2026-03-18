@@ -1,0 +1,41 @@
+---
+permalink: sm-settings/overview-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, system settings 
+summary: Sie können den System Manager für einige allgemeine Array-Einstellungen und Zusatzfunktionen konfigurieren. 
+---
+= Erfahren Sie mehr über die Einstellungsübersicht im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können SANtricity System Manager für einige allgemeine Array-Einstellungen und Add-on-Funktionen konfigurieren.
+
+
+
+== Welche Einstellungen kann ich konfigurieren?
+
+Array-Einstellungen umfassen:
+
+* link:cache-settings-and-performance.html["Cache-Einstellungen und Leistung"]
+* link:automatic-load-balancing-overview.html"["Automatischer Lastausgleich"]
+* link:how-add-on-features-work.html["Zusatzfunktionen"]
+* link:overview-drive-security.html["Laufwerkssicherheit"]
+
+
+
+
+== Verwandte Aufgaben
+
+Erfahren Sie mehr über Aufgaben im Zusammenhang mit System Settings:
+
+* link:download-cli.html["Laden Sie die Befehlszeilenschnittstelle (CLI) herunter"]
+* link:create-internal-security-key.html["Internen Sicherheitsschlüssel erstellen"]
+* link:create-external-security-key.html["Externen Sicherheitsschlüssel erstellen"]
+* link:../sm-hardware/configure-iscsi-ports-hardware.html["iSCSI-Ports konfigurieren"]
+* link:../sm-hardware/configure-nvme-over-infiniband-ports-hardware.html["NVMe über IB-Ports konfigurieren"]
+* link:../sm-hardware/configure-nvme-over-roce-ports-hardware.html["NVMe-over-RoCE-Ports konfigurieren"]
+

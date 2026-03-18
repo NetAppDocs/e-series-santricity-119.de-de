@@ -1,0 +1,147 @@
+---
+permalink: sm-settings/configure-iscsi-ports-system.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, iSCSI, ports, systems 
+summary: Wenn Ihr Controller über eine iSCSI-Hostverbindung verfügt, können Sie die iSCSI-Porteinstellungen auf der Systemseite konfigurieren. 
+---
+= Konfigurieren Sie iSCSI-Ports im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Ihr Controller über eine iSCSI-Hostverbindung verfügt, können Sie die iSCSI-Porteinstellungen auf der Systemseite konfigurieren.
+
+.Bevor Sie beginnen
+* Ihr Controller muss iSCSI-Ports enthalten; andernfalls sind die iSCSI-Einstellungen nicht verfügbar.
+* Sie müssen die Netzwerkgeschwindigkeit kennen (die Datentransferrate zwischen den Ports und dem Host).
+
+
+[NOTE]
+====
+Die iSCSI-Einstellungen und -Funktionen werden nur angezeigt, wenn Ihr Storage-Array iSCSI unterstützt.
+
+====
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *iSCSI Settings* wählen Sie *Configure iSCSI Ports*.
++
+[NOTE]
+====
+Die Option „iSCSI-Ports konfigurieren“ wird nur angezeigt, wenn System Manager iSCSI-Ports auf dem Controller erkennt.
+
+====
+. Wählen Sie den Controller mit den iSCSI-Ports, die Sie konfigurieren möchten.
+. Wählen Sie in der Drop-down-Liste den Port aus, den Sie konfigurieren möchten, und klicken Sie dann auf *Weiter*.
+. Wählen Sie die Konfigurationsport-Einstellungen aus und klicken Sie dann auf *Next*.
++
+Um alle Porteinstellungen anzuzeigen, klicken Sie auf den Link *Weitere Porteinstellungen anzeigen* auf der rechten Seite des Dialogfelds.
+
++
+.Felddetails
+[%collapsible]
+====
+[cols="1a,1a"]
+|===
+| Port-Einstellung | Beschreibung 
+
+
+ a| 
+Konfigurierte Ethernet-Port-Geschwindigkeit (erscheint nur bei bestimmten Arten von Host Interface Cards)
+ a| 
+Wählen Sie die Geschwindigkeit, die der Geschwindigkeitskapazität des SFP am Port entspricht.
+
+
+
+ a| 
+Vorwärtsfehlerkorrektur (FEC)-Modus (Wird nur bei bestimmten Arten von Host Interface Cards angezeigt)
+ a| 
+Wählen Sie bei Bedarf einen der FEC-Modi für den angegebenen Host-Port aus.
+
+
+NOTE: Der Reed Solomon-Modus unterstützt die 25 Gbit/s-Portgeschwindigkeit nicht.
+
+
+
+ a| 
+IPv4 aktivieren / IPv6 aktivieren
+ a| 
+Wählen Sie eine oder beide Optionen aus, um die Unterstützung für IPv4- und IPv6-Netzwerke zu aktivieren.
+
+
+NOTE: Wenn Sie den Portzugriff deaktivieren möchten, deaktivieren Sie beide Kontrollkästchen.
+
+
+
+ a| 
+TCP-Listening-Port (Verfügbar durch Klicken auf *Weitere Porteinstellungen anzeigen*.)
+ a| 
+Geben Sie bei Bedarf eine neue Portnummer ein.
+
+Der Listening-Port ist die TCP-Portnummer, die der Controller verwendet, um auf iSCSI-Anmeldungen von Host-iSCSI-Initiatoren zu warten. Der Standard-Listening-Port ist 3260. Sie müssen 3260 oder einen Wert zwischen 49152 und 65535 eingeben.
+
+
+
+ a| 
+MTU-Größe (Verfügbar durch Klicken auf *Weitere Porteinstellungen anzeigen*.)
+ a| 
+Geben Sie bei Bedarf eine neue Größe in Bytes für die Maximum Transmission Unit (MTU) ein.
+
+Die Standardgröße der maximalen Übertragungseinheit (MTU) beträgt 1500 Byte pro Frame. Sie müssen einen Wert zwischen 1500 und 9000 eingeben.
+
+
+
+ a| 
+ICMP-PING-Antworten aktivieren
+ a| 
+Wählen Sie diese Option, um das Internet Control Message Protocol (ICMP) zu aktivieren. Die Betriebssysteme vernetzter Computer verwenden dieses Protokoll, um Nachrichten zu senden. Diese ICMP-Nachrichten bestimmen, ob ein Host erreichbar ist und wie lange es dauert, Pakete zu diesem Host und von diesem Host zu senden.
+
+|===
+====
++
+Wenn Sie *IPv4 aktivieren* ausgewählt haben, öffnet sich nach dem Klicken auf *Weiter* ein Dialogfeld zur Auswahl der IPv4-Einstellungen. Wenn Sie *IPv6 aktivieren* ausgewählt haben, öffnet sich nach dem Klicken auf *Weiter* ein Dialogfeld zur Auswahl der IPv6-Einstellungen. Wenn Sie beide Optionen ausgewählt haben, öffnet sich zuerst das Dialogfeld für die IPv4-Einstellungen und dann, nachdem Sie auf *Weiter* geklickt haben, das Dialogfeld für die IPv6-Einstellungen.
+
+. Konfigurieren Sie die IPv4- und/oder IPv6-Einstellungen, entweder automatisch oder manuell. Um alle Porteinstellungen anzuzeigen, klicken Sie auf den Link *Weitere Einstellungen anzeigen* rechts im Dialogfeld.
++
+.Felddetails
+[%collapsible]
+====
+[cols="1a,1a"]
+|===
+| Port-Einstellung | Beschreibung 
+
+
+ a| 
+Konfiguration automatisch abrufen
+ a| 
+Wählen Sie diese Option, um die Konfiguration automatisch zu erhalten.
+
+
+
+ a| 
+Statische Konfiguration manuell festlegen
+ a| 
+Wählen Sie diese Option und geben Sie dann eine statische Adresse in die Felder ein. (Wenn gewünscht, können Sie Adressen in die Felder kopieren und einfügen.) Für IPv4 geben Sie die Subnetzmaske und das Gateway an. Für IPv6 geben Sie die routbare IP-Adresse und die Router-IP-Adresse an.
+
+
+
+ a| 
+VLAN-Unterstützung aktivieren (Verfügbar durch Klicken auf *Weitere Einstellungen anzeigen*.)
+ a| 
+Wählen Sie diese Option, um ein VLAN zu aktivieren und dessen ID einzugeben. Ein VLAN ist ein logisches Netzwerk, das sich so verhält, als wäre es physisch von anderen physischen und virtuellen lokalen Netzwerken (LANs) getrennt, die von denselben Switches, denselben Routern oder beiden unterstützt werden.
+
+
+
+ a| 
+Ethernet-Priorität aktivieren (Verfügbar durch Klicken auf *Weitere Einstellungen anzeigen*.)
+ a| 
+Wählen Sie diese Option, um den Parameter zu aktivieren, der die Priorität des Netzwerkzugriffs bestimmt. Verwenden Sie den Schieberegler, um eine Priorität zwischen 1 (niedrigste) und 7 (höchste) auszuwählen.
+
+In einem gemeinsam genutzten lokalen Netzwerk (LAN), wie Ethernet, könnten viele Stationen um den Zugriff auf das Netzwerk konkurrieren. Der Zugriff erfolgt nach dem Prinzip „Wer zuerst kommt, mahlt zuerst“. Zwei Stationen könnten versuchen, gleichzeitig auf das Netzwerk zuzugreifen, was dazu führt, dass beide Stationen zurücktreten und warten, bevor sie es erneut versuchen. Dieser Prozess wird bei Switched Ethernet minimiert, wo nur eine Station mit einem Switch-Port verbunden ist.
+
+|===
+====
+. Klicken Sie auf *Finish*.
+

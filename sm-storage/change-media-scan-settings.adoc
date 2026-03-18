@@ -1,0 +1,64 @@
+---
+permalink: sm-storage/change-media-scan-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, media scan settings, volume 
+summary: Ein Medienscan ist ein Hintergrundvorgang, der alle Daten und Redundanzinformationen im Volume durchsucht. Verwenden Sie diese Option, um die Medienscan-Einstellungen für ein oder mehrere Volumes zu aktivieren oder zu deaktivieren oder die Scandauer zu ändern. 
+---
+= Ändern Sie die Medienscan-Einstellungen für ein Volume im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ein Medienscan ist ein Hintergrundvorgang, der alle Daten und Redundanzinformationen im Volume durchsucht. Verwenden Sie diese Option, um die Medienscan-Einstellungen für ein oder mehrere Volumes zu aktivieren oder zu deaktivieren oder die Scandauer zu ändern.
+
+.Bevor Sie beginnen
+Verstehen Sie Folgendes:
+
+* Medienscans laufen kontinuierlich mit einer konstanten Rate, die auf der zu scannenden Kapazität und der Scandauer basiert. Hintergrundscans können durch eine höher priorisierte Hintergrundaufgabe (z. B. Rekonstruktion) vorübergehend unterbrochen werden, werden aber mit derselben konstanten Rate fortgesetzt.
+* Ein Volume wird nur dann gescannt, wenn die Medienscan-Option für das Storage-Array und für dieses Volume aktiviert ist. Wenn die Redundanzprüfung für dieses Volume ebenfalls aktiviert ist, werden die Redundanzinformationen im Volume auf Konsistenz mit den Daten geprüft, vorausgesetzt, das Volume verfügt über Redundanz. Der Medienscan mit Redundanzprüfung ist standardmäßig für jedes Volume aktiviert, wenn es erstellt wird.
+* Wenn während des Scans ein nicht behebbarer Medienfehler auftritt, werden die Daten mithilfe von Redundanzinformationen repariert, sofern verfügbar.
++
+Beispielsweise sind Redundanzinformationen in optimalen RAID-5-Volumes oder in RAID-6-Volumes, die optimal sind oder bei denen nur ein Laufwerk ausgefallen ist, verfügbar. Kann der nicht behebbare Fehler nicht mithilfe von Redundanzinformationen behoben werden, wird der Datenblock dem Protokoll unlesbarer Sektoren hinzugefügt. Sowohl behebbare als auch nicht behebbare Medienfehler werden im Ereignisprotokoll protokolliert.
+
++
+Wenn die Redundanzprüfung eine Inkonsistenz zwischen den Daten und den Redundanzinformationen feststellt, wird dies im Ereignisprotokoll gemeldet.
+
+
+
+
+NOTE: Der Standard-Medienscan-Zeitraum ist auf 120 Tage eingestellt.
+
+.Über diese Aufgabe
+Medienscans erkennen und reparieren Medienfehler auf Festplattenblöcken, die von Anwendungen selten gelesen werden. Dies kann Datenverlust im Falle eines Laufwerksausfalls verhindern, da Daten für ausgefallene Laufwerke mithilfe von Redundanzinformationen und Daten von anderen Laufwerken in der Volume-Gruppe oder im Pool rekonstruiert werden.
+
+Sie können die folgenden Aktionen ausführen:
+
+* Aktivieren oder deaktivieren Sie Hintergrund-Medienscans für das gesamte Speicherarray
+* Ändern Sie die Scandauer für das gesamte Speicherarray
+* Aktivieren oder deaktivieren Sie den Medienscan für ein oder mehrere Volumes
+* Aktivieren oder deaktivieren Sie die Redundanzprüfung für ein oder mehrere Volumes
+
+
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Wählen Sie ein beliebiges Volume aus und wählen Sie dann Menü:More[Medienscan-Einstellungen ändern].
++
+Das Dialogfeld „Einstellungen für die Laufwerksmedienprüfung ändern“ wird angezeigt. Alle Volumes des Speichersystems werden in diesem Dialogfeld angezeigt.
+
+. Um den Medienscan zu aktivieren, wählen Sie das Kästchen *Medien im Laufe von... scannen* aus.
++
+Durch Deaktivieren des Kästchens für den Medienscan werden alle Einstellungen für den Medienscan ausgesetzt.
+
+. Geben Sie die Anzahl der Tage an, über die der Medienscan durchgeführt werden soll.
+. Wählen Sie das Kästchen *Media Scan* für jedes Volume aus, bei dem Sie einen Medienscan durchführen möchten.
++
+System Manager aktiviert die Option *Redundancy Check* für jedes Volume, auf dem Sie einen Medienscan durchführen möchten. Wenn Sie für einzelne Volumes keine *Redundancy Check* durchführen möchten, deaktivieren Sie das Kästchen *Redundancy Check*.
+
+. Klicken Sie auf *Speichern*.
++
+System Manager wendet Änderungen an Hintergrund-Medienscans basierend auf Ihrer Auswahl an.
+
+

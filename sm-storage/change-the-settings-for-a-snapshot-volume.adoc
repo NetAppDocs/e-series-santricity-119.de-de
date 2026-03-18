@@ -1,0 +1,93 @@
+---
+permalink: sm-storage/change-the-settings-for-a-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volume, settings, snapshot, volume 
+summary: 'Sie können die Einstellungen für ein Snapshot-Volume oder ein Snapshot-Konsistenzgruppen-Snapshot-Volume ändern, um es umzubenennen, SSD-Caching zu aktivieren oder zu deaktivieren oder die Zuordnung zum Host, Host-Cluster oder zur logischen Einheitennummer (LUN) zu ändern.' 
+---
+= Ändern Sie die Volumeneinstellungen für ein Snapshot-Volume im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für ein Snapshot-Volume oder ein Snapshot-Konsistenzgruppen-Snapshot-Volume ändern, um es umzubenennen, SSD-Caching zu aktivieren oder zu deaktivieren oder die Zuordnung zum Host, Host-Cluster oder zur logischen Einheitennummer (LUN) zu ändern.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Snapshot Volumes*.
+. Wählen Sie das Snapshot-Volume aus, das Sie ändern möchten, und klicken Sie dann auf *View/Edit Settings*.
++
+Das Dialogfeld „Snapshot Volume Settings“ wird angezeigt.
+
+. Zeigen Sie die Einstellungen für das Snapshot-Volume an oder bearbeiten Sie sie nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Schnappschuss-Volume*
+
+
+
+ a| 
+Name
+ a| 
+Sie können den Namen für das Snapshot-Volume ändern.
+
+
+
+ a| 
+Zugewiesen an
+ a| 
+Sie können die Host- oder Host-Cluster-Zuordnung für das Snapshot-Volume ändern.
+
+
+
+ a| 
+LUN
+ a| 
+Sie können die LUN-Zuordnung für das Snapshot-Volume ändern.
+
+
+
+ a| 
+SSD-Cache
+ a| 
+Sie können das schreibgeschützte Caching auf Solid State Disks (SSDs) aktivieren/deaktivieren.
+
+
+
+ a| 
+*Zugehörige Objekte*
+
+
+
+ a| 
+Snapshot-Image
+ a| 
+Sie können die dem Snapshot-Volume zugeordneten Snapshot-Images anzeigen. Ein Snapshot-Image ist eine logische Kopie der Volume-Daten, die zu einem bestimmten Zeitpunkt aufgenommen wurde. Ähnlich wie ein Wiederherstellungspunkt ermöglichen Snapshot-Images das Zurücksetzen auf einen bekannten guten Datensatz. Obwohl der Host auf das Snapshot-Image zugreifen kann, kann er es nicht direkt lesen oder darauf schreiben.
+
+
+
+ a| 
+Grundvolumen
+ a| 
+Sie können das dem Snapshot-Volume zugeordnete Basis-Volume anzeigen. Ein Basis-Volume ist die Quelle, aus der ein Snapshot-Image erstellt wird. Es kann ein Thick- oder Thin-Volume sein und ist typischerweise einem Host zugewiesen. Das Basis-Volume kann sich entweder in einer Volume-Gruppe oder einem Disk-Pool befinden.
+
+
+
+ a| 
+Snapshot-Gruppe
+ a| 
+Sie können die mit dem Snapshot-Volume verknüpfte Snapshot-Gruppe anzeigen. Eine Snapshot-Gruppe ist eine Sammlung von Snapshot-Images eines einzelnen Basis-Volumes.
+
+|===
+====
+

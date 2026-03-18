@@ -1,0 +1,14 @@
+---
+permalink: sm-support/view-storage-array-information.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, storage, array, 
+summary: Sie können das Profil des Storage Arrays und die Firmware-Versionen der einzelnen Komponenten im Storage Array anzeigen. 
+---
+= Informationen zu einem Speicherarray im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können das Profil des Storage Arrays und die Firmware-Versionen der einzelnen Komponenten im Storage Array anzeigen.

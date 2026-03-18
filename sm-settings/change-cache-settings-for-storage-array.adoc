@@ -1,0 +1,51 @@
+---
+permalink: sm-settings/change-cache-settings-for-storage-array.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, cache, settings, 
+summary: Für alle Volumes im Speicherarray können Sie die Cache-Speichereinstellungen für das Leeren und die Blockgröße anpassen. 
+---
+= Ändern der Cache-Einstellungen für das Speicherarray im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Für alle Volumes im Speicherarray können Sie die Cache-Speichereinstellungen für das Leeren und die Blockgröße anpassen.
+
+.Über diese Aufgabe
+Der Cache-Speicher ist ein temporärer, flüchtiger Speicherbereich auf dem Controller, der eine schnellere Zugriffszeit als die Laufwerksmedien hat. Um die Cache-Leistung zu optimieren, können Sie die folgenden Einstellungen anpassen:
+
+[cols="25h,~"]
+|===
+| Cache-Einstellung | Beschreibung 
+
+
+ a| 
+Starten Sie das Bedarfscache-Leeren
+ a| 
+Die Einstellung „Start-Cache-Flushing“ legt den Prozentsatz der ungeschriebenen Daten im Cache fest, der einen Cache-Flush (Schreiben auf die Festplatte) auslöst. Standardmäßig beginnt das Cache-Flushing, wenn ungeschriebene Daten 80 % der Kapazität erreichen. Ein höherer Prozentsatz ist eine gute Wahl für Umgebungen mit überwiegend Schreibvorgängen, sodass neue Schreibanforderungen vom Cache verarbeitet werden können, ohne auf die Festplatte zugreifen zu müssen. Niedrigere Einstellungen sind besser in Umgebungen, in denen die I/O unregelmäßig ist (mit Datenbursts), sodass das System den Cache zwischen den Datenbursts häufig leert. Ein Startprozentsatz unter 80 % kann jedoch zu einer verringerten Leistung führen.
+
+
+
+ a| 
+Cache-Blockgröße
+ a| 
+Die Cache-Blockgröße bestimmt die maximale Größe jedes Cache-Blocks, der eine Organisationseinheit für die Cache-Verwaltung darstellt. Standardmäßig beträgt die Blockgröße 32 KiB. Das System erlaubt die Cache-Blockgröße von 4, 8, 16 oder 32 KiBs. Anwendungen verwenden unterschiedliche Blockgrößen, was sich auf die Speicherleistung auswirkt. Eine kleinere Größe ist eine gute Wahl für Dateisysteme oder Datenbankanwendungen. Eine größere Größe ist ideal für Anwendungen, die sequenzielle I/O erzeugen, wie zum Beispiel Multimedia.
+
+|===
+.Schritte
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *Zusätzliche Einstellungen* und klicken Sie dann auf *Cache-Einstellungen ändern*.
++
+Das Dialogfeld „Cache-Einstellungen ändern“ wird geöffnet.
+
+. Passen Sie die folgenden Werte an:
++
+** *Start demand cache flushing* – Wählen Sie einen Prozentsatz, der für die in Ihrer Umgebung verwendete I/O geeignet ist. Wenn Sie einen Wert unter 80 % wählen, kann die Leistung abnehmen.
+** **Cache-Blockgröße -- **Wählen Sie eine Größe, die für Ihre Anwendungen geeignet ist.
+
+
+. Klicken Sie auf *Speichern*.
+

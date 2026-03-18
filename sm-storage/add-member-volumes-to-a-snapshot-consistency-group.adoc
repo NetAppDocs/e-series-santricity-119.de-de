@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/add-member-volumes-to-a-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, member, volume, snapshot consistency group 
+summary: Sie können einer bestehenden Snapshot Konsistenzgruppe ein neues Mitgliedsvolume hinzufügen. Beim Hinzufügen eines neuen Mitgliedsvolumes müssen Sie außerdem Kapazität für das Mitgliedsvolume reservieren. 
+---
+= Fügen Sie ein Mitgliedsvolume zu einer Snapshot-Konsistenzgruppe in SANtricity System Manager hinzu
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einer bestehenden Snapshot Konsistenzgruppe ein neues Mitgliedsvolume hinzufügen. Beim Hinzufügen eines neuen Mitgliedsvolumes müssen Sie außerdem Kapazität für das Mitgliedsvolume reservieren.
+
+.Bevor Sie beginnen
+* Das Mitglieds-Volume muss optimal sein.
+* Die Snapshot Konsistenzgruppe muss weniger als die maximal zulässige Anzahl an Volumes (wie durch Ihre Konfiguration definiert) haben.
+* Jedes reservierte Kapazitätsvolumen muss die gleichen Data Assurance (DA)- und Sicherheitseinstellungen wie das zugehörige Mitgliedsvolumen aufweisen.
+
+
+.Über diese Aufgabe
+Sie können Standard-Volumes oder Thin-Volumes zur Snapshot-Konsistenzgruppe hinzufügen. Das Basis-Volume kann sich entweder in einem Pool oder einer Volume-Gruppe befinden.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Wählen Sie die Registerkarte *Snapshot Consistency Groups* aus.
++
+Die Tabelle erscheint und zeigt alle Snapshot-Konsistenzgruppen an, die mit dem Speicherarray verknüpft sind.
+
+. Wählen Sie die Snapshot Konsistenzgruppe aus, die Sie ändern möchten, und klicken Sie dann auf *Mitglieder hinzufügen*.
++
+Das Dialogfeld „Mitglieder hinzufügen“ wird angezeigt.
+
+. Wählen Sie die Mitgliedsvolumes aus, die Sie hinzufügen möchten, und klicken Sie dann auf *Next*.
++
+Der Schritt „Reservierte Kapazität“ wird angezeigt. Die Tabelle „Volumenkandidaten“ zeigt nur die Kandidaten an, die die angegebene reservierte Kapazität unterstützen.
+
+. Verwenden Sie das Spinnerfeld, um die reservierte Kapazität für das Mitgliedsvolume festzulegen. Führen Sie eine der folgenden Aktionen aus:
++
+** *Standardeinstellungen akzeptieren.*
++
+Verwenden Sie diese empfohlene Option, um die reservierte Kapazität für das Member-Volume mit den Standardeinstellungen zuzuweisen.
+
+** *Weisen Sie Ihre eigenen Einstellungen für reservierte Kapazität zu, um Ihren Datenspeicherbedarf zu erfüllen.*
++
+Wenn Sie die Standardeinstellung für die reservierte Kapazität ändern, klicken Sie auf *Kandidaten aktualisieren*, um die Kandidatenliste für die von Ihnen angegebene reservierte Kapazität zu aktualisieren.
+
++
+Weisen Sie die reservierte Kapazität anhand der folgenden Richtlinien zu.
+
++
+*** Die Standardeinstellung für die reservierte Kapazität beträgt 40% der Kapazität des Basisvolumens, und diese Kapazität ist in der Regel ausreichend.
+*** Der benötigte Speicherplatz variiert, abhängig von der Häufigkeit und Größe der E/A-Schreibvorgänge auf die Volumes sowie der Menge und Dauer der Snapshot-Image-Erfassung.
+
+
+
+
+. Klicken Sie auf *Finish*, um die Mitgliedsbände hinzuzufügen.
+

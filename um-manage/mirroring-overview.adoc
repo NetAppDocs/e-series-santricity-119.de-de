@@ -1,0 +1,76 @@
+---
+permalink: um-manage/mirroring-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, mirroring, 
+summary: Unified Manager beinhaltet Konfigurationsoptionen für die SANtricity Mirroring-Funktionen, die es Administratoren ermöglichen, Daten zwischen zwei Storage-Arrays zum Schutz der Daten zu replizieren. 
+---
+= Erfahren Sie mehr über SANtricity Mirroring
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity Unified Manager beinhaltet Konfigurationsoptionen für die SANtricity Mirroring-Funktionen, die es Administratoren ermöglichen, Daten zwischen zwei Speicherarrays zum Schutz der Daten zu replizieren.
+
+[NOTE]
+====
+Die synchrone Spiegelung ist auf dem EF600/EF600C oder EF300/EF300C Speichersystem nicht verfügbar.
+
+====
+
+
+== Arten der Spiegelung
+
+SANtricity Anwendungen umfassen zwei Arten der Spiegelung – asynchron und synchron.
+
+Asynchrone Spiegelung kopiert Datenvolumes bedarfsgesteuert oder nach einem Zeitplan, wodurch Ausfallzeiten, die durch Datenbeschädigung oder -verlust entstehen könnten, minimiert oder vermieden werden. Asynchrone Spiegelung erfasst den Zustand des primären Volumes zu einem bestimmten Zeitpunkt und kopiert nur die Daten, die sich seit der letzten Image-Erfassung geändert haben. Der primäre Standort kann sofort aktualisiert werden und der sekundäre Standort kann aktualisiert werden, sobald die Bandbreite es zulässt. Die Informationen werden zwischengespeichert und später gesendet, sobald Netzwerkressourcen verfügbar sind. Diese Art der Spiegelung ist ideal für periodische Prozesse wie Backup und Archivierung.
+
+Synchrone Spiegelung repliziert Datenvolumes in Echtzeit, um kontinuierliche Verfügbarkeit zu gewährleisten. Der Zweck besteht darin, ein Recovery Point Objective (RPO) von null verloren gegangenen Daten zu erreichen, indem eine Kopie wichtiger Daten verfügbar ist, falls auf einem der beiden Storage-Arrays eine Katastrophe eintritt. Die Kopie ist zu jedem Zeitpunkt mit den Produktionsdaten identisch, da bei jedem Schreibvorgang auf das primäre Volume auch ein Schreibvorgang auf das sekundäre Volume erfolgt. Der Host erhält erst dann eine Bestätigung, dass der Schreibvorgang erfolgreich war, wenn das sekundäre Volume mit den Änderungen, die auf dem primären Volume vorgenommen wurden, aktualisiert wurde. Diese Art der Spiegelung ist ideal für Zwecke der Geschäftskontinuität, wie zum Beispiel die Notfallwiederherstellung.
+
+
+
+== Unterschiede zwischen Spiegelungstypen
+
+Die folgende Tabelle beschreibt die Hauptunterschiede zwischen den beiden Spiegelungsarten.
+
+[cols="1a,1a,1a"]
+|===
+| Attribut | asynchron | Synchron 
+
+
+ a| 
+Replikationsmethode
+ a| 
+Zeitpunktgenaue Spiegelung – Die Spiegelung erfolgt auf Anforderung oder automatisch gemäß einem vom Benutzer definierten Zeitplan.
+ a| 
+Kontinuierlich -- Die Spiegelung wird automatisch kontinuierlich ausgeführt, wobei Daten von jedem Schreibvorgang des Hosts kopiert werden.
+
+
+
+ a| 
+Distanz
+ a| 
+Unterstützt große Entfernungen zwischen den Arrays. Typischerweise ist die Entfernung nur durch die Leistungsfähigkeit des Netzwerks und der Kanalerweiterungstechnologie begrenzt.
+ a| 
+Begrenzt auf kürzere Abstände zwischen den Arrays. Typischerweise muss der Abstand zum lokalen Speicherarray innerhalb von etwa 10 km (6,2 Meilen) liegen, um die Anforderungen an Latenz und Anwendungsleistung zu erfüllen.
+
+
+
+ a| 
+Kommunikationsmethode
+ a| 
+Ein Standard-IP- oder Fibre Channel-Netzwerk.
+ a| 
+Nur Fibre Channel network.
+
+
+
+ a| 
+Volumentypen
+ a| 
+Standard oder Thin.
+ a| 
+Nur Standard.
+
+|===

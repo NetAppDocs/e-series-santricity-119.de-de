@@ -1,0 +1,25 @@
+---
+permalink: sm-storage/how-volumes-are-assigned-to-hosts-and-host-clusters.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volumes, assigned, hosts, clusters 
+summary: Damit ein Host oder Hostcluster E/A an ein Volume senden kann, muss das Volume dem Host oder Hostcluster zugewiesen werden. 
+---
+= Wie Volumes Hosts und Hostclustern in SANtricity-Software zugewiesen werden
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Damit ein Host oder Hostcluster E/A an ein Volume senden kann, muss das Volume dem Host oder Hostcluster zugewiesen werden.
+
+Sie können beim Erstellen eines Volumes einen Host oder einen Hostcluster auswählen oder ein Volume später einem Host oder Hostcluster zuweisen. Ein Hostcluster ist eine Gruppe von Hosts. Sie erstellen einen Hostcluster, um es einfach zu machen, dieselben Volumes mehreren Hosts zuzuweisen.
+
+Die Zuordnung von Volumes zu Hosts ist flexibel, sodass Sie Ihre besonderen Speicheranforderungen erfüllen können.
+
+* *Eigenständiger Host, nicht Teil eines Host-Clusters* -- Sie können einem einzelnen Host ein Volume zuweisen. Auf das Volume kann nur von diesem einen Host zugegriffen werden.
+* *Host cluster* -- Sie können einem Host cluster ein Volume zuweisen. Das Volume kann von allen Hosts im Host cluster zugegriffen werden.
+* *Host innerhalb eines Hostclusters* – Sie können einem einzelnen Host, der Teil eines Hostclusters ist, ein Volume zuweisen. Obwohl der Host Teil eines Hostclusters ist, kann das Volume nur von diesem einzelnen Host und nicht von anderen Hosts im Hostcluster zugegriffen werden.
+
+
+Beim Erstellen von Volumes werden logische Einheitennummern (LUNs) automatisch zugewiesen. Die LUN dient als „Adresse“ zwischen dem Host und dem Controller während der E/A-Operationen. Sie können LUNs ändern, nachdem das Volume erstellt wurde.

@@ -1,0 +1,36 @@
+---
+permalink: sm-settings/add-user-names-for-snmp-traps.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, users, snmpv3, traps, 
+summary: Sie können bis zu 256 Benutzer für SNMPv3-Traps hinzufügen. 
+---
+= Benutzer für SNMPv3-Traps im SANtricity System Manager hinzufügen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können bis zu 256 Benutzer für SNMPv3-Traps hinzufügen.
+
+.Schritte
+. Menü auswählen: Settings[Alerts].
+. Wählen Sie die Registerkarte *SNMP* aus.
++
+Die Trap-Ziele und Benutzernamen werden in der Tabelle angezeigt.
+
+. Wählen Sie *Configure Users*.
++
+Das Dialogfeld „SNMPv3-Benutzer konfigurieren“ wird geöffnet.
+
+. Wählen Sie *Add*.
+. Geben Sie die folgenden Informationen ein, und klicken Sie dann auf *Hinzufügen*.
++
+** *Benutzername* -- Geben Sie einen Namen zur Identifizierung des Benutzers ein, der bis zu 31 Zeichen lang sein kann.
+** *Engine ID* -- Wählen Sie die Engine ID aus, die zur Generierung von Authentifizierungs- und Verschlüsselungsschlüsseln für Nachrichten verwendet wird und innerhalb der administrativen Domäne eindeutig sein muss. In den meisten Fällen sollten Sie *Local* auswählen. Wenn Sie eine nicht standardmäßige Konfiguration haben, wählen Sie *Custom*; ein weiteres Feld erscheint, in dem Sie die maßgebliche Engine ID als hexadezimale Zeichenfolge mit einer geraden Anzahl von Zeichen zwischen 10 und 32 eingeben müssen.
+** *Authentifizierungsdaten* – Wählen Sie ein Authentifizierungsprotokoll, das die Identität der Benutzer sicherstellt. Geben Sie anschließend ein Authentifizierungspasswort ein, das erforderlich ist, wenn das Authentifizierungsprotokoll festgelegt oder geändert wird. Das Passwort muss zwischen 8 und 128 Zeichen lang sein.
+** *Datenschutz-Zugangsdaten* – Wählen Sie ein Datenschutzprotokoll aus, das zum Verschlüsseln der Nachrichteninhalte verwendet wird. Geben Sie anschließend ein Datenschutzpasswort ein, das erforderlich ist, wenn das Datenschutzprotokoll festgelegt oder geändert wird. Das Passwort muss zwischen 8 und 128 Zeichen lang sein.
+
+
+

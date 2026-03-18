@@ -1,0 +1,35 @@
+---
+permalink: sm-support/enable-autosupport-maintenance-window.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, autosupport, ASUP, maintenance window 
+summary: Aktivieren Sie das AutoSupport Wartungsfenster, um die automatische Ticketerstellung bei Fehlerereignissen zu unterdrücken. Im Normalbetrieb verwendet das Speichersystem AutoSupport, um bei Problemen automatisch ein Ticket bei Support zu eröffnen. 
+---
+= Aktivieren Sie das AutoSupport Wartungsfenster im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aktivieren Sie das AutoSupport Wartungsfenster, um die automatische Ticketerstellung bei Fehlerereignissen zu unterdrücken. Im Normalbetrieb verwendet das Speichersystem AutoSupport, um bei Problemen automatisch ein Ticket bei Support zu eröffnen.
+
+.Schritte
+. Menü auswählen: Support [Support Center > AutoSupport] Tab.
+. Wählen Sie *AutoSupport Wartungsfenster aktivieren*.
+. Geben Sie die E-Mail-Adresse ein, um eine Bestätigung zu erhalten, dass die Wartungsfensteranfrage bearbeitet wurde.
++
+Je nach Konfiguration können Sie bis zu fünf E-Mail-Adressen eingeben. Wenn Sie mehr als eine Adresse hinzufügen möchten, wählen Sie *Weitere E-Mail-Adresse hinzufügen*, um ein weiteres Feld zu öffnen.
+
+. Geben Sie die Dauer (in Stunden) an, um das Wartungsfenster zu aktivieren.
++
+Die maximal unterstützte Dauer beträgt 72 Stunden.
+
+. Klicken Sie auf *Ja*.
++
+AutoSupport automatische Ticketerstellung bei Fehlerereignissen wird für das angegebene Zeitfenster vorübergehend unterdrückt.
+
+
+
+.Nachdem Sie fertig sind
+Das Wartungsfenster beginnt erst, nachdem die Anfrage des Speichersystems von den AutoSupport-Servern verarbeitet wurde. Warten Sie mit der Durchführung von Wartungsarbeiten an Ihrem Speichersystem, bis Sie eine Bestätigungs-E-Mail erhalten haben.

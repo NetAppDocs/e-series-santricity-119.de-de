@@ -1,0 +1,38 @@
+---
+permalink: sm-hardware/configure-iser-over-infiniband-ports-hardware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, iser, infiniband, ports, 
+summary: Wenn Ihr Controller einen iSER over InfiniBand-Port umfasst, können Sie die Netzwerkverbindung zum Host konfigurieren. 
+---
+= Konfigurieren Sie iSER über InfiniBand-Ports im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Ihr Controller einen iSER over InfiniBand-Port umfasst, können Sie die Netzwerkverbindung zum Host konfigurieren.
+
+.Bevor Sie beginnen
+* Ihr Controller muss über einen iSER-over-InfiniBand-Port verfügen; andernfalls sind die iSER-over-InfiniBand-Einstellungen im System Manager nicht verfügbar.
+* Sie müssen die IP-Adresse der Hostverbindung kennen.
+
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Klicken Sie auf den Controller mit dem iSER über InfiniBand-Port, den Sie konfigurieren möchten.
++
+Das Kontextmenü des Controllers wird angezeigt.
+
+. Wählen Sie *iSER über InfiniBand-Ports konfigurieren*.
++
+Das Dialogfeld „iSER über InfiniBand Ports konfigurieren“ wird geöffnet.
+
+. Wählen Sie in der Dropdown-Liste den HIC-Port aus, den Sie konfigurieren möchten, und geben Sie dann die IP-Adresse des Hosts ein.
+. Klicken Sie auf *Configure*.
+. Schließen Sie die Konfiguration ab und setzen Sie dann den iSER über den InfiniBand-Port zurück, indem Sie auf *Ja* klicken.
+

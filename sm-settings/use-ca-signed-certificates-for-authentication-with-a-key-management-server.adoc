@@ -1,0 +1,96 @@
+---
+permalink: sm-settings/use-ca-signed-certificates-for-authentication-with-a-key-management-server.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ca-signed, certificates, authentication, key, management, server, 
+summary: Für eine sichere Kommunikation zwischen einem Schlüsselverwaltungsserver und den Speicherarray-Controllern müssen Sie die entsprechenden Zertifikate konfigurieren. 
+---
+= Verwenden Sie CA-signierte Zertifikate zur Authentifizierung mit einem Schlüsselverwaltungsserver in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Für eine sichere Kommunikation zwischen einem Schlüsselverwaltungsserver und den Speicherarray-Controllern müssen Sie die entsprechenden Zertifikate konfigurieren.
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Zertifikatsfunktionen nicht angezeigt.
+
+.Über diese Aufgabe
+Die Authentifizierung zwischen den Controllern und einem Key Management Server ist ein zweistufiges Verfahren.
+
+
+
+== Schritt 1: CSR ausfüllen und zur Authentifizierung bei einem Schlüsselverwaltungsserver einreichen
+
+Sie müssen zunächst eine Zertifikatsignierungsanforderungsdatei (CSR) erstellen und dann die CSR verwenden, um ein signiertes Clientzertifikat von einer Zertifizierungsstelle (CA) anzufordern, die vom Schlüsselverwaltungsserver als vertrauenswürdig eingestuft wird. Sie können auch ein Clientzertifikat vom Schlüsselverwaltungsserver mithilfe der heruntergeladenen CSR-Datei erstellen und herunterladen. Ein Clientzertifikat validiert die Controller des Storage-Arrays, sodass der Schlüsselverwaltungsserver deren Key Management Interoperability Protocol (KMIP)-Anfragen vertrauen kann.
+
+
+NOTE: Extern mithilfe von privaten und öffentlichen Schlüsselpaaren generierte CSR-Dateien können über den Dialog „Externen Sicherheitsschlüssel erstellen“ importiert werden. Weitere Informationen zum Importieren einer extern generierten CSR-Datei finden Sie unter  https://docs.netapp.com/us-en/e-series-santricity/sm-settings/use-ca-signed-certificates-for-authentication-with-a-key-management-server.html#step-2-import-certificates-for-the-key-management-server["Schritt 2: Zertifikate für den Schlüsselverwaltungsserver importieren"].
+
+.Schritte
+. Menü auswählen: Settings[Certificates].
+. Wählen Sie auf der Registerkarte *Schlüsselverwaltung* die Option *CSR abschließen*.
+. Geben Sie die folgenden Informationen ein:
++
+** *Allgemeiner Name* – Ein Name, der den Client identifiziert. Es ist gängige Praxis, dass der allgemeine Name den Anforderungen des KMS-Servers für die Benennung von Clientzertifikaten entspricht. Der allgemeine Name hilft dem KMS typischerweise, das Clientzertifikat zu identifizieren, wenn es während des Handschlags präsentiert wird.
+** *Organisation* -- Der vollständige, rechtliche Name Ihres Unternehmens oder Ihrer Organisation. Fügen Sie Suffixe wie Inc. oder Corp. hinzu.
+** *Organisationseinheit (optional)* -- Die Abteilung Ihrer Organisation, die das Zertifikat bearbeitet.
+** *Stadt/Ort* -- Die Stadt oder der Ort, in dem sich Ihre Organisation befindet.
+** *Bundesland/Region (optional)* -- Das Bundesland oder die Region, in der sich Ihre Organisation befindet.
+** *Country ISO code* -- Der zweistellige ISO-Code (Internationale Organisation für Normung), z. B. US, für das Land, in dem Ihre Organisation ansässig ist.
+
+
+. Klicken Sie auf *Download*.
++
+Eine CSR-Datei wird auf Ihrem lokalen System gespeichert.
+
+. Fordern Sie ein signiertes Clientzertifikat von der Zertifizierungsstelle an, die vom Schlüsselverwaltungsserver vertraut wird.
++
+
+NOTE: Es ist üblich, dass der Schlüsselverwaltungsserver über eine Funktion verfügt, die signierte Zertifikate direkt generiert, da er als seine eigene CA fungiert.
+
+. Wenn Sie ein Kundenzertifikat haben, gehen Sie zu <<Schritt 2: Zertifikate für den Schlüsselverwaltungsserver importieren>>.
+
+
+
+
+== Schritt 2: Zertifikate für den Schlüsselverwaltungsserver importieren
+
+Im nächsten Schritt importieren Sie Zertifikate für die Authentifizierung zwischen dem Speichersystem und dem Schlüsselverwaltungsserver. Es gibt zwei Arten von Zertifikaten: Das Clientzertifikat validiert die Controller des Speichersystems, während das Zertifikat des Schlüsselverwaltungsservers den Server validiert. Sie müssen sowohl die Clientzertifikatsdatei für die Controller als auch die Serverzertifikatsdatei für den Schlüsselverwaltungsserver laden.
+
+.Bevor Sie beginnen
+* Sie verfügen über eine signierte Clientzertifikatsdatei (siehe <<Schritt 1: CSR ausfüllen und zur Authentifizierung bei einem Schlüsselverwaltungsserver einreichen>>), und Sie haben diese Datei auf den Host kopiert, von dem aus Sie auf den System Manager zugreifen. Ein Clientzertifikat validiert die Controller des Storage-Arrays, sodass der Key Management Server deren Key Management Interoperability Protocol (KMIP)-Anfragen vertrauen kann.
+* Sie müssen eine Zertifikatsdatei vom Schlüsselverwaltungsserver abrufen und diese anschließend auf den Host kopieren, von dem aus Sie auf System Manager zugreifen. Ein Schlüsselverwaltungsserverzertifikat validiert den Schlüsselverwaltungsserver, sodass das Storage-Array dessen IP-Adresse vertrauen kann. Sie können ein Stamm-, Zwischen- oder Serverzertifikat für den Schlüsselverwaltungsserver verwenden.
++
+[NOTE]
+====
+Weitere Informationen zum Serverzertifikat finden Sie in der Dokumentation für Ihren Schlüsselverwaltungsserver.
+
+====
+
+
+.Schritte
+. Menü auswählen: Settings[Certificates].
+. Wählen Sie auf der Registerkarte *Schlüsselverwaltung* die Option *Import*.
++
+Es öffnet sich ein Dialogfeld zum Importieren der Zertifikatsdateien.
+
+. Klicken Sie neben *Select client certificate* auf die Schaltfläche *Browse*, um die Clientzertifikatsdatei für die Controller des Speichersystems auszuwählen.
++
+Der Dateiname wird im Dialogfeld angezeigt.
+
+. Wenn Sie eine Zertifikatsdatei extern mithilfe eines privaten und eines öffentlichen Schlüsselpaares generiert haben, klicken Sie auf die Schaltfläche *Durchsuchen* neben *Private Schlüsseldatei auswählen*, um die Zertifikatsdatei für die Controller des Storage-Arrays auszuwählen.
++
+Der Dateiname wird im Dialogfeld angezeigt.
+
+. Klicken Sie neben *Serverzertifikat des Schlüsselverwaltungsservers auswählen* auf die Schaltfläche *Durchsuchen*, um die Serverzertifikatsdatei für Ihren Schlüsselverwaltungsserver auszuwählen. Sie können ein Stamm-, Zwischen- oder Serverzertifikat für den Schlüsselverwaltungsserver auswählen.
++
+Der Dateiname wird im Dialogfeld angezeigt.
+
+. Klicken Sie auf *Import*.
++
+Die Dateien werden hochgeladen und validiert.
+
+

@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: known-issues.html 
+keywords: known, issues, santricity, os 
+summary: Bekannte Probleme 
+---
+= Versionshinweise
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Die Versionshinweise sind außerhalb dieser Website verfügbar. Sie werden aufgefordert, sich mit Ihren NetApp Support Site-Zugangsdaten anzumelden.
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3334464["11.90 Versionshinweise"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2885976["11.80 Versionshinweise"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2874254["11.70 Versionshinweise"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2857931["11.60 Versionshinweise"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2842060["11.50 Versionshinweise"^]
+

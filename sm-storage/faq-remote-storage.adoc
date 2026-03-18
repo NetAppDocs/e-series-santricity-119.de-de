@@ -1,0 +1,137 @@
+---
+permalink: sm-storage/faq-remote-storage.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zur Remote-Speicherung für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was muss ich wissen, bevor ich eine Remote-Storage-Verbindung herstelle?
+
+Um die Remote Storage-Funktion zu konfigurieren, müssen Sie das Remote-Gerät und die Ziel-Storage-Systeme direkt über iSCSI verbinden.
+
+Informationen zum Einrichten der iSCSI-Systemverbindung finden Sie unter:
+
+* link:../sm-hardware/configure-iscsi-ports-hardware.html["iSCSI-Ports konfigurieren"]
+* https://www.netapp.com/pdf.html?item=/media/28697-tr-4893-deploy.pdf["Technischer Bericht zum Remote Storage"^]
+
+
+
+
+== Warum werde ich aufgefordert, meine Remote-Volumes zu entfernen?
+
+Wenn es seine maximale Anzahl an Remote-Volumes erreicht, erkennt das Storage-System automatisch alle nicht verwendeten Remote-Volumes und fordert Sie auf, diese zu entfernen.
+
+Es gibt einige Fälle, in denen die ungenutzten Remote-Volumes während des Erstellungsprozesses nicht bereinigt werden. Bevor Sie weitere Importvorgänge starten, vergewissern Sie sich, dass Ihre Systeme optimal sind und die Netzwerkverbindungen stabil sind.
+
+
+
+== Warum sehe ich nicht alle meine Volumes auf meinem Ziel-Array?
+
+Beim Konfigurieren eines Imports für die Remote Storage-Funktion kann es sein, dass einige Volumes aufgrund der Blockgröße, Kapazität oder Volume-Verfügbarkeit nicht in der Liste der Zielkandidaten erscheinen.
+
+Um in der Liste zu erscheinen, müssen Volume-Kandidaten Folgendes haben:
+
+* Kapazität, die gleich oder größer als das Remote-Volume ist.
+* Blockgröße, die mit dem Remote-Volume identisch ist.
+* Aktueller Status von Optimal.
+
+
+Volume-Kandidaten werden aus der Liste ausgeschlossen, wenn sie Folgendes aufweisen:
+
+* Eine der folgenden Beziehungen: Volume Copy, Snapshot oder Spiegelung.
+* Rekonfigurationsvorgang läuft.
+* Zuordnung zu einem anderen Gerät (Host oder Host-Cluster).
+* Lesen von Flash-Cache aktiviert.
+
+
+
+
+== Was muss ich über das Remote-Volume bei einem Import wissen?
+
+Bei Verwendung der Funktion Remote Storage ist zu beachten, dass das Remote-Volume die Quelle ist, aus der die Daten stammen.
+
+Während des Importvorgangs werden die Daten vom Remote-Volume auf das Ziel-Volume auf dem Ziel-Storage-System übertragen. Diese beiden Volumes müssen eine übereinstimmende Blockgröße haben.
+
+
+
+== Was muss ich wissen, bevor ich einen Remote-Storage-Import starte?
+
+Mit der Funktion „Remote Storage“ können Sie Daten von einem Remote-System auf ein Volume eines lokalen E-Series Storage-System kopieren. Lesen Sie vor der Verwendung dieser Funktion die folgenden Richtlinien.
+
+
+
+=== Konfiguration
+
+Bevor Sie den Remote-Storage-Import erstellen, müssen Sie die folgenden Aktionen ausführen und die folgenden Bedingungen überprüfen:
+
+* Stellen Sie sicher, dass jeder Controller des lokalen E-Series Storage-System über eine iSCSI-Verbindung zum Remote-System verfügt.
+* Erstellen Sie auf Ihrem lokalen E-Series Storage-System ein Ziel-Volume für den Importvorgang. Stellen Sie sicher, dass das Volume eine Kapazität aufweist, die der des Quell-Volumes entspricht oder größer ist, eine Blockgröße hat, die mit der des Quell-Volumes übereinstimmt, und nicht zugeordnet ist. Siehe link:create-volumes.html["Volumes erstellen"].
+* Richten Sie das lokale E-Series Storage-System als Host auf dem Remote-System mithilfe seines iSCSI Qualified Name (IQN) ein. Sie können den IQN im Menü: Einstellungen [System > iSCSI settings > Target IQN] anzeigen. Achten Sie außerdem darauf, den passenden Hosttyp basierend auf dem verwendeten System festzulegen.
+* Stoppen Sie alle E/A-Vorgänge, hängen Sie alle Dateisysteme aus und entfernen Sie alle Zuordnungen des ausgewählten Volumes zu Hosts oder Anwendungen auf dem Remote-System.
+* Weisen Sie das Volume des Remote-Systems dem neu erstellten lokalen E-Series Storage-System zu.
+* Sammeln Sie die folgenden Informationen vom Remote-System, damit der Import erstellt werden kann:
++
+** iSCSI Qualified Name (IQN)
+** iSCSI-IP-Adresse
+** Die LUN-Nummer des Remote-Speichergeräts, von dem die Quelldaten stammen
+
+
+* Sobald der Importvorgang beginnt, wird das gesamte lokale Ziel-Volume mit den kopierten Daten überschrieben. Alle neu auf das lokale Ziel-Volume geschriebenen Daten werden nach Erstellung des Imports auf das Volume auf dem Remote-Storage-Gerät übertragen. Daher empfehlen wir, vor Beginn des Importvorgangs Volumes auf dem Remote-Storage-System zu sichern.
+
+
+
+
+=== Importprozess
+
+Die folgenden Schritte beschreiben den Importvorgang.
+
+. Öffnen Sie die System Manager-Oberfläche und navigieren Sie zur Seite *Remote Storage*. Wählen Sie *Import*, um eine neue Importerstellung zu starten. Ausführliche Anweisungen finden Sie unter link:rtv-import-remote-storage.html["Remote-Speicher importieren"].
++
+Wenn Sie einen Offline-Import durchführen möchten, ordnen Sie das Ziel-Volume erst nach Abschluss des Imports zu.
+
+. Überwachen Sie den Fortschritt des Imports.
++
+Sobald der Import startet, kann das Ziel-Volume zugeordnet werden. Die für den Import benötigte Zeit hängt von der Größe des entfernten Speichermediums (Quellvolume), der Prioritätseinstellung für den Import und der E/A-Last beider Speichersysteme und ihrer zugehörigen Volumes ab.
+
++
+Nach Abschluss des Imports ist das Ziel-Volume ein Duplikat der Quelle.
+
+. Wenn Sie bereit sind, die Zuordnungsbeziehung aufzuheben, führen Sie im Bereich *Laufende Vorgänge* eine *Trennung* für das Importobjekt durch.
+
+
+Sobald der Import getrennt ist, kehrt die Leistung des lokalen Ziels zur Normalität zurück und wird nicht mehr durch die Remote-Verbindung beeinträchtigt.
+
+
+
+=== Einschränkungen
+
+Die Funktion „Remote Storage“ unterliegt folgenden Einschränkungen:
+
+* Die Spiegelung muss deaktiviert sein.
+* Das Ziel-Volume im E-Series-System darf keine Snapshots enthalten.
+* Das Ziel-Volume auf dem E-Series-System darf vor dem Start des Imports keinem Host zugeordnet sein.
+* Das Ziel-Volume auf dem E-Series-System muss mit deaktivierter Ressourcenbereitstellung konfiguriert sein.
+* Die direkte Zuordnung des Remote-Speichervolumes zu einem oder mehreren Hosts wird nicht unterstützt.
+* Web Services Proxy wird nicht unterstützt.
+* iSCSI CHAP secrets werden nicht unterstützt.
+* SMcli wird nicht unterstützt.
+* VMware Datastore wird nicht unterstützt.
+* Nur ein Speichersystem im Beziehungs-/Importpaar kann jeweils aktualisiert werden, wenn ein Importpaar vorhanden ist.
+
+
+
+
+=== Weitere Informationen
+
+Weitere Informationen zur Remote-Speicherfunktion sind verfügbar von der https://www.netapp.com/pdf.html?item=/media/28697-tr-4893-deploy.pdf["Technischer Bericht zum Remote Storage"^].

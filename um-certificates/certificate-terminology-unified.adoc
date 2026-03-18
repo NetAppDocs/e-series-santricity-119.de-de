@@ -1,0 +1,96 @@
+---
+permalink: um-certificates/certificate-terminology-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, certificate, terminology 
+summary: Für das Zertifikatsmanagement gelten die folgenden Bedingungen. 
+---
+= Erfahren Sie mehr über die Zertifikatsterminologie im SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Für das Zertifikatsmanagement gelten die folgenden Bedingungen.
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+CA
+ a| 
+Eine Zertifizierungsstelle (CA) ist eine vertrauenswürdige Instanz, die elektronische Dokumente, sogenannte digitale Zertifikate, für die Internetsicherheit ausstellt. Diese Zertifikate identifizieren Website-Betreiber, was sichere Verbindungen zwischen Clients und Servern ermöglicht.
+
+
+
+ a| 
+CSR
+ a| 
+Eine Zertifikatsignierungsanforderung (CSR) ist eine Nachricht, die von einem Antragsteller an eine Zertifizierungsstelle (CA) gesendet wird. Die CSR bestätigt die Informationen, die die CA zur Ausstellung eines Zertifikats benötigt.
+
+
+
+ a| 
+Zertifikat
+ a| 
+Ein Zertifikat dient der Identifizierung des Website-Inhabers aus Sicherheitsgründen, wodurch verhindert wird, dass Angreifer sich als die Website ausgeben. Das Zertifikat enthält Informationen über den Website-Inhaber und die Identität der vertrauenswürdigen Stelle, die diese Informationen zertifiziert (signiert).
+
+
+
+ a| 
+Zertifikatskette
+ a| 
+Eine Dateihierarchie, die den Zertifikaten eine zusätzliche Sicherheitsebene hinzufügt. Typischerweise umfasst die Kette ein Stammzertifikat an der Spitze der Hierarchie, ein oder mehrere Zwischenzertifikate und die Serverzertifikate, die die Entitäten identifizieren.
+
+
+
+ a| 
+Zwischenzertifikat
+ a| 
+In der Zertifikatskette zweigen ein oder mehrere Zwischenzertifikate vom Stammzertifikat ab. Die Zertifizierungsstelle stellt ein oder mehrere Zwischenzertifikate aus, die als Vermittler zwischen einem geschützten Stammzertifikat und Serverzertifikaten fungieren.
+
+
+
+ a| 
+Keystore
+ a| 
+Ein Keystore ist ein Speicherort auf Ihrem Host-Managementsystem, der private Schlüssel sowie die zugehörigen öffentlichen Schlüssel und Zertifikate enthält. Diese Schlüssel und Zertifikate identifizieren Ihre eigenen Entitäten, wie zum Beispiel die Controller.
+
+
+
+ a| 
+Stammzertifikat
+ a| 
+Das Stammzertifikat steht an der Spitze der Zertifikatskette und enthält einen privaten Schlüssel, mit dem andere Zertifikate signiert werden. Das Stammzertifikat identifiziert eine bestimmte CA-Organisation. Wenn Sie für alle Ihre Netzwerkgeräte dieselbe CA verwenden, benötigen Sie nur ein Stammzertifikat.
+
+
+
+ a| 
+Unterzeichnetes Zertifikat
+ a| 
+Ein von einer Zertifizierungsstelle (CA) validiertes Zertifikat. Diese Datendatei enthält einen privaten Schlüssel und stellt sicher, dass Daten in verschlüsselter Form zwischen einem Server und einem Client über eine HTTPS-Verbindung gesendet werden. Zusätzlich enthält ein signiertes Zertifikat Angaben zum Inhaber der Entität (typischerweise ein Server oder eine Website) sowie eine digitale Signatur, die aus Buchstaben und Zahlen besteht. Ein signiertes Zertifikat verwendet eine Vertrauenskette und wird daher meist in Produktionsumgebungen eingesetzt. Wird auch als „CA-signiertes Zertifikat“ oder „Managementzertifikat“ bezeichnet.
+
+
+
+ a| 
+Selbstsigniertes Zertifikat
+ a| 
+Ein selbstsigniertes Zertifikat wird vom Inhaber der Entität validiert. Diese Datendatei enthält einen privaten Schlüssel und stellt sicher, dass Daten in verschlüsselter Form zwischen einem Server und einem Client über eine HTTPS-Verbindung gesendet werden. Sie enthält außerdem eine digitale Signatur, die aus Buchstaben und Zahlen besteht. Ein selbstsigniertes Zertifikat verwendet nicht dieselbe Vertrauenskette wie ein von einer Zertifizierungsstelle signiertes Zertifikat und wird daher meist in Testumgebungen verwendet. Auch als „vorinstalliertes“ Zertifikat bezeichnet.
+
+
+
+ a| 
+Serverzertifikat
+ a| 
+Das Serverzertifikat steht am Ende der Zertifikatskette. Es identifiziert Ihre spezifische Entität, beispielsweise eine Website oder ein anderes Gerät. Jeder Controller in einem Speichersystem benötigt ein separates Serverzertifikat.
+
+
+
+ a| 
+Truststore
+ a| 
+Ein Truststore ist ein Speicherort, der Zertifikate von vertrauenswürdigen Dritten, wie CAs, enthält.
+
+|===

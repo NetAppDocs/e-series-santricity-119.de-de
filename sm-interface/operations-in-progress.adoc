@@ -1,0 +1,334 @@
+---
+permalink: sm-interface/operations-in-progress.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, operations in progress 
+summary: Die Seite „Operations in Progress“ ermöglicht es Ihnen, eine Liste von lang andauernden Vorgängen anzuzeigen, die derzeit ausgeführt werden oder sich in einem angehaltenen, gestoppten oder fehlgeschlagenen Zustand befinden. Sie können bei bestimmten Vorgangsarten Maßnahmen ergreifen. 
+---
+= Erfahren Sie mehr über die Seite „Vorgänge in Bearbeitung“ des SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Seite „Operations in Progress“ ermöglicht es Ihnen, eine Liste von lang andauernden Vorgängen anzuzeigen, die derzeit ausgeführt werden oder sich in einem angehaltenen, gestoppten oder fehlgeschlagenen Zustand befinden. Sie können bei bestimmten Vorgangsarten Maßnahmen ergreifen.
+
+Langlaufende Vorgänge können die Systemleistung beeinträchtigen. Bei einigen Vorgängen haben Sie die Möglichkeit, den Vorgang zu stoppen oder seine Priorität zu ändern, sodass wichtigere Vorgänge zuerst abgeschlossen werden.
+
+Vorgänge, die auf der Seite „Laufende Vorgänge“ angezeigt werden, umfassen Folgendes:
+
+[cols="1a,1a,1a"]
+|===
+| Betrieb | Möglicher Status des Vorgangs | Maßnahmen, die Sie ergreifen können 
+
+
+ a| 
+Volume-Kopie
+ a| 
+Abgeschlossen
+ a| 
+Löschen
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+In Bearbeitung
+ a| 
+* Priorität ändern
+* Stopp
+
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+Ausstehend
+ a| 
+Löschen
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+Fehlgeschlagen
+ a| 
+* Löschen
+* Erneut kopieren
+
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+Angehalten
+ a| 
+* Löschen
+* Erneut kopieren
+
+
+
+
+ a| 
+Volumen erstellen (nur für dicke Poolvolumina größer als 64TiB)
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Volume löschen (nur Thick-Pool-Volumes größer als 64TiB)
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Asynchrone anfängliche Synchronisierung der Spiegelgruppe
+ a| 
+In Bearbeitung
+ a| 
+Aussetzen
+
+
+
+ a| 
+Asynchrone anfängliche Synchronisierung der Spiegelgruppe
+ a| 
+Ausgesetzt
+ a| 
+Fortsetzen
+
+
+
+ a| 
+Synchrone Spiegelung
+ a| 
+In Bearbeitung
+ a| 
+Aussetzen
+
+
+
+ a| 
+Synchrone Spiegelung
+ a| 
+Ausgesetzt
+ a| 
+Fortsetzen
+
+
+
+ a| 
+Snapshot-Image-Rollback
+ a| 
+In Bearbeitung
+ a| 
+Abbrechen
+
+
+
+ a| 
+Snapshot-Image-Rollback
+ a| 
+Ausstehend
+ a| 
+Abbrechen
+
+
+
+ a| 
+Snapshot-Image-Rollback
+ a| 
+Angehalten
+ a| 
+* Abbrechen
+* Fortsetzen
+
+
+
+
+ a| 
+Laufwerksevakuierung
+ a| 
+In Bearbeitung
+ a| 
+Abbrechen (abhängig vom Typ der Laufwerksevakuierung)
+
+
+
+ a| 
+Kapazität zum Pool oder zur Volumengruppe hinzufügen
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Ändern Sie einen RAID-Level für ein Volume
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Kapazität für einen Pool reduzieren
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Thin-Volume-Rückgewinnung
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Prüfen Sie die verbleibende Zeit für einen Instant Availability Format (IAF)-Vorgang für Pool-Volumes
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Überprüfen Sie die Datenredundanz einer Volume-Gruppe
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Eine Volume Group defragmentieren
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Initialisieren Sie ein Volume
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Kapazität für ein Volume erhöhen
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Ändern Sie die Segmentgröße für ein Volume
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Laufwerkskopie
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Datenrekonstruktion
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Copyback
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Laufwerk löschen
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+In Bearbeitung
+ a| 
+* Priorität ändern
+* Stopp
+
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+Angehalten
+ a| 
+* Fortsetzen
+* Trennen
+
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+Fehlgeschlagen
+ a| 
+* Fortsetzen
+* Trennen
+
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+Abgeschlossen
+ a| 
+Trennen
+
+|===

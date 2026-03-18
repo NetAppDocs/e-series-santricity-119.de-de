@@ -1,0 +1,32 @@
+---
+permalink: sm-support/end-iscsi-session-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, end, iscsi, session 
+summary: Sie können eine nicht mehr benötigte iSCSI-Sitzung beenden. iSCSI-Sitzungen können mit Hosts oder entfernten Speichersystemen in einer asynchronen Spiegelbeziehung auftreten. 
+---
+= Beenden Sie eine iSCSI-Sitzung im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine nicht mehr benötigte iSCSI-Sitzung beenden. iSCSI-Sitzungen können mit Hosts oder entfernten Speichersystemen in einer asynchronen Spiegelbeziehung auftreten.
+
+.Über diese Aufgabe
+Aus folgenden Gründen möchten Sie möglicherweise eine iSCSI-Sitzung beenden:
+
+* *Unberechtigter Zugriff* – Wenn ein iSCSI-Initiator angemeldet ist, der keinen Zugriff haben sollte, können Sie die iSCSI-Sitzung beenden, um den iSCSI-Initiator vom Storage-Array abzumelden. Der iSCSI-Initiator könnte sich angemeldet haben, weil das Authentifizierungsverfahren "None" verfügbar war.
+* *Systemausfallzeit* -- Wenn Sie ein Storage Array herunterfahren müssen und feststellen, dass iSCSI-Initiatoren noch angemeldet sind, können Sie die iSCSI-Sitzungen beenden, um die iSCSI-Initiatoren vom Storage Array zu entfernen.
+
+
+.Schritte
+. Menü auswählen: Support [Support Center > Diagnostics] Registerkarte.
+. Wählen Sie *View/End iSCSI Sessions*.
++
+Eine Liste der aktuellen iSCSI-Sitzungen wird angezeigt.
+
+. Wählen Sie die Sitzung aus, die Sie beenden möchten.
+. Klicken Sie auf *Sitzung beenden* und bestätigen Sie, dass Sie den Vorgang ausführen möchten.
+

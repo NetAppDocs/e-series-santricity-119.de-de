@@ -1,0 +1,65 @@
+---
+permalink: sm-storage/rtv-how-remote-storage-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage 
+summary: Die Funktion „Remote-Speicher“ ermöglicht den Import von Daten von einem entfernten Speichersystem in ein lokales E-Series Storage-System. Diese Funktion ist hilfreich, wenn Sie die Datenmigration mit minimalen Ausfallzeiten optimieren möchten, beispielsweise bei Geräte-Upgrades. 
+---
+= Wie Remote-Speicher in der SANtricity-Software funktioniert
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Funktion „Remote-Speicher“ ermöglicht den Import von Daten von einem entfernten Speichersystem in ein lokales E-Series Storage-System. Diese Funktion ist hilfreich, wenn Sie die Datenmigration mit minimalen Ausfallzeiten optimieren möchten, beispielsweise bei Geräte-Upgrades.
+
+Um die Remote-Speicherfunktion zu konfigurieren, müssen Sie die Hardware einrichten und anschließend mit System Manager ein Remote-Speicherobjekt erstellen. Sobald diese Konfiguration abgeschlossen ist, beginnt der Importvorgang.
+
+
+
+== Hardware-Einrichtung
+
+Verwenden Sie den folgenden Workflow, um die Hardwareverbindungen vorzubereiten.
+
+Diese Schritte werden im Benutzerhandbuch für die Remote-Storage-Funktion näher beschrieben, das im E-Series und SANtricity Dokumentationszentrum unter  https://docs.netapp.com/us-en/e-series/remote-storage-volumes/index.html["Übersicht über Remote Storage Volumes"^] verfügbar ist, sowie in der  https://www.netapp.com/pdf.html?item=/media/28697-tr-4893-deploy.pdf["Technischer Bericht zum Remote Storage"^].
+
+
+NOTE: SANtricity Remote Storage Volumes wird derzeit auf E4000-Systemen nicht unterstützt.
+
+Auf dem lokalen E-Series Storage-System:
+
+. Stellen Sie sicher, dass jeder Controller über eine iSCSI-Verbindung zum Remote-System verfügt. Mit dieser Verbindung fungiert das lokale E-Series Storage-System als iSCSI-Initiator, der als Host auf dem Remote-System eingerichtet werden kann.
+. Erstellen Sie ein Ziel-Volume für den Importvorgang. Stellen Sie sicher, dass das Volume eine Kapazität aufweist, die mindestens der des Quell-Volumes auf dem Remote-System entspricht, die gleiche Blockgröße besitzt und nicht zugeordnet ist. Siehe link:create-volumes.html["Volumes erstellen"].
+. Ermitteln Sie den iSCSI Qualified Name (IQN) für das lokale E-Series Storage-System über die System Manager-Oberfläche. Der IQN wird später verwendet, um das lokale E-Series Storage-System als Host auf dem Remote-System einzurichten. Gehen Sie im System Manager zu: menu:Einstellungen[System > iSCSI settings > Target IQN].
+
+
+Am Remote-System:
+
+. Richten Sie das lokale E-Series Storage-System als Host auf dem Remote-System ein, indem Sie dessen IQN verwenden. Achten Sie darauf, den entsprechenden Host-Typ wie folgt festzulegen:
++
+** Wenn das Remote-System ein E-Series Modell ist, siehe link:overview-hosts.html["Übersicht über Hosts und Host-Cluster"]. Verwenden Sie als Hosttyp „Factory Default“.
+** Wenn das Remote-System von einem anderen Anbieter stammt, wählen Sie anhand der verfügbaren Optionen einen geeigneten Host-Typ aus.
+
+
+. Stoppen Sie alle E/A-Vorgänge, hängen Sie alle Dateisysteme aus und entfernen Sie alle Zuordnungen des Quell-Volumes zu Hosts oder Anwendungen.
+. Weisen Sie das Volume dem neu erstellten lokalen E-Series Storage-System-Host zu.
+. Sammeln Sie für das ausgewählte Quell-Volume die folgenden Informationen vom Remote-System, damit der Import erstellt werden kann:
++
+** iSCSI Qualified Name (IQN)
+** iSCSI-IP-Adresse
+** LUN-Nummer des Quell-Volume
+
+
+
+
+
+
+== System Manager-Einrichtung
+
+Verwenden Sie den folgenden Workflow, um ein Remote-Speicherobjekt für den Import zu erstellen:
+
+. Ordnen Sie mithilfe des Assistenten für Remote Storage in der System Manager-Oberfläche ein Remote-Storage-Gerät (die Quelle für den Datenimport) einem Ziel-Volume auf dem E-Series Storage-System zu. Wenn Sie *Finish* auswählen, beginnt der Importvorgang.
+. Überwachen Sie den Import im Dialogfeld „Vorgänge anzeigen“ oder im Bereich „Laufende Vorgänge“. Bei Bedarf können Sie den Prozess auch anhalten und fortsetzen.
+. Optional können Sie die Verbindung zwischen Quell- und Ziel-Volume nach Abschluss des Imports trennen oder für zukünftige Importe beibehalten.
+

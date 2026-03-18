@@ -1,0 +1,130 @@
+---
+permalink: sm-storage/performance-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, performance, terms 
+summary: Erfahren Sie, wie die Leistungsbegriffe auf Ihr Storage-Array zutreffen. 
+---
+= Erfahren Sie mehr über die Leistungsbegriffe in SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Leistungsbegriffe auf Ihr Storage-Array zutreffen.
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+Anwendung
+ a| 
+Eine Anwendung ist ein Softwareprogramm, wie SQL oder Exchange.
+
+
+
+ a| 
+CPU
+ a| 
+CPU ist die Abkürzung für „central processing unit“. CPU gibt den Prozentsatz der Verarbeitungskapazität des Speichersystems an, der genutzt wird.
+
+
+
+ a| 
+Host
+ a| 
+Ein Host ist ein Server, der E/A an ein Volume auf einem Storage-Array sendet.
+
+
+
+ a| 
+IOPS
+ a| 
+IOPS steht für Eingabe-/Ausgabeoperationen pro Sekunde.
+
+
+
+ a| 
+Latenz
+ a| 
+Latenz ist das Zeitintervall zwischen einer Anfrage, wie etwa einem Lese- oder Schreibbefehl, und der Antwort vom Host oder dem Storage-Array.
+
+
+
+ a| 
+LUN
+ a| 
+Eine logische Einheitennummer (LUN) ist die Nummer, die dem Adressraum zugewiesen wird, den ein Host für den Zugriff auf ein Volume verwendet. Das Volume wird dem Host als Kapazität in Form einer LUN präsentiert.
+
+Jeder Host verfügt über einen eigenen LUN-Adressraum. Daher kann dieselbe LUN von verschiedenen Hosts verwendet werden, um auf unterschiedliche Volumes zuzugreifen.
+
+
+
+ a| 
+MiB
+ a| 
+MiB ist die Abkürzung für Mebibyte (Mega-Binärbyte). Ein MiB entspricht 2 oder 1.048.576 Bytes. Vergleichen Sie mit MB, das einen Wert zur Basis 10 bezeichnet. Ein MB entspricht 1.024 Bytes.
+
+
+
+ a| 
+Objekt
+ a| 
+Ein Objekt ist jede logische oder physische Speicherkomponente.
+
+Logische Objekte umfassen Volumengruppen, Pools und Volumen. Physische Objekte umfassen das Speicherarray, Array-Controller, Hosts und Laufwerke.
+
+
+
+ a| 
+Pool
+ a| 
+Ein Pool ist eine Gruppe von Laufwerken, die logisch zusammengefasst sind. Sie können einen Pool verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einem Pool oder einer Volume-Gruppe.)
+
+
+
+ a| 
+Lesen
+ a| 
+Read ist die Kurzform für „Lesevorgang“, der auftritt, wenn der Host Daten vom Speichersystem anfordert.
+
+
+
+ a| 
+Volumen
+ a| 
+Ein Volume ist ein Container, in dem Anwendungen, Datenbanken und Dateisysteme Daten speichern. Es ist die logische Komponente, die für den Host erstellt wird, um auf den Speicher des Speichersystems zuzugreifen.
+
+Ein Volume wird aus der verfügbaren Kapazität eines Pools oder einer Volume-Gruppe erstellt. Ein Volume hat eine definierte Kapazität. Obwohl ein Volume aus mehr als einem Laufwerk bestehen kann, erscheint ein Volume dem Host als eine logische Komponente.
+
+
+
+ a| 
+Volumenname
+ a| 
+Ein Volume-Name ist eine Zeichenfolge, die dem Volume bei seiner Erstellung zugewiesen wird. Sie können entweder den Standardnamen übernehmen oder einen aussagekräftigeren Namen angeben, der den Typ der im Volume gespeicherten Daten beschreibt.
+
+
+
+ a| 
+Volume-Gruppe
+ a| 
+Eine Volume-Gruppe ist ein Container für Volumes mit gemeinsamen Eigenschaften. Eine Volume-Gruppe hat eine definierte Kapazität und ein definiertes RAID-Level. Sie können eine Volume-Gruppe verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einer Volume-Gruppe oder einem Pool.)
+
+
+
+ a| 
+Arbeitslast
+ a| 
+Eine Workload ist ein Speicherobjekt, das eine Anwendung unterstützt. Sie können eine oder mehrere Workloads bzw. Instanzen pro Anwendung definieren. Bei einigen Anwendungen konfiguriert das System die Workload so, dass sie Volumes mit ähnlichen zugrunde liegenden Volume-Eigenschaften enthält. Diese Volume-Eigenschaften werden basierend auf dem Typ der Anwendung, die die Workload unterstützt, optimiert. Wenn Sie beispielsweise eine Workload erstellen, die eine Microsoft SQL Server Anwendung unterstützt, und anschließend Volumes für diese Workload erstellen, werden die zugrunde liegenden Volume-Eigenschaften optimiert, um Microsoft SQL Server zu unterstützen.
+
+
+
+ a| 
+Schreiben
+ a| 
+Write ist die Kurzform für "Schreibvorgang", wenn Daten vom Host zum Array zur Speicherung gesendet werden.
+
+|===

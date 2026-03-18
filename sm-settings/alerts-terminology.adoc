@@ -1,0 +1,89 @@
+---
+permalink: sm-settings/alerts-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, alerts, terms, 
+summary: Erfahren Sie, wie die Begriffe für Warnmeldungen auf Ihr Speichersystem zutreffen. 
+---
+= Erfahren Sie mehr über die Terminologie für Warnmeldungen in SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Begriffe für Warnmeldungen auf Ihr Speichersystem zutreffen.
+
+[cols="25h,~"]
+|===
+| Komponente | Beschreibung 
+
+
+ a| 
+Ereignisüberwachung
+ a| 
+Der Ereignismonitor befindet sich auf dem Storage-Array und läuft als Hintergrundaufgabe. Wenn der Ereignismonitor Anomalien auf dem Storage-Array erkennt, schreibt er Informationen über die Probleme in das Ereignisprotokoll. Zu den Problemen können Ereignisse wie ein Batterieausfall, das Wechseln einer Komponente von Optimal zu Offline oder Redundanzfehler im Controller gehören. Wenn der Ereignismonitor feststellt, dass das Ereignis „alarmierbar“ ist, sendet er eine Benachrichtigung über die konfigurierten Alarmierungsmethoden (E-Mail, SNMP und/oder Syslog). Alle Critical-Ereignisse gelten als „alarmierbar“, ebenso wie einige Warning- und Informational-Ereignisse.
+
+
+
+ a| 
+Mailserver
+ a| 
+Der Mailserver dient zum Senden und Empfangen von E-Mail-Benachrichtigungen. Der Server verwendet Simple Mail Transfer Protocol (SMTP).
+
+
+
+ a| 
+SNMP
+ a| 
+Das Simple Network Management Protocol (SNMP) ist ein Internet-Standardprotokoll, das zur Verwaltung und zum Austausch von Informationen zwischen Geräten auf IP-Netzwerken verwendet wird.
+
+
+
+ a| 
+SNMP-Trap
+ a| 
+Ein SNMP-Trap ist eine Benachrichtigung, die an einen SNMP-Server gesendet wird. Der Trap enthält Informationen über wichtige Probleme mit dem Storage-Array.
+
+
+
+ a| 
+SNMP-Trap-Ziel
+ a| 
+Ein SNMP-Trap-Ziel ist eine IPv4- oder IPv6-Adresse des Servers, auf dem ein SNMP-Dienst ausgeführt wird.
+
+
+
+ a| 
+Community-Name
+ a| 
+Ein Community-Name ist eine Zeichenkette, die wie ein Passwort für den/die Netzwerkserver in einer SNMP-Umgebung fungiert.
+
+
+
+ a| 
+MIB-Datei
+ a| 
+Die Management Information Base (MIB)-Datei definiert die im Storage-Array überwachten und verwalteten Daten. Sie muss auf dem Server mit der SNMP-Serviceanwendung kopiert und kompiliert werden. Diese MIB-Datei ist mit der System Manager Software auf der Support-Seite verfügbar.
+
+
+
+ a| 
+MIB-Variablen
+ a| 
+Management Information Base (MIB)-Variablen können Werte wie den Namen des Speicherarrays, den Speicherort des Arrays und eine Kontaktperson als Antwort auf SNMP GetRequests zurückgeben.
+
+
+
+ a| 
+Syslog
+ a| 
+Syslog ist ein Protokoll, das von Netzwerkgeräten verwendet wird, um Ereignismeldungen an einen Protokollierungsserver zu senden.
+
+
+
+ a| 
+UDP
+ a| 
+Das User Datagram Protocol (UDP) ist ein Transportschichtprotokoll, das in seinen Paket-Headern eine Quell- und eine Zielportnummer angibt.
+
+|===

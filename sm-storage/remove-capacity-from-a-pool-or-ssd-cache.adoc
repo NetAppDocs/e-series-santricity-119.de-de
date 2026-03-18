@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/remove-capacity-from-a-pool-or-ssd-cache.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, capacity, pool, ssd cache 
+summary: Sie können Laufwerke entfernen, um die Kapazität eines bestehenden Pools oder SSD-Cache zu verringern. 
+---
+= Kapazität aus einem Pool oder SSD-Cache im SANtricity System Manager entfernen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Laufwerke entfernen, um die Kapazität eines bestehenden Pools oder SSD-Cache zu verringern.
+
+Nachdem Sie Laufwerke entfernt haben, werden die Daten in jedem Volume des Pools oder SSD-Cache auf die verbleibenden Laufwerke verteilt. Die entfernten Laufwerke werden nicht mehr zugewiesen und ihre Kapazität wird Teil der gesamten freien Kapazität des Storage-Arrays.
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien, wenn Sie Kapazität entfernen:
+
+* Sie können das letzte Laufwerk in einem SSD-Cache nicht entfernen, ohne zuerst den SSD-Cache zu löschen.
+* Die Anzahl der Laufwerke in einem Pool darf nicht auf weniger als 11 Laufwerke reduziert werden.
+* Sie können maximal 12 Laufwerke gleichzeitig entfernen. Wenn Sie mehr als 12 Laufwerke entfernen müssen, wiederholen Sie das Verfahren.
+* Sie können keine Laufwerke entfernen, wenn im Pool oder SSD-Cache nicht genügend freie Kapazität vorhanden ist, um die Daten aufzunehmen, wenn diese Daten auf die verbleibenden Laufwerke im Pool oder SSD-Cache verteilt werden.
+
+
+.Lesen Sie über mögliche Auswirkungen auf die Leistung
+[%collapsible]
+====
+* Das Entfernen von Laufwerken aus einem Pool oder SSD-Cache kann zu einer verringerten Volume-Performance führen.
+* Die Preservation-Kapazität wird nicht verbraucht, wenn Sie Kapazität aus einem Pool oder SSD-Cache entfernen. Die Preservation-Kapazität kann sich jedoch verringern, abhängig von der Anzahl der verbleibenden Laufwerke im Pool oder SSD-Cache.
+
+
+====
+.Lesen Sie mehr über die Auswirkungen auf Secure-Capable-Laufwerke
+[%collapsible]
+====
+* Wenn Sie das letzte Laufwerk entfernen, das nicht sicherheitsfähig ist, enthält der Pool nur noch sicherheitsfähige Laufwerke. In diesem Fall haben Sie die Möglichkeit, die Sicherheit für den Pool zu aktivieren.
+* Wenn Sie das letzte Laufwerk entfernen, das nicht Data Assurance (DA)-fähig ist, besteht der Pool nur noch aus Data Assurance (DA)-fähigen Laufwerken.
+
+
+
+NOTE: Alle neu erstellten Volumes im Pool sind DA-fähig. Wenn Sie vorhandene Volumes DA-fähig machen möchten, müssen Sie das Volume löschen und dann neu erstellen.
+
+====
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Wählen Sie den Pool oder den SSD-Cache aus und klicken Sie dann auf menu:More[Remove capacity].
++
+Das Dialogfeld „Kapazität entfernen“ wird angezeigt.
+
+. Wählen Sie ein oder mehrere Laufwerke in der Liste aus.
++
+Wenn Sie Laufwerke in der Liste auswählen oder abwählen, wird das Feld *Ausgewählte Gesamtkapazität* aktualisiert. Dieses Feld zeigt die Gesamtkapazität des Pools oder SSD-Cache, die nach dem Entfernen der ausgewählten Laufwerke verbleibt.
+
+. Klicken Sie auf *Entfernen* und bestätigen Sie, dass Sie die Laufwerke entfernen möchten.
++
+Die neu reduzierte Kapazität des Pools oder SSD-Cache wird in der Ansicht „Pools und Volume Groups“ angezeigt.
+
+

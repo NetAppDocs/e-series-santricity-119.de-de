@@ -1,0 +1,58 @@
+---
+permalink: sm-storage/increase-capacity-of-a-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, increase, capacity, volume 
+summary: 'Sie können die gemeldete Kapazität (die Kapazität, die den Hosts gemeldet wird) eines Volumes erhöhen, indem Sie die freie Kapazität nutzen, die im Pool oder in der Volume-Gruppe verfügbar ist.' 
+---
+= Erhöhen Sie die Kapazität eines Volumes im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die gemeldete Kapazität (die Kapazität, die den Hosts gemeldet wird) eines Volumes erhöhen, indem Sie die freie Kapazität nutzen, die im Pool oder in der Volume-Gruppe verfügbar ist.
+
+.Bevor Sie beginnen
+* Im zugehörigen Pool oder der zugehörigen Volume-Gruppe ist ausreichend freie Kapazität vorhanden.
+* Das Volumen ist optimal und befindet sich in keinem Änderungszustand.
+* Die maximal gemeldete Kapazität von 256 TiB wurde für Thin Volumes noch nicht erreicht.
+* Im Volume werden keine Hot-Spare-Laufwerke verwendet. (Gilt nur für Volumes in Volume-Gruppen.)
+
+
+
+NOTE: Sie können die Volume-Kapazität nur bis zu 128 TiB auf einmal erweitern.
+
+.Über diese Aufgabe
+Berücksichtigen Sie mögliche zukünftige Kapazitätsanforderungen für andere Volumes in diesem Pool oder dieser Volume-Gruppe. Stellen Sie sicher, dass Sie ausreichend freie Kapazität für die Erstellung von Snapshot-Images, Snapshot-Volumes oder Remote-Mirrors zulassen.
+
+[NOTE]
+====
+Die Erhöhung der Kapazität eines Volumes wird nur auf bestimmten Betriebssystemen unterstützt. Wenn Sie die Kapazität eines Volumes auf einem nicht unterstützten Host-Betriebssystem erhöhen, ist die erweiterte Kapazität unbrauchbar und Sie können die ursprüngliche Volume-Kapazität nicht wiederherstellen.
+
+====
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Wählen Sie das Volume aus, dessen Kapazität Sie erhöhen möchten, und wählen Sie dann *Kapazität erhöhen*.
++
+Das Dialogfeld „Kapazitätserhöhung bestätigen“ wird angezeigt.
+
+. Wählen Sie *Ja*, um fortzufahren.
++
+Das Dialogfeld „Gemeldete Kapazität erhöhen“ wird angezeigt.
+
++
+In diesem Dialogfeld werden die aktuell gemeldete Kapazität des Volumes und die im zugehörigen Pool oder Volume-Gruppe verfügbare freie Kapazität angezeigt.
+
+. Verwenden Sie das Feld *Erhöhen Sie die gemeldete Kapazität durch Hinzufügen von...*, um Kapazität zur aktuell verfügbaren gemeldeten Kapazität hinzuzufügen. Sie können den Kapazitätswert so ändern, dass er in Mebibytes (MiB), Gibibytes (GiB) oder Tebibytes (TiB) angezeigt wird.
+. Klicken Sie auf *Increase*.
+
+
+.Ergebnisse
+* System Manager erhöht die Kapazität des Volumes entsprechend Ihrer Auswahl.
+* Wählen Sie Menü:Home[View Operations in Progress], um den Fortschritt der aktuell für das ausgewählte Volume laufenden Kapazitätserhöhung anzuzeigen. Dieser Vorgang kann längere Zeit dauern und die Systemleistung beeinträchtigen.
+
+
+.Nachdem Sie fertig sind
+Nach der Erweiterung der Volume-Kapazität müssen Sie die Dateisystemgröße manuell entsprechend anpassen. Wie Sie dies tun, hängt vom verwendeten Dateisystem ab. Siehe die Dokumentation Ihres Host-Betriebssystems für Details.

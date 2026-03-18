@@ -1,0 +1,56 @@
+---
+permalink: sm-settings/add-trap-destinations-for-snmp-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, trap, destinations, SNMP, alerts, 
+summary: Sie können bis zu 10 Server zum Senden von SNMP-Traps hinzufügen. 
+---
+= Fügen Sie Trap-Ziele für SNMP-Warnungen im SANtricity System Manager hinzu
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können bis zu 10 Server zum Senden von SNMP-Traps hinzufügen.
+
+.Bevor Sie beginnen
+* Der hinzuzufügende Netzwerkserver muss mit einer SNMP-Dienstanwendung konfiguriert sein. Sie benötigen die Netzwerkadresse dieses Servers (entweder eine IPv4- oder eine IPv6-Adresse), damit der Ereignismonitor Trap-Meldungen an diese Adresse senden kann. Sie können mehr als einen Server verwenden (bis zu 10 Server sind zulässig).
+* Die Management Information Base (MIB)-Datei wurde auf den Server mit der SNMP-Dienstanwendung kopiert und kompiliert. Diese MIB-Datei definiert die überwachten und verwalteten Daten.
++
+Falls Sie die MIB-Datei nicht besitzen, können Sie sie von der NetApp Support-Website herunterladen:
+
++
+** Gehe zu https://mysupport.netapp.com/site/global/dashboard["NetApp Support"^].
+** Klicken Sie auf *Downloads*, und wählen Sie dann *Downloads* aus.
+** Klicken Sie auf *E-Series SANtricity OS Controller Software*.
+** Wählen Sie *Download Latest Release*.
+** Melden Sie sich an.
+** Akzeptieren Sie die Warnhinweis- und Lizenzvereinbarung.
+** Scrollen Sie nach unten, bis Sie die MIB-Datei für Ihren Controllertyp sehen, und klicken Sie dann auf den Link, um die Datei herunterzuladen.
+
+
+
+
+.Schritte
+. Menü auswählen: Settings[Alerts].
+. Wählen Sie die Registerkarte *SNMP* aus.
++
+Die aktuell definierten Fangziele sind in der Tabelle aufgeführt.
+
+. Wählen Sie *Add Trap Desinations*.
++
+Das Dialogfeld „Fallenziele hinzufügen“ wird geöffnet.
+
+. Geben Sie ein oder mehrere Trap-Ziele ein, wählen Sie die zugehörigen Community-Namen oder Benutzernamen aus und klicken Sie dann auf *Add*.
++
+** *Trap-Ziel* -- Geben Sie eine IPv4- oder IPv6-Adresse des Servers ein, auf dem ein SNMP-Dienst ausgeführt wird.
+** *Community-Name oder Benutzername* -- Wählen Sie im Dropdown-Menü den Community-Namen (SNMPv2c) oder den Benutzernamen (SNMPv3) für dieses Trap-Ziel aus. (Wenn Sie nur einen definiert haben, erscheint der Name bereits in diesem Feld.)
+** *Authentifizierungsfehler-Trap senden* -- Wählen Sie diese Option (das Kontrollkästchen) aus, wenn Sie das Trap-Ziel benachrichtigen möchten, wann immer eine SNMP-Anfrage aufgrund eines nicht erkannten Community-Namens oder Benutzernamens abgelehnt wird. Nachdem Sie auf *Hinzufügen* geklickt haben, werden die Trap-Ziele und die zugehörigen Community-Namen oder Benutzernamen in der Tabelle angezeigt.
+
+
+. Um sicherzustellen, dass eine Trap gültig ist, wählen Sie ein Trap-Ziel aus der Tabelle aus und klicken Sie dann auf *Trap-Ziel testen*, um eine Test-Trap an die konfigurierte Adresse zu senden.
+
+
+.Ergebnisse
+Der Ereignismonitor sendet SNMP-Traps an den/die Server, wann immer ein alarmrelevantes Ereignis eintritt.

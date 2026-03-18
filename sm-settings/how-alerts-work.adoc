@@ -1,0 +1,58 @@
+---
+permalink: sm-settings/how-alerts-work.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, alarm, alerts, 
+summary: Warnmeldungen benachrichtigen Administratoren über wichtige Ereignisse, die auf dem Storage-Array auftreten. Warnmeldungen können per E-Mail, SNMP-Traps und Syslog gesendet werden. 
+---
+= Wie Warnmeldungen im SANtricity System Manager funktionieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Warnmeldungen benachrichtigen Administratoren über wichtige Ereignisse, die auf dem Storage-Array auftreten. Warnmeldungen können per E-Mail, SNMP-Traps und Syslog gesendet werden.
+
+Der Benachrichtigungsprozess funktioniert wie folgt:
+
+. Ein Administrator konfiguriert eine oder mehrere der folgenden Benachrichtigungsmethoden im System Manager:
++
+** *E-Mail* -- Nachrichten werden an E-Mail-Adressen gesendet.
+** *SNMP* -- SNMP-Traps werden an einen SNMP-Server gesendet.
+** *Syslog* -- Nachrichten werden an einen Syslog-Server gesendet.
+
+
+. Wenn der Ereignismonitor des Storage Arrays ein Problem erkennt, schreibt er Informationen darüber in das Ereignisprotokoll (verfügbar unter menu:Support[Event Log]). Zum Beispiel können Probleme solche Ereignisse wie einen Batterieausfall, das Wechseln einer Komponente von Optimal zu Offline oder Redundanzfehler im Controller umfassen.
+. Stellt der Ereignismonitor fest, dass das Ereignis „alarmierungsbedürftig“ ist, sendet er eine Benachrichtigung über die konfigurierten Alarmierungsmethoden (E-Mail, SNMP und/oder Syslog). Alle Critical-Ereignisse gelten als „alarmierungsbedürftig“, ebenso wie einige Warning- und Informational-Ereignisse.
+
+
+
+
+== Konfiguration der Benachrichtigungen
+
+Sie können Benachrichtigungen im Einrichtungsassistenten (nur für E-Mail-Benachrichtigungen) oder auf der Seite Benachrichtigungen konfigurieren. Um die aktuelle Konfiguration zu überprüfen, gehen Sie zu menu:Einstellungen[Benachrichtigungen].
+
+Die Kachel „Warnungen“ zeigt die Warnkonfiguration an, die eine der folgenden sein kann:
+
+* Nicht konfiguriert.
+* Konfiguriert; mindestens eine Benachrichtigungsmethode ist eingerichtet. Um festzustellen, welche Benachrichtigungsmethoden konfiguriert sind, zeigen Sie mit dem Cursor auf die Kachel.
+
+
+
+
+== Warnmeldungsinformationen
+
+Warnmeldungen können die folgenden Arten von Informationen enthalten:
+
+* Name des Speicherarrays.
+* Fehlertyp im Zusammenhang mit einem Ereignisprotokolleintrag.
+* Datum und Uhrzeit, zu der das Ereignis aufgetreten ist.
+* Kurze Beschreibung der Veranstaltung.
+
+
+[NOTE]
+====
+Syslog-Warnungen folgen dem RFC 5424-Nachrichtenstandard.
+
+====

@@ -1,0 +1,50 @@
+---
+permalink: sm-storage/change-the-settings-for-a-host-cluster.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, settings, host, cluster 
+summary: Sie können den Namen des Hostclusters ändern oder Hosts in einem Hostcluster hinzufügen oder entfernen. 
+---
+= Ändern Sie die Einstellungen für einen Hostcluster im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den Namen des Hostclusters ändern oder Hosts in einem Hostcluster hinzufügen oder entfernen.
+
+.Schritte
+. Menü auswählen:Storage[Hosts].
+. Wählen Sie den Host-Cluster aus, den Sie bearbeiten möchten, und klicken Sie dann auf *Einstellungen anzeigen/bearbeiten*.
++
+Es erscheint ein Dialogfeld, das die aktuellen Host-Cluster-Einstellungen anzeigt.
+
+. Ändern Sie die Einstellungen für den Hostcluster nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Name
+ a| 
+Sie können den vom Benutzer vergebenen Namen des Hostclusters festlegen. Die Angabe eines Namens für einen Cluster ist erforderlich.
+
+
+
+ a| 
+Zugehörige Hosts
+ a| 
+Um einen Host hinzuzufügen, klicken Sie auf das Kästchen *Associated Hosts* und wählen Sie dann einen Hostnamen aus der Dropdown-Liste aus. Sie können keinen Hostnamen manuell eingeben.
+
+Um einen Host zu löschen, klicken Sie auf das *X* neben dem Hostnamen.
+
+|===
+====
+. Klicken Sie auf *Speichern*.
+

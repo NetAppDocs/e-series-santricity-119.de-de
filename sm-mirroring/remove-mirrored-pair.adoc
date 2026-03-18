@@ -1,0 +1,41 @@
+---
+permalink: sm-mirroring/remove-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, asynchronous, mirror, relationship, 
+summary: Sie entfernen ein gespiegeltes Paar, um die Spiegelbeziehung vom primären Volume auf dem lokalen Speichersystem und dem sekundären Volume auf dem entfernten Speichersystem zu entfernen. 
+---
+= Entfernen Sie asynchrone Spiegelungsbeziehungen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie entfernen ein gespiegeltes Paar, um die Spiegelbeziehung vom primären Volume auf dem lokalen Speichersystem und dem sekundären Volume auf dem entfernten Speichersystem zu entfernen.
+
+.Über diese Aufgabe
+Lesen Sie die folgenden Informationen über verwaiste gespiegelte Paare:
+
+* Ein verwaistes gespiegeltes Paar entsteht, wenn ein Mitgliedsvolume in einer Konsistenzgruppe auf einer Seite (entweder auf der Seite des lokalen Speicherarrays oder auf der Seite des entfernten Speicherarrays) entfernt wurde, aber nicht auf der anderen Seite.
+* Verwaiste gespiegelte Paare werden erkannt, wenn die Kommunikation zwischen den Arrays wiederhergestellt ist und die beiden Seiten der Spiegelkonfiguration die Spiegelparameter abgleichen.
+* Sie können ein gespiegeltes Paar entfernen, um einen verwaisten gespiegelten Paar-Zustand zu korrigieren.
+
+
+.Schritte
+. Menü auswählen:Storage[Asynchronous Mirroring].
+. Wählen Sie die Registerkarte *Mirrored Pair* aus.
++
+Die Tabelle „Gespiegelte Paare“ wird angezeigt und zeigt alle gespiegelten Paare an, die mit dem Storage Array verknüpft sind.
+
+. Wählen Sie das gespiegelte Paar aus, das Sie entfernen möchten, und klicken Sie dann auf *Entfernen*.
+. Bestätigen Sie, dass Sie das gespiegelte Paar entfernen möchten, und klicken Sie dann auf *Entfernen*.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Entfernt die Spiegelbeziehung aus der Konsistenzgruppe für Spiegelungen auf dem lokalen Speicherarray und auf dem Remote-Speicherarray und löscht die reservierte Kapazität.
+* Setzt das primäre Volume und das sekundäre Volume auf vom Host zugängliche, nicht gespiegelte Volumes zurück.
+* Aktualisiert die Kachel „Asynchrone Spiegelung“ mit der Entfernung des asynchronen gespiegelten Paars.
+

@@ -1,0 +1,29 @@
+---
+permalink: sm-storage/access-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access volumes 
+summary: 'Ein Zugriffsvolume ist ein werkseitig konfiguriertes Volume auf dem Speichersystem, das für die Kommunikation zwischen Speichersystem und Host über die Host-I/O-Verbindung verwendet wird. Das Zugriffsvolume benötigt eine Logical Unit Number (LUN).' 
+---
+= Zugriff auf Volumes im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ein Zugriffsvolume ist ein werkseitig konfiguriertes Volume auf dem Speichersystem, das für die Kommunikation zwischen Speichersystem und Host über die Host-I/O-Verbindung verwendet wird. Das Zugriffsvolume benötigt eine Logical Unit Number (LUN).
+
+Das Zugriffsvolume wird in der folgenden Instanz verwendet:
+
+* *In-Band-Verwaltung* -- Das Zugriffsvolume wird für eine In-Band-Verbindung zur Verwaltung des Speichersystems verwendet. Dies ist nur möglich, wenn Sie das Speichersystem über die Befehlszeile (CLI) verwalten.
++
+[NOTE]
+====
+Die In-Band-Verwaltung über das Access Volume ist für E4000-, EF600/EF600C- oder EF300/EF300C-Speichersysteme nicht verfügbar.
+
+====
+
+
+Ein Zugriffsvolume wird automatisch erstellt, sobald Sie einem Host zum ersten Mal ein Volume zuweisen. Wenn Sie beispielsweise Volume_1 und Volume_2 einem Host zuweisen, sehen Sie in den Ergebnissen dieser Zuweisung drei Volumes (Volume_1, Volume_2 und Access).
+
+Wenn Sie Hosts nicht automatisch erstellen oder ein Storage-Array nicht per CLI verwalten, benötigen Sie das Zugriffsvolume nicht und können die LUN freigeben, indem Sie das Zugriffsvolume löschen. Durch diese Aktion wird die Zuordnung von Volume zu LUN sowie alle In-Band-Verwaltungsverbindungen zum Host entfernt.

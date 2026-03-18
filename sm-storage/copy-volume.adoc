@@ -1,0 +1,100 @@
+---
+permalink: sm-storage/copy-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy volume 
+summary: 'Sie können Daten von einem Volume auf ein anderes Volume im selben Storage-Array kopieren und ein physisches, zeitpunktgenaues Duplikat (Klon) eines Quell-Volumes erstellen.' 
+---
+= Ein Volume im SANtricity System Manager kopieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Daten von einem Volume auf ein anderes Volume im selben Storage-Array kopieren und ein physisches, zeitpunktgenaues Duplikat (Klon) eines Quell-Volumes erstellen.
+
+.Bevor Sie beginnen
+* Sämtliche I/O-Aktivitäten auf dem Quell-Volume und dem Ziel-Volume müssen gestoppt werden.
+* Sämtliche Dateisysteme auf dem Quell-Volume und dem Ziel-Volume müssen ausgehängt werden.
+* Wenn Sie das Ziel-Volume zuvor in einer Copy Volume-Operation verwendet haben, benötigen Sie diese Daten nicht mehr oder Sie haben die Daten gesichert.
+
+
+.Über diese Aufgabe
+Das Quellvolume ist das Volume, das Host-E/A empfängt und Anwendungsdaten speichert. Wenn eine Copy Volume gestartet wird, werden die Daten vom Quellvolume vollständig auf das Ziel-Volume kopiert.
+
+Das Ziel-Volume ist ein Standard-Volume, das eine Kopie der Daten des Quell-Volumes enthält. Das Ziel-Volume ist nach Abschluss des Copy Volume-Vorgangs identisch mit dem Quell-Volume. Das Ziel-Volume muss die gleiche oder eine größere Kapazität wie das Quell-Volume haben; der RAID-Level kann jedoch unterschiedlich sein.
+
+.Mehr über Online- und Offline-Kopien
+[%collapsible]
+====
+*Online-Kopie*
+
+Eine Online-Kopie erstellt eine zeitpunktgenaue Kopie eines beliebigen Volumes innerhalb eines Storage Arrays, während weiterhin auf das Volume geschrieben werden kann, während die Kopie durchgeführt wird. Diese Funktion wird erreicht, indem ein Snapshot des Volumes erstellt und dieser Snapshot als tatsächliches Quellvolume für die Kopie verwendet wird. Das Volume, für das das zeitpunktgenaue Image erstellt wird, wird als Basisvolume bezeichnet und kann ein Standardvolume oder ein Thin Volume im Storage Array sein.
+
+*Offline-Kopie*
+
+Eine Offline-Kopie liest Daten vom Quell-Volume und kopiert sie auf ein Ziel-Volume, während alle Aktualisierungen des Quell-Volumes während des Kopiervorgangs angehalten werden. Alle Aktualisierungen des Quell-Volumes werden angehalten, um zu verhindern, dass auf dem Ziel-Volume chronologische Inkonsistenzen entstehen. Die Offline-Volume-Kopie-Beziehung besteht zwischen einem Quell-Volume und einem Ziel-Volume.
+
+====
+[NOTE]
+====
+Ein Copy Volume-Vorgang überschreibt die Daten auf dem Ziel-Volume und schlägt bei allen mit dem Ziel-Volume verknüpften Snapshot-Volumes fehl, sofern solche existieren.
+
+====
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Wählen Sie das Volume aus, das Sie als Quelle für den Vorgang Copy Volume verwenden möchten, und wählen Sie dann Menü: Copy Services[Copy volume].
++
+Das Dialogfeld „Volume kopieren – Ziel auswählen“ wird angezeigt.
+
+. Wählen Sie das Ziel-Volume, auf das Sie die Daten kopieren möchten.
++
+Die in diesem Dialogfeld angezeigte Tabelle listet alle in Frage kommenden Ziel-Volumes auf.
+
+. Verwenden Sie die Schiebereglerleiste, um die Kopierpriorität für den Vorgang „Volume kopieren“ festzulegen.
++
+Die Kopierpriorität bestimmt, wie viele Systemressourcen für den Abschluss des Copy Volume-Vorgangs im Vergleich zu Service-I/O-Anforderungen verwendet werden.
+
++
+.Weitere Informationen zu Kopierprioritätsraten
+[%collapsible]
+====
+Es gibt fünf Kopier-Prioritätsraten:
+
+** Niedrigster
+** Niedrig
+** Mittel
+** Hoch
+** Höchste
+
+
+Ist die Kopierpriorität auf die niedrigste Rate eingestellt, wird die E/A-Aktivität priorisiert, und der Vorgang „Copy Volume“ dauert länger. Ist die Kopierpriorität auf die höchste Rate eingestellt, wird der Vorgang „Copy Volume“ priorisiert, aber die E/A-Aktivität des Storage-Arrays kann beeinträchtigt werden.
+
+====
+. Wählen Sie aus, ob Sie eine Online-Kopie oder eine Offline-Kopie erstellen möchten. Um eine Online-Kopie zu erstellen, aktivieren Sie das Kästchen **Quell-Volume während des Kopiervorgangs online halten**.
+. Führen Sie einen der folgenden Schritte aus:
++
+** Um einen _Online_-Kopiervorgang durchzuführen, klicken Sie auf *Weiter*, um zum Dialogfeld *Reserve Capacity* zu gelangen.
+** Um einen _Offline_-Kopiervorgang durchzuführen, klicken Sie auf *Fertig stellen*, um die Offline-Kopie zu starten.
+
+
+. Wenn Sie sich für die Erstellung einer Online-Kopie entschieden haben, legen Sie die reservierte Kapazität fest, die für die Speicherung von Daten und anderen Informationen für die Online-Kopie benötigt wird, und klicken Sie dann auf *Fertigstellen*, um die Online-Kopie zu starten.
++
+Die Tabelle der Volumenkandidaten zeigt nur die Kandidaten an, die die angegebene reservierte Kapazität unterstützen. Reservierte Kapazität ist die physisch zugewiesene Kapazität, die für jede Copy-Service-Operation und jedes Speicherobjekt verwendet wird. Sie ist für den Host nicht direkt lesbar.
+
++
+Weisen Sie die reservierte Kapazität gemäß den folgenden Richtlinien zu:
+
++
+** Die Standardeinstellung für die reservierte Kapazität beträgt 40% der Kapazität des Basisvolumens, und diese Kapazität ist in der Regel ausreichend.
+** Die reservierte Kapazität variiert jedoch je nach Anzahl der Änderungen an den Originaldaten. Je länger ein Speicherobjekt aktiv ist, desto größer sollte die reservierte Kapazität sein.
+
+
+
+
+.Ergebnisse
+System Manager kopiert alle Daten vom Quellvolume auf das Ziel-Volume. Nach Abschluss des Copy Volume-Vorgangs wird das Ziel-Volume für die Hosts automatisch schreibgeschützt.
+
+.Nachdem Sie fertig sind
+Wählen Sie Menü:Home[Laufende Vorgänge anzeigen], um den Fortschritt des Copy Volume-Vorgangs anzuzeigen. Dieser Vorgang kann längere Zeit dauern und die Systemleistung beeinträchtigen.

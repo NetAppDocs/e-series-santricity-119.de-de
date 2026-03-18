@@ -1,0 +1,27 @@
+---
+permalink: sm-settings/turn-on-storage-array-locator-lights.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, locator, lights, 
+summary: Um den physischen Standort eines Storage Arrays in einem Schrank zu finden, können Sie dessen Locator-LEDs einschalten. 
+---
+= Aktivieren Sie die Speicherarray-Locator-Leuchten im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um den physischen Standort eines Storage Arrays in einem Schrank zu finden, können Sie dessen Locator-LEDs einschalten.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Klicken Sie unter *Allgemein* auf *Speicherarray-Locator-Leuchten einschalten*.
++
+Das Dialogfeld „Speicherarray-Locator-Leuchten einschalten“ wird geöffnet, und die Locator-Leuchten des entsprechenden Speicherarrays werden eingeschaltet.
+
+. Wenn Sie das Speicherarray physisch lokalisiert haben, kehren Sie zum Dialogfeld zurück und wählen Sie *Ausschalten*.
+
+
+.Ergebnisse
+Die Positionslichter erlöschen, und das Dialogfeld schließt sich.

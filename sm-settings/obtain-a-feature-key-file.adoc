@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/obtain-a-feature-key-file.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, obtain, feature, key, file, 
+summary: Um eine Premium-Funktion oder ein Funktionspaket auf Ihrem Storage Array zu aktivieren, müssen Sie zunächst eine Feature-Key-Datei erhalten. Ein Schlüssel ist nur einem Storage Array zugeordnet. 
+---
+= Eine Feature-Key-Datei im SANtricity System Manager abrufen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um eine Premium-Funktion oder ein Funktionspaket auf Ihrem Storage Array zu aktivieren, müssen Sie zunächst eine Feature-Key-Datei erhalten. Ein Schlüssel ist nur einem Storage Array zugeordnet.
+
+.Über diese Aufgabe
+Diese Aufgabe beschreibt, wie die erforderlichen Informationen für das Feature gesammelt und anschließend eine Anfrage für eine Feature-Schlüsseldatei gesendet werden. Erforderliche Informationen umfassen:
+
+* Fahrgestellnummer
+* Funktionsaktivierungskennung
+* Funktionsaktivierungscode
+
+
+.Schritte
+. Suchen und notieren Sie sich im System Manager die Seriennummer des Gehäuses. Sie können diese Seriennummer anzeigen, indem Sie mit der Maus über die Kachel Support Center fahren.
+. Suchen Sie im System Manager die Feature Enable Identifier. Gehen Sie zu Menü:Einstellungen[System] und scrollen Sie dann nach unten zu *Add-ons*. Suchen Sie nach dem *Feature Enable Identifier*. Notieren Sie die Nummer für den Feature Enable Identifier.
+. Suchen und notieren Sie den Code zur Funktionsaktivierung. Bei Funktionspaketen ist dieser Code in der entsprechenden Anleitung zur Durchführung der Umstellung enthalten.
++
+Für Premium-Funktionen können Sie den Aktivierungscode wie folgt auf der Support-Website abrufen:
+
++
+.. Melden Sie sich bei  https://mysupport.netapp.com/site/global/dashboard["NetApp Support"^] an.
+.. Gehen Sie zu *Software Licenses* für Ihr Produkt.
+.. Geben Sie die Seriennummer für das Speicherarray-Gehäuse ein und klicken Sie dann auf *Los*.
+.. Suchen Sie nach den Funktionsaktivierungscodes in der Spalte *Lizenzschlüssel*.
+.. Notieren Sie den Funktionsaktivierungscode für die gewünschte Funktion.
+
+
+. Fordern Sie eine Funktionsschlüsseldatei an, indem Sie eine E-Mail oder ein Textdokument mit den folgenden Informationen an Ihren Speicherlieferanten senden: Chassis-Seriennummer, die Enable-Kennung und den Code für die Funktionsaktivierung.
++
+Sie können auch zu  http://partnerspfk.netapp.com["NetApp License Activation: Aktivierung der Premium-Funktion des Speicherarrays"^] gehen und die erforderlichen Informationen eingeben, um die Funktion oder das Funktionspaket zu erhalten. (Die Anweisungen auf dieser Webseite sind für Premium-Funktionen, nicht für Funktionspakete.)
+
+
+
+.Nachdem Sie fertig sind
+Wenn Sie über eine Feature-Key-Datei verfügen, können Sie die Premium-Funktion oder das Feature-Pack aktivieren.

@@ -1,0 +1,40 @@
+---
+permalink: sm-mirroring/suspend-and-resume-synchronization-for-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, suspend, resume, synchronization, mirrored, pair, 
+summary: Mit den Optionen „Anhalten“ und „Fortsetzen“ können Sie steuern, wann die Daten auf dem primären Volume und dem sekundären Volume in einem gespiegelten Paar synchronisiert werden. 
+---
+= Synchronisierung für gespiegelte Paare im SANtricity System Manager anhalten und fortsetzen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit den Optionen „Anhalten“ und „Fortsetzen“ können Sie steuern, wann die Daten auf dem primären Volume und dem sekundären Volume in einem gespiegelten Paar synchronisiert werden.
+
+.Über diese Aufgabe
+Wenn ein gespiegeltes Paar manuell angehalten wird, wird das gespiegelte Paar erst dann synchronisiert, wenn es manuell fortgesetzt wird.
+
+.Schritte
+. Menü auswählen: Storage [Synchronous Mirroring].
+. Wählen Sie das gespiegelte Paar aus, das Sie anhalten oder fortsetzen möchten, und wählen Sie dann entweder menu:More[Suspend] oder menu:More[Resume].
++
+Das System zeigt eine Bestätigung an.
+
+. Wählen Sie *Ja* zur Bestätigung aus.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Setzt den Datentransfer zwischen dem gespiegelten Paar entweder aus oder nimmt ihn wieder auf, ohne die Spiegelbeziehung zu entfernen.
+* Für ein _suspendiertes_ Spiegelpaar:
++
+** Zeigt *Suspended* in der Tabelle „Mirrored Pair“ an.
+** Protokolliert alle Daten, die auf das primäre Volume des gespiegelten Paares geschrieben wurden, während die Synchronisierung ausgesetzt ist.
+
+
+* Bei einem _wiederhergestellten_ Spiegelpaar werden die Daten beim Fortsetzen der Synchronisierung automatisch auf das sekundäre Volume des Spiegelpaares geschrieben. Eine vollständige Synchronisierung ist nicht erforderlich.
+

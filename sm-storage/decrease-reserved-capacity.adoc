@@ -1,0 +1,47 @@
+---
+permalink: sm-storage/decrease-reserved-capacity.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, decrease, reserved, capacity 
+summary: 'Mit der Option „Kapazität verringern“ können Sie die reservierte Kapazität für die folgenden Speicherobjekte verringern: Snapshot-Gruppe, Snapshot-Volume und Konsistenzgruppe-Mitglieds-Volume. Sie können die reservierte Kapazität nur um den Betrag verringern, um den Sie sie zuvor erhöht haben.' 
+---
+= Reduzieren Sie die reservierte Kapazität im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit der Option „Kapazität verringern“ können Sie die reservierte Kapazität für die folgenden Speicherobjekte verringern: Snapshot-Gruppe, Snapshot-Volume und Konsistenzgruppenmitglied-Volume. Sie können die reservierte Kapazität nur um den Betrag verringern, um den Sie sie erhöht haben.
+
+.Bevor Sie beginnen
+* Das Speicherobjekt muss mehr als ein reserviertes Kapazitätsvolume enthalten.
+* Das Speicherobjekt darf kein gespiegeltes Paar-Volume sein.
+* Wenn das Speicherobjekt ein Snapshot-Volume ist, muss es ein deaktiviertes Snapshot-Volume sein.
+* Wenn das Speicherobjekt eine Snapshot-Gruppe ist, darf es keine zugehörigen Snapshot-Images enthalten.
+
+
+.Über diese Aufgabe
+Beachten Sie die folgenden Richtlinien:
+
+* Sie können reservierte Kapazitätsvolumes nur in der umgekehrten Reihenfolge entfernen, in der sie hinzugefügt wurden.
+* Sie können die reservierte Kapazität für ein schreibgeschütztes Snapshot-Volume nicht verringern, da es keine zugeordnete reservierte Kapazität hat. Nur Snapshot-Volumes, die Lese- und Schreibzugriff haben, benötigen reservierte Kapazität.
+
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Klicken Sie auf die Registerkarte *Reserved Capacity*.
+. Wählen Sie das Speicherobjekt aus, für das Sie die reservierte Kapazität verringern möchten, und klicken Sie dann auf *Decrease Capacity*.
++
+Das Dialogfeld „Reservierte Kapazität verringern“ wird angezeigt.
+
+. Wählen Sie den Kapazitätsbetrag aus, um den Sie die reservierte Kapazität verringern möchten, und klicken Sie dann auf *Decrease*.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Aktualisiert die Kapazität für das Speicherobjekt.
+* Zeigt die neu aktualisierte reservierte Kapazität für das Storage-Objekt an.
+* Wenn Sie die Kapazität eines Snapshot-Volumes verringern, versetzt System Manager das Snapshot-Volume automatisch in den Status Disabled. Disabled bedeutet, dass das Snapshot-Volume derzeit keinem Snapshot-Image zugeordnet ist und daher keinem Host für I/O zugewiesen werden kann.
+

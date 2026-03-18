@@ -1,0 +1,58 @@
+---
+permalink: um-certificates/how-certificates-work-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, ca certificates, csr file, 
+summary: Zertifikate sind digitale Dateien, die Online-Entitäten wie Websites und Server für sichere Kommunikation im Internet identifizieren. 
+---
+= Funktionsweise von Zertifikaten im SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Zertifikate sind digitale Dateien, die Online-Entitäten wie Websites und Server für sichere Kommunikation im Internet identifizieren.
+
+
+
+== Unterzeichnete Zertifikate
+
+Zertifikate gewährleisten, dass die Webkommunikation verschlüsselt, privat und unverändert ausschließlich zwischen dem angegebenen Server und Client übertragen wird. Mit Unified Manager können Sie Zertifikate für den Browser auf einem Host-Managementsystem und die Controller in den erkannten Storage-Arrays verwalten.
+
+Ein Zertifikat kann von einer vertrauenswürdigen Autorität signiert oder selbstsigniert sein. „Signieren“ bedeutet einfach, dass jemand die Identität des Eigentümers überprüft und festgestellt hat, dass dessen Geräte vertrauenswürdig sind. Storage-Arrays werden mit einem automatisch generierten, selbstsignierten Zertifikat auf jedem Controller ausgeliefert. Sie können weiterhin die selbstsignierten Zertifikate verwenden oder CA-signierte Zertifikate für eine sicherere Verbindung zwischen den Controllern und den Hostsystemen erhalten.
+
+[NOTE]
+====
+Obwohl von Zertifizierungsstellen signierte Zertifikate einen besseren Schutz bieten (zum Beispiel verhindern sie Man-in-the-Middle-Angriffe), sind sie gebührenpflichtig, was bei großen Netzwerken teuer werden kann. Im Gegensatz dazu sind selbstsignierte Zertifikate weniger sicher, aber sie sind kostenlos. Daher werden selbstsignierte Zertifikate am häufigsten für interne Testumgebungen und nicht in Produktionsumgebungen verwendet.
+
+====
+Ein signiertes Zertifikat wird von einer Zertifizierungsstelle (CA), einer vertrauenswürdigen Drittorganisation, validiert. Signierte Zertifikate enthalten Angaben zum Inhaber der Entität (typischerweise eines Servers oder einer Website), zum Ausstellungs- und Ablaufdatum des Zertifikats, zu gültigen Domains der Entität sowie eine digitale Signatur aus Buchstaben und Zahlen.
+
+Wenn Sie einen Browser öffnen und eine Webadresse eingeben, führt Ihr System im Hintergrund eine Zertifikatsprüfung durch, um festzustellen, ob Sie eine Verbindung zu einer Website herstellen, die über ein gültiges, von einer CA signiertes Zertifikat verfügt. In der Regel enthält eine mit einem signierten Zertifikat gesicherte Website ein Schlosssymbol und die Bezeichnung https in der Adresse. Wenn Sie versuchen, eine Website aufzurufen, die kein CA-signiertes Zertifikat enthält, zeigt Ihr Browser eine Warnung an, dass die Website nicht sicher ist.
+
+Die Zertifizierungsstelle (CA) ergreift während des Antragsverfahrens Maßnahmen zur Überprüfung Ihrer Identität. Sie sendet möglicherweise eine E-Mail an Ihr registriertes Unternehmen, überprüft Ihre Geschäftsadresse und führt eine HTTP- oder DNS-Verifizierung durch. Nach Abschluss des Antragsverfahrens sendet Ihnen die CA digitale Dateien zum Laden auf ein Host-Management-System. Typischerweise enthalten diese Dateien eine Vertrauenskette, wie folgt:
+
+* *Root* -- An der Spitze der Hierarchie steht das Root-Zertifikat, das einen privaten Schlüssel enthält, mit dem andere Zertifikate signiert werden. Das Root identifiziert eine bestimmte CA-Organisation. Wenn Sie für alle Ihre Netzwerkgeräte dieselbe CA verwenden, benötigen Sie nur ein Root-Zertifikat.
+* *Zwischenzertifikate* – Von der Stammzertifizierungsstelle zweigen die Zwischenzertifikate ab. Die Zertifizierungsstelle stellt ein oder mehrere Zwischenzertifikate aus, die als Vermittler zwischen einem geschützten Stammzertifikat und Serverzertifikaten fungieren.
+* *Server* -- Am Ende der Kette steht das Serverzertifikat, das Ihre spezifische Entität, wie eine Website oder ein anderes Gerät, identifiziert. Jeder Controller in einer Storage-Array benötigt ein separates Serverzertifikat.
+
+
+
+
+== Selbstsignierte Zertifikate
+
+Jeder Controller im Speichersystem verfügt über ein vorinstalliertes, selbstsigniertes Zertifikat. Ein selbstsigniertes Zertifikat ähnelt einem CA-signierten Zertifikat, mit dem Unterschied, dass es vom Inhaber der Entität und nicht von einer dritten Partei validiert wird. Wie ein CA-signiertes Zertifikat enthält auch ein selbstsigniertes Zertifikat einen eigenen privaten Schlüssel und gewährleistet, dass Daten verschlüsselt und über eine HTTPS-Verbindung zwischen Server und Client gesendet werden.
+
+Selbstsignierte Zertifikate werden von Browsern nicht als "`trusted`" eingestuft. Jedes Mal, wenn Sie versuchen, eine Website aufzurufen, die nur ein selbstsigniertes Zertifikat enthält, zeigt der Browser eine Warnmeldung an. Sie müssen auf einen Link in der Warnmeldung klicken, der es Ihnen erlaubt, zur Website zu gelangen; damit akzeptieren Sie im Wesentlichen das selbstsignierte Zertifikat.
+
+
+
+== Zertifikate für Unified Manager
+
+Die Unified Manager-Oberfläche wird zusammen mit dem Web Services Proxy auf einem Hostsystem installiert. Wenn Sie einen Browser öffnen und versuchen, eine Verbindung zu Unified Manager herzustellen, überprüft der Browser, ob der Host eine vertrauenswürdige Quelle ist, indem er nach einem digitalen Zertifikat sucht. Findet der Browser kein von einer Zertifizierungsstelle (CA) signiertes Zertifikat für den Server, wird eine Warnmeldung angezeigt. Von dort aus können Sie die Website weiterhin aufrufen, um das selbstsignierte Zertifikat für diese Sitzung zu akzeptieren. Oder Sie können signierte, digitale Zertifikate von einer CA beziehen, sodass die Warnmeldung nicht mehr angezeigt wird.
+
+
+
+== Zertifikate für Controller
+
+Während einer Unified Manager-Sitzung werden möglicherweise zusätzliche Sicherheitsmeldungen angezeigt, wenn Sie versuchen, auf einen Controller zuzugreifen, der kein von einer CA signiertes Zertifikat besitzt. In diesem Fall können Sie dem selbstsignierten Zertifikat dauerhaft vertrauen oder die CA-signierten Zertifikate für die Controller importieren, damit der Web Services Proxy Server eingehende Clientanfragen von diesen Controllern authentifizieren kann.

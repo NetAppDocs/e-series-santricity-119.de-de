@@ -1,0 +1,114 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-snapshot-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, snapshot, group 
+summary: Sie können die Einstellungen für eine Snapshot-Gruppe ändern, um deren Namen, die Einstellungen für das automatische Löschen, die maximale Anzahl zulässiger Snapshot-Images, den Prozentsatz, bei dem System Manager eine Benachrichtigung über die reservierte Kapazität sendet, oder die Richtlinie, die verwendet wird, wenn die reservierte Kapazität ihren maximal definierten Prozentsatz erreicht, zu ändern. 
+---
+= Ändern Sie die Einstellungen für die reservierte Kapazität einer Snapshot-Gruppe im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für eine Snapshot-Gruppe ändern, um deren Namen, die Einstellungen für das automatische Löschen, die maximale Anzahl zulässiger Snapshot-Images, den Prozentsatz, bei dem SANtricity System Manager eine Warnmeldung über die reservierte Kapazität sendet, oder die Richtlinie zu ändern, die angewendet wird, wenn die reservierte Kapazität ihren maximal definierten Prozentsatz erreicht.
+
+Während der Erstellung einer Snapshot-Gruppe wird reservierter Speicherplatz erstellt, um die Daten für alle in der Gruppe enthaltenen Snapshot-Images zu speichern.
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Klicken Sie auf die Registerkarte *Reserved Capacity*.
+. Wählen Sie die Snapshot-Gruppe aus, die Sie bearbeiten möchten, und klicken Sie dann auf *View/Edit Settings*.
++
+Das Dialogfeld „Einstellungen für Snapshot-Gruppen“ wird angezeigt.
+
+. Passen Sie die Einstellungen für die Snapshot-Gruppe entsprechend an.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Einstellungen für Snapshot-Gruppen*
+
+
+
+ a| 
+Name
+ a| 
+Der Name der Snapshot-Gruppe. Die Angabe eines Namens für die Snapshot-Gruppe ist erforderlich.
+
+
+
+ a| 
+Automatische Löschung
+ a| 
+Eine Einstellung, die die Gesamtzahl der Snapshot-Images in der Gruppe auf einen benutzerdefinierten Maximalwert begrenzt. Wenn diese Option aktiviert ist, löscht System Manager automatisch das älteste Snapshot-Image in der Gruppe, sobald ein neues Snapshot-Image erstellt wird, um die maximal zulässige Anzahl von Snapshot-Images für die Gruppe einzuhalten.
+
+
+
+ a| 
+Grenzwert für Snapshot-Bilder
+ a| 
+Ein konfigurierbarer Wert, der die maximale Anzahl von Snapshot-Images angibt, die für eine Snapshot-Gruppe zulässig ist.
+
+
+
+ a| 
+Snapshot-Zeitplan
+ a| 
+Falls Ja, wird ein Zeitplan für die automatische Erstellung von Snapshots festgelegt.
+
+
+
+ a| 
+*Reservierte Kapazitätseinstellungen*
+
+
+
+ a| 
+Benachrichtige mich, wenn...
+ a| 
+Verwenden Sie das Drehfeld, um den Prozentsatz einzustellen, bei dem der System Manager eine Warnmeldung sendet, wenn die reservierte Kapazität für eine Snapshot-Gruppe fast voll ist.
+
+Wenn die reservierte Kapazität für die Snapshot-Gruppe den festgelegten Schwellenwert überschreitet, sendet System Manager eine Warnung, sodass Sie Zeit haben, die reservierte Kapazität zu erhöhen oder unnötige Objekte zu löschen.
+
+
+
+ a| 
+Richtlinie für vollständig reservierte Kapazität
+ a| 
+Sie können eine der folgenden Richtlinien wählen:
+
+** *Ältestes Snapshot-Image löschen* -- System Manager löscht automatisch das älteste Snapshot-Image in der Snapshot-Gruppe, wodurch die für die Wiederverwendung innerhalb der Gruppe reservierte Snapshot-Image-Kapazität freigegeben wird.
+** *Schreibvorgänge auf das Basisvolume ablehnen* -- Wenn die reservierte Kapazität ihren maximal definierten Prozentsatz erreicht, lehnt System Manager jede E/A-Schreibanforderung an das Basisvolume ab, die den Zugriff auf die reservierte Kapazität ausgelöst hat.
+
+
+
+
+ a| 
+*Zugehörige Objekte*
+
+
+
+ a| 
+Grundvolumen
+ a| 
+Der Name des für die Gruppe verwendeten Basisvolumes. Ein Basisvolume ist die Quelle, aus der ein Snapshot-Image erstellt wird. Es kann ein Thick- oder Thin-Volume sein und wird typischerweise einem Host zugewiesen. Das Basisvolume kann sich entweder in einer Volume-Gruppe oder einem Disk Pool befinden.
+
+
+
+ a| 
+Snapshot-Images
+ a| 
+Die Anzahl der aus dieser Gruppe erstellten Images. Ein Snapshot-Image ist eine logische Kopie von Volumendaten, die zu einem bestimmten zeitpunktgenau erfasst wurde. Wie ein Wiederherstellungspunkt ermöglichen Snapshot-Images das Zurücksetzen auf einen bekannten guten Datensatz. Obwohl der Host auf das Snapshot-Image zugreifen kann, kann er es nicht direkt lesen oder darauf schreiben.
+
+|===
+====
+. Klicken Sie auf *Speichern*, um Ihre Änderungen auf die Einstellungen der Snapshot-Gruppe anzuwenden.
+

@@ -1,0 +1,92 @@
+---
+permalink: sm-storage/change-the-settings-for-a-snapshot-schedule.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, settings, snapshot, schedule 
+summary: Für einen Snapshot-Zeitplan können Sie die automatischen Erfassungszeiten oder die Erfassungshäufigkeit ändern. 
+---
+= Ändern Sie die Einstellungen für einen Snapshot-Zeitplan im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Für einen Snapshot-Zeitplan können Sie die automatischen Erfassungszeiten oder die Erfassungshäufigkeit ändern.
+
+.Über diese Aufgabe
+Sie können Einstellungen aus einem bestehenden Snapshot-Zeitplan importieren oder Einstellungen nach Bedarf ändern.
+
+Da ein Snapshot-Zeitplan einer Snapshot-Gruppe oder einer Snapshot-Konsistenzgruppe zugeordnet ist, kann die reservierte Kapazität durch Änderungen der Zeitplaneinstellungen beeinträchtigt werden.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Schedules*.
+. Wählen Sie den Snapshot-Zeitplan aus, den Sie ändern möchten, und klicken Sie dann auf *Edit*.
++
+Das Dialogfeld „Snapshot-Zeitplan bearbeiten“ wird angezeigt.
+
+. Führen Sie einen der folgenden Schritte aus:
++
+** *Verwenden Sie einen zuvor definierten Zeitplan aus einem anderen Snapshot-Objekt* -- Klicken Sie auf *Import Schedule*, wählen Sie das Objekt mit dem Zeitplan aus, den Sie importieren möchten, und klicken Sie dann auf *Import*.
+** *Terminplaneinstellungen bearbeiten* -- Weitere Informationen finden Sie unten unter Felddetails.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Tag / Monat
+ a| 
+Wählen Sie eine der folgenden Optionen:
+
+*** *Täglich / Wöchentlich* – Wählen Sie einzelne Tage für Synchronisierungs-Snapshots aus. Sie können auch das Kästchen *Alle Tage auswählen* oben rechts aktivieren, wenn Sie einen Tagesplan wünschen.
+*** *Monatlich/Jährlich* -- Wählen Sie einzelne Monate für Synchronisierungs-Snapshots aus. Geben Sie im Feld *An Tag(en)* die Tage des Monats ein, an denen die Synchronisierungen erfolgen sollen. Gültige Einträge sind *1* bis *31* und *Last*. Sie können mehrere Tage durch ein Komma oder Semikolon trennen. Verwenden Sie einen Bindestrich für inklusive Daten. Zum Beispiel: 1,3,4,10-15,Last. Sie können auch das Kästchen *Alle Monate auswählen* oben rechts aktivieren, wenn Sie einen monatlichen Zeitplan wünschen.
+
+
+
+
+ a| 
+Startzeit
+ a| 
+Wählen Sie in der Dropdown-Liste eine neue Startzeit für die täglichen Momentaufnahmen aus. Die Auswahl erfolgt in Halbstundenschritten. Die Startzeit ist standardmäßig auf eine halbe Stunde nach der aktuellen Uhrzeit eingestellt.
+
+
+
+ a| 
+Zeitzone
+ a| 
+Wählen Sie in der Dropdown-Liste die Zeitzone Ihres Storage Arrays aus.
+
+
+
+ a| 
+Schnappschüsse pro Tag
+
+Zeit zwischen den Snapshots
+ a| 
+Wählen Sie die Anzahl der Snapshot-Images aus, die pro Tag erstellt werden sollen.
+
+Wenn Sie mehr als einen auswählen, wählen Sie auch den Zeitraum zwischen den Wiederherstellungspunkten aus. Stellen Sie bei mehreren Wiederherstellungspunkten sicher, dass Sie über ausreichend reservierte Kapazität verfügen.
+
+
+
+ a| 
+Startdatum
+
+Enddatum
+
+Kein Enddatum
+ a| 
+Geben Sie das Startdatum für Synchronisierungen ein. Geben Sie außerdem ein Enddatum ein oder wählen Sie *Kein Enddatum*.
+
+|===
+====
+
+
+. Klicken Sie auf *Speichern*.
+

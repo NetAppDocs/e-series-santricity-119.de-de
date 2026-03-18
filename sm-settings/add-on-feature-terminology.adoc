@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/add-on-feature-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add-on, feature, terms 
+summary: Erfahren Sie, wie die Bedingungen der Add-on-Funktionen für Ihr Speichersystem gelten. 
+---
+= Erfahren Sie mehr über die Terminologie von Zusatzfunktionen in der SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Bedingungen der Add-on-Funktionen für Ihr Speichersystem gelten.
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+Funktionsaktivierungskennung
+ a| 
+Eine Funktionsaktivierungs-ID ist eine eindeutige Zeichenfolge, die das jeweilige Speicherarray identifiziert. Diese Kennung stellt sicher, dass, wenn Sie die Premium-Funktion erhalten, sie nur diesem speziellen Speicherarray zugeordnet wird. Diese Zeichenfolge wird auf der Systemseite unter Add-Ons angezeigt.
+
+
+
+ a| 
+Funktionsschlüsseldatei
+ a| 
+Eine Funktionsschlüsseldatei ist eine Datei, die Sie zum Freischalten und Aktivieren einer Premium-Funktion oder eines Funktionspakets erhalten.
+
+
+
+ a| 
+Funktionspaket
+ a| 
+Ein Funktionspaket ist ein Paket, das die Attribute eines Speicherarrays ändert (z. B. das Protokoll von Fibre Channel auf iSCSI umstellt). Funktionspakete erfordern einen speziellen Schlüssel, um sie zu aktivieren.
+
+
+
+ a| 
+Premium-Funktion
+ a| 
+Eine Premium-Funktion ist eine Zusatzoption, die einen Schlüssel zur Aktivierung erfordert. Sie ist nicht in der Standardkonfiguration von System Manager enthalten.
+
+|===

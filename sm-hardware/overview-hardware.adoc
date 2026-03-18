@@ -1,0 +1,55 @@
+---
+permalink: sm-hardware/overview-hardware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hardware, page, 
+summary: Sie können den Komponentenstatus auf der Seite „Hardware“ überprüfen und einige Funktionen im Zusammenhang mit diesen Komponenten ausführen. 
+---
+= Hardwarekomponenten im SANtricity System Manager anzeigen und verwalten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den Komponentenstatus auf der Seite „Hardware“ überprüfen und einige Funktionen im Zusammenhang mit diesen Komponenten ausführen.
+
+
+
+== Welche Komponenten kann ich verwalten?
+
+Sie können den Komponentenstatus überprüfen und einige Funktionen im Zusammenhang mit diesen Komponenten ausführen:
+
+* **Einschübe** – Ein Einschub ist eine Komponente, die die Hardware für das Speichersystem (Controller, Netzteile/Lüfter und Laufwerke) enthält. Einschübe sind in drei Größen für bis zu 12, 24 oder 60 Laufwerke erhältlich.
+* **Controller** – Ein Controller ist die kombinierte Hardware und Firmware, die Speicherarray- und Verwaltungsfunktionen implementiert. Er umfasst den Cache-Speicher, die Laufwerksunterstützung und die Ports für Host-Verbindungen.
+* **Laufwerke** – Ein _Laufwerk_ kann entweder eine Festplatte (HDD) oder eine Solid State Drive (SSD) sein. Je nach Gehäusegröße können bis zu 12, 24 oder 60 Laufwerke im Gehäuse installiert werden.
+
+
+Mehr erfahren:
+
+* link:hardware-page-overview.html["Hardwareseite"]
+* link:hardware-terminology.html["Hardware-Terminologie"]
+
+
+
+
+== Wie kann ich Hardwarekomponenten anzeigen?
+
+Wechseln Sie zur Seite „Hardware“, die eine grafische Darstellung der physischen Komponenten des Storage-Arrays bietet. Sie können zwischen der Vorder- und Rückansicht der Array-Einschübe wechseln, indem Sie entweder die Registerkarte *Drives* oder *Controllers* oben rechts in der Einschubansicht auswählen.
+
+Mehr erfahren:
+
+* link:view-shelf-component-status-and-settings.html["Status und Einstellungen der Regalkomponenten anzeigen"]
+* link:view-controller-settings.html["Controller-Einstellungen anzeigen"]
+* link:view-drive-status-and-settings.html["Laufwerksstatus und Einstellungen anzeigen"]
+
+
+
+
+= Verwandte Informationen
+
+Erfahren Sie mehr über Konzepte im Zusammenhang mit Hardware:
+
+* link:controller-states.html["Controller-Zustände"]
+* link:drive-states.html["Laufwerkszustände"]
+* link:what-is-shelf-loss-protection-and-drawer-loss-protection.html["Schutz vor Regalverlust und Schubladenverlust"]
+

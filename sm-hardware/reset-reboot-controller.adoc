@@ -1,0 +1,32 @@
+---
+permalink: sm-hardware/reset-reboot-controller.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reset, reboot, controller 
+summary: 'Manche Probleme erfordern einen Controller-Reset (Neustart). Sie können den Controller auch dann zurücksetzen, wenn Sie keinen physischen Zugriff darauf haben.' 
+---
+= Setzen Sie einen Controller im SANtricity System Manager zurück (Neustart).
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Manche Probleme erfordern einen Controller-Reset (Neustart). Sie können den Controller auch dann zurücksetzen, wenn Sie keinen physischen Zugriff darauf haben.
+
+.Bevor Sie beginnen
+* Das Speichersystem muss über zwei Controller verfügen. Der Controller, den Sie nicht zurücksetzen, muss online (im optimalen Zustand) sein.
+* Stellen Sie sicher, dass keine Volumes verwendet werden oder dass Sie auf allen Hosts, die diese Volumes verwenden, einen Multipath-Treiber installiert haben.
+
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Klicken Sie auf den Controller, den Sie zurücksetzen möchten.
++
+Das Kontextmenü des Controllers wird angezeigt.
+
+. Wählen Sie *Reset* und bestätigen Sie, dass Sie den Vorgang durchführen möchten.
+

@@ -1,0 +1,34 @@
+---
+permalink: sm-support/overview-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, support, center 
+summary: Nutzen Sie das Support Center, um Diagnose-, Wiederherstellungs- und Informationsbeschaffungsvorgänge durchzuführen, die möglicherweise vom technischen Support angefordert werden. 
+---
+= Hilfe im SANtricity System Manager erhalten
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Supportseite bietet Zugriff auf technische Supportressourcen.
+
+
+
+== Welche Supportaufgaben sind verfügbar?
+
+Im Support können Sie technische Supportkontakte einsehen, Diagnosen durchführen, AutoSupport konfigurieren, das Ereignisprotokoll anzeigen und Software-Upgrades durchführen.
+
+Mehr erfahren:
+
+* link:autosupport-feature-overview.html["AutoSupport Funktionsübersicht"]
+* link:overview-event-log.html["Ereignisprotokollübersicht"]
+* link:overview-upgrade-center.html["Upgrade Center Übersicht"]
+
+
+
+
+== Wie kontaktiere ich den technischen Support?
+
+Klicken Sie auf der Hauptseite auf Menü: Support [Support Center > Support Resources-Tab]. Die technischen Support-Kontaktinformationen sind oben rechts in der Benutzeroberfläche aufgeführt.

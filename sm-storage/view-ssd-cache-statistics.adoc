@@ -1,0 +1,86 @@
+---
+permalink: sm-storage/view-ssd-cache-statistics.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, ssd cache, statistics 
+summary: Sie können Statistiken für den SSD-Cache anzeigen, wie Lesevorgänge, Schreibvorgänge, Cache-Treffer, Cache-Zuweisungsprozentsatz und Cache-Auslastungsprozentsatz. 
+---
+= SSD-Cache-Statistiken im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Statistiken für den SSD-Cache anzeigen, wie Lesevorgänge, Schreibvorgänge, Cache-Treffer, Cache-Zuweisungsprozentsatz und Cache-Auslastungsprozentsatz.
+
+Die nominalen Statistiken, die eine Teilmenge der detaillierten Statistiken sind, werden im Dialogfeld „SSD-Cache-Statistiken anzeigen“ angezeigt. Sie können detaillierte Statistiken für den SSD-Cache nur anzeigen, wenn Sie alle SSD-Statistiken in eine  `.csv` Datei exportieren.
+
+Bei der Überprüfung und Interpretation der Statistiken sollten Sie bedenken, dass einige Interpretationen durch die Betrachtung einer Kombination von Statistiken abgeleitet werden.
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Wählen Sie den SSD-Cache aus, für den Sie Statistiken anzeigen möchten, und klicken Sie dann auf Menü:Mehr[SSD-Cache-Statistiken anzeigen].
++
+Das Dialogfeld „SSD-Cache-Statistiken anzeigen“ wird angezeigt und zeigt die nominalen Statistiken für den ausgewählten SSD-Cache an.
+
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellungen | Beschreibung 
+
+
+ a| 
+Lesevorgänge
+ a| 
+Zeigt die Gesamtzahl der Lesezugriffe des Hosts auf die SSD-Cache-fähigen Volumes an. Je höher das Verhältnis von Lese- zu Schreibzugriffen ist, desto besser funktioniert der Cache.
+
+
+
+ a| 
+Schreibvorgänge
+ a| 
+Die Gesamtzahl der Schreibvorgänge des Hosts auf die SSD-Cache-fähigen Volumes. Je größer das Verhältnis von Lese- zu Schreibvorgängen ist, desto besser ist der Betrieb des Caches.
+
+
+
+ a| 
+Cache-Treffer
+ a| 
+Zeigt die Anzahl der Cache-Treffer an.
+
+
+
+ a| 
+Cache-Treffer %
+ a| 
+Zeigt den Prozentsatz der Cache-Treffer an. Diese Zahl wird aus Cache-Treffer / (Lesevorgänge + Schreibvorgänge) abgeleitet. Der Prozentsatz der Cache-Treffer sollte für einen effektiven SSD-Cache-Betrieb über 50 Prozent liegen.
+
+
+
+ a| 
+Cache-Zuweisung %
+ a| 
+Zeigt den Prozentsatz des zugewiesenen SSD-Cache-Speichers an, ausgedrückt als Prozentsatz des für diesen Controller verfügbaren SSD-Cache-Speichers und berechnet aus zugewiesenen Bytes / verfügbaren Bytes.
+
+
+
+ a| 
+Cache-Auslastung %
+ a| 
+Zeigt den Prozentsatz des SSD-Cache-Speichers, der Daten von aktivierten Volumes enthält, ausgedrückt als Prozentsatz des zugewiesenen SSD-Cache-Speichers. Dieser Wert repräsentiert die Auslastung bzw. Dichte des SSD-Cache. Abgeleitet aus zugewiesenen Bytes / verfügbaren Bytes.
+
+
+
+ a| 
+Alle exportieren
+ a| 
+Exportiert alle SSD-Cache-Statistiken in ein CSV-Format. Die exportierte Datei enthält alle verfügbaren Statistiken für den SSD-Cache (sowohl nominale als auch detaillierte).
+
+|===
+====
+. Klicken Sie auf *Cancel*, um das Dialogfeld zu schließen.
+

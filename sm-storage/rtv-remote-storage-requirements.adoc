@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/rtv-remote-storage-requirements.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage, requirements 
+summary: Bevor Sie die Funktion „Remote Storage“ verwenden, lesen Sie die folgenden Anforderungen und Einschränkungen. 
+---
+= Erfahren Sie mehr über die Anforderungen der Remote-Speicherfunktion in SANtricity-Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie die Funktion „Remote Storage“ verwenden, lesen Sie die folgenden Anforderungen und Einschränkungen.
+
+
+
+== Unterstützte Protokolle
+
+Folgende Protokolle werden unterstützt:
+
+* iSCSI
+* IPv4
+
+
+Aktuelle Support- und Konfigurationsinformationen zum E-Series Storage-System finden Sie unter  https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitätsmatrix-Tool"^].
+
+
+
+== Hardwareanforderungen
+
+Das E-Series Storage-System muss Folgendes umfassen:
+
+* Zwei Controller (Duplex-Modus)
+* iSCSI-Verbindungen für beide E-Series Controller zur Kommunikation mit dem Remote-System über eine oder mehrere iSCSI-Verbindungen
+* SANtricity OS 11.71 oder höher
+* Remote Storage-Funktion in der Submodel ID (SMID) aktiviert
+
+
+Das Remote-System kann entweder ein E-Series Storage-System oder ein System eines anderen Herstellers sein. Es muss Folgendes umfassen:
+
+* iSCSI-fähige Schnittstellen
+
+
+
+
+== Einschränkungen
+
+Die Funktion „Remote Storage“ unterliegt folgenden Einschränkungen:
+
+* Die Spiegelung muss deaktiviert sein.
+* Das Ziel-Volume im E-Series-System darf keine Snapshots enthalten.
+* Das Ziel-Volume auf dem E-Series-System darf vor dem Start des Imports keinem Host zugeordnet sein.
+* Das Ziel-Volume auf dem E-Series-System muss mit deaktivierter Ressourcenbereitstellung konfiguriert sein.
+* Die direkte Zuordnung des Remote-Speichervolumes zu einem oder mehreren Hosts wird nicht unterstützt.
+* Web Services Proxy wird nicht unterstützt.
+* iSCSI CHAP secrets werden nicht unterstützt.
+* SMcli wird nicht unterstützt.
+* VMware Datastore wird nicht unterstützt.
+* Nur ein Speichersystem im Beziehungs-/Importpaar kann jeweils aktualisiert werden, wenn ein Importpaar vorhanden ist.
+

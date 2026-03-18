@@ -1,0 +1,127 @@
+---
+permalink: sm-hardware/view-shelf-component-status-and-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, shelf, component, status, settings, 
+summary: Die Hardware-Seite bietet Status und Einstellungen für Regal-Komponenten, einschließlich der Netzteile, Lüfter und Batterien. 
+---
+= Status und Einstellungen der Regalkomponenten im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Hardware-Seite bietet Status und Einstellungen für Regal-Komponenten, einschließlich der Netzteile, Lüfter und Batterien.
+
+.Über diese Aufgabe
+Die verfügbaren Komponenten hängen vom Typ des Regals ab:
+
+* *Laufwerksgehäuse* -- Enthält eine Reihe von Laufwerken, Netzteilen/Lüftergehäusen, Eingangs-/Ausgangsmodulen (IOMs) und anderen unterstützenden Komponenten in einem einzigen Shelf.
+* *Controller shelf* -- Enthält einen Satz Laufwerke, ein oder zwei Controller-Gehäuse, Netzteil-/Lüftergehäuse und weitere unterstützende Komponenten in einem einzigen Shelf.
+
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wählen Sie die Dropdown-Liste für das Controller-Shelf oder das Laufwerk-Shelf aus und wählen Sie dann *Einstellungen anzeigen*.
++
+Das Dialogfeld „Einstellungen für Regalkomponenten“ öffnet sich und enthält Registerkarten, die den Status und die Einstellungen in Bezug auf die Regalkomponenten anzeigen. Je nach ausgewähltem Regaltyp werden einige in der Tabelle beschriebene Registerkarten möglicherweise nicht angezeigt.
+
++
+[cols="25h,~"]
+|===
+| Tab | Beschreibung 
+
+
+ a| 
+Shelf
+ a| 
+Die Registerkarte *Shelf* zeigt die folgenden Eigenschaften an:
+
+** *Shelf ID* -- Identifiziert ein Shelf im Speichersystem eindeutig. Die Controller-Firmware weist diese Nummer zu, aber Sie können sie ändern, indem Sie Menü:Shelf[ID ändern] auswählen.
+** *Shelf-Pfadredundanz* -- Gibt an, ob Verbindungen zwischen dem Shelf und dem Controller alternative Methoden haben (Ja) oder nicht (Nein).
+** *Aktuelle Laufwerkstypen* -- Zeigt die in den Laufwerken verbaute Technologie an (zum Beispiel ein SAS-Laufwerk, das sicherheitsfähig ist). Wenn mehr als ein Laufwerkstyp vorhanden ist, werden beide Technologien angezeigt.
+** *Seriennummer* -- Zeigt die Seriennummer des Regals an.
+
+
+
+
+ a| 
+IOMs (ESMs)
+ a| 
+Die Registerkarte *IOMs (ESMs)* zeigt den Status des Eingabe-/Ausgabemoduls (IOM) an, das auch als Environmental Service Module (ESM) bezeichnet wird. Es überwacht den Status der Komponenten in einem Laufwerksschacht und dient als Verbindungspunkt zwischen dem Laufwerksträger und dem Controller.
+
+Der Status kann „Optimal“, „Fehlgeschlagen“, „Optimal (Fehlverdrahtung)“ oder „Nicht zertifiziert“ sein. Weitere Informationen umfassen die Firmware-Version und die Version der Konfigurationseinstellungen.
+
+Wählen Sie *Weitere Einstellungen anzeigen*, um die maximale und aktuelle Datenrate sowie den Status der Kartenkommunikation (entweder Ja oder Nein) anzuzeigen.
+
+[NOTE]
+====
+Sie können diesen Status auch anzeigen, indem Sie das IOM-Symbol image:../media/sam1130-ss-hardware-iom-icon.gif[""] neben der Dropdown-Liste „Shelf“ auswählen.
+
+====
+
+
+ a| 
+Netzteile
+ a| 
+Die Registerkarte *Power Supplies* zeigt den Status des Netzteil-Canisters und des Netzteils selbst an. Der Status kann Optimal, Failed, Removed oder Unknown sein. Es wird auch die Teilenummer des Netzteils angezeigt.
+
+[NOTE]
+====
+Sie können diesen Status auch anzeigen, indem Sie das Netzteil-Symbol image:../media/sam1130-ss-hardware-power-icon.gif[""] neben der Dropdown-Liste „Regal“ auswählen.
+
+====
+
+
+ a| 
+Lüfter
+ a| 
+Die Registerkarte *Lüfter* zeigt den Status des Lüftergehäuses und des Lüfters selbst an. Der Status kann Optimal, Ausgefallen, Entfernt oder Unbekannt sein.
+
+[NOTE]
+====
+Sie können diesen Status auch anzeigen lassen, indem Sie das Lüftersymbol image:../media/sam1130-ss-hardware-fan-icon.gif[""] neben der Dropdown-Liste „Regal“ auswählen.
+
+====
+
+
+ a| 
+Temperatur
+ a| 
+Die Registerkarte *Temperatur* zeigt den Temperaturstatus der Regalkomponenten an, wie Sensoren, Steuerungen und Strom-/Lüftermodule. Der Status kann Optimal, Nenntemperatur überschritten, Maximaltemperatur überschritten oder Unbekannt sein.
+
+[NOTE]
+====
+Sie können diesen Status auch anzeigen, indem Sie das Temperatursymbol image:../media/sam1130-ss-hardware-temp-icon.gif[""] neben der Dropdown-Liste „Regal“ auswählen.
+
+====
+
+
+ a| 
+Batterien
+ a| 
+Die Registerkarte *Batteries* zeigt den Status der Controller-Batterien an. Der Status kann Optimal, Failed, Removed oder Unknown sein. Weitere Informationen umfassen das Batteriealter, die verbleibenden Tage bis zum Austausch, die Lernzyklen und die Wochen zwischen den Lernzyklen.
+
+[NOTE]
+====
+Sie können diesen Status auch anzeigen, indem Sie das Batteriesymbol image:../media/sam1130-ss-hardware-battery-icon.gif[""] neben der Dropdown-Liste „Regal“ auswählen.
+
+====
+
+
+ a| 
+SFPs
+ a| 
+Die Registerkarte *SFPs* zeigt den Status von Small Form-factor Pluggable (SFP) Transceivern auf den Controllern an. Der Status kann Optimal, Failed oder Unknown sein.
+
+Wählen Sie *Weitere Einstellungen anzeigen*, um die Teilenummer, die Seriennummer und den Vendor der SFPs anzuzeigen.
+
+[NOTE]
+====
+Sie können diesen Status auch anzeigen, indem Sie das SFP-Symbol image:../media/sam1130-ss-hardware-sfp-icon.gif[""] neben der Dropdown-Liste „Shelf“ auswählen.
+
+====
+|===
+. Klicken Sie auf *Schließen*.
+

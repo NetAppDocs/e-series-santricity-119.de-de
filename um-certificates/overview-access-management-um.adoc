@@ -1,0 +1,46 @@
+---
+permalink: um-certificates/overview-access-management-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, access management, authentication 
+summary: Zugriffsmanagement ist eine Methode zur Konfiguration der Benutzerauthentifizierung in SANtricity Unified Manager. 
+---
+= Erfahren Sie mehr über die Zugriffsverwaltung von SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Zugriffsmanagement ist eine Methode zur Konfiguration der Benutzerauthentifizierung in SANtricity Unified Manager.
+
+
+
+== Welche Authentifizierungsmethoden stehen zur Verfügung?
+
+Die folgenden Authentifizierungsmethoden stehen zur Verfügung:
+
+* *Lokale Benutzerrollen* -- Die Authentifizierung erfolgt über RBAC (rollenbasierte Zugriffssteuerung). Lokale Benutzerrollen umfassen vordefinierte Benutzerprofile und Rollen mit spezifischen Zugriffsberechtigungen.
+* *Verzeichnisdienste* -- Die Authentifizierung wird über einen LDAP (Lightweight Directory Access Protocol)-Server und einen Verzeichnisdienst wie Microsoft's Active Directory verwaltet.
+* *SAML* -- Die Authentifizierung wird durch einen Identity Provider (IdP) mithilfe von SAML 2.0 verwaltet.
+
+
+Mehr erfahren:
+
+* link:how-access-management-works-unified.html["Wie die Zugriffsverwaltung funktioniert"]
+* link:access-management-terminology-unified.html["Terminologie des Zugriffsmanagements"]
+* link:permissions-for-mapped-roles-unified.html["Berechtigungen für zugeordnete Rollen"]
+* link:access-management-with-saml.html["SAML"]
+
+
+
+
+== Wie konfiguriere ich Access Management?
+
+Die SANtricity Software ist vorkonfiguriert, um lokale Benutzerrollen zu verwenden. Wenn Sie LDAP verwenden möchten, können Sie es auf der Seite Access Management konfigurieren.
+
+Mehr erfahren:
+
+* link:access-management-with-local-user-roles-unified.html["Zugriffsverwaltung mit lokalen Benutzerrollen"]
+* link:access-management-with-directory-services-unified.html["Zugriffsverwaltung mit Verzeichnisdiensten"]
+* link:configure-saml.html["SAML konfigurieren"]
+

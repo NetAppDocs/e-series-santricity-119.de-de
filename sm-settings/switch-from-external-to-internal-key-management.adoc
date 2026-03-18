@@ -1,0 +1,50 @@
+---
+permalink: sm-settings/switch-from-external-to-internal-key-management.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, switch, external, internal, key, management, 
+summary: Sie können die Verwaltungsmethode für die Laufwerkssicherheit von einem externen Schlüsselserver auf die vom Storage-Array verwendete interne Methode umstellen. Der zuvor für die externe Schlüsselverwaltung definierte Sicherheitsschlüssel wird dann für die interne Schlüsselverwaltung verwendet. 
+---
+= Wechseln Sie in SANtricity System Manager von externer zu interner Schlüsselverwaltung
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Verwaltungsmethode für die Laufwerkssicherheit von einem externen Schlüsselserver auf die vom Storage-Array verwendete interne Methode umstellen. Der zuvor für die externe Schlüsselverwaltung definierte Sicherheitsschlüssel wird dann für die interne Schlüsselverwaltung verwendet.
+
+.Über diese Aufgabe
+In dieser Aufgabe deaktivieren Sie die externe Schlüsselverwaltung und laden eine neue Sicherungskopie auf Ihren lokalen Rechner herunter. Der vorhandene Schlüssel wird weiterhin für Drive Security verwendet, wird jedoch intern im Storage-Array verwaltet.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Wählen Sie unter *Security key management* die Option *Disable External Key Management*.
++
+Das Dialogfeld „Externe Schlüsselverwaltung deaktivieren“ wird geöffnet.
+
+. Unter *Passphrase definieren/Passphrase erneut eingeben* geben Sie eine Passphrase für die Sicherung des Schlüssels ein und bestätigen diese. Der Wert kann zwischen 8 und 32 Zeichen haben und muss jeweils Folgendes enthalten:
++
+** Ein oder mehrere Großbuchstaben. Beachten Sie, dass die Passphrase Groß-/Kleinschreibung beachtet.
+** Eine Zahl (eine oder mehrere).
+** Ein nicht-alphanumerisches Zeichen, wie !, *, @ (eines oder mehrere).
+
+
++
+[CAUTION]
+====
+Notieren Sie sich Ihre Eingaben zur späteren Verwendung. Wenn Sie ein gesichertes Laufwerk aus dem Storage-Array entfernen müssen, benötigen Sie die Kennung und die Passphrase, um die Laufwerksdaten zu entsperren.
+
+====
+. Klicken Sie auf *Deaktivieren*.
++
+Der Sicherungsschlüssel wird auf Ihren lokalen Host heruntergeladen.
+
+. Notieren Sie sich Ihre Schlüsselkennung, die Passphrase und den Speicherort der heruntergeladenen Schlüsseldatei und klicken Sie dann auf *Schließen*.
+
+
+.Ergebnisse
+Die Laufwerkssicherheit wird jetzt intern über das Storage-Array verwaltet.
+
+.Nachdem Sie fertig sind
+Sie sollten den Sicherheitsschlüssel validieren, um sicherzustellen, dass die Schlüsseldatei nicht beschädigt ist.

@@ -1,0 +1,39 @@
+---
+permalink: um-admin/manage-session-timeouts-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, manage, session, timeouts 
+summary: Sie können Zeitüberschreitungen für SANtricity Unified Manager konfigurieren, sodass inaktive Sitzungen von Benutzern nach einer bestimmten Zeit getrennt werden. 
+---
+= Sitzungs-Zeitüberschreitungen im SANtricity Unified Manager verwalten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Zeitüberschreitungen für SANtricity Unified Manager konfigurieren, sodass inaktive Benutzersitzungen nach einer bestimmten Zeit getrennt werden.
+
+.Über diese Aufgabe
+Standardmäßig beträgt die Zeitüberschreitung für Unified Manager 30 Minuten. Sie können diese Zeit anpassen oder die Zeitüberschreitung für Sitzungen vollständig deaktivieren.
+
+
+NOTE: Wenn die Zugriffsverwaltung mithilfe der im Array integrierten Security Assertion Markup Language (SAML)-Funktionen konfiguriert ist, kann eine Zeitüberschreitung auftreten, wenn die SSO-Sitzung des Benutzers ihr maximales Limit erreicht. Dies kann vor der System Manager Sitzungs-Zeitüberschreitung auftreten.
+
+.Schritte
+. Wählen Sie in der Menüleiste den Dropdown-Pfeil neben Ihrem Benutzeranmeldenamen aus.
+. Wählen Sie *Sitzungstimeout aktivieren/deaktivieren*.
++
+Das Dialogfeld „Zeitüberschreitung aktivieren/deaktivieren“ wird geöffnet.
+
+. Verwenden Sie die Drehregler, um die Zeit in Minuten zu erhöhen oder zu verringern.
++
+Die minimale Zeitüberschreitung, die Sie einstellen können, beträgt 15 Minuten.
+
++
+[NOTE]
+====
+Um Zeitüberschreitungen für Sitzungen zu deaktivieren, deaktivieren Sie das Kontrollkästchen *Set the length of time...*.
+
+====
+. Klicken Sie auf *Speichern*.
+

@@ -1,0 +1,89 @@
+---
+permalink: sm-storage/change-ssd-cache-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ssd, cache, settings 
+summary: Sie können den Namen des SSD-Cache bearbeiten und dessen Status, maximale und aktuelle Kapazität, den Status von Laufwerkssicherheit und Data Assurance sowie die zugehörigen Volumes und Laufwerke anzeigen. 
+---
+= Ändern Sie die SSD-Cache-Einstellungen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den Namen des SSD-Cache bearbeiten und dessen Status, maximale und aktuelle Kapazität, den Status von Laufwerkssicherheit und Data Assurance sowie die zugehörigen Volumes und Laufwerke anzeigen.
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Wählen Sie den SSD-Cache aus, den Sie bearbeiten möchten, und klicken Sie dann auf *Einstellungen anzeigen/bearbeiten*.
++
+Das Dialogfeld „SSD-Cache-Einstellungen“ wird angezeigt.
+
+. Überprüfen oder bearbeiten Sie die SSD-Cache-Einstellungen nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Name
+ a| 
+Zeigt den Namen des SSD-Cache an, den Sie ändern können. Ein Name für den SSD-Cache ist erforderlich.
+
+
+
+ a| 
+Eigenschaften
+ a| 
+Zeigt den Status des SSD-Cache. Mögliche Statuswerte sind:
+
+** Optimal
+** Unbekannt
+** Abgebaut
+** Fehlgeschlagen (Ein fehlgeschlagener Status führt zu einem kritischen MEL-Ereignis.)
+** Ausgesetzt
+
+
+
+
+ a| 
+Kapazitäten
+ a| 
+Zeigt die aktuelle Kapazität und die maximal zulässige Kapazität für den SSD-Cache.
+
+Die maximal zulässige Kapazität des SSD-Cache hängt von der Größe des primären Cache des Controllers ab:
+
+** Bis zu 1 GiB
+** 1 GiB bis 2 GiB
+** 2 GiB bis 4 GiB
+** Mehr als 4 GiB
+
+
+
+
+ a| 
+Sicherheit und DA
+ a| 
+Zeigt den Status von Laufwerkssicherheit und Data Assurance für den SSD-Cache an.
+
+** *Sicherheitsfähig* – Gibt an, ob der SSD-Cache ausschließlich aus sicherheitsfähigen Laufwerken besteht. Ein sicherheitsfähiges Laufwerk ist ein Self-Encrypting Drives, das seine Daten vor unbefugtem Zugriff schützen kann.
+** *Secure-enabled* -- Gibt an, ob die Sicherheit im SSD-Cache aktiviert ist.
+** *DA-fähig* – Gibt an, ob der SSD-Cache ausschließlich aus DA-fähigen Laufwerken besteht. Ein DA-fähiges Laufwerk kann Fehler erkennen und korrigieren, die bei der Datenübertragung zwischen Host und Storage-Array auftreten können.
+
+
+
+
+ a| 
+Zugehörige Objekte
+ a| 
+Zeigt die Volumes und Laufwerke, die mit dem SSD-Cache verbunden sind.
+
+|===
+====
+. Klicken Sie auf *Speichern*.
+

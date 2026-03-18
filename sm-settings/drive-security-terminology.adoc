@@ -1,0 +1,91 @@
+---
+permalink: sm-settings/drive-security-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, drive, security, terms, 
+summary: Erfahren Sie, wie die Drive Security-Bestimmungen auf Ihr Speichersystem Anwendung finden. 
+---
+= Erfahren Sie mehr über die Terminologie zur Laufwerkssicherheit in SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Drive Security-Bestimmungen auf Ihr Speichersystem Anwendung finden.
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+Laufwerksicherheitsfunktion
+ a| 
+Die Laufwerkssicherheit ist eine Funktion von Speichersystemen, die eine zusätzliche Sicherheitsebene mit entweder Full Disk Encryption (FDE)-Festplatten oder Federal Information Processing Standard (FIPS)-Festplatten bietet. Wenn diese Festplatten mit der Laufwerkssicherheitsfunktion verwendet werden, ist ein Sicherheitsschlüssel für den Zugriff auf ihre Daten erforderlich. Wenn die Festplatten physisch aus dem Array entfernt werden, können sie erst wieder betrieben werden, wenn sie in ein anderes Array installiert werden; zu diesem Zeitpunkt befinden sie sich im Sicherheits-Locked-Zustand, bis der korrekte Sicherheitsschlüssel bereitgestellt wird.
+
+
+
+ a| 
+FDE-Laufwerke
+ a| 
+Festplatten mit vollständiger Festplattenverschlüsselung (FDE) führen die Verschlüsselung auf der Festplatte auf Hardwareebene durch. Die Festplatte enthält einen ASIC-Chip, der Daten beim Schreiben verschlüsselt und beim Lesen wieder entschlüsselt.
+
+
+
+ a| 
+FIPS-Laufwerke
+ a| 
+FIPS-Laufwerke verwenden Federal Information Processing Standards (FIPS) 140-2 Level 2. Sie sind im Wesentlichen FDE-Laufwerke, die den Standards der US-Regierung für starke Verschlüsselungsalgorithmen und -methoden entsprechen. FIPS-Laufwerke haben höhere Sicherheitsstandards als FDE-Laufwerke.
+
+
+
+ a| 
+Management-Client
+ a| 
+Ein lokales System (Computer, Tablet usw.), das einen Browser für den Zugriff auf System Manager enthält.
+
+
+
+ a| 
+Passphrase
+ a| 
+Die Passphrase wird verwendet, um den Sicherheitsschlüssel zu Sicherungszwecken zu verschlüsseln. Dieselbe Passphrase, die zur Verschlüsselung des Sicherheitsschlüssels verwendet wurde, muss angegeben werden, wenn der gesicherte Sicherheitsschlüssel als Ergebnis einer Laufwerksmigration oder eines Lesekopfwechsels importiert wird. Eine Passphrase kann zwischen 8 und 32 Zeichen haben.
+
+[NOTE]
+====
+Die Passphrase für Drive Security ist unabhängig vom Administratorpasswort des Storage Arrays.
+
+====
+
+
+ a| 
+Sicherheitsfähige Laufwerke
+ a| 
+Sicherheitsfähige Laufwerke können entweder Full Disk Encryption (FDE)-Laufwerke oder Federal Information Processing Standard (FIPS)-Laufwerke sein, die Daten beim Schreiben verschlüsseln und beim Lesen entschlüsseln. Diese Laufwerke gelten als sicher-_capable_, da sie mithilfe der Funktion „Laufwerkssicherheit“ für zusätzliche Sicherheit eingesetzt werden können. Wenn die Funktion „Laufwerkssicherheit“ für die mit diesen Laufwerken verwendeten Volume-Gruppen und Pools aktiviert ist, werden die Laufwerke secure-_enabled_.
+
+
+
+ a| 
+Sicherheitsfähige Laufwerke
+ a| 
+Sicherheitsfähige Laufwerke werden mit der Funktion Drive Security verwendet. Wenn Sie die Funktion Drive Security aktivieren und dann Drive Security auf einen Pool oder eine Volumengruppe mit secure-_capable_ Laufwerken anwenden, werden die Laufwerke secure__-enabled__. Lese- und Schreibzugriff ist nur über einen Controller möglich, der mit dem korrekten Sicherheitsschlüssel konfiguriert ist. Diese zusätzliche Sicherheit verhindert unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Speicher-Array entfernt wurde.
+
+
+
+ a| 
+Sicherheitsschlüssel
+ a| 
+Ein Sicherheitsschlüssel ist eine Zeichenfolge, die zwischen den sicherheitsfähigen Laufwerken und Controllern in einem Storage-Array gemeinsam genutzt wird. Immer wenn die Stromversorgung der Laufwerke aus- und wieder eingeschaltet wird, wechseln die sicherheitsfähigen Laufwerke in einen Sicherheits-Locked-Zustand, bis der Controller den Sicherheitsschlüssel anwendet. Wenn ein sicherheitsfähiges Laufwerk aus dem Storage-Array entfernt wird, werden die Daten des Laufwerks gesperrt. Wenn das Laufwerk in einem anderen Storage-Array wieder installiert wird, sucht es nach dem Sicherheitsschlüssel, bevor es die Daten wieder zugänglich macht. Um die Daten zu entsperren, müssen Sie den ursprünglichen Sicherheitsschlüssel anwenden. Sie können Sicherheitsschlüssel mit einer der folgenden Methoden erstellen und verwalten:
+
+* Internes Schlüsselmanagement – Erstellen und Verwalten von Sicherheitsschlüsseln im persistenten Speicher des Controllers.
+* Externes Schlüsselmanagement – Erstellen und Verwalten von Sicherheitsschlüsseln auf einem externen Schlüsselmanagementserver.
+
+
+
+
+ a| 
+Sicherheitsschlüsselkennung
+ a| 
+Die Sicherheitsschlüsselkennung ist eine Zeichenfolge, die dem Sicherheitsschlüssel bei dessen Erstellung zugeordnet wird. Die Kennung wird auf dem Controller und auf allen Laufwerken gespeichert, die mit dem Sicherheitsschlüssel verbunden sind.
+
+|===

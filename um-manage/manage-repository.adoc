@@ -1,0 +1,58 @@
+---
+permalink: um-manage/manage-repository.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, manage, software, repository 
+summary: Das Software-Repository listet alle Softwaredateien auf, die mit dem Web Services Proxy verbunden sind. 
+---
+= Verwalten Sie das SANtricity Software-Repository im Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das Software-Repository listet alle Softwaredateien auf, die mit dem Web Services Proxy verbunden sind.
+
+Falls die gewünschte Datei nicht angezeigt wird, können Sie über die Option „Software-Repository verwalten“ eine oder mehrere SANtricity OS-Dateien auf das Hostsystem importieren, auf dem der Web Services Proxy und der Unified Manager ausgeführt werden. Sie können auch eine oder mehrere SANtricity OS-Dateien löschen, die im Software-Repository verfügbar sind.
+
+.Bevor Sie beginnen
+Wenn Sie SANtricity OS-Dateien hinzufügen, stellen Sie sicher, dass die OS-Dateien auf Ihrem lokalen System verfügbar sind.
+
+.Schritte
+. Wählen Sie in der Hauptansicht *Verwalten* und dann Menü:Upgrade Center[Manage Software Repository].
++
+Das Dialogfeld „Software-Repository verwalten“ wird angezeigt.
+
+. Führen Sie eine der folgenden Aktionen aus:
++
+[cols="25h,~"]
+|===
+| Option | Tun Sie Folgendes.... 
+
+
+ a| 
+Importieren
+ a| 
+.. Klicken Sie auf *Import*.
+.. Klicken Sie auf *Durchsuchen*, und navigieren Sie dann zu dem Speicherort, an dem sich die Betriebssystemdateien befinden, die Sie hinzufügen möchten.
++
+OS-Dateien haben einen Dateinamen ähnlich wie  `N2800-830000-000.dlp`.
+
+.. Wählen Sie eine oder mehrere OS-Dateien aus, die Sie hinzufügen möchten, und klicken Sie dann auf *Import*.
+
+
+
+
+ a| 
+Löschen
+ a| 
+.. Wählen Sie eine oder mehrere OS-Dateien aus, die Sie aus dem Software-Repository entfernen möchten.
+.. Klicken Sie auf *Delete*.
+
+
+|===
+
+
+.Ergebnisse
+Wenn Sie Import ausgewählt haben, werden die Datei(en) hochgeladen und validiert. Wenn Sie Löschen ausgewählt haben, werden die Dateien aus dem Software-Repository entfernt.

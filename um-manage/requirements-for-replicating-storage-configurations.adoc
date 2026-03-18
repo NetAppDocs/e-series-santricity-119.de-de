@@ -1,0 +1,50 @@
+---
+permalink: um-manage/requirements-for-replicating-storage-configurations.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, requirements, replicating, storage, configurations 
+summary: Bevor Sie eine Speicherkonfiguration von einem Storage Array in ein anderes importieren, überprüfen Sie die Anforderungen und Richtlinien. 
+---
+= Anforderungen für die Replikation von Speicherarray-Konfigurationen in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie eine Speicherkonfiguration von einem Storage Array in ein anderes importieren, überprüfen Sie die Anforderungen und Richtlinien.
+
+
+
+== Shelfs
+
+* Die Regale, auf denen die Controller untergebracht sind, müssen auf dem Quell- und Ziel-Array identisch sein.
+* Shelf-IDs müssen auf dem Quell- und Ziel-Array identisch sein.
+* Erweiterungsgehäuse müssen in den gleichen Steckplätzen mit den gleichen Laufwerkstypen bestückt werden (wenn das Laufwerk in der Konfiguration verwendet wird, spielt der Standort nicht verwendeter Laufwerke keine Rolle).
+
+
+
+
+== Controller
+
+* Der Controllertyp kann zwischen Quell- und Ziel-Array unterschiedlich sein (zum Beispiel beim Import von einem E2800 zu einem E5700), aber der RBOD-Gehäusetyp muss identisch sein.
+* Die HICs, einschließlich der DA-Fähigkeiten des Hosts, müssen zwischen Quell- und Ziel-Arrays identisch sein.
+* Der Import von einer Duplex- in eine Simplex-Konfiguration wird nicht unterstützt; jedoch ist der Import von einer Simplex- in eine Duplex-Konfiguration zulässig.
+* FDE-Einstellungen sind nicht im Importprozess enthalten.
+
+
+
+
+== Status
+
+* Die Zielarrays müssen sich im Optimal-Status befinden.
+* Das Quell-Array muss sich nicht im Optimal-Status befinden.
+
+
+
+
+== Storage
+
+* Die Laufwerkskapazität kann zwischen Quell- und Ziel-Array variieren, solange die Volume-Kapazität auf dem Ziel-Array größer ist als auf dem Quell-Array. (Ein Ziel-Array könnte neuere, größere Laufwerke haben, die durch den Replikationsvorgang nicht vollständig zu Volumes konfiguriert werden.)
+* Datenträgerpool-Volumes von 64 TB oder größer auf dem Quell-Array verhindern den Importvorgang auf den Zielsystemen.
+* Dünne Volumes werden beim Importvorgang nicht berücksichtigt.
+

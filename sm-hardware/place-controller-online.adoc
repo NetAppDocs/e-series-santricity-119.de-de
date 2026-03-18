@@ -1,0 +1,32 @@
+---
+permalink: sm-hardware/place-controller-online.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, place, controller, online 
+summary: Wenn sich ein Controller im Offline-Zustand oder im Service-Modus befindet, können Sie ihn wieder online schalten. 
+---
+= Einen Controller im SANtricity System Manager online schalten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn sich ein Controller im Offline-Zustand oder im Service-Modus befindet, können Sie ihn wieder online schalten.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Klicken Sie auf einen Controller, der sich entweder im Offline-Zustand oder im Service-Modus befindet.
++
+Das Kontextmenü des Controllers wird angezeigt.
+
+. Wählen Sie *Place online* und bestätigen Sie, dass Sie die Operation durchführen möchten.
+
+
+.Ergebnisse
+Die Erkennung eines wiederhergestellten bevorzugten Pfads durch den Multipath-Treiber kann bis zu 10 Minuten dauern.
+
+Alle ursprünglich diesem Controller zugeordneten Volumes werden automatisch wieder dem Controller zugeordnet, sobald E/A-Anforderungen für die einzelnen Volumes eingehen. In manchen Fällen müssen Sie die Volumes möglicherweise manuell mit dem Befehl *Redistribute volumes* neu verteilen.

@@ -1,0 +1,180 @@
+---
+permalink: sm-hardware/faq-storage-shelf.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zum Storage Shelf für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was ist Regalverlustschutz und Schubladenverlustschutz?
+
+Schutz vor Regalverlust und Schutz vor Schubladenverlust sind Attribute von Pools und Volumengruppen, die es Ihnen ermöglichen, den Datenzugriff im Falle eines Ausfalls eines einzelnen Regals oder einer einzelnen Schublade aufrechtzuerhalten.
+
+
+
+=== Schutz vor Shelf-Ausfall
+
+Ein Shelf ist das Gehäuse, das entweder die Laufwerke oder die Laufwerke und den Controller enthält. Shelf-Verlustschutz gewährleistet die Zugänglichkeit der Daten auf den Volumes in einem Pool oder einer Volume-Gruppe, wenn ein vollständiger Kommunikationsverlust mit einem einzelnen Laufwerkshelf auftritt. Ein Beispiel für einen vollständigen Kommunikationsverlust könnte ein Stromausfall des Laufwerkshelfs oder der Ausfall beider E/A-Module (IOMs) sein.
+
+[NOTE]
+====
+Shelf loss protection ist nicht gewährleistet, wenn ein Laufwerk im Pool oder in der Volume-Gruppe bereits ausgefallen ist. In dieser Situation führt der Verlust des Zugriffs auf ein Festplattengehäuse und folglich auf ein weiteres Laufwerk im Pool oder in der Volume-Gruppe zu Datenverlust.
+
+====
+Die Kriterien für den Schutz vor Regalverlust hängen von der Schutzmethode ab, wie in der folgenden Tabelle beschrieben:
+
+[cols="1a,1a,1a"]
+|===
+| Ebene | Kriterien für den Schutz vor Shelf Loss | Mindestanzahl an Regalböden erforderlich 
+
+
+ a| 
+Pool
+ a| 
+Der Pool muss Laufwerke aus mindestens fünf Gehäusen enthalten, und es muss sich in jedem Gehäuse die gleiche Anzahl an Laufwerken befinden. Der Schutz vor Gehäuseverlust gilt nicht für Gehäuse mit einer hohen Kapazität; wenn Ihr System Gehäuse mit einer hohen Kapazität enthält, beachten Sie bitte den Abschnitt zum Schutz vor Schubladenverlust.
+ a| 
+5
+
+
+
+ a| 
+RAID 6
+ a| 
+Die Volume-Gruppe enthält nicht mehr als zwei Laufwerke in einem einzigen Shelf.
+ a| 
+3
+
+
+
+ a| 
+RAID 3 oder RAID 5
+ a| 
+Jedes Laufwerk in der Volume-Gruppe befindet sich in einem separaten Shelf.
+ a| 
+3
+
+
+
+ a| 
+RAID 1
+ a| 
+Jedes Laufwerk eines RAID 1-Paares muss in einem separaten Shelf untergebracht sein.
+ a| 
+2
+
+
+
+ a| 
+RAID 0
+ a| 
+Schutz vor Regalverlust kann nicht erreicht werden.
+ a| 
+Nicht zutreffend
+
+|===
+
+
+=== Schubladenverlustschutz
+
+Eine Schublade ist eines der Fächer eines Regals, das Sie herausziehen, um auf die Laufwerke zuzugreifen. Nur die Regale mit einer hohen Kapazität verfügen über Schubladen. Der Schubladenausfallschutz garantiert die Zugänglichkeit der Daten auf den Volumes in einem Pool oder einer Volumengruppe, falls ein vollständiger Kommunikationsverlust mit einer einzelnen Schublade auftritt. Ein Beispiel für einen vollständigen Kommunikationsverlust könnte ein Stromausfall der Schublade oder der Ausfall einer internen Komponente innerhalb der Schublade sein.
+
+[NOTE]
+====
+Der Schutz vor Datenverlust durch Festplatteneinschub ist nicht gewährleistet, wenn bereits eine Festplatte im Pool oder in der Volume-Gruppe ausgefallen ist. In diesem Fall führt der Verlust des Zugriffs auf einen Festplatteneinschub (und damit auch auf eine andere Festplatte im Pool oder in der Volume-Gruppe) zu Datenverlust.
+
+====
+Die Kriterien für den Verlustschutz von Schubladen hängen von der Schutzmethode ab, wie in der folgenden Tabelle beschrieben:
+
+[cols="1a,1a,1a"]
+|===
+| Ebene | Kriterien für den Schutz vor Schubladenverlust | Mindestanzahl der erforderlichen Schubladen 
+
+
+ a| 
+Pool
+ a| 
+Die Pool-Kandidaten müssen Laufwerke aus allen Schubladen enthalten, und es muss in jeder Schublade die gleiche Anzahl von Laufwerken vorhanden sein.
+
+Der Pool muss Laufwerke aus mindestens fünf Schubladen enthalten und in jeder Schublade muss die gleiche Anzahl an Laufwerken vorhanden sein.
+
+Ein Gehäuse mit 60 Laufwerken kann Drawer Loss Protection erreichen, wenn der Pool 15, 20, 25, 30, 35, 40, 45, 50, 55 oder 60 Laufwerke enthält. Erhöhungen in Vielfachen von 5 können dem Pool nach der anfänglichen Erstellung hinzugefügt werden.
+ a| 
+5
+
+
+
+ a| 
+RAID 6
+ a| 
+Die Volume-Gruppe enthält nicht mehr als zwei Laufwerke in einem einzigen Einschub.
+ a| 
+3
+
+
+
+ a| 
+RAID 3 oder RAID 5
+ a| 
+Jedes Laufwerk in der Volume-Gruppe befindet sich in einer separaten Schublade.
+ a| 
+3
+
+
+
+ a| 
+RAID 1
+ a| 
+Jedes Laufwerk in einem gespiegelten Paar muss in einer separaten Schublade untergebracht sein.
+ a| 
+2
+
+
+
+ a| 
+RAID 0
+ a| 
+Schubladenverlustschutz kann nicht erreicht werden.
+ a| 
+Nicht zutreffend
+
+|===
+
+
+== Was sind Batterielernzyklen?
+
+Ein Lernzyklus ist ein automatischer Zyklus zur Kalibrierung der smart battery gauge.
+
+Ein Lernzyklus besteht aus diesen Phasen:
+
+* Kontrollierte Batterieentladung
+* Ruhezeit
+* Aufladung
+
+
+Die Batterien werden bis zu einem vorbestimmten Schwellenwert entladen. Während dieser Phase wird die Batteriestandsanzeige kalibriert.
+
+Ein Lernzyklus erfordert diese Parameter:
+
+* Vollständig geladene Batterien
+* Keine überhitzten Batterien
+
+
+Die Lernzyklen für Duplex-Controller-Systeme erfolgen gleichzeitig. Bei Controllern mit Notstromversorgung durch mehr als eine Batterie oder einen Satz von Batteriezellen erfolgen die Lernzyklen nacheinander.
+
+Die Lernzyklen werden automatisch in regelmäßigen Abständen gestartet, immer zur gleichen Zeit und am gleichen Wochentag. Das Intervall zwischen den Zyklen wird in Wochen beschrieben.
+
+[NOTE]
+====
+Ein Lernzyklus kann mehrere Stunden dauern.
+
+====

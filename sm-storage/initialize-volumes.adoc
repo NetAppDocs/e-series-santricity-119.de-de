@@ -1,0 +1,59 @@
+---
+permalink: sm-storage/initialize-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, initialize, volumes 
+summary: Ein Volume wird bei seiner Erstellung automatisch initialisiert. Der Recovery Guru kann jedoch empfehlen, dass Sie ein Volume manuell initialisieren, um bestimmte Fehlerzustände zu beheben. Verwenden Sie diese Option nur unter Anleitung des technischen Supports. Sie können ein oder mehrere Volumes zur Initialisierung auswählen. 
+---
+= Volumes im SANtricity System Manager initialisieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ein Volume wird bei seiner Erstellung automatisch initialisiert. Der Recovery Guru kann jedoch empfehlen, dass Sie ein Volume manuell initialisieren, um bestimmte Fehlerzustände zu beheben. Verwenden Sie diese Option nur unter Anleitung des technischen Supports. Sie können ein oder mehrere Volumes zur Initialisierung auswählen.
+
+.Bevor Sie beginnen
+* Alle I/O-Operationen wurden gestoppt.
+* Alle Geräte oder Dateisysteme auf den Volumes, die Sie initialisieren möchten, müssen ausgehängt werden.
+* Das Volume befindet sich im optimalen Status und es werden keine Änderungsvorgänge am Volume durchgeführt.
+
+
+[CAUTION]
+====
+Der Vorgang kann nach dem Start nicht mehr abgebrochen werden. Alle Volumendaten werden gelöscht. Führen Sie diesen Vorgang nur durch, wenn Ihnen der Recovery Guru dazu rät. Kontaktieren Sie den technischen Support, bevor Sie mit diesem Verfahren beginnen.
+
+====
+.Über diese Aufgabe
+Beim Initialisieren eines Volumes bleiben die WWN, die Hostzuweisungen, die zugewiesene Kapazität und die Einstellungen für die reservierte Kapazität erhalten. Es bleiben auch die gleichen Data Assurance (DA)-Einstellungen und Sicherheitseinstellungen erhalten.
+
+Die folgenden Volume-Typen _können nicht_ initialisiert werden:
+
+* Basisvolumen eines Snapshot-Volumes
+* Primärvolumen in einer Spiegelbeziehung
+* Sekundärvolumen in einer Spiegelbeziehung
+* Quellvolume in einer Volume-Kopie
+* Zielvolume in einer Volume-Kopie
+* Volume, dessen Initialisierung bereits läuft
+
+
+Dieses Thema gilt nur für Standard-Volumes, die aus Pools oder Volume-Gruppen erstellt wurden.
+
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Wählen Sie ein beliebiges Volume aus und wählen Sie dann Menü:More[Initialize volumes].
++
+Das Dialogfeld „Volumes initialisieren“ wird angezeigt. Alle Volumes auf dem Storage-Array werden in diesem Dialogfeld angezeigt.
+
+. Wählen Sie ein oder mehrere Volumes aus, die Sie initialisieren möchten, und bestätigen Sie, dass Sie den Vorgang ausführen möchten.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Löscht alle Daten von den Volumes, die initialisiert wurden.
+* Löscht die Blockindizes, wodurch unbeschriebene Blöcke so gelesen werden, als wären sie mit Nullen gefüllt (das Volume erscheint vollständig leer).
+
+
+Wählen Sie Menü:Home[View Operations in Progress], um den Fortschritt des aktuell für das ausgewählte Volume laufenden Initialisierungsvorgangs anzuzeigen. Dieser Vorgang kann längere Zeit dauern und die Systemleistung beeinträchtigen.

@@ -1,0 +1,42 @@
+---
+permalink: sm-mirroring/suspend-or-resume-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, suspend, resume, synchronization, mirror, consistency, group, 
+summary: Sie können die Synchronisierung der Daten auf allen gespiegelten Paaren innerhalb einer Spiegel-Konsistenzgruppe aussetzen oder fortsetzen, was effizienter ist als das Aussetzen oder Fortsetzen der Synchronisierung auf einzelnen gespiegelten Paaren. 
+---
+= Synchronisierung für Spiegel-Konsistenzgruppen im SANtricity System Manager anhalten oder fortsetzen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Synchronisierung der Daten auf allen gespiegelten Paaren innerhalb einer Spiegel-Konsistenzgruppe aussetzen oder fortsetzen, was effizienter ist als das Aussetzen oder Fortsetzen der Synchronisierung auf einzelnen gespiegelten Paaren.
+
+.Über diese Aufgabe
+Das Anhalten und Fortsetzen der Synchronisierung von Gruppen trägt dazu bei, etwaige Leistungseinbußen für die Host-Anwendung zu reduzieren, die auftreten könnten, während geänderte Daten vom lokalen Speicherarray auf das Remote-Speicherarray kopiert werden.
+
+Der Status der Konsistenzgruppe und ihrer gespiegelten Paare bleibt angehalten, bis Sie die Option „Fortsetzen“ verwenden, um die Synchronisierungsaktivität fortzusetzen.
+
+.Schritte
+. Menü auswählen:Storage[Asynchronous Mirroring].
+. Wählen Sie die Registerkarte *Mirror Consistency Groups* aus.
++
+Die Tabelle „Mirrored Konsistenzgruppe“ wird angezeigt und zeigt alle Spiegel-Konsistenzgruppen an, die dem Speicherarray zugeordnet sind.
+
+. Wählen Sie die Spiegel-Konsistenzgruppe aus, die Sie anhalten oder fortsetzen möchten, und wählen Sie dann entweder menu:More[Suspend] oder menu:More[Resume].
++
+Das System zeigt eine Bestätigung an.
+
+. Wählen Sie *Ja* zur Bestätigung aus.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Setzt entweder den Datentransfer zwischen allen gespiegelten Paaren in einer Konsistenzgruppe aus oder nimmt ihn wieder auf, ohne die Spiegelbeziehung zu entfernen.
+* Protokolliert alle Daten, die auf die primäre Seite der Spiegel-Konsistenzgruppe geschrieben wurden, während die Spiegelgruppe angehalten ist, und schreibt die Daten automatisch auf die sekundäre Seite der Spiegel-Konsistenzgruppe, wenn die Spiegelgruppe fortgesetzt wird. Eine vollständige Synchronisierung ist nicht erforderlich.
+* Für eine _suspendierte_ Konsistenzgruppe für Spiegelungen wird *user-suspended* in der Tabelle Mirror Consistency Groups angezeigt.
+* Für eine _wiederaufgenommene_ Spiegel-Konsistenzgruppe werden Daten, die während der Aussetzung der Spiegel-Konsistenzgruppe auf die primären Volumes geschrieben wurden, sofort auf die sekundären Volumes geschrieben. Die periodische Synchronisierung wird fortgesetzt, wenn ein automatisches Synchronisierungsintervall festgelegt wurde.
+

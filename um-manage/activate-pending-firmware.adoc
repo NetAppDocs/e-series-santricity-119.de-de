@@ -1,0 +1,45 @@
+---
+permalink: um-manage/activate-pending-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, activate, staged, os, software 
+summary: Sie können die Software-Datei entweder sofort aktivieren oder bis zu einem passenderen Zeitpunkt warten. Dieses Verfahren geht davon aus, dass Sie die Software-Datei zu einem späteren Zeitpunkt aktivieren. 
+---
+= Aktivieren Sie die bereitgestellte OS-Software im SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Software-Datei entweder sofort aktivieren oder bis zu einem passenderen Zeitpunkt warten. Dieses Verfahren geht davon aus, dass Sie die Software-Datei zu einem späteren Zeitpunkt aktivieren.
+
+.Über diese Aufgabe
+Sie können die Firmware-Dateien übertragen, ohne sie zu aktivieren. Sie könnten sich aus folgenden Gründen dafür entscheiden, die Aktivierung später durchzuführen:
+
+* *Tageszeit* -- Die Aktivierung der Software kann längere Zeit in Anspruch nehmen, daher sollten Sie eventuell warten, bis die E/A-Lasten geringer sind. Die Controller werden während der Aktivierung neu gestartet und es erfolgt ein Failover, sodass die Leistung bis zum Abschluss des Upgrades geringer als gewöhnlich sein kann.
+* *Pakettyp* -- Sie möchten möglicherweise die neue Software und Firmware auf einem Speichersystem testen, bevor Sie die Dateien auf anderen Speichersystemen aktualisieren.
+
+
+[NOTE]
+====
+Sie können den Aktivierungsprozess nach seinem Start nicht mehr stoppen.
+
+====
+.Schritte
+. Wählen Sie in der Hauptansicht *Verwalten* aus. Klicken Sie gegebenenfalls auf die Spalte „Status“, um oben auf der Seite alle Speicherarrays mit dem Status „OS-Upgrade (Aktivierung ausstehend)“ zu sortieren.
+. Wählen Sie ein oder mehrere Speicherarrays aus, für die Sie Software aktivieren möchten, und wählen Sie dann Menü:Upgrade Center[Activate Staged OS Software].
++
+Die folgenden Aktionen erfolgen während des Upgrade-Vorgangs:
+
++
+** Ein Gesundheitscheck vor dem Upgrade wird als Teil des Aktivierungsprozesses durchgeführt. Der Gesundheitscheck vor dem Upgrade bewertet alle Komponenten des Storage-Arrays, um sicherzustellen, dass die Aktivierung fortgesetzt werden kann.
+** Schlägt eine Integritätsprüfung für ein Speichersystem fehl, wird die Aktivierung gestoppt. Sie können auf die Auslassungspunkte (...) klicken und *Protokoll speichern* auswählen, um die Fehler zu überprüfen. Sie können auch wählen, den Integritätsprüfungsfehler zu überschreiben, und dann auf *Weiter* klicken, um mit der Aktivierung fortzufahren.
+** Sie können den Aktivierungsvorgang nach der Vorabprüfung des Systemzustands abbrechen. Nach erfolgreichem Abschluss der Vorabprüfung des Systemzustands erfolgt die Aktivierung. Die Zeit, die für die Aktivierung benötigt wird, hängt von Ihrer Storage-Array-Konfiguration und den Komponenten ab, die Sie aktivieren.
+
+
+. *Optional:* Nach Abschluss der Aktivierung können Sie eine Liste der aktivierten Elemente für ein bestimmtes Speicherarray anzeigen, indem Sie auf die Auslassungspunkte (...) klicken und dann *Save Log* auswählen.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `activate_log-<date>.json` gespeichert.
+
+

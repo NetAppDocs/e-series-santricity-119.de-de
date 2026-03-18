@@ -1,0 +1,55 @@
+---
+permalink: sm-support/autosupport-feature-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, autosupport, ASUP 
+summary: Die AutoSupport-Funktion überwacht den Zustand eines Speichersystems und sendet automatische Meldungen an den technischen Support. 
+---
+= Erfahren Sie mehr über AutoSupport für die E-Series
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die AutoSupport-Funktion überwacht den Zustand eines Speichersystems und sendet automatische Meldungen an den technischen Support.
+
+Der technische Support nutzt die AutoSupport Daten reaktiv, um die Diagnose und Behebung von Kundenproblemen zu beschleunigen, und proaktiv, um potenzielle Probleme zu erkennen und zu vermeiden.
+
+AutoSupport-Daten umfassen Informationen zur Konfiguration, zum Status, zur Leistung und zu Systemereignissen eines Storage-Arrays. Die AutoSupport-Daten enthalten keine Benutzerdaten. Meldungen können sofort oder nach einem Zeitplan (täglich und wöchentlich) versendet werden.
+
+
+
+== Wichtigste Vorteile
+
+Einige wichtige Vorteile der AutoSupport-Funktion sind:
+
+* Beschleunigte Fallbearbeitungszeiten
+* Ausgefeilte Überwachung für schnelleres Incident-Management
+* Automatisierte Berichterstattung nach Zeitplan sowie automatisierte Berichterstattung über kritische Ereignisse
+* Automatisierte Hardware-Austauschanfragen für ausgewählte Komponenten wie Laufwerke
+* Unaufdringliche Benachrichtigungen informieren Sie über ein Problem und liefern dem technischen Support Informationen, damit eine Korrekturmaßnahme ergriffen werden kann
+* AutoSupport-Analysetools, die Einsätze auf bekannte Konfigurationsprobleme überwachen
+
+
+
+
+== Individuelle AutoSupport features
+
+Die AutoSupport-Funktion besteht aus drei Einzelfunktionen, die Sie separat aktivieren.
+
+* *Basic AutoSupport* -- Ermöglicht Ihrem Storage-Array, Daten automatisch zu erfassen und an den technischen Support zu senden.
+* *AutoSupport OnDemand* -- Ermöglicht dem technischen Support, die erneute Übertragung eines vorherigen AutoSupport-Versands anzufordern, wenn dies zur Fehlerbehebung eines Problems erforderlich ist. Alle Übertragungen werden vom Speichersystem initiiert, nicht vom AutoSupport Server. Das Speichersystem meldet sich regelmäßig beim AutoSupport Server, um festzustellen, ob ausstehende Anforderungen für erneute Übertragungen vorliegen, und reagiert entsprechend.
+* *Ferndiagnose* – Ermöglicht dem technischen Support, bei Bedarf zur Fehlerbehebung eine neue, aktuelle AutoSupport-Sendung anzufordern. Alle Übertragungen werden vom Speichersystem initiiert, nicht vom AutoSupport-Server. Das Speichersystem meldet sich regelmäßig beim AutoSupport-Server, um festzustellen, ob neue Anfragen ausstehen, und reagiert entsprechend.
+
+
+
+
+== Unterschied zwischen AutoSupport und Sammeln von Unterstützungsdaten
+
+Im Speicherarray existieren zwei Methoden zum Sammeln von Supportdaten:
+
+* *AutoSupport feature* -- Daten werden automatisch erfasst.
+* *Option „Supportdaten sammeln“* -- Die Daten müssen manuell gesammelt und gesendet werden.
+
+
+Die AutoSupport-Funktion ist einfacher zu verwenden, da die Daten automatisch erfasst und gesendet werden. AutoSupport-Daten können proaktiv genutzt werden, um Probleme zu verhindern, bevor sie auftreten. Die AutoSupport-Funktion beschleunigt die Fehlerbehebung, da der technische Support bereits Zugriff auf die Daten hat. Aus diesen Gründen ist die AutoSupport-Funktion die bevorzugte Methode zur Datenerfassung.

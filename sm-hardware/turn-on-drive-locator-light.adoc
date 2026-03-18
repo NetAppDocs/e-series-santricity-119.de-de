@@ -1,0 +1,30 @@
+---
+permalink: sm-hardware/turn-on-drive-locator-light.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, turn, drive, locator, light, LEDs 
+summary: Auf der Hardware-Seite können Sie die Locator-Leuchte einschalten, um den physischen Standort eines Laufwerks im Storage-Array zu ermitteln. 
+---
+= Schalten Sie eine Laufwerkslokalisierungsleuchte im SANtricity System Manager ein
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Auf der Hardware-Seite können Sie die Locator-Leuchte einschalten, um den physischen Standort eines Laufwerks im Storage-Array zu ermitteln.
+
+.Über diese Aufgabe
+Sie können einzelne Laufwerke oder mehrere Laufwerke auf der Seite „Hardware“ finden.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Um ein oder mehrere Laufwerke zu lokalisieren, führen Sie einen der folgenden Schritte aus:
++
+** *Einzelnes Laufwerk* – Suchen Sie in der Abbildung das Laufwerk, das Sie im Array physisch positionieren möchten. (Wenn die Abbildung die Controller anzeigt, klicken Sie auf die Registerkarte *Laufwerke*.) Klicken Sie auf das Laufwerk, um dessen Kontextmenü anzuzeigen, und wählen Sie dann *Positionsanzeige aktivieren*.
++
+Die Kontrollleuchte des Laufwerks leuchtet auf. Wenn Sie das Laufwerk physisch gefunden haben, kehren Sie zum Dialogfeld zurück und wählen Sie *Ausschalten*.
+
+** *Mehrere Laufwerke* -- Wählen Sie in den Filterfeldern links einen physischen Laufwerkstyp aus der linken Dropdown-Liste und einen logischen Laufwerkstyp aus der rechten Dropdown-Liste aus. Die Anzahl der Laufwerke, die Ihren Kriterien entsprechen, wird ganz rechts neben den Feldern angezeigt. Anschließend können Sie entweder auf *Positionsanzeigen einschalten* klicken oder im Kontextmenü *Alle gefilterten Laufwerke suchen* auswählen. Wenn Sie die Laufwerke physisch gefunden haben, kehren Sie zum Dialogfeld zurück und wählen Sie *Ausschalten*.
+
+
+

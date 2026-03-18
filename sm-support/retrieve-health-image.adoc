@@ -1,0 +1,38 @@
+---
+permalink: sm-support/retrieve-health-image.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, retrieve, health, image 
+summary: Sie können ein Zustandsabbild des Controllers einsehen. Ein Zustandsabbild ist ein Rohdaten-Dump des Prozessorspeichers des Controllers, den der technische Support zur Diagnose eines Problems mit einem Controller verwenden kann. 
+---
+= Gesundheitsbild im SANtricity System Manager abrufen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Zustandsabbild des Controllers einsehen. Ein Zustandsabbild ist ein Rohdaten-Dump des Prozessorspeichers des Controllers, den der technische Support zur Diagnose eines Problems mit einem Controller verwenden kann.
+
+.Über diese Aufgabe
+Die Firmware erstellt automatisch ein Zustandsabbild, wenn sie bestimmte Fehler erkennt. Nachdem ein Zustandsabbild erstellt wurde, wird der Controller, bei dem der Fehler aufgetreten ist, neu gestartet und ein Ereignis im Ereignisprotokoll protokolliert.
+
+Wenn Sie AutoSupport aktiviert haben, wird das Gesundheitsbild automatisch an den technischen Support gesendet. Wenn Sie AutoSupport nicht aktiviert haben, müssen Sie sich an den technischen Support wenden, um Anweisungen zum Abrufen des Gesundheitsbildes und zum Senden an diesen zur Analyse zu erhalten.
+
+[NOTE]
+====
+Führen Sie diese Operation nur durch, wenn Sie vom technischen Support dazu aufgefordert werden.
+
+====
+.Schritte
+. Menü auswählen: Support [Support Center > Diagnostics] Registerkarte.
+. Wählen Sie *Retrieve Health Image*.
++
+Im Detailbereich können Sie die Größe des Health-Images sehen, bevor Sie die Datei herunterladen.
+
+. Klicken Sie auf *Collect*.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `health-image.7z` gespeichert.
+
+. Befolgen Sie die Anweisungen des technischen Supports, um die Datei an sie zu senden.
+

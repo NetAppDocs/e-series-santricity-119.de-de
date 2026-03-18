@@ -1,0 +1,72 @@
+---
+permalink: um-manage/storage-array-status.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, storage, array, status, communication, 
+summary: Unified Manager zeigt den Status jedes erkannten Storage Arrays an. 
+---
+= Status des Speicherarrays im SANtricity Unified Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity Unified Manager zeigt den Status jedes erkannten Storage Arrays an.
+
+Wechseln Sie zur Seite *Verwalten – Alle*. Auf dieser Seite können Sie den Status der Verbindung zwischen dem Web Services Proxy und dem Storage-Array einsehen.
+
+Die Statusindikatoren werden in der folgenden Tabelle beschrieben.
+
+[cols="25h,~"]
+|===
+| Status | Zeigt an 
+
+
+ a| 
+Optimal
+ a| 
+Das Speichersystem befindet sich in optimalem Zustand. Es bestehen keine Zertifikatsprobleme und das Passwort ist gültig.
+
+
+
+ a| 
+Ungültiges Passwort
+ a| 
+Es wurde ein ungültiges Passwort für das Speicherarray angegeben.
+
+
+
+ a| 
+Nicht vertrauenswürdiges Zertifikat
+ a| 
+Eine oder mehrere Verbindungen mit dem Storage-Array sind nicht vertrauenswürdig, weil das HTTPS-Zertifikat entweder selbstsigniert ist und nicht importiert wurde oder das Zertifikat von einer Zertifizierungsstelle signiert ist und die Stamm- und Zwischenzertifikate der Zertifizierungsstelle nicht importiert wurden.
+
+
+
+ a| 
+Handlungsbedarf
+ a| 
+Es gibt ein Problem mit dem Storage-Array, das Ihre Intervention zur Behebung erfordert.
+
+
+
+ a| 
+Sperrung
+ a| 
+Das Speichersystem befindet sich im gesperrten Zustand.
+
+
+
+ a| 
+Unbekannt
+ a| 
+Es wurde noch nie eine Verbindung zum Speichersystem hergestellt. Dies kann vorkommen, wenn der Web Services Proxy gerade startet und noch keine Verbindung zum Speichersystem hergestellt hat oder das Speichersystem offline ist und seit dem Start des Web Services Proxy noch nie kontaktiert wurde.
+
+
+
+ a| 
+Offline
+ a| 
+Der Web Services Proxy hatte zuvor Kontakt zum Storage-Array aufgenommen, hat nun aber jegliche Verbindung dazu verloren.
+
+|===

@@ -1,0 +1,82 @@
+---
+permalink: sm-settings/unlock-drives-using-an-external-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, unlock, drives, external, key, management, 
+summary: Wenn Sie die externe Schlüsselverwaltung konfiguriert haben und anschließend sicherheitsfähige Laufwerke von einem Speichersystem in ein anderes verschieben, müssen Sie den Sicherheitsschlüssel dem neuen Speichersystem neu zuweisen, um Zugriff auf die verschlüsselten Daten auf den Laufwerken zu erhalten. 
+---
+= Entsperren Sie Laufwerke bei Verwendung der externen Schlüsselverwaltung in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie die externe Schlüsselverwaltung konfiguriert haben und anschließend sicherheitsfähige Laufwerke von einem Speichersystem in ein anderes verschieben, müssen Sie den Sicherheitsschlüssel dem neuen Speichersystem neu zuweisen, um Zugriff auf die verschlüsselten Daten auf den Laufwerken zu erhalten.
+
+.Bevor Sie beginnen
+* Auf dem Quell-Array (dem Array, aus dem Sie die Laufwerke entfernen), haben Sie Volumengruppen exportiert und die Laufwerke entfernt. Auf dem Ziel-Array haben Sie die Laufwerke wieder installiert.
++
+
+NOTE: Die Export-/Importfunktion wird in der System Manager-Benutzeroberfläche nicht unterstützt; Sie müssen die Befehlszeile (CLI) verwenden, um eine Volume-Gruppe in ein anderes Storage-Array zu exportieren/importieren.
+
++
+Detaillierte Anweisungen zur Migration einer Volume-Gruppe finden Sie in der  https://kb.netapp.com/["NetApp Wissensdatenbank"^]. Beachten Sie unbedingt die entsprechenden Anweisungen für neuere Arrays, die vom System Manager verwaltet werden, oder für ältere Systeme.
+
+* Die Funktion „Laufwerkssicherheit“ muss aktiviert sein. Andernfalls wird während dieses Vorgangs ein Dialogfeld mit der Meldung „Sicherheitsschlüssel kann nicht erstellt werden“ geöffnet. Wenden Sie sich gegebenenfalls an Ihren Speicheranbieter, um Anweisungen zur Aktivierung der Funktion „Laufwerkssicherheit“ zu erhalten.
+* Sie müssen die IP-Adresse und die Portnummer des Schlüsselverwaltungsservers kennen.
+* Sie verfügen über eine signierte Clientzertifikatsdatei für die Controller des Storage-Arrays und haben diese Datei auf den Host kopiert, von dem aus Sie auf System Manager zugreifen. Ein Clientzertifikat validiert die Controller des Storage-Arrays, sodass der Key Management Server deren Key Management Interoperability Protocol (KMIP)-Anfragen vertrauen kann.
+* Sie müssen eine Zertifikatsdatei vom Schlüsselverwaltungsserver abrufen und diese anschließend auf den Host kopieren, von dem aus Sie auf System Manager zugreifen. Ein Schlüsselverwaltungsserverzertifikat validiert den Schlüsselverwaltungsserver, sodass das Storage-Array dessen IP-Adresse vertrauen kann. Sie können ein Stamm-, Zwischen- oder Serverzertifikat für den Schlüsselverwaltungsserver verwenden.
+
+
+[NOTE]
+====
+Weitere Informationen zum Serverzertifikat finden Sie in der Dokumentation für Ihren Schlüsselverwaltungsserver.
+
+====
+.Über diese Aufgabe
+Bei der externen Schlüsselverwaltung wird der Sicherheitsschlüssel extern auf einem Server gespeichert, der speziell für den Schutz von Sicherheitsschlüsseln ausgelegt ist. Ein Sicherheitsschlüssel ist eine Zeichenfolge, die vom Controller und den Laufwerken für lesen/schreiben gemeinsam genutzt wird. Werden die Laufwerke physisch aus dem Array entfernt und in einem anderen installiert, können sie erst wieder verwendet werden, nachdem der korrekte Sicherheitsschlüssel angegeben wurde.
+
+[NOTE]
+====
+Sie können entweder einen internen Schlüssel aus dem persistenten Speicher des Controllers oder einen externen Schlüssel von einem Schlüsselverwaltungsserver erstellen. In diesem Thema wird das Entsperren von Daten beschrieben, wenn _externe_ Schlüsselverwaltung verwendet wird. Wenn Sie _interne_ Schlüsselverwaltung verwendet haben, siehe link:unlock-drives-using-an-internal-security-key.html["Laufwerke entsperren bei Verwendung der internen Schlüsselverwaltung"]. Wenn Sie ein Controller-Upgrade durchführen und alle Controller gegen die neueste Hardware austauschen, müssen Sie andere Schritte befolgen, wie im E-Series und SANtricity Dokumentationszentrum unter link:https://docs.netapp.com/us-en/e-series/upgrade-controllers/upgrade-unlock-drives-task.html["Laufwerke entsperren"] beschrieben.
+
+====
+Sobald Sie sicherheitsfähige Laufwerke in einem anderen Array neu installieren, erkennt dieses Array die Laufwerke und zeigt eine „Achtung erforderlich“-Bedingung sowie den Status „Sicherheitsschlüssel benötigt“ an. Um die Laufwerksdaten zu entsperren, importieren Sie die Sicherheitsschlüsseldatei und geben die Passphrase für den Schlüssel ein. (Diese Passphrase ist nicht identisch mit dem Administratorpasswort des Speicherarrays.) Während dieses Vorgangs konfigurieren Sie das Speicherarray so, dass es einen externen Schlüsselverwaltungsserver verwendet, und dann wird der Sicherheitsschlüssel zugänglich sein. Sie müssen die Kontaktinformationen des Servers angeben, damit das Speicherarray eine Verbindung herstellen und den Sicherheitsschlüssel abrufen kann.
+
+Wenn weitere sicherheitsfähige Laufwerke im neuen Speichersystem installiert sind, verwenden diese möglicherweise einen anderen Sicherheitsschlüssel als den, den Sie importieren. Während des Importvorgangs wird der alte Sicherheitsschlüssel nur verwendet, um die Daten für die Laufwerke, die Sie installieren, zu entsperren. Wenn der Entsperrvorgang erfolgreich ist, werden die neu installierten Laufwerke mit dem Sicherheitsschlüssel des Ziel-Speichersystems neu verschlüsselt.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *Sicherheitsschlüsselverwaltung* wählen Sie *Externen Schlüssel erstellen* aus.
+. Schließen Sie den Assistenten mit den erforderlichen Verbindungsinformationen und Zertifikaten ab.
+. Klicken Sie auf *Test Communication*, um den Zugriff auf den externen Schlüsselverwaltungsserver sicherzustellen.
+. Wählen Sie *Unlock Secure Drives*.
++
+Das Dialogfeld „Sichere Laufwerke entsperren“ wird geöffnet. Alle Laufwerke, die einen Sicherheitsschlüssel benötigen, werden in der Tabelle angezeigt.
+
+. *Optional:* Bewegen Sie den Mauszeiger über eine Laufwerksnummer, um den Standort des Laufwerks (Shelf-Nummer und Bay-Nummer) anzuzeigen.
+. Klicken Sie auf *Durchsuchen*, und wählen Sie dann die Sicherheitsschlüsseldatei aus, die dem Laufwerk entspricht, das Sie entsperren möchten.
++
+Die von Ihnen ausgewählte Schlüsseldatei wird im Dialogfeld angezeigt.
+
+. Geben Sie die mit dieser Schlüsseldatei verknüpfte Passphrase ein.
++
+Die von Ihnen eingegebenen Zeichen sind maskiert.
+
+. Klicken Sie auf *Entsperren*.
++
+Wenn der Entsperrvorgang erfolgreich ist, wird im Dialogfeld angezeigt: „The associated secure drives have been unlocked.“
+
+
+
+.Ergebnisse
+Wenn alle Laufwerke gesperrt und anschließend entsperrt werden, startet jeder Controller im Storage-Array neu. Sind jedoch bereits einige Laufwerke im Ziel-Storage-Array entsperrt, starten die Controller nicht neu.
+
+.Nachdem Sie fertig sind
+Auf dem Ziel-Array (dem Array mit den neu installierten Laufwerken) können Sie jetzt Volumengruppen importieren.
+
+
+NOTE: Die Export-/Importfunktion wird in der System Manager-Benutzeroberfläche nicht unterstützt; Sie müssen die Befehlszeile (CLI) verwenden, um eine Volume-Gruppe in ein anderes Storage-Array zu exportieren/importieren.
+
+Detaillierte Anweisungen zur Migration einer Volume-Gruppe finden Sie in der  https://kb.netapp.com/["NetApp Wissensdatenbank"^].

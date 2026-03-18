@@ -1,0 +1,127 @@
+---
+permalink: sm-settings/create-external-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, external, security, key, 
+summary: Um die Funktion „Laufwerkssicherheit“ mit einem Schlüsselverwaltungsserver zu verwenden, müssen Sie einen externen Schlüssel erstellen, der vom Schlüsselverwaltungsserver und den sicherheitsfähigen Laufwerken im Storage-Array gemeinsam genutzt wird. 
+---
+= Erstellen Sie einen externen Sicherheitsschlüssel in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um die Funktion „Laufwerkssicherheit“ mit einem Schlüsselverwaltungsserver zu verwenden, müssen Sie einen externen Schlüssel erstellen, der vom Schlüsselverwaltungsserver und den sicherheitsfähigen Laufwerken im Storage-Array gemeinsam genutzt wird.
+
+.Bevor Sie beginnen
+* Im Array müssen sichere Laufwerke installiert sein. Diese Laufwerke können Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein.
++
+[NOTE]
+====
+Wenn sowohl FDE- als auch FIPS-Laufwerke im Storage-Array installiert sind, verwenden sie alle denselben Sicherheitsschlüssel.
+
+====
+* Die Funktion „Laufwerkssicherheit“ muss aktiviert sein. Andernfalls wird während dieses Vorgangs ein Dialogfeld mit der Meldung „Sicherheitsschlüssel kann nicht erstellt werden“ geöffnet. Wenden Sie sich gegebenenfalls an Ihren Speicheranbieter, um Anweisungen zur Aktivierung der Funktion „Laufwerkssicherheit“ zu erhalten.
+* Sie verfügen über eine signierte Clientzertifikatsdatei für die Controller des Storage-Arrays und haben diese Datei auf den Host kopiert, von dem aus Sie auf System Manager zugreifen. Ein Clientzertifikat validiert die Controller des Storage-Arrays, sodass der Key Management Server deren Key Management Interoperability Protocol (KMIP)-Anfragen vertrauen kann.
+* Sie müssen eine Zertifikatsdatei vom Schlüsselverwaltungsserver abrufen und diese anschließend auf den Host kopieren, von dem aus Sie auf System Manager zugreifen. Ein Schlüsselverwaltungsserverzertifikat validiert den Schlüsselverwaltungsserver, sodass das Storage-Array dessen IP-Adresse vertrauen kann. Sie können ein Stamm-, Zwischen- oder Serverzertifikat für den Schlüsselverwaltungsserver verwenden.
++
+[NOTE]
+====
+Weitere Informationen zum Serverzertifikat finden Sie in der Dokumentation für Ihren Schlüsselverwaltungsserver.
+
+====
+
+
+.Über diese Aufgabe
+In dieser Aufgabe definieren Sie die IP-Adresse des Schlüsselverwaltungsservers und die von ihm verwendete Portnummer und laden anschließend Zertifikate für die externe Schlüsselverwaltung.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *Sicherheitsschlüsselverwaltung* wählen Sie *Externen Schlüssel erstellen* aus.
++
+[NOTE]
+====
+Wenn die interne Schlüsselverwaltung derzeit konfiguriert ist, wird ein Dialogfeld geöffnet, in dem Sie bestätigen müssen, dass Sie zur externen Schlüsselverwaltung wechseln möchten.
+
+====
++
+Das Dialogfeld „Externen Sicherheitsschlüssel erstellen“ wird geöffnet.
+
+. Unter *Connect to Key Server* geben Sie Informationen in die folgenden Felder ein.
++
+** *Adresse des Schlüsselverwaltungsservers* -- Geben Sie den vollqualifizierten Domainnamen oder die IP-Adresse (IPv4 oder IPv6) des für die Schlüsselverwaltung verwendeten Servers ein.
+** *Portnummer für die Schlüsselverwaltung* -- Geben Sie die für die KMIP-Kommunikation verwendete Portnummer ein. Die am häufigsten verwendete Portnummer für die Kommunikation mit dem Schlüsselverwaltungsserver ist 5696.
++
+*Optional:* Wenn Sie einen Backup-Schlüsselserver konfigurieren möchten, klicken Sie auf *Schlüsselserver hinzufügen* und geben Sie dann die Informationen dieses Servers ein. Der zweite Schlüsselserver wird verwendet, wenn der primäre Schlüsselserver nicht erreicht werden kann. Stellen Sie sicher, dass jeder Schlüsselserver Zugriff auf dieselbe Datenbank von Schlüsseln hat; andernfalls gibt das Array Fehler aus und der Backup-Server kann nicht verwendet werden.
+
++
+
+NOTE: Es wird jeweils nur ein Schlüsselserver verwendet. Wenn das Speichersystem den primären Schlüsselserver nicht erreichen kann, kontaktiert das System den Backup-Schlüsselserver. Beachten Sie, dass Sie die Parität auf beiden Servern aufrechterhalten müssen; andernfalls kann es zu Fehlern kommen.
+
+** *Clientzertifikat auswählen* -- Klicken Sie auf die erste Schaltfläche *Durchsuchen*, um die Zertifikatdatei für die Controller des Storage-Arrays auszuwählen.
+** *Private Schlüsseldatei auswählen* -- Klicken Sie gegebenenfalls auf die zweite Schaltfläche *Durchsuchen*, um eine private Schlüsseldatei für die Controller des Storage-Arrays auszuwählen.
+** *Serverzertifikat des Schlüsselverwaltungsservers auswählen* – Klicken Sie auf die dritte Schaltfläche *Durchsuchen*, um die Zertifikatsdatei für den Schlüsselverwaltungsserver auszuwählen. Sie können ein Stamm-, Zwischen- oder Serverzertifikat für den Schlüsselverwaltungsserver auswählen.
+
+
+. Klicken Sie auf *Weiter*.
+. Unter *Schlüssel erstellen/sichern* können Sie einen Sicherungsschlüssel zu Sicherheitszwecken erstellen.
++
+** (Empfohlen) Um einen Backup-Schlüssel zu erstellen, lassen Sie das Kontrollkästchen aktiviert und geben Sie anschließend eine Passphrase ein und bestätigen Sie diese. Der Wert kann zwischen 8 und 32 Zeichen lang sein und muss jeweils Folgendes enthalten:
++
+*** Ein oder mehrere Großbuchstaben. Beachten Sie, dass die Passphrase Groß-/Kleinschreibung beachtet.
+*** Eine Zahl (eine oder mehrere).
+*** Ein nicht-alphanumerisches Zeichen, wie !, *, @ (eines oder mehrere).
+
+
+
+
++
+[CAUTION]
+====
+*Notieren Sie sich Ihre Eingaben für die spätere Verwendung*. Wenn Sie ein gesichertes Laufwerk aus dem Storage-Array verschieben müssen, müssen Sie die Passphrase kennen, um die Laufwerksdaten zu entsperren.
+
+====
++
+** Wenn Sie keinen Sicherungsschlüssel erstellen möchten, deaktivieren Sie das Kontrollkästchen.
++
+[CAUTION]
+====
+Beachten Sie, dass Sie den Zugriff auf die Daten auf den Laufwerken verlieren, wenn Sie den Zugriff auf den externen Schlüsselserver verlieren und kein Sicherungsschlüssel vorhanden ist, falls sie auf ein anderes Storage-Array migriert werden. Diese Option ist die einzige Methode, um im System Manager einen Sicherungsschlüssel zu erstellen.
+
+====
+
+
+. Klicken Sie auf *Finish*.
++
+Das System verbindet sich mit dem Schlüsselverwaltungsserver mithilfe der von Ihnen eingegebenen Anmeldeinformationen. Anschließend wird eine Kopie des Sicherheitsschlüssels auf Ihrem lokalen System gespeichert.
+
++
+[NOTE]
+====
+Der Pfad für die heruntergeladene Datei kann vom Standard-Downloadverzeichnis Ihres Browsers abhängen.
+
+====
+. Notieren Sie sich Ihre Passphrase und den Speicherort der heruntergeladenen Schlüsseldatei, und klicken Sie dann auf *Schließen*.
++
+Auf der Seite wird folgende Meldung mit zusätzlichen Links zur externen Schlüsselverwaltung angezeigt:
+
++
+`Current key management method: External`
+
+. Testen Sie die Verbindung zwischen dem Speichersystem und dem Schlüsselverwaltungsserver, indem Sie *Test Communication* auswählen.
++
+Die Testergebnisse werden im Dialogfeld angezeigt.
+
+
+
+.Ergebnisse
+Wenn die externe Schlüsselverwaltung aktiviert ist, können Sie sicherheitsaktivierte Volume-Gruppen oder Pools erstellen oder die Sicherheit für bestehende Volume-Gruppen und Pools aktivieren.
+
+[NOTE]
+====
+Wird die Stromversorgung der Laufwerke unterbrochen und anschließend wiederhergestellt, wechseln alle sicherheitsaktivierten Laufwerke in den Sicherheitssperrzustand. In diesem Zustand sind die Daten unzugänglich, bis der Controller bei der Laufwerksinitialisierung den korrekten Sicherheitsschlüssel anwendet. Wird ein gesperrtes Laufwerk physisch entfernt und in ein anderes System eingebaut, verhindert der Sicherheitssperrzustand den unbefugten Zugriff auf die Daten.
+
+====
+.Nachdem Sie fertig sind
+Sie sollten den Sicherheitsschlüssel validieren, um sicherzustellen, dass die Schlüsseldatei nicht beschädigt ist.

@@ -1,0 +1,67 @@
+---
+permalink: um-manage/import-storage-configuration-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, storage, configuration, settings 
+summary: Sie können die Speicherkonfiguration von einem Storage-Array auf andere Storage-Arrays importieren. Dieser Batchvorgang spart Zeit, wenn Sie mehrere Arrays im Netzwerk konfigurieren müssen. 
+---
+= Importieren Sie die Speicherkonfigurationseinstellungen in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Speicherkonfiguration von einem Storage-Array auf andere Storage-Arrays importieren. Dieser Batchvorgang spart Zeit, wenn Sie mehrere Arrays im Netzwerk konfigurieren müssen.
+
+.Bevor Sie beginnen
+* Der Speicher wird im SANtricity System Manager für das Speicherarray konfiguriert, das Sie als Quelle verwenden möchten.
+* Die bestehende Konfiguration der Zielspeicherarrays wird im System Manager gesichert (Menü:Einstellungen[System > Save Storage Array Configuration]).
+* Die Quell- und Ziel-Arrays müssen diese Anforderungen erfüllen:
++
+** Die Regale, in denen die Controller untergebracht sind, müssen identisch sein.
+** Regalkennungen müssen identisch sein.
+** Erweiterungs-Shelfs müssen in den gleichen Steckplätzen mit den gleichen Laufwerkstypen bestückt werden.
+** Der RBOD-Gehäusetyp muss identisch sein.
+** Die HICs, einschließlich der Data Assurance-Funktionen des Hosts, müssen identisch sein.
+** Die Zielarrays müssen sich im Optimal-Status befinden.
+** Die Volume-Kapazität auf dem Ziel-Array ist größer als die Kapazität des Quell-Arrays.
+
+
+* Sie verstehen die folgenden Einschränkungen:
++
+** Der Import von einer Duplex- in eine Simplex-Konfiguration wird nicht unterstützt; jedoch ist der Import von einer Simplex- in eine Duplex-Konfiguration zulässig.
+** Datenträgerpool-Volumes von 64 TB oder größer auf dem Quell-Array verhindern den Importvorgang auf den Zielsystemen.
+** Dünne Volumes werden beim Importvorgang nicht berücksichtigt.
+
+
+
+
+.Über diese Aufgabe
+Zu den importierten Einstellungen gehören konfigurierte Volumes (nur Thick- und Non-Repository-Volumes), Volume-Gruppen, Pools und Hot-Spare-Laufwerkszuweisungen.
+
+.Schritte
+. Klicken Sie auf der Seite *Verwalten* auf *Import Settings*.
++
+Der Importeinstellungen-Assistent wird geöffnet.
+
+. Im Dialogfeld „Einstellungen auswählen“ wählen Sie *Storage configuration* und klicken dann auf *Next*.
++
+Es öffnet sich ein Dialogfeld zur Auswahl des Quell-Arrays.
+
+. Wählen Sie im Dialogfeld „Quelle auswählen“ das Array mit den Einstellungen aus, die Sie importieren möchten, und klicken Sie dann auf *Next*.
+. Wählen Sie im Dialogfeld „Ziele auswählen“ ein oder mehrere Arrays aus, die die neuen Einstellungen erhalten sollen.
++
+[NOTE]
+====
+Speicherarrays mit Firmware unter 8.50 stehen nicht zur Auswahl. Außerdem wird ein Array in diesem Dialogfeld nicht angezeigt, wenn Unified Manager nicht mit diesem Array kommunizieren kann (zum Beispiel, wenn es offline ist oder wenn es Zertifikats-, Passwort- oder Netzwerkprobleme gibt).
+
+====
+. Klicken Sie auf *Finish*.
++
+Auf der Seite „Vorgänge“ werden die Ergebnisse des Importvorgangs angezeigt. Falls der Vorgang fehlschlägt, können Sie auf die entsprechende Zeile klicken, um weitere Informationen zu sehen.
+
+
+
+.Ergebnisse
+Die Zielspeicherarrays sind jetzt mit der gleichen Speicherkonfiguration wie das Quellarray konfiguriert.

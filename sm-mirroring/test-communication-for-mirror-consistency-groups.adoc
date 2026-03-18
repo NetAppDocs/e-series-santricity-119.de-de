@@ -1,0 +1,76 @@
+---
+permalink: sm-mirroring/test-communication-for-mirror-consistency-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, test, communication, mirror, consistency, groups, 
+summary: Sie können die Kommunikationsverbindung testen, um mögliche Kommunikationsprobleme zwischen dem lokalen Speicherarray und dem Remote-Speicherarray, das einer Konsistenzgruppe zugeordnet ist, zu diagnostizieren. 
+---
+= Testen Sie die Kommunikation für Konsistenzgruppen von Spiegelungen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Kommunikationsverbindung testen, um mögliche Kommunikationsprobleme zwischen dem lokalen Speicherarray und dem Remote-Speicherarray, das einer Konsistenzgruppe zugeordnet ist, zu diagnostizieren.
+
+.Bevor Sie beginnen
+Die Konsistenzgruppe, die Sie testen möchten, muss sowohl auf dem lokalen als auch auf dem entfernten Speichersystem vorhanden sein.
+
+.Über diese Aufgabe
+Sie können vier verschiedene Tests durchführen:
+
+* *Konnektivität* -- Überprüft, ob zwischen den beiden Controllern ein Kommunikationspfad besteht. Der Konnektivitätstest sendet eine Inter-Array-Nachricht zwischen den Speicherarrays und validiert anschließend, dass die entsprechende Spiegel-Konsistenzgruppe auf dem entfernten Speicherarray existiert. Es wird außerdem validiert, dass die Mitgliedsvolumes der Spiegel-Konsistenzgruppe auf dem entfernten Speicherarray mit den Mitgliedsvolumes der Spiegel-Konsistenzgruppe auf dem lokalen Speicherarray übereinstimmen.
+* *Latenz* -- Sendet einen SCSI-Test-Unit-Befehl an jedes gespiegelte Volume auf dem Remote-Speicherarray, das mit der Konsistenzgruppe für Spiegelungen verknüpft ist, um die minimale, durchschnittliche und maximale Latenz zu testen.
+* *Bandbreite* -- Sendet zwei Inter-Array-Nachrichten an das entfernte Speicherarray, um die minimale, durchschnittliche und maximale Bandbreite sowie die ausgehandelte Verbindungsgeschwindigkeit des Ports auf dem Array, das den Test durchführt, zu testen.
+* *Portverbindungen* -- Zeigt den Port an, der für die Spiegelung auf dem lokalen Speichersystem verwendet wird, und den Port, der die gespiegelten Daten auf dem entfernten Speichersystem empfängt.
+
+
+.Schritte
+. Menü auswählen:Storage[Asynchronous Mirroring].
+. Wählen Sie die Registerkarte *Mirror Consistency Groups* aus und dann die Mirror Consistency Group, die Sie testen möchten.
+. Wählen Sie *Test Communication*.
++
+Das Dialogfeld „Kommunikation testen“ wird angezeigt.
+
+. Wählen Sie einen oder mehrere Kommunikationstests aus, die zwischen den lokalen und entfernten Speicherarrays der ausgewählten Spiegel-Konsistenzgruppe durchgeführt werden sollen, und klicken Sie dann auf *Test*.
+. Überprüfen Sie die im Results-Fenster angezeigten Informationen.
++
+[cols="35h,~"]
+|===
+| Kommunikationsteststatus | Beschreibung 
+
+
+ a| 
+Normalzustand ohne Fehler
+ a| 
+Die Spiegel-Konsistenzgruppe kommuniziert korrekt.
+
+
+
+ a| 
+Bestanden-Status (aber nicht normal)
+ a| 
+Überprüfen Sie mögliche Netzwerk- oder Verbindungsprobleme und wiederholen Sie den Test.
+
+
+
+ a| 
+Fehlgeschlagener Status
+ a| 
+Die Fehlerursache wird angezeigt. Siehe Recovery Guru, um das Problem zu beheben.
+
+
+
+ a| 
+Portverbindungsfehler
+ a| 
+Die Ursache könnte sein, dass das lokale Speichersystem nicht verbunden ist oder das entfernte Speichersystem nicht erreichbar ist. Siehe Recovery Guru, um das Problem zu beheben.
+
+|===
+
+
+.Ergebnisse
+Nach Abschluss des Kommunikationstests zeigt dieses Dialogfeld den Status Normal, Passed oder Failed an.
+
+Wenn der Kommunikationstest den Status „Fehlgeschlagen“ zurückgibt, wird der Test nach dem Schließen dieses Dialogfelds so lange fortgesetzt, bis die Kommunikation zwischen den Konsistenzgruppen des Spiegels wiederhergestellt ist.

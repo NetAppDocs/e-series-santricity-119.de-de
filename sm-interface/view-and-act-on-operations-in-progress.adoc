@@ -1,0 +1,356 @@
+---
+permalink: sm-interface/view-and-act-on-operations-in-progress.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, act, operations, progress, 
+summary: Um länger laufende Vorgänge einzusehen und entsprechende Maßnahmen zu ergreifen, verwenden Sie die Seite Operations in Progress. 
+---
+= Laufende Vorgänge im SANtricity System Manager einsehen und bearbeiten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um länger laufende Vorgänge einzusehen und entsprechende Maßnahmen zu ergreifen, verwenden Sie die Seite Operations in Progress.
+
+.Über diese Aufgabe
+Für jeden Vorgang auf der Seite „Laufende Vorgänge“ werden der Fertigstellungsgrad in Prozent und die voraussichtliche Restzeit angezeigt. In manchen Fällen können Sie einen Vorgang abbrechen oder seine Priorität erhöhen oder senken. Sie können auch einen abgeschlossenen Volume Copy-Vorgang aus der Liste entfernen.
+
+.Schritte
+. Wählen Sie auf der Startseite *Laufende Vorgänge anzeigen* aus.
++
+Die Seite „Laufende Vorgänge“ wird angezeigt.
+
+. Bei Bedarf können Sie die Links in der Spalte Aktionen verwenden, um einen Vorgang zu stoppen oder dessen Priorität zu ändern.
++
+[CAUTION]
+====
+Lesen Sie alle Warnhinweise in den Dialogfeldern, insbesondere beim Stoppen eines Vorgangs.
+
+====
++
+Sie können einen Volume-Kopiervorgang stoppen oder dessen Priorität ändern.
+
+. Sobald ein Volume-Kopiervorgang abgeschlossen ist, können Sie *Clear* auswählen, um es aus der Liste zu entfernen.
++
+Oben auf der Startseite erscheint eine Informationsmeldung und ein gelbes Schraubenschlüssel-Symbol, wenn ein Vorgang abgeschlossen ist. Diese Meldung enthält einen Link, mit dem Sie den Vorgang von der Seite „Laufende Vorgänge“ entfernen können.
+
+
+
+Vorgänge, die auf der Seite „Laufende Vorgänge“ angezeigt werden, umfassen Folgendes:
+
+[cols="1a,1a,1a"]
+|===
+| Betrieb | Möglicher Status des Vorgangs | Maßnahmen, die Sie ergreifen können 
+
+
+ a| 
+Volume-Kopie
+ a| 
+Abgeschlossen
+ a| 
+Löschen
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+In Bearbeitung
+ a| 
+* Priorität ändern
+* Stopp
+
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+Ausstehend
+ a| 
+Löschen
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+Fehlgeschlagen
+ a| 
+* Löschen
+* Erneut kopieren
+
+
+
+
+ a| 
+Volume-Kopie
+ a| 
+Angehalten
+ a| 
+* Löschen
+* Erneut kopieren
+
+
+
+
+ a| 
+Volumen erstellen (nur für dicke Poolvolumina größer als 64TiB)
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Volume löschen (nur Thick-Pool-Volumes größer als 64TiB)
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Asynchrone anfängliche Synchronisierung der Spiegelgruppe
+ a| 
+In Bearbeitung
+ a| 
+Aussetzen
+
+
+
+ a| 
+Asynchrone anfängliche Synchronisierung der Spiegelgruppe
+ a| 
+Ausgesetzt
+ a| 
+Fortsetzen
+
+
+
+ a| 
+Synchrone Spiegelung
+ a| 
+In Bearbeitung
+ a| 
+Aussetzen
+
+
+
+ a| 
+Synchrone Spiegelung
+ a| 
+Ausgesetzt
+ a| 
+Fortsetzen
+
+
+
+ a| 
+Snapshot-Image-Rollback
+ a| 
+In Bearbeitung
+ a| 
+Abbrechen
+
+
+
+ a| 
+Snapshot-Image-Rollback
+ a| 
+Ausstehend
+ a| 
+Abbrechen
+
+
+
+ a| 
+Snapshot-Image-Rollback
+ a| 
+Angehalten
+ a| 
+* Abbrechen
+* Fortsetzen
+
+
+
+
+ a| 
+Laufwerksevakuierung
+ a| 
+In Bearbeitung
+ a| 
+Abbrechen (abhängig vom Typ der Laufwerksevakuierung)
+
+
+
+ a| 
+Kapazität zum Pool oder zur Volumengruppe hinzufügen
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Ändern Sie einen RAID-Level für ein Volume
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Kapazität für einen Pool reduzieren
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Thin-Volume-Rückgewinnung
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Prüfen Sie die verbleibende Zeit für einen Instant Availability Format (IAF)-Vorgang für Pool-Volumes
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Überprüfen Sie die Datenredundanz einer Volume-Gruppe
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Eine Volume Group defragmentieren
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Initialisieren Sie ein Volume
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Kapazität für ein Volume erhöhen
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Ändern Sie die Segmentgröße für ein Volume
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Laufwerkskopie
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Datenrekonstruktion
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Copyback
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Laufwerk löschen
+ a| 
+In Bearbeitung
+ a| 
+_none_
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+In Bearbeitung
+ a| 
+* Priorität ändern
+* Stopp
+
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+Angehalten
+ a| 
+* Fortsetzen
+* Trennen
+
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+Fehlgeschlagen
+ a| 
+* Fortsetzen
+* Trennen
+
+
+
+
+ a| 
+Remote Storage Import
+ a| 
+Abgeschlossen
+ a| 
+Trennen
+
+|===

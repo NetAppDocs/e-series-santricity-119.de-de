@@ -1,0 +1,56 @@
+---
+permalink: sm-settings/back-up-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, backup, security, key, 
+summary: Nach dem Erstellen oder Ändern eines Sicherheitsschlüssels können Sie eine Sicherungskopie der Schlüsseldatei erstellen, falls das Original beschädigt wird. 
+---
+= Sicherheitsschlüssel im SANtricity System Manager sichern
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach dem Erstellen oder Ändern eines Sicherheitsschlüssels können Sie eine Sicherungskopie der Schlüsseldatei erstellen, falls das Original beschädigt wird.
+
+.Über diese Aufgabe
+Diese Anleitung beschreibt, wie Sie einen zuvor erstellten Sicherheitsschlüssel sichern. Während dieses Vorgangs erstellen Sie eine neue Passphrase für die Sicherung. Diese Passphrase muss nicht mit der Passphrase übereinstimmen, die beim Erstellen oder der letzten Änderung des ursprünglichen Schlüssels verwendet wurde. Die Passphrase gilt nur für die Sicherung, die Sie erstellen.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *Sicherheitsschlüsselverwaltung* wählen Sie *Schlüssel sichern* aus.
++
+Das Dialogfeld „Sicherheitsschlüssel sichern“ wird geöffnet.
+
+. Geben Sie in den Feldern *Passphrase definieren/Passphrase erneut eingeben* eine Passphrase für dieses Backup ein und bestätigen Sie die Passphrase.
++
+Der Wert kann zwischen 8 und 32 Zeichen lang sein und muss jeweils Folgendes enthalten:
+
++
+** Ein Großbuchstabe (einer oder mehrere)
+** Eine Zahl (eine oder mehrere)
+** Ein nicht-alphanumerisches Zeichen, wie !, *, @ (eines oder mehrere)
+
+
++
+[CAUTION]
+====
+Notieren Sie sich Ihre Eingabe für die spätere Verwendung. Sie benötigen die Passphrase, um auf die Sicherungskopie dieses Sicherheitsschlüssels zuzugreifen.
+
+====
+. Klicken Sie auf *Back Up*.
++
+Eine Sicherungskopie des Sicherheitsschlüssels wird auf Ihren lokalen Rechner heruntergeladen, und dann öffnet sich das Dialogfeld *Sicherheitsschlüsselsicherung bestätigen/aufzeichnen*.
+
++
+[NOTE]
+====
+Der Pfad für die heruntergeladene Sicherheitsschlüsseldatei kann vom Standard-Downloadort Ihres Browsers abhängen.
+
+====
+. Notieren Sie Ihre Passphrase an einem sicheren Ort und klicken Sie dann auf *Close*.
+
+
+.Nachdem Sie fertig sind
+Sie sollten den Backup-Sicherheitsschlüssel validieren.

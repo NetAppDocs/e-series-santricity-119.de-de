@@ -1,0 +1,71 @@
+---
+permalink: sm-settings/define-log-policies.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, define, audit, log, policies, 
+summary: Sie können die Überschreibungsrichtlinie und die Arten von Ereignissen ändern, die im Revisionsprotokoll aufgezeichnet werden. 
+---
+= Definieren Sie Revisionsprotokollrichtlinien im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Überschreibungsrichtlinie und die Arten von Ereignissen ändern, die im Revisionsprotokoll aufgezeichnet werden.
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+
+.Über diese Aufgabe
+Diese Aufgabe beschreibt, wie die Einstellungen für das Revisionsprotokoll geändert werden, einschließlich der Richtlinie zum Überschreiben alter Ereignisse und der Richtlinie zur Aufzeichnung von Ereignistypen.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *Revisionsprotokoll* aus.
+. Wählen Sie *View/Edit Settings* aus.
++
+Das Dialogfeld „Einstellungen für das Revisionsprotokoll“ wird geöffnet.
+
+. Ändern Sie die Überschreibungsrichtlinie oder die Arten der aufgezeichneten Ereignisse.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Überschreibungsrichtlinie
+ a| 
+Legt die Richtlinie zum Überschreiben alter Ereignisse fest, wenn die maximale Kapazität erreicht ist:
+
+** *Erlaubt das Überschreiben der ältesten Ereignisse im Revisionsprotokoll, wenn das Revisionsprotokoll voll ist* -- Überschreibt die alten Ereignisse, wenn das Revisionsprotokoll 50.000 Datensätze erreicht.
+** *Erfordert, dass Revisionsprotokoll-Ereignisse manuell gelöscht werden* – Gibt an, dass Ereignisse nicht automatisch gelöscht werden; stattdessen wird bei Erreichen des festgelegten Prozentsatzes eine Warnung angezeigt. Ereignisse müssen manuell gelöscht werden.
++
+
+NOTE: Wenn die Überschreibungsrichtlinie deaktiviert ist und die Revisionsprotokolleinträge das maximale Limit erreichen, wird Benutzern ohne Security Admin-Berechtigungen der Zugriff auf System Manager verweigert. Um Benutzern ohne Security Admin-Berechtigungen den Systemzugriff wiederherzustellen, muss ein Benutzer mit der Rolle Security Admin die alten Ereignisdatensätze löschen.
+
++
+
+NOTE: Überschreibungsrichtlinien gelten nicht, wenn ein Syslog-Server für die Archivierung von Revisionsprotokollen konfiguriert ist.
+
+
+
+
+
+ a| 
+Ebene der zu protokollierenden Aktionen
+ a| 
+Legt die Arten der zu protokollierenden Ereignisse fest:
+
+** *Nur Datensatzänderungsereignisse* -- Zeigt nur die Ereignisse an, bei denen eine Benutzeraktion eine Änderung im System vornimmt.
+** *Alle Änderungs- und Nur-Lese-Ereignisse protokollieren* -- Zeigt alle Ereignisse an, einschließlich einer Benutzeraktion, die das Lesen oder Herunterladen von Informationen beinhaltet.
+
+
+|===
+====
+. Klicken Sie auf *Speichern*.
+

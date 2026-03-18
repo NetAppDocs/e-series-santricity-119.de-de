@@ -1,0 +1,94 @@
+---
+permalink: sm-hardware/view-controller-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, controller, settings 
+summary: Sie können Informationen über einen Controller anzeigen, wie den Status der Host-Schnittstellen, Laufwerksschnittstellen und Management-Ports. 
+---
+= Controller-Einstellungen im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Informationen über einen Controller anzeigen, wie den Status der Host-Schnittstellen, Laufwerksschnittstellen und Management-Ports.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Führen Sie eine der folgenden Aktionen aus, um die Controller-Einstellungen anzuzeigen:
++
+** Klicken Sie auf den Controller, um das Kontextmenü anzuzeigen, und wählen Sie dann *View settings*.
+** Wählen Sie das Controller-Symbol (neben der Dropdown-Liste *Shelf*). Wählen Sie bei Duplex-Konfigurationen im Dialogfeld entweder *Controller A* oder *Controller B* aus und klicken Sie anschließend auf *Next*.
++
+Das Dialogfeld „Controller-Einstellungen“ wird geöffnet.
+
+
+
+. Wählen Sie die Registerkarten, um zwischen den Eigenschaften-Einstellungen zu wechseln.
++
+Einige Tabs haben oben rechts einen Link für *Weitere Einstellungen anzeigen*.
+
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Tab | Beschreibung 
+
+
+ a| 
+Basis
+ a| 
+Zeigt den Controller-Status, den Modellnamen, die Ersatz-Teilenummer, die aktuelle Firmware-Version und die Version des nichtflüchtigen statischen Direktzugriffsspeichers (NVSRAM) an.
+
+
+
+ a| 
+Cache
+ a| 
+Zeigt die Cache-Einstellungen des Controllers an, die den Datencache, den Prozessorcache und das Cache-Backup-Gerät umfassen. Das Cache-Backup-Gerät wird verwendet, um Daten im Cache zu sichern, falls die Stromversorgung des Controllers ausfällt. Der Status kann Optimal, Fehlgeschlagen, Entfernt, Unbekannt, Schreibgeschützt oder Inkompatibel sein.
+
+
+
+ a| 
+Host-Schnittstellen
+ a| 
+Zeigt die Host-Schnittstelleninformationen und den Verbindungsstatus jedes Ports an. Die Host-Schnittstelle ist die Verbindung zwischen dem Controller und dem Host, wie zum Beispiel Fibre Channel oder iSCSI.
+
+
+NOTE: Die Host-Schnittstellenkarte (HIC) befindet sich entweder auf der Basisplatine oder in einem Steckplatz (Einschub). „Basisplatine“ bedeutet, dass die HIC-Anschlüsse im Controller integriert sind. „Steckplatz“-Anschlüsse befinden sich auf der optionalen HIC.
+
+
+
+ a| 
+Laufwerksschnittstellen
+ a| 
+Zeigt die Schnittstelleninformationen des Laufwerks und den Verbindungsstatus jedes Ports an. Die Laufwerksschnittstelle ist die Verbindung zwischen dem Controller und den Laufwerken, wie SAS.
+
+
+
+ a| 
+Management-Ports
+ a| 
+Zeigt die Details des Management-Ports an, wie den Hostnamen, der für den Zugriff auf den Controller verwendet wird, und ob eine Remote-Anmeldung aktiviert wurde. Der Management-Port verbindet den Controller und den Management-Client, auf dem ein Browser installiert ist, um auf den System Manager zuzugreifen.
+
+
+
+ a| 
+DNS / NTP
+ a| 
+Zeigt die Adressierungsmethode und die IP-Adressen für den DNS-Server und den NTP-Server an, wenn diese Server im System Manager konfiguriert wurden.
+
+Das Domain Name System (DNS) ist ein Namenssystem für Geräte, die mit dem Internet oder einem privaten Netzwerk verbunden sind. Der DNS-Server verwaltet ein Verzeichnis von Domainnamen und übersetzt diese in Internet Protocol (IP)-Adressen.
+
+Network Time Protocol (NTP) ist ein Netzwerkprotokoll zur Taktsynchronisierung zwischen Computersystemen in Datennetzwerken.
+
+|===
+====
+. Klicken Sie auf *Schließen*.
+

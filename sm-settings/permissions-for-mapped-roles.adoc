@@ -1,0 +1,27 @@
+---
+permalink: sm-settings/permissions-for-mapped-roles.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, permissions, mapped, roles, 
+summary: 'Die durch die RBAC (rollenbasierte Zugriffssteuerung) auf dem Speichersystem durchgesetzten Funktionen umfassen vordefinierte Benutzerprofile mit einer oder mehreren zugeordneten Rollen. Jede Rolle beinhaltet Berechtigungen für den Zugriff auf Aufgaben im SANtricity System Manager.' 
+---
+= Erfahren Sie mehr über Berechtigungen für zugeordnete Rollen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die durch die RBAC (rollenbasierte Zugriffssteuerung) auf dem Speichersystem durchgesetzten Funktionen umfassen vordefinierte Benutzerprofile mit einer oder mehreren zugeordneten Rollen. Jede Rolle beinhaltet Berechtigungen für den Zugriff auf Aufgaben im SANtricity System Manager.
+
+Benutzerprofile und zugeordnete Rollen sind über das Menü:Einstellungen[Zugriffsverwaltung > Lokale Benutzerrollen] in der Benutzeroberfläche eines der beiden System Manager zugänglich.
+
+Die Rollen gewähren Benutzern Zugriff auf Aufgaben, wie folgt:
+
+* *Speicheradministrator* -- Voller lesen/schreiben-Zugriff auf die Speicherobjekte (zum Beispiel Volumes und Disk Pools), jedoch kein Zugriff auf die Sicherheitskonfiguration.
+* *Sicherheitsadministrator* -- Zugriff auf die Sicherheitskonfiguration in Access Management, Zertifikatsverwaltung, Revisionsprotokollverwaltung und die Möglichkeit, die Legacy-Managementoberfläche (SYMbol) ein- oder auszuschalten.
+* *Support admin* -- Zugriff auf alle Hardware-Ressourcen des Storage Arrays, Fehlerdaten, MEL-Ereignisse und Controller-Firmware-Upgrades. Kein Zugriff auf Storage-Objekte oder die Sicherheitskonfiguration.
+* *Monitor* -- Nur Lesezugriff auf alle Speicherobjekte, aber kein Zugriff auf die Sicherheitskonfiguration.
+
+
+Wenn ein Benutzer keine Berechtigungen für eine bestimmte Aufgabe hat, wird diese Aufgabe entweder ausgegraut oder in der Benutzeroberfläche nicht angezeigt.

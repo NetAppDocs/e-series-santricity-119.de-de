@@ -1,0 +1,38 @@
+---
+permalink: um-certificates/overview-certificates-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, certificate management 
+summary: 'Mit der Zertifikatsverwaltung können Sie Zertifikatsignierungsanforderungen (CSRs) erstellen, Zertifikate importieren und bestehende Zertifikate verwalten.' 
+---
+= Zertifikatsübersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit der Zertifikatsverwaltung können Sie Zertifikatsignierungsanforderungen (CSRs) erstellen, Zertifikate importieren und bestehende Zertifikate verwalten.
+
+
+
+== Was sind Zertifikate?
+
+_Zertifikate_ sind digitale Dateien, die Online-Entitäten wie Websites und Server für die sichere Kommunikation im Internet identifizieren. Es gibt zwei Arten von Zertifikaten: Ein _signiertes Zertifikat_ wird von einer Zertifizierungsstelle (CA) validiert, während ein _selbstsigniertes Zertifikat_ vom Inhaber der Entität selbst und nicht von einem Dritten validiert wird.
+
+Mehr erfahren:
+
+* link:how-certificates-work-unified.html["Wie Zertifikate funktionieren"]
+* link:certificate-terminology-unified.html["Zertifikatsterminologie"]
+
+
+
+
+== Wie konfiguriere ich Zertifikate?
+
+Über die Zertifikatsverwaltung können Sie Zertifikate für die Managementstation konfigurieren, auf der Unified Manager gehostet wird, und auch Zertifikate für die Controller in den Arrays importieren.
+
+Mehr erfahren:
+
+* link:use-ca-signed-certificate-um.html["Verwenden Sie CA-signierte Zertifikate für das Managementsystem"]
+* link:import-array-certificates-unified.html["Zertifikate für Arrays importieren"]
+

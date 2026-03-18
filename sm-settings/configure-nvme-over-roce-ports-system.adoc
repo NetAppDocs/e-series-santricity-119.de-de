@@ -1,0 +1,94 @@
+---
+permalink: sm-settings/configure-nvme-over-roce-ports-system.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, nvme, roce, ports, 
+summary: 'Wenn Ihr Controller über eine Verbindung für NVMe over RoCE (RDMA over Converged Ethernet) verfügt, können Sie die NVMe-Porteinstellungen auf der Systemseite konfigurieren.' 
+---
+= Konfigurieren Sie NVMe over RoCE-Ports im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Ihr Controller über eine Verbindung für NVMe over RoCE (RDMA over Converged Ethernet) verfügt, können Sie die NVMe-Porteinstellungen auf der Systemseite konfigurieren.
+
+.Bevor Sie beginnen
+* Ihr Controller muss über einen NVMe over RoCE Host-Port verfügen; andernfalls sind die NVMe over RoCE Einstellungen im System Manager nicht verfügbar.
+* Sie müssen die IP-Adresse der Hostverbindung kennen.
+
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Wählen Sie unter *NVMe über ROCE-Einstellungen* *NVMe über ROCE-Ports konfigurieren* aus.
+. Wählen Sie den Controller mit dem NVMe-over-RoCE-Port aus, den Sie konfigurieren möchten. Klicken Sie auf *Weiter*.
+. Wählen Sie den HIC-Port, den Sie konfigurieren möchten, aus der Dropdown-Liste aus. Klicken Sie auf *Weiter*.
+. Konfigurieren Sie die Porteinstellungen.
++
+Um alle Porteinstellungen anzuzeigen, klicken Sie auf den Link *Weitere Porteinstellungen anzeigen* auf der rechten Seite des Dialogfelds.
+
++
+.Felddetails
+[%collapsible]
+====
+[cols="1a,1a"]
+|===
+| Port-Einstellung | Beschreibung 
+
+
+ a| 
+Konfigurierte Ethernet-Port-Geschwindigkeit
+ a| 
+Wählen Sie die Geschwindigkeit, die der Geschwindigkeitskapazität des SFP am Port entspricht.
+
+
+
+ a| 
+IPv4 aktivieren / IPv6 aktivieren
+ a| 
+Wählen Sie eine oder beide Optionen aus, um die Unterstützung für IPv4- und IPv6-Netzwerke zu aktivieren.
+
+
+NOTE: Wenn Sie den Portzugriff deaktivieren möchten, deaktivieren Sie beide Kontrollkästchen.
+
+
+
+ a| 
+MTU-Größe (Verfügbar durch Klicken auf *Weitere Porteinstellungen anzeigen*.)
+ a| 
+Geben Sie bei Bedarf eine neue Größe in Bytes für die Maximum Transmission Unit (MTU) ein.
+
+Die Standardgröße der maximalen Übertragungseinheit (MTU) beträgt 1500 Byte pro Frame. Sie müssen einen Wert zwischen 1500 und 9000 eingeben.
+
+|===
+====
++
+Wenn Sie *IPv4 aktivieren* ausgewählt haben, öffnet sich nach dem Klicken auf *Weiter* ein Dialogfeld zur Auswahl der IPv4-Einstellungen. Wenn Sie *IPv6 aktivieren* ausgewählt haben, öffnet sich nach dem Klicken auf *Weiter* ein Dialogfeld zur Auswahl der IPv6-Einstellungen. Wenn Sie beide Optionen ausgewählt haben, öffnet sich zuerst das Dialogfeld für die IPv4-Einstellungen und dann, nachdem Sie auf *Weiter* geklickt haben, das Dialogfeld für die IPv6-Einstellungen.
+
+. Konfigurieren Sie die IPv4- und/oder IPv6-Einstellungen, entweder automatisch oder manuell.
++
+.Felddetails
+[%collapsible]
+====
+[cols="1a,1a"]
+|===
+| Port-Einstellung | Beschreibung 
+
+
+ a| 
+Konfiguration automatisch abrufen
+ a| 
+Wählen Sie diese Option, um die Konfiguration automatisch zu erhalten.
+
+
+
+ a| 
+Statische Konfiguration manuell festlegen
+ a| 
+Wählen Sie diese Option und geben Sie anschließend eine statische Adresse in die Felder ein. (Wenn gewünscht, können Sie Adressen in die Felder ausschneiden und einfügen.) Geben Sie für IPv4 die Subnetzmaske und das Gateway an. Geben Sie für IPv6 die routbare IP-Adresse und die Router-IP-Adresse an. Wenn Sie ein EF600 storage array mit einem 200Gb-fähigen HIC konfigurieren, zeigt dieses Dialogfeld zwei Gruppen von Feldern für Netzwerkparameter an: eine für einen physischen Port (extern) und eine für einen virtuellen Port (intern). Sie sollten beiden Ports eindeutige Parameter zuweisen. Diese Einstellungen ermöglichen es dem Host, einen Pfad zwischen jedem Port herzustellen und dem HIC, maximale Leistung zu erzielen. Wenn Sie dem virtuellen Port keine IP-Adresse zuweisen, arbeitet der HIC mit etwa der halben Geschwindigkeit.
+
+|===
+====
+. Klicken Sie auf *Finish*.
+

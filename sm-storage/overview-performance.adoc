@@ -1,0 +1,39 @@
+---
+permalink: sm-storage/overview-performance.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, performance 
+summary: Die Leistungsseite bietet Ihnen einfache Möglichkeiten, die Performance Ihres Storage Arrays zu überwachen. 
+---
+= Erfahren Sie mehr über die Leistungsübersicht im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Leistungsseite bietet Ihnen einfache Möglichkeiten, die Performance Ihres Storage Arrays zu überwachen.
+
+
+
+== Was kann ich aus Leistungsdaten lernen?
+
+Die Leistungsdiagramme und -tabellen zeigen Leistungsdaten in nahezu Echtzeit an, was Ihnen hilft festzustellen, ob ein Storage-Array Probleme aufweist. Sie können außerdem Leistungsdaten speichern, um eine historische Ansicht eines Storage-Arrays zu erstellen und zu erkennen, wann ein Problem begonnen hat oder was ein Problem verursacht hat.
+
+Mehr erfahren:
+
+* link:performance-graphs-guidelines.html["Leistungsdiagramme und Richtlinien"]
+* link:performance-terminology.html["Leistungsbedingungen"]
+
+
+
+
+== Wie kann ich Leistungsdaten einsehen?
+
+Leistungsdaten sind auf der Startseite und auf der Storage-Seite verfügbar.
+
+Mehr erfahren:
+
+* link:view-performance-data-graphical.html["Grafische Leistungsdaten anzeigen"]
+* link:view-and-save-performance-data-tabular.html["Tabellarische Leistungsdaten anzeigen und speichern"]
+* link:interpret-performance-data.html["Leistungsdaten interpretieren"]
+

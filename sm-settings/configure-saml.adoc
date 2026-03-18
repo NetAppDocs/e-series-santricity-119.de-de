@@ -1,0 +1,222 @@
+---
+permalink: sm-settings/configure-saml.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, saml, 
+summary: 'Um die Authentifizierung für die Zugriffsverwaltung zu konfigurieren, können Sie die im Speicher-Array integrierten Security Assertion Markup Language (SAML)-Funktionen nutzen. Diese Konfiguration stellt eine Verbindung zwischen einem Identity Provider und dem Storage Provider her.' 
+---
+= SAML im SANtricity System Manager konfigurieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um die Authentifizierung für die Zugriffsverwaltung zu konfigurieren, können Sie die im Speicher-Array integrierten Security Assertion Markup Language (SAML)-Funktionen nutzen. Diese Konfiguration stellt eine Verbindung zwischen einem Identity Provider und dem Storage Provider her.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+* Sie müssen die IP-Adresse oder den Domainnamen jedes Controllers im Storage-Array kennen.
+* Ein IdP-Administrator hat ein IdP-System konfiguriert.
+* Ein IdP-Administrator hat sichergestellt, dass der IdP die Möglichkeit unterstützt, bei der Authentifizierung eine Name ID zurückzugeben.
+* Ein Administrator hat sichergestellt, dass die Uhren des IdP-Servers und des Controllers synchronisiert sind (entweder über einen NTP-Server oder durch Anpassen der Controller-Uhreinstellungen).
+* Eine IdP-Metadatendatei wird vom IdP-System heruntergeladen und ist auf dem lokalen System verfügbar, das für den Zugriff auf System Manager verwendet wird.
+
+
+.Über diese Aufgabe
+Ein Identity Provider (IdP) ist ein externes System, das Anmeldeinformationen von einem Benutzer anfordert und bestimmt, ob dieser Benutzer erfolgreich authentifiziert wurde. Der IdP kann so konfiguriert werden, dass er Multi-Faktor-Authentifizierung bereitstellt und jede Benutzerdatenbank, wie zum Beispiel Active Directory, verwendet. Ihr Sicherheitsteam ist für die Wartung des IdP verantwortlich. Ein Service Provider (SP) ist ein System, das die Benutzerauthentifizierung und den Zugriff steuert. Wenn die Zugriffsverwaltung mit SAML konfiguriert ist, agiert das Storage-Array als Service Provider, um die Authentifizierung vom Identity Provider anzufordern. Um eine Verbindung zwischen dem IdP und dem Storage-Array herzustellen, teilen Sie Metadatendateien zwischen diesen beiden Einheiten. Als Nächstes ordnen Sie die IdP-Benutzerentitäten den Rollen des Storage-Arrays zu. Und schließlich testen Sie die Verbindung und die SSO-Anmeldungen, bevor Sie SAML aktivieren.
+
+[NOTE]
+====
+*SAML und Verzeichnisdienste*. Wenn Sie SAML aktivieren, während Verzeichnisdienste als Authentifizierungsverfahren konfiguriert sind, hat SAML im System Manager Vorrang vor den Verzeichnisdiensten. Wenn Sie SAML später deaktivieren, wird die Konfiguration der Verzeichnisdienste auf die vorherige Konfiguration zurückgesetzt.
+
+====
+[CAUTION]
+====
+*Bearbeiten und Deaktivieren.* Sobald SAML aktiviert ist, können Sie es _nicht_ über die Benutzeroberfläche deaktivieren, noch können Sie die IdP-Einstellungen bearbeiten. Wenn Sie die SAML-Konfiguration deaktivieren oder bearbeiten müssen, wenden Sie sich an den technischen Support, um Unterstützung zu erhalten.
+
+====
+Die Konfiguration der SAML-Authentifizierung ist ein mehrstufiges Verfahren.
+
+
+
+== Schritt 1: Laden Sie die IdP-Metadatendatei hoch
+
+Um dem Speichersystem die IdP-Verbindungsinformationen bereitzustellen, importieren Sie IdP-Metadaten in den System Manager. Das IdP-System benötigt diese Metadaten, um Authentifizierungsanfragen an die korrekte URL weiterzuleiten und empfangene Antworten zu validieren. Sie müssen nur eine Metadatendatei für das Speichersystem hochladen, selbst wenn zwei Controller vorhanden sind.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *SAML* aus.
++
+Die Seite zeigt eine Übersicht der Konfigurationsschritte.
+
+. Klicken Sie auf den Link *Import Identity Provider (IdP) file*.
++
+Das Dialogfeld „Identitätsanbieterdatei importieren“ wird geöffnet.
+
+. Klicken Sie auf *Durchsuchen*, um die IdP-Metadatendatei auszuwählen und hochzuladen, die Sie auf Ihr lokales System kopiert haben.
++
+Nachdem Sie die Datei ausgewählt haben, wird die IdP-Entity-ID angezeigt.
+
+. Klicken Sie auf *Import*.
+
+
+
+
+== Schritt 2: Dienstanbieterdateien exportieren
+
+Um eine Vertrauensbeziehung zwischen dem IdP und dem Storage Array herzustellen, importieren Sie die Service Provider-Metadaten in den IdP. Der IdP benötigt diese Metadaten, um eine Vertrauensbeziehung mit den Controllern herzustellen und Autorisierungsanfragen zu verarbeiten. Die Datei enthält Informationen wie den Controller-Domänennamen oder die IP-Adresse, damit der IdP mit den Service Providern kommunizieren kann.
+
+.Schritte
+. Klicken Sie auf den Link *Export Service Provider files*.
++
+Das Dialogfeld „Export Service Provider Files“ wird geöffnet.
+
+. Geben Sie die IP-Adresse oder den DNS-Namen des Controllers im Feld *Controller A* ein und klicken Sie dann auf *Export*, um die Metadatendatei auf Ihrem lokalen System zu speichern. Wenn das Speichersystem zwei Controller umfasst, wiederholen Sie diesen Schritt für den zweiten Controller im Feld *Controller B*.
++
+Nachdem Sie auf *Export* geklickt haben, werden die Service Provider-Metadaten auf Ihr lokales System heruntergeladen. Notieren Sie sich, wo die Datei gespeichert ist.
+
+. Suchen Sie auf dem lokalen System die Service Provider-Metadatendatei(en), die Sie exportiert haben.
++
+Für jeden Controller gibt es eine XML-formatierte Datei.
+
+. Importieren Sie vom IdP-Server die Metadatendatei(en) des Service Providers, um die Vertrauensbeziehung herzustellen. Sie können entweder die Dateien direkt importieren oder die Controller-Informationen manuell aus den Dateien eingeben.
+
+
+
+
+== Schritt 3: Rollen zuordnen
+
+Um Benutzern die Autorisierung und den Zugriff auf System Manager zu ermöglichen, müssen Sie die IdP-Benutzerattribute und Gruppenmitgliedschaften den vordefinierten Rollen des Storage-Arrays zuordnen.
+
+.Bevor Sie beginnen
+* Ein IdP-Administrator hat Benutzerattribute und Gruppenzugehörigkeit im IdP-System konfiguriert.
+* Die IdP-Metadatendatei wird in System Manager importiert.
+* Eine Service Provider-Metadatendatei für jeden Controller wird in das IdP-System für die Vertrauensbeziehung importiert.
+
+
+.Schritte
+. Klicken Sie auf den Link für *mapping System Manager*-Rollen.
++
+Das Dialogfeld „Rollenzuordnung“ wird geöffnet.
+
+. Weisen Sie IdP-Benutzerattribute und -Gruppen den vordefinierten Rollen zu. Einer Gruppe können mehrere Rollen zugewiesen sein.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Zuordnungen*
+
+
+
+ a| 
+Benutzerattribut
+ a| 
+Geben Sie das Attribut (zum Beispiel „member of“) für die SAML-Gruppe an, die zugeordnet werden soll.
+
+
+
+ a| 
+Attributwert
+ a| 
+Geben Sie den Attributwert für die zuzuordnende Gruppe an. Reguläre Ausdrücke werden unterstützt. Diese Sonderzeichen regulärer Ausdrücke müssen mit einem Backslash (`\`) maskiert werden, wenn sie nicht Teil eines regulären Ausdrucksmusters sind: \.[]{}()<>*+-=!?^$|
+
+
+
+ a| 
+Rollen
+ a| 
+Klicken Sie in das Feld und wählen Sie eine der Rollen des Speichersystems aus, die dem Attribut zugeordnet werden soll. Sie müssen jede gewünschte Rolle einzeln auswählen. Die Rolle Monitor ist in Kombination mit den anderen Rollen erforderlich, um sich beim System Manager anzumelden. Die Rolle Security Admin wird ebenfalls für mindestens eine Gruppe benötigt.
+
+Die zugeordneten Rollen umfassen die folgenden Berechtigungen:
+
+** *Speicheradministrator* -- Voller lesen/schreiben-Zugriff auf die Speicherobjekte (zum Beispiel Volumes und Disk Pools), jedoch kein Zugriff auf die Sicherheitskonfiguration.
+** *Sicherheitsadministrator* -- Zugriff auf die Sicherheitskonfiguration in Access Management, Zertifikatsverwaltung, Revisionsprotokollverwaltung und die Möglichkeit, die Legacy-Managementoberfläche (SYMbol) ein- oder auszuschalten.
+** *Support admin* -- Zugriff auf alle Hardware-Ressourcen des Storage Arrays, Fehlerdaten, MEL-Ereignisse und Controller-Firmware-Upgrades. Kein Zugriff auf Storage-Objekte oder die Sicherheitskonfiguration.
+** *Monitor* -- Nur Lesezugriff auf alle Speicherobjekte, aber kein Zugriff auf die Sicherheitskonfiguration.
+
+
+|===
+====
++
+[NOTE]
+====
+Die Rolle „Monitor“ ist für alle Benutzer, einschließlich des Administrators, erforderlich. System Manager funktioniert für keinen Benutzer ordnungsgemäß, wenn die Rolle „Monitor“ nicht vorhanden ist.
+
+====
+. Klicken Sie bei Bedarf auf *Weitere Zuordnung hinzufügen*, um weitere Gruppen-zu-Rollen-Zuordnungen einzugeben.
++
+[NOTE]
+====
+Rollenzuordnungen können nach der Aktivierung von SAML geändert werden.
+
+====
+. Wenn Sie mit den Zuordnungen fertig sind, klicken Sie auf *Save*.
+
+
+
+
+== Schritt 4: SSO-Anmeldung testen
+
+Um sicherzustellen, dass das IdP-System und das Speichersystem miteinander kommunizieren können, können Sie optional einen SSO-Login testen. Dieser Test wird auch im letzten Schritt zur Aktivierung von SAML durchgeführt.
+
+.Bevor Sie beginnen
+* Die IdP-Metadatendatei wird in System Manager importiert.
+* Eine Service Provider-Metadatendatei für jeden Controller wird in das IdP-System für die Vertrauensbeziehung importiert.
+
+
+.Schritte
+. Wählen Sie den Link *Test SSO Login* aus.
++
+Es öffnet sich ein Dialogfeld zur Eingabe der SSO-Anmeldeinformationen.
+
+. Geben Sie die Anmeldeinformationen für einen Benutzer mit sowohl Security Admin-Berechtigungen als auch Monitor-Berechtigungen ein.
++
+Ein Dialogfeld öffnet sich, während das System die Anmeldung testet.
+
+. Achten Sie auf die Meldung „Test erfolgreich“. Wenn der Test erfolgreich abgeschlossen wurde, fahren Sie mit dem nächsten Schritt zur Aktivierung von SAML fort.
++
+Falls der Test nicht erfolgreich abgeschlossen wird, erscheint eine Fehlermeldung mit weiteren Informationen. Stellen Sie sicher, dass:
+
++
+** Der Benutzer gehört zu einer Gruppe mit Berechtigungen für Security Admin und Monitor.
+** Die von Ihnen für den IdP-Server hochgeladenen Metadaten sind korrekt.
+** Die Controlleradressen in den SP-Metadatendateien sind korrekt.
+
+
+
+
+
+
+== Schritt 5: SAML aktivieren
+
+Ihr letzter Schritt besteht darin, die SAML-Konfiguration für die Benutzerauthentifizierung abzuschließen. Während dieses Vorgangs werden Sie vom System auch aufgefordert, einen SSO-Login zu testen. Der SSO-Login-Testprozess ist im vorherigen Schritt beschrieben.
+
+.Bevor Sie beginnen
+* Die IdP-Metadatendatei wird in System Manager importiert.
+* Eine Service Provider-Metadatendatei für jeden Controller wird in das IdP-System für die Vertrauensbeziehung importiert.
+* Mindestens eine Rollen-Zuordnung für Monitor und Security Admin ist konfiguriert.
+
+
+[CAUTION]
+====
+*Bearbeiten und Deaktivieren.* Sobald SAML aktiviert ist, können Sie es _nicht_ über die Benutzeroberfläche deaktivieren, noch können Sie die IdP-Einstellungen bearbeiten. Wenn Sie die SAML-Konfiguration deaktivieren oder bearbeiten müssen, wenden Sie sich an den technischen Support, um Unterstützung zu erhalten.
+
+====
+.Schritte
+. Wählen Sie auf der Registerkarte *SAML* den Link *Enable SAML* aus.
++
+Das Dialogfeld „SAML aktivieren bestätigen“ wird geöffnet.
+
+. Geben Sie  `enable`ein und klicken Sie dann auf *Aktivieren*.
+. Geben Sie die Benutzeranmeldedaten für einen SSO-Anmeldetest ein.
+
+
+.Ergebnisse
+Nachdem das System SAML aktiviert hat, beendet es alle aktiven Sitzungen und beginnt, Benutzer über SAML zu authentifizieren.

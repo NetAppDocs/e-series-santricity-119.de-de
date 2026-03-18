@@ -1,0 +1,31 @@
+---
+permalink: sm-support/disable-autosupport-maintenance-window.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, disable, autosupport, ASUP, maintenance window 
+summary: Deaktivieren Sie das AutoSupport Wartungsfenster, um die automatische Ticketerstellung bei Fehlerereignissen zu ermöglichen. Wenn das AutoSupport Wartungsfenster deaktiviert ist, verwendet das Speichersystem AutoSupport, um bei einem Problem automatisch ein Ticket bei Support zu eröffnen. 
+---
+= Deaktivieren Sie das AutoSupport Wartungsfenster in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Deaktivieren Sie das AutoSupport Wartungsfenster, um die automatische Ticketerstellung bei Fehlerereignissen zu ermöglichen. Wenn das AutoSupport Wartungsfenster deaktiviert ist, verwendet das Speichersystem AutoSupport, um bei einem Problem automatisch ein Ticket bei Support zu eröffnen.
+
+.Schritte
+. Menü auswählen: Support [Support Center > AutoSupport] Tab.
+. Wählen Sie *Disable AutoSupport Maintenance window*.
+. Geben Sie die E-Mail-Adresse ein, um eine Bestätigung zu erhalten, dass die Anfrage zur Deaktivierung des Wartungsfensters bearbeitet wurde.
++
+Je nach Konfiguration können Sie bis zu fünf E-Mail-Adressen eingeben. Wenn Sie mehr als eine Adresse hinzufügen möchten, wählen Sie *Weitere E-Mail-Adresse hinzufügen*, um ein weiteres Feld zu öffnen.
+
+. Klicken Sie auf *Ja*.
++
+AutoSupport automatische Ticketerstellung bei Fehlerereignissen ist aktiviert.
+
+
+
+.Nachdem Sie fertig sind
+Das Wartungsfenster endet erst, wenn die Anfrage des Speichersystems von den AutoSupport Servern verarbeitet wurde. Warten Sie mit dem Fortfahren, bis Sie eine Bestätigungs-E-Mail erhalten haben.

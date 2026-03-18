@@ -1,0 +1,71 @@
+---
+permalink: sm-interface/problem-notification.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, notifications 
+summary: System Manager verwendet Symbole und verschiedene andere Methoden, um Sie darauf hinzuweisen, dass Probleme mit dem Storage-Array bestehen. 
+---
+= Erfahren Sie mehr über die Problembenachrichtigungen des SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager verwendet Symbole und verschiedene andere Methoden, um Sie darauf hinzuweisen, dass Probleme mit dem Storage-Array bestehen.
+
+
+
+== Symbole
+
+System Manager verwendet diese Symbole, um den Status des Storage-Arrays und seiner Komponenten anzuzeigen.
+
+[cols="1a,1a"]
+|===
+| Symbol | Beschreibung 
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-success.gif["Optimal"]
+ a| 
+Optimal
+
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-failure.gif["Nicht optimal oder fehlgeschlagen"]
+ a| 
+Nicht optimal oder fehlgeschlagen
+
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-service.gif["Benötigt Aufmerksamkeit oder Reparatur"]
+ a| 
+Benötigt Aufmerksamkeit oder Reparatur
+
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-caution.gif["Vorsicht"]
+ a| 
+Vorsicht
+
+|===
+System Manager zeigt diese Symbole an verschiedenen Stellen an.
+
+* Im Benachrichtigungsbereich auf der Startseite werden das Fehlersymbol und eine Nachricht angezeigt.
+* Das Startseitensymbol im Navigationsbereich zeigt das Fehlersymbol an.
+* Auf der Seite Komponenten zeigen die Grafiken für Laufwerke und Controller das Fehlersymbol an.
+
+
+
+
+== Warnmeldungen und LEDs
+
+Darüber hinaus benachrichtigt Sie System Manager auch auf andere Weise über Probleme.
+
+* System Manager sendet SNMP-Benachrichtigungen oder E-Mail-Fehlermeldungen.
+* Die Service Action Required-LEDs an der Hardware leuchten auf.
+
+
+Wenn Sie eine Problembenachrichtigung erhalten, verwenden Sie den Recovery Guru, um das Problem zu beheben. Verwenden Sie gegebenenfalls die Hardware-Dokumentation zusammen mit den Wiederherstellungsschritten, um ausgefallene Komponenten zu ersetzen.

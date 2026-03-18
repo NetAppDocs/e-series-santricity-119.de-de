@@ -1,0 +1,140 @@
+---
+permalink: sm-storage/create-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, snapshot, consistency group 
+summary: Um sicherzustellen, dass Sie konsistente Kopien haben, können Sie eine Gruppe von mehreren Volumes erstellen, die als Snapshot-Konsistenzgruppe bezeichnet wird. 
+---
+= Erstellen Sie eine Snapshot-Konsistenzgruppe im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um sicherzustellen, dass Sie konsistente Kopien haben, können Sie eine Gruppe von mehreren Volumes erstellen, die als _Konsistenzgruppe_ bezeichnet wird.
+
+Diese Gruppe ermöglicht es Ihnen, Snapshot-Images aller Volumes gleichzeitig zu erstellen, um die Konsistenz zu gewährleisten. Jedes Volume, das zu einer Snapshot-Konsistenzgruppe gehört, wird als _Mitgliedsvolume_ bezeichnet. Wenn Sie ein Volume zu einer Snapshot-Konsistenzgruppe hinzufügen, erstellt das System automatisch eine neue Snapshot-Gruppe, die diesem Mitgliedsvolume entspricht.
+
+.Über diese Aufgabe
+Die Sequenz zur Erstellung der Snapshot-Konsistenzgruppe ermöglicht es Ihnen, Mitgliedsvolumes für die Gruppe auszuwählen und den Mitgliedsvolumes Kapazität zuzuweisen.
+
+Der Prozess zur Erstellung einer Snapshot-Konsistenzgruppe ist ein mehrstufiges Verfahren.
+
+
+
+== Schritt 1: Mitglieder zur Snapshot-Konsistenzgruppe hinzufügen
+
+Wählen Sie Mitglieder aus, um eine Sammlung von Volumes festzulegen, die die Snapshot-Konsistenzgruppe bilden. Alle Aktionen, die Sie an der Snapshot-Konsistenzgruppe durchführen, werden einheitlich auf die ausgewählten Mitgliedsvolumes ausgeweitet.
+
+.Bevor Sie beginnen
+Die Mitgliedervolumes müssen optimal sein.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Snapshot Consistency Groups*.
+. Menü auswählen: Create[Snapshot Konsistenzgruppe].
++
+Das Dialogfeld „Snapshot-Konsistenzgruppe erstellen“ wird angezeigt.
+
+. Wählen Sie die Volumes aus, die als Mitgliedsvolumes zur Snapshot-Konsistenzgruppe hinzugefügt werden sollen.
+. Klicken Sie auf *Weiter* und gehen Sie zu <<Schritt 2: Kapazität für die Snapshot-Konsistenzgruppe reservieren>>.
+
+
+
+
+== Schritt 2: Kapazität für die Snapshot-Konsistenzgruppe reservieren
+
+Ordnen Sie der Snapshot-Konsistenzgruppe reservierte Kapazität zu. System Manager schlägt die Volumes und die Kapazität basierend auf den Eigenschaften der Snapshot-Konsistenzgruppe vor. Sie können die empfohlene Konfiguration der reservierten Kapazität übernehmen oder den zugewiesenen Speicher anpassen.
+
+.Über diese Aufgabe
+Im Dialogfeld „Reservierte Kapazität“ werden in der Tabelle der Volume-Kandidaten nur die Kandidaten angezeigt, die die angegebene reservierte Kapazität unterstützen. Reservierte Kapazität ist die physisch zugewiesene Kapazität, die für jeden Copy-Service-Vorgang und jedes Speicherobjekt verwendet wird. Sie ist für den Host nicht direkt lesbar.
+
+.Schritte
+. Verwenden Sie das Auswahlfeld, um die reservierte Kapazität für die Snapshot-Konsistenzgruppe zuzuweisen. Führen Sie eine der folgenden Aktionen aus:
++
+** *Übernehmen Sie die Standardeinstellungen*.
++
+Verwenden Sie diese empfohlene Option, um die reservierte Kapazität für jedes Mitgliedsvolume mit den Standardeinstellungen zuzuweisen.
+
+** *Weisen Sie Ihre eigenen Einstellungen für reservierte Kapazität zu, um Ihren Datenspeicherbedarf zu erfüllen.*
++
+Weisen Sie die reservierte Kapazität anhand der folgenden Richtlinien zu.
+
++
+*** Die Standardeinstellung für die reservierte Kapazität beträgt 40% der Kapazität des Basisvolumens. Normalerweise ist diese Kapazität ausreichend.
+*** Der benötigte Speicherplatz variiert, abhängig von der Häufigkeit und Größe der E/A-Schreibvorgänge auf die Volumes sowie der Menge und Dauer der Snapshot-Image-Erfassung.
+
+
+
+
+. *Optional:* Wenn Sie die Standardeinstellung für die reservierte Kapazität ändern, klicken Sie auf *Kandidaten aktualisieren*, um die Kandidatenliste für die von Ihnen angegebene reservierte Kapazität zu aktualisieren.
+. Klicken Sie auf *Weiter*, und gehen Sie zu <<Schritt 3: Einstellungen für die Snapshot-Konsistenzgruppe bearbeiten>>.
+
+
+
+
+== Schritt 3: Einstellungen für die Snapshot-Konsistenzgruppe bearbeiten
+
+Akzeptieren Sie die automatischen Löscheinstellungen oder wählen Sie diese aus und legen Sie Schwellenwerte für Warnungen zur reservierten Kapazität für die Snapshot-Konsistenzgruppe fest.
+
+.Über diese Aufgabe
+Die Sequenz zur Erstellung der Snapshot-Konsistenzgruppe ermöglicht es Ihnen, Mitgliedsvolumes für die Gruppe auszuwählen und den Mitgliedsvolumes Kapazität zuzuweisen.
+
+.Schritte
+. Übernehmen oder ändern Sie die Standardeinstellungen für die Snapshot-Konsistenzgruppe nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Snapshot-Konsistenzgruppe-Einstellungen*
+
+
+
+ a| 
+Name
+ a| 
+Geben Sie den Namen für die Snapshot-Konsistenzgruppe an.
+
+
+
+ a| 
+Automatisches Löschen von Snapshot-Images aktivieren, wenn...
+ a| 
+Lassen Sie das Kästchen aktiviert, wenn Sie möchten, dass Snapshot-Bilder nach Erreichen des festgelegten Limits automatisch gelöscht werden; verwenden Sie das Drehfeld, um das Limit zu ändern. Wenn Sie dieses Kästchen deaktivieren, wird die Erstellung von Snapshot-Bildern nach 32 Bildern gestoppt.
+
+
+
+ a| 
+*Reservierte Kapazitätseinstellungen*
+
+
+
+ a| 
+Benachrichtige mich, wenn...
+ a| 
+Verwenden Sie das Drehfeld, um den Prozentsatz einzustellen, bei dem das System eine Warnmeldung sendet, wenn die reservierte Kapazität für eine Snapshot-Konsistenzgruppe fast voll ist.
+
+Wenn die reservierte Kapazität für die Snapshot Konsistenzgruppe den angegebenen Schwellenwert überschreitet, verwenden Sie die Vorabbenachrichtigung, um die reservierte Kapazität zu erhöhen oder unnötige Objekte zu löschen, bevor der verbleibende Speicherplatz aufgebraucht ist.
+
+
+
+ a| 
+Richtlinie für vollständig reservierte Kapazität
+ a| 
+Wählen Sie eine der folgenden Richtlinien:
+
+** *Ältestes Snapshot-Image löschen* -- Das System löscht automatisch das älteste Snapshot-Image in der Snapshot-Konsistenzgruppe, wodurch die für die Wiederverwendung innerhalb der Gruppe reservierte Snapshot-Image-Kapazität freigegeben wird.
+** *Schreibvorgänge auf das Basisvolume ablehnen* -- Wenn die reservierte Kapazität ihren maximal definierten Prozentsatz erreicht, lehnt das System jede E/A-Schreibanforderung an das Basisvolume ab, die den Zugriff auf die reservierte Kapazität ausgelöst hat.
+
+
+|===
+====
+. Nachdem Sie mit der Konfiguration Ihrer Snapshot-Konsistenzgruppe zufrieden sind, klicken Sie auf *Fertigstellen*.
+

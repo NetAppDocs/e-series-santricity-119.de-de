@@ -1,0 +1,193 @@
+---
+permalink: um-manage/faq-storage-mirroring.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zur Speicherspiegelung für SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was muss ich wissen, bevor ich eine Konsistenzgruppe erstelle?
+
+Beachten Sie diese Richtlinien, bevor Sie eine Konsistenzgruppe erstellen.
+
+Erfüllen Sie die folgenden Anforderungen für Unified Manager:
+
+* Der Web Services Proxy-Dienst muss ausgeführt werden.
+* Unified Manager muss auf Ihrem lokalen Host über eine HTTPS-Verbindung ausgeführt werden.
+* Unified Manager muss gültige SSL-Zertifikate für die Storage-Array anzeigen. Sie können ein selbstsigniertes Zertifikat akzeptieren oder Ihr eigenes Sicherheitszertifikat mit Unified Manager installieren, indem Sie zu menu:Certificate[Certificate Management] navigieren.
+
+
+Achten Sie außerdem darauf, dass die folgenden Anforderungen für Speicherarrays erfüllt werden:
+
+* Die beiden Speicherarrays müssen im Unified Manager erkannt werden.
+* Jedes Speicherarray muss über zwei Controller verfügen.
+* Jeder Controller im primären Array und im sekundären Array muss über einen konfigurierten Ethernet-Management-Port verfügen und mit Ihrem Netzwerk verbunden sein.
+* Die Speichersysteme haben eine Mindest-Firmware-Version von 7.84. (Sie können jeweils unterschiedliche Betriebssystemversionen ausführen.)
+* Sie müssen das Passwort für die lokalen und entfernten Speicherarrays kennen.
+* Ihre lokalen und entfernten Storage-Arrays sind über ein Fibre Channel-Fabric oder eine iSCSI-Schnittstelle verbunden.
+
+
+[NOTE]
+====
+Die synchrone Spiegelung ist auf dem EF600/EF600C oder EF300/EF300C Speichersystem nicht verfügbar.
+
+====
+
+
+== Was muss ich wissen, bevor ich ein gespiegeltes Paar erstelle?
+
+Bevor Sie ein Spiegelpaar erstellen, beachten Sie diese Richtlinien.
+
+* Sie müssen über zwei Speicherarrays verfügen.
+* Jedes Speicherarray muss über zwei Controller verfügen.
+* Die beiden Speicherarrays müssen im Unified Manager erkannt werden.
+* Jeder Controller im primären Array und im sekundären Array muss über einen konfigurierten Ethernet-Management-Port verfügen und mit Ihrem Netzwerk verbunden sein.
+* Die Speichersysteme haben eine Mindest-Firmware-Version von 7.84. (Sie können jeweils unterschiedliche Betriebssystemversionen ausführen.)
+* Sie müssen das Passwort für die lokalen und entfernten Speicherarrays kennen.
+* Sie müssen über ausreichend freien Speicherplatz auf dem entfernten Speichersystem verfügen, um ein sekundäres Volume zu erstellen, das gleich groß oder größer ist als das primäre Volume, das Sie spiegeln möchten.
+* Asynchrone Spiegelung wird auf Controllern mit Fibre Channel (FC)- oder iSCSI-Host-Ports unterstützt, während synchrone Spiegelung nur auf Controllern mit FC-Host-Ports unterstützt wird.
+
+
+[NOTE]
+====
+Die synchrone Spiegelung ist auf dem EF600/EF600C oder EF300/EF300C Speichersystem nicht verfügbar.
+
+====
+
+
+== Warum sollte ich diesen Prozentsatz ändern?
+
+Die reservierte Kapazität beträgt typischerweise 20 Prozent des Basisvolumens für asynchrone Spiegelungsvorgänge. In der Regel ist diese Kapazität ausreichend.
+
+Der benötigte Kapazitätsbedarf variiert je nach Häufigkeit und Umfang der E/A-Schreibvorgänge auf das Basisvolume und wie lange Sie den Kopierdienst des Speicherobjekts verwenden möchten. Im Allgemeinen sollte ein höherer Prozentsatz für reservierte Kapazität gewählt werden, wenn eine oder beide der folgenden Bedingungen erfüllt sind:
+
+* Wenn die Lebensdauer des Kopiervorgangs eines bestimmten Speicherobjekts sehr lang sein wird.
+* Wenn sich aufgrund hoher E/A-Aktivität ein großer Prozentsatz der Datenblöcke auf dem Basisvolume ändert. Verwenden Sie historische Leistungsdaten oder andere Betriebssystem-Dienstprogramme, um die typische E/A-Aktivität des Basisvolumes zu ermitteln.
+
+
+
+
+== Warum sehe ich mehr als einen Kandidaten für reservierte Kapazität?
+
+Wenn es in einem Pool oder einer Volume-Gruppe mehr als ein Volume gibt, das den von Ihnen für das Speicherobjekt ausgewählten Kapazitätsprozentsatz erfüllt, werden Ihnen mehrere Kandidaten angezeigt.
+
+Sie können die Liste der empfohlenen Kandidaten aktualisieren, indem Sie den Prozentsatz des physischen Speicherplatzes ändern, den Sie auf dem Basisvolume für Copy-Service-Vorgänge reservieren möchten. Die besten Kandidaten werden basierend auf Ihrer Auswahl angezeigt.
+
+
+
+== Warum werden mir nicht alle meine Volumes angezeigt?
+
+Wenn Sie ein primäres Volume für ein gespiegeltes Paar auswählen, zeigt eine Liste alle in Frage kommenden Volumes an.
+
+Alle Volumes, die nicht zur Verwendung berechtigt sind, werden in dieser Liste nicht angezeigt. Volumes sind möglicherweise aus einem der folgenden Gründe nicht berechtigt:
+
+* Das Volume ist nicht optimal.
+* Das Volume nimmt bereits an einer Spiegelungsbeziehung teil.
+* Für synchrones Spiegeln müssen die primären und sekundären Volumes eines Spiegelpaares Standard-Volumes sein. Sie dürfen keine Thin-Volumes oder Snapshot-Volumes sein.
+* Für asynchrone Spiegelung muss bei Thin Volumes die automatische Erweiterung aktiviert sein.
+
+
+
+NOTE: Für EF600- und EF300-Controller müssen das primäre und das sekundäre Volume eines asynchronen Spiegelpaares dasselbe Protokoll, dieselbe Tray-Ebene, dieselbe Segmentgröße, denselben Sicherheitstyp und denselben RAID-Level aufweisen. Nicht geeignete asynchrone Spiegelpaare werden nicht in der Liste der verfügbaren Volumes angezeigt.
+
+
+
+== Warum sehe ich nicht alle Volumes auf dem entfernten Speichersystem?
+
+Wenn Sie ein sekundäres Volume auf dem Remote-Speicherarray auswählen, zeigt eine Liste alle für dieses gespiegelte Paar geeigneten Volumes an.
+
+Alle Volumes, die nicht zur Verwendung berechtigt sind, werden in dieser Liste nicht angezeigt. Volumes können aus einem der folgenden Gründe nicht berechtigt sein:
+
+* Das Volume ist ein nicht standardmäßiges Volume, wie zum Beispiel ein Snapshot-Volume.
+* Das Volume ist nicht optimal.
+* Das Volume nimmt bereits an einer Spiegelungsbeziehung teil.
+* Bei asynchroner Spiegelung stimmen die Thin-Volume-Attribute zwischen dem primären Volume und dem sekundären Volume nicht überein.
+* Wenn Sie Data Assurance (DA) verwenden, müssen das primäre Volume und das sekundäre Volume die gleichen DA-Einstellungen haben.
++
+** Wenn das primäre Volume DA-fähig ist, muss das sekundäre Volume ebenfalls DA-fähig sein.
+** Wenn das primäre Volume nicht DA-fähig ist, darf das sekundäre Volume nicht DA-fähig sein.
+
+
+* Für asynchrones Spiegeln müssen das primäre Volume und das sekundäre Volume über die gleichen Laufwerksicherheitsfunktionen verfügen.
++
+** Wenn das primäre Volume FIPS-fähig ist, muss auch das sekundäre Volume FIPS-fähig sein.
+** Wenn das primäre Volume FDE-fähig ist, muss das sekundäre Volume ebenfalls FDE-fähig sein.
+** Wenn das primäre Volume keine Laufwerkssicherheit verwendet, darf das sekundäre Volume ebenfalls keine Laufwerkssicherheit verwenden.
+
+
+
+
+
+
+== Welchen Einfluss hat die Synchronisierungspriorität auf die Synchronisierungsraten?
+
+Die Synchronisierungspriorität definiert, wie viel Verarbeitungszeit im Verhältnis zur Systemleistung für Synchronisierungsaktivitäten zugewiesen wird.
+
+Der Controller, dem das primäre Volume gehört, führt diesen Vorgang im Hintergrund aus. Gleichzeitig verarbeitet der Controller lokale E/A-Schreibvorgänge auf dem primären Volume sowie zugehörige Remote-Schreibvorgänge auf dem sekundären Volume. Da die Resynchronisierung Controller-Verarbeitungsressourcen von der E/A-Aktivität abzieht, kann sie die Leistung der Host-Anwendung beeinträchtigen.
+
+Beachten Sie diese Richtlinien, um Ihnen zu helfen, einzuschätzen, wie lange eine Synchronisierungspriorität dauern kann und wie sich die Synchronisierungsprioritäten auf die Systemleistung auswirken können.
+
+Diese Prioritätsraten sind verfügbar:
+
+* Niedrigster
+* Niedrig
+* Mittel
+* Hoch
+* Höchste
+
+
+Die niedrigste Prioritätsrate unterstützt die Systemleistung, aber die Resynchronisierung dauert länger. Die höchste Prioritätsrate unterstützt die Resynchronisierung, aber die Systemleistung kann beeinträchtigt werden.
+
+Diese Richtlinien geben die Unterschiede zwischen den Prioritäten ungefähr wieder.
+
+[cols="45h,~"]
+|===
+| Prioritätsrate für die vollständige Synchronisierung | Verstrichene Zeit im Vergleich zur höchsten Synchronisationsrate 
+
+
+ a| 
+Niedrigster
+ a| 
+Ungefähr achtmal so lange wie bei der höchsten Prioritätsrate.
+
+
+
+ a| 
+Niedrig
+ a| 
+Ungefähr sechsmal so lange wie bei der höchsten Prioritätsrate.
+
+
+
+ a| 
+Mittel
+ a| 
+Ungefähr dreieinhalb Mal so lang wie bei der höchsten Prioritätsrate.
+
+
+
+ a| 
+Hoch
+ a| 
+Etwa doppelt so lange wie bei der höchsten Prioritätsrate.
+
+|===
+Volumengröße und Host-E/A-Last beeinflussen die Vergleiche der Synchronisierungszeiten.
+
+
+
+== Warum wird die Verwendung einer manuellen Synchronisierungsrichtlinie empfohlen?
+
+Eine manuelle Resynchronisierung wird empfohlen, da sie es Ihnen ermöglicht, den Resynchronisierungsprozess so zu steuern, dass die beste Möglichkeit zur Wiederherstellung von Daten besteht.
+
+Wenn Sie eine automatische Resynchronisierungsrichtlinie verwenden und während der Resynchronisierung zeitweilige Kommunikationsprobleme auftreten, könnten Daten auf dem sekundären Volume vorübergehend beschädigt werden. Wenn die Resynchronisierung abgeschlossen ist, werden die Daten korrigiert.

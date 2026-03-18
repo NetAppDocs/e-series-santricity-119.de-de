@@ -1,0 +1,32 @@
+---
+permalink: sm-settings/download-cli.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, download, command line interface, CLI, 
+summary: 'Über den System Manager können Sie das Befehlszeilenpaket (CLI) herunterladen.' 
+---
+= Laden Sie die SANtricity Befehlszeilenschnittstelle (CLI) herunter
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Über SANtricity System Manager können Sie das Befehlszeilenpaket (CLI) herunterladen.
+
+Die CLI bietet eine textbasierte Methode zur Konfiguration und Überwachung von Speichersystemen. Sie kommuniziert über https und verwendet dieselbe Syntax wie die CLI, die im extern installierten Management-Softwarepaket verfügbar ist. Kein Schlüssel ist erforderlich, um die CLI herunterzuladen.
+
+.Bevor Sie beginnen
+Eine Java Runtime Environment (JRE) der Version 8 oder höher muss auf dem Managementsystem verfügbar sein, auf dem Sie die CLI-Befehle ausführen möchten.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *Add-ons* wählen Sie *Command Line Interface* aus.
++
+Das ZIP-Paket wird im Browser heruntergeladen.
+
+. Speichern Sie die ZIP-Datei auf dem Managementsystem, auf dem Sie Befehle über die Befehlszeile für das Storage-Array ausführen möchten, und extrahieren Sie dann die Datei.
++
+Sie können nun CLI-Befehle über die Eingabeaufforderung des Betriebssystems ausführen, beispielsweise über die DOS-Eingabeaufforderung C:. Eine CLI-Befehlsreferenz ist über das Hilfemenü oben rechts in der Benutzeroberfläche des System Manager verfügbar.
+
+

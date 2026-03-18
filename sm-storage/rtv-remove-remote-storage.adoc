@@ -1,0 +1,34 @@
+---
+permalink: sm-storage/rtv-remove-remote-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, remote, storage, 
+summary: Nach Abschluss eines Imports können Sie ein Remote-Speicherobjekt entfernen, wenn Sie nicht mehr möchten, dass Daten zwischen dem lokalen und dem Remote-Gerät kopiert werden. 
+---
+= Entfernen eines Remote-Speicherobjekts im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach Abschluss eines Imports können Sie ein Remote-Speicherobjekt entfernen, wenn Sie nicht mehr möchten, dass Daten zwischen dem lokalen und dem Remote-Gerät kopiert werden.
+
+.Bevor Sie beginnen
+Stellen Sie sicher, dass keine Importe mit dem Remote-Storage-Objekt verknüpft sind, das Sie entfernen möchten.
+
+.Über diese Aufgabe
+Wenn Sie ein Remote-Speicherobjekt entfernen, werden die Verbindungen zwischen dem lokalen und dem Remote-Gerät entfernt.
+
+.Schritte
+. Menü auswählen: Storage [Remote storage].
+. Wählen Sie aus der Liste das Remote-Speicherobjekt aus, das Sie entfernen möchten.
+. Klicken Sie auf *Entfernen*.
++
+Das Dialogfeld „Entfernen der Remote-Speicherverbindung bestätigen“ wird angezeigt.
+
+. Bestätigen Sie den Vorgang, indem Sie  `remove` eingeben und dann auf *Entfernen* klicken.
++
+Das ausgewählte Remote-Speicherobjekt wird entfernt.
+
+

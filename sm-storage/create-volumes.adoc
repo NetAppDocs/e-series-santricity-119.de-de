@@ -1,0 +1,351 @@
+---
+permalink: sm-storage/create-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, volumes 
+summary: Sie erstellen Volumes, um einer anwendungsspezifischen Arbeitslast Speicherkapazität hinzuzufügen und die erstellten Volumes für einen bestimmten Host oder Hostcluster sichtbar zu machen. Darüber hinaus bietet die Volume-Erstellungssequenz Optionen, um jedem Volume, das Sie erstellen möchten, eine bestimmte Kapazität zuzuweisen. 
+---
+= Erstellen Sie Volumes im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie erstellen Volumes, um einer anwendungsspezifischen Arbeitslast Speicherkapazität hinzuzufügen und die erstellten Volumes für einen bestimmten Host oder Hostcluster sichtbar zu machen. Darüber hinaus bietet die Volume-Erstellungssequenz Optionen, um jedem Volume, das Sie erstellen möchten, eine bestimmte Kapazität zuzuweisen.
+
+.Über diese Aufgabe
+Die meisten Anwendungstypen verwenden standardmäßig eine benutzerdefinierte Volume-Konfiguration. Bei einigen Anwendungstypen wird beim Erstellen des Volumes eine intelligente Konfiguration angewendet. Wenn Sie beispielsweise Volumes für die Microsoft Exchange Anwendung erstellen, werden Sie gefragt, wie viele Postfächer Sie benötigen, wie hoch Ihr durchschnittlicher Postfachspeicherbedarf ist und wie viele Kopien der Datenbank Sie wünschen. System Manager verwendet diese Informationen, um eine optimale Volume-Konfiguration für Sie zu erstellen, die Sie bei Bedarf anpassen können.
+
+Die Erstellung eines Volumens ist ein mehrstufiges Verfahren.
+
+
+
+== Schritt 1: Host für ein Volume auswählen
+
+Sie erstellen Volumes, um einer anwendungsspezifischen Arbeitslast Speicherkapazität hinzuzufügen und die erstellten Volumes für einen bestimmten Host oder Hostcluster sichtbar zu machen. Darüber hinaus bietet die Volume-Erstellungssequenz Optionen, um jedem Volume, das Sie erstellen möchten, eine bestimmte Kapazität zuzuweisen.
+
+.Bevor Sie beginnen
+* Unter der Kachel „Hosts“ existieren gültige Hosts oder Hostcluster.
+* Für den Host wurden Host-Port-Kennungen definiert.
+* Bevor Sie ein DA-fähiges Volume erstellen, muss die Hostverbindung, die Sie verwenden möchten, DA unterstützen. Wenn eine der Hostverbindungen auf den Controllern Ihres Speichersystems DA nicht unterstützt, können die zugehörigen Hosts nicht auf Daten auf DA-fähigen Volumes zugreifen.
+
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien bei der Zuweisung von Volumes:
+
+* Das Betriebssystem eines Hosts kann bestimmte Beschränkungen hinsichtlich der Anzahl der Volumes festlegen, auf die der Host zugreifen kann. Beachten Sie diese Einschränkung, wenn Sie Volumes für die Verwendung durch einen bestimmten Host erstellen.
+* Sie können für jedes Volume im Speicherarray eine Zuordnung definieren.
+* Zugewiesene Volumes werden von den Controllern im Storage-Array gemeinsam genutzt.
+* Dieselbe logische Einheitennummer (LUN) kann nicht zweimal von einem Host oder einem Hostcluster für den Zugriff auf ein Volume verwendet werden. Sie müssen eine eindeutige LUN verwenden.
+* Wenn Sie den Prozess für das Erstellen von Volumes beschleunigen möchten, können Sie den Schritt der Hostzuweisung überspringen, sodass neu erstellte Volumes offline initialisiert werden.
+
+
+[NOTE]
+====
+Die Zuweisung eines Volumes zu einem Host schlägt fehl, wenn Sie versuchen, ein Volume einem Hostcluster zuzuweisen, das mit einer bestehenden Zuweisung für einen Host in den Hostclustern in Konflikt steht.
+
+====
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Menü auswählen: Create[Volume].
++
+Das Dialogfeld „Volumes erstellen“ wird angezeigt.
+
+. Wählen Sie in der Dropdown-Liste einen bestimmten Host oder Hostcluster aus, dem Sie Volumes zuweisen möchten, oder wählen Sie, den Host oder Hostcluster zu einem späteren Zeitpunkt zuzuweisen.
+. Um die Volume-Erstellungssequenz für den ausgewählten Host oder Hostcluster fortzusetzen, klicken Sie auf *Weiter* und gehen Sie zu <<Schritt 2: Wählen Sie eine Arbeitslast für ein Volume aus>>.
++
+Das Dialogfeld „Arbeitslast auswählen“ wird angezeigt.
+
+
+
+
+
+== Schritt 2: Wählen Sie eine Arbeitslast für ein Volume aus
+
+Wählen Sie eine Arbeitslast aus, um die Speicher-Array-Konfiguration für eine bestimmte Anwendung anzupassen, wie zum Beispiel Microsoft SQL Server, Microsoft Exchange, Videoüberwachungsanwendungen oder VMware. Sie können „Andere Anwendung“ auswählen, wenn die Anwendung, die Sie auf diesem Speicher-Array verwenden möchten, nicht aufgeführt ist.
+
+.Über diese Aufgabe
+Diese Aufgabe beschreibt, wie Sie Volumes für eine bestehende Arbeitslast erstellen.
+
+* _Wenn Sie Volumes mit einer anwendungsspezifischen Arbeitslast erstellen_, kann das System eine optimierte Volume-Konfiguration empfehlen, um Konflikte zwischen der I/O der Anwendungsarbeitslast und anderem Datenverkehr Ihrer Anwendungsinstanz zu minimieren. Sie können die empfohlene Volume-Konfiguration überprüfen und die vom System empfohlenen Volumes und Eigenschaften im Dialogfeld „Volumes hinzufügen/bearbeiten“ bearbeiten, hinzufügen oder löschen.
+* _Wenn Sie Volumes mit "Other"_ Anwendungen (oder Anwendungen ohne spezifische Unterstützung für die Volume-Erstellung) erstellen, geben Sie die Volume-Konfiguration manuell im Dialogfeld "Volumes hinzufügen/bearbeiten" an.
+
+
+.Schritte
+. Führen Sie einen der folgenden Schritte aus:
++
+** Wählen Sie die Option *Volumes für eine bestehende Workload erstellen*, um Volumes für eine bestehende Workload zu erstellen.
+** Wählen Sie die Option *Neue Arbeitslast erstellen*, um eine neue Arbeitslast für eine unterstützte Anwendung oder für "Other"-Anwendungen zu definieren.
++
+*** Wählen Sie in der Dropdown-Liste den Namen der Anwendung aus, für die Sie die neue Arbeitslast erstellen möchten.
++
+Wählen Sie einen der Einträge unter „Other“, falls die Anwendung, die Sie auf diesem Storage Array verwenden möchten, nicht aufgeführt ist.
+
+*** Geben Sie einen Namen für die Arbeitslast ein, die Sie erstellen möchten.
+
+
+
+
+. Klicken Sie auf *Weiter*.
+. Wenn Ihre Arbeitslast mit einem unterstützten Anwendungstyp verknüpft ist, geben Sie die angeforderten Informationen ein; andernfalls gehen Sie zu <<Schritt 3: Volumes hinzufügen oder bearbeiten>>.
+
+
+
+
+== Schritt 3: Volumes hinzufügen oder bearbeiten
+
+System Manager schlägt möglicherweise eine Volume-Konfiguration basierend auf der von Ihnen ausgewählten Anwendung oder Arbeitslast vor. Diese Volume-Konfiguration ist basierend auf dem Typ der Anwendung, die die Arbeitslast unterstützt, optimiert. Sie können die empfohlene Volume-Konfiguration übernehmen oder sie bei Bedarf bearbeiten. Wenn Sie eine der „Other“-Anwendungen ausgewählt haben, müssen Sie die Volumes und Eigenschaften, die Sie erstellen möchten, manuell angeben.
+
+.Bevor Sie beginnen
+* Die Pools oder Volumengruppen müssen über ausreichend freie Kapazität verfügen.
+* Die maximal zulässige Anzahl von Volumes in einer Volume-Gruppe beträgt 256.
+* Die maximal zulässige Anzahl von Volumes in einem Pool hängt vom Speichersystemmodell ab:
++
+** 2.048 Volumes (EF600, EF600C und E5700 Serien)
+** 1.024 Volumes (EF300 und EF300C)
+** 512 Volumes (E4000 und E2800 Serie)
+
+
+* Um ein Data Assurance (DA)-fähiges Volume zu erstellen, muss die Hostverbindung, die Sie verwenden möchten, DA unterstützen.
++
+.Auswahl eines sicheren Pools oder einer sicheren Volumengruppe
+[%collapsible]
+====
+Wenn Sie ein DA-fähiges Volume erstellen möchten, wählen Sie einen Pool oder eine Volume-Gruppe aus, die DA-fähig ist (achten Sie auf *Ja* neben „DA“ in der Kandidatentabelle für Pools und Volume-Gruppen).
+
+DA-Funktionen werden auf Pool- und Volume-Gruppenebene im System Manager dargestellt. DA-Schutz prüft und korrigiert Fehler, die auftreten können, wenn Daten durch die Controller zu den Laufwerken übertragen werden. Die Auswahl eines DA-fähigen Pools oder einer DA-fähigen Volume-Gruppe für das neue Volume stellt sicher, dass alle Fehler erkannt und korrigiert werden.
+
+Wenn eine der Host-Verbindungen auf den Controllern Ihres Storage Arrays DA nicht unterstützt, können die zugehörigen Hosts nicht auf Daten auf DA-fähigen Volumes zugreifen.
+
+====
+* Um ein Secure-aktiviertes Volume zu erstellen, muss ein Sicherheitsschlüssel für das Storage-Array erstellt werden.
++
+.Auswahl eines sicheren Pools oder einer sicheren Volumengruppe
+[%collapsible]
+====
+Wenn Sie ein Secure-aktiviertes Volume erstellen möchten, wählen Sie einen Pool oder eine Volume-Gruppe aus, die Secure-fähig ist (achten Sie auf *Ja* neben „Secure-fähig“ in der Kandidatentabelle für Pools und Volume-Gruppen).
+
+Die Sicherheitsfunktionen für Laufwerke werden im System Manager auf Pool- und Volume-Gruppenebene dargestellt. Sicherheitsfähige Laufwerke verhindern den unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Storage-Array entfernt wurde. Ein sicherheitsaktiviertes Laufwerk verschlüsselt Daten beim Schreiben und entschlüsselt sie beim Lesen mithilfe eines eindeutigen .
+
+Ein Pool oder eine Volumengruppe kann sowohl sicherheitsfähige als auch nicht-sicherheitsfähige Laufwerke enthalten, aber alle Laufwerke müssen sicherheitsfähig sein, um ihre Verschlüsselungsfunktionen nutzen zu können.
+
+====
+* Um ein ressourcenbereitgestelltes Volume zu erstellen, müssen alle Laufwerke NVMe-Laufwerke mit der Option Deallocated or Unwritten Logical Block Error (DULBE) sein.
+
+
+.Über diese Aufgabe
+Sie erstellen Volumes aus Pools oder Volume-Gruppen. Das Dialogfeld „Volumes hinzufügen/bearbeiten“ zeigt alle berechtigten Pools und Volume-Gruppen auf dem Storage-Array an. Für jeden berechtigten Pool und jede berechtigte Volume-Gruppe werden die Anzahl der verfügbaren Laufwerke und die gesamte freie Kapazität angezeigt.
+
+Bei einigen anwendungsspezifischen Workloads zeigt jeder geeignete Pool oder jede geeignete Volume-Gruppe die vorgeschlagene Kapazität basierend auf der empfohlenen Volume-Konfiguration und die verbleibende freie Kapazität in GiB an. Für andere Workloads erscheint die vorgeschlagene Kapazität, sobald Sie Volumes zu einem Pool oder einer Volume-Gruppe hinzufügen und die gemeldete Kapazität angeben.
+
+.Schritte
+. Wählen Sie eine dieser Aktionen aus, je nachdem, ob Sie Other oder eine anwendungsspezifische Arbeitslast ausgewählt haben:
++
+** *Sonstige* -- Klicken Sie auf *Neues Volumen hinzufügen* in jedem Pool oder jeder Volumengruppe, die Sie zum Erstellen eines oder mehrerer Volumen verwenden möchten.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Volume-Name
+ a| 
+Ein Volume erhält während der Volume-Erstellung von System Manager einen Standardnamen zugewiesen. Sie können entweder den Standardnamen übernehmen oder einen aussagekräftigeren Namen angeben, der den Typ der im Volume gespeicherten Daten beschreibt.
+
+
+
+ a| 
+Gemeldete Kapazität
+ a| 
+Definieren Sie die Kapazität des neuen Volumes und die zu verwendenden Kapazitätseinheiten (MiB, GiB oder TiB). Für Thick Volumes beträgt die Mindestkapazität 1 MiB, und die maximale Kapazität wird durch die Anzahl und Kapazität der Laufwerke im Pool oder der Volume-Gruppe bestimmt.
+
+Beachten Sie, dass auch für Kopierdienste (Snapshot-Images, Snapshot-Volumes, Volume-Kopien und Remote-Mirrors) Speicherkapazität benötigt wird; weisen Sie daher nicht die gesamte Kapazität den Standard-Volumes zu.
+
+Die Kapazität in einem Pool wird je nach Laufwerkstyp in 4-GiB- oder 8-GiB-Schritten zugewiesen. Jede Kapazität, die kein Vielfaches von 4 oder 8 GiB ist, wird zwar zugewiesen, ist aber nicht nutzbar. Um sicherzustellen, dass die gesamte Kapazität nutzbar ist, geben Sie die Kapazität in 4-GiB- oder 8-GiB-Schritten an. Wenn nicht nutzbare Kapazität vorhanden ist, kann diese nur durch Erhöhen der Volume-Kapazität wiederhergestellt werden.
+
+
+
+ a| 
+Volumenblockgröße (EF300 und EF600 only)
+ a| 
+Zeigt die Blockgrößen an, die für das Volume erstellt werden können:
+
+*** 512 -- 512 Bytes
+*** 4K -- 4.096 Bytes
+
+
+
+
+ a| 
+Segmentgröße
+ a| 
+Hier wird die Einstellung für die Segmentgröße angezeigt, die nur für Volumes in einer Volume-Gruppe erscheint. Sie können die Segmentgröße ändern, um die Leistung zu optimieren.
+
+*Zulässige Segmentgrößenübergänge* -- System Manager bestimmt die zulässigen Segmentgrößenübergänge. Segmentgrößen, die ungeeignete Übergänge von der aktuellen Segmentgröße darstellen, sind in der Auswahlliste nicht verfügbar. Zulässige Übergänge sind in der Regel das Doppelte oder die Hälfte der aktuellen Segmentgröße. Zum Beispiel: Wenn die aktuelle Volume-Segmentgröße 32 KiB beträgt, ist eine neue Volume-Segmentgröße von entweder 16 KiB oder 64 KiB zulässig.
+
+*SSD-Cache-fähige Volumes* -- Sie können eine Segmentgröße von 4 KiB für SSD-Cache-fähige Volumes festlegen. Stellen Sie sicher, dass Sie die Segmentgröße von 4 KiB nur für SSD-Cache-fähige Volumes auswählen, die kleine Block-E/A-Operationen verarbeiten (zum Beispiel 16 KiB E/A-Blockgrößen oder kleiner). Die Leistung kann beeinträchtigt werden, wenn Sie 4 KiB als Segmentgröße für SSD-Cache-fähige Volumes auswählen, die sequenzielle Operationen mit großen Blöcken verarbeiten.
+
+*Zeitaufwand für die Änderung der Segmentgröße* – Der Zeitaufwand für die Änderung der Segmentgröße eines Volumes hängt von diesen Variablen ab:
+
+*** Die E/A-Last vom Host
+*** Die Änderungspriorität des Volumens
+*** Die Anzahl der Laufwerke in der Volumengruppe
+*** Die Anzahl der Laufwerkskanäle
+*** Die Rechenleistung der Speicherarray-Controller
+
+
+Wenn Sie die Segmentgröße für ein Volume ändern, wird die I/O-Leistung beeinträchtigt, aber Ihre Daten bleiben verfügbar.
+
+
+
+ a| 
+Sicherheitsfähig
+ a| 
+*Ja* erscheint neben „Secure-capable“ nur, wenn die Laufwerke im Pool oder in der Volume-Gruppe secure-capable sind.
+
+Drive Security verhindert den unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Storage-Array entfernt wurde. Diese Option ist nur verfügbar, wenn die Drive Security-Funktion aktiviert ist und ein Sicherheitsschlüssel für das Storage-Array eingerichtet wurde.
+
+Ein Pool oder eine Volumengruppe kann sowohl sicherheitsfähige als auch nicht-sicherheitsfähige Laufwerke enthalten, aber alle Laufwerke müssen sicherheitsfähig sein, um ihre Verschlüsselungsfunktionen nutzen zu können.
+
+
+
+ a| 
+DA
+ a| 
+*Ja* erscheint neben „DA“ nur, wenn die Laufwerke im Pool oder in der Volume-Gruppe Data Assurance (DA) unterstützen.
+
+DA erhöht die Datenintegrität im gesamten Speichersystem. DA ermöglicht dem Storage-Array, Fehler zu erkennen, die beim Datentransfer von den Controllern zu den Laufwerken auftreten können. Die Verwendung von DA für das neue Volume stellt sicher, dass alle Fehler erkannt werden.
+
+
+
+ a| 
+Ressource bereitgestellt (EF300 und EF600 only)
+ a| 
+*Ja* erscheint neben „Resource provisioned“ nur, wenn die Laufwerke diese Option unterstützen. Resource Provisioning ist eine Funktion der EF300 und EF600 Storage Arrays, die es ermöglicht, Volumes sofort ohne Hintergrundinitialisierung zu verwenden.
+
+|===
+====
+** *Anwendungsspezifische Arbeitslast* -- Klicken Sie entweder auf *Weiter*, um die vom System empfohlenen Volumes und Merkmale für die ausgewählte Arbeitslast zu übernehmen, oder klicken Sie auf *Volumes bearbeiten*, um die vom System empfohlenen Volumes und Merkmale für die ausgewählte Arbeitslast zu ändern, hinzuzufügen oder zu löschen.
++
+.Felddetails
+[%collapsible]
+====
+[cols="1a,1a"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Volume-Name
+ a| 
+Ein Volume erhält während der Volume-Erstellung von System Manager einen Standardnamen zugewiesen. Sie können entweder den Standardnamen übernehmen oder einen aussagekräftigeren Namen angeben, der den Typ der im Volume gespeicherten Daten beschreibt.
+
+
+
+ a| 
+Gemeldete Kapazität
+ a| 
+Definieren Sie die Kapazität des neuen Volumes und die zu verwendenden Kapazitätseinheiten (MiB, GiB oder TiB). Für Thick Volumes beträgt die Mindestkapazität 1 MiB, und die maximale Kapazität wird durch die Anzahl und Kapazität der Laufwerke im Pool oder der Volume-Gruppe bestimmt.
+
+Beachten Sie, dass auch für Kopierdienste (Snapshot-Images, Snapshot-Volumes, Volume-Kopien und Remote-Mirrors) Speicherkapazität benötigt wird; weisen Sie daher nicht die gesamte Kapazität den Standard-Volumes zu.
+
+Die Kapazität in einem Pool wird je nach Laufwerkstyp in 4-GiB- oder 8-GiB-Schritten zugewiesen. Jede Kapazität, die kein Vielfaches von 4 oder 8 GiB ist, wird zwar zugewiesen, ist aber nicht nutzbar. Um sicherzustellen, dass die gesamte Kapazität nutzbar ist, geben Sie die Kapazität in 4-GiB- oder 8-GiB-Schritten an. Wenn nicht nutzbare Kapazität vorhanden ist, kann diese nur durch Erhöhen der Volume-Kapazität wiederhergestellt werden.
+
+
+
+ a| 
+Volumentyp
+ a| 
+Der Volumentyp gibt den Typ des Volumens an, das für eine anwendungsspezifische Arbeitslast erstellt wurde.
+
+
+
+ a| 
+Volumenblockgröße (EF300 und EF600 only)
+ a| 
+Zeigt die Blockgrößen an, die für das Volume erstellt werden können:
+
+*** 512 -- 512 Bytes
+*** 4K -- 4.096 Bytes
+
+
+
+
+ a| 
+Segmentgröße
+ a| 
+Hier wird die Einstellung für die Segmentgröße angezeigt, die nur für Volumes in einer Volume-Gruppe erscheint. Sie können die Segmentgröße ändern, um die Leistung zu optimieren.
+
+*Zulässige Segmentgrößenübergänge* -- System Manager bestimmt die zulässigen Segmentgrößenübergänge. Segmentgrößen, die ungeeignete Übergänge von der aktuellen Segmentgröße darstellen, sind in der Auswahlliste nicht verfügbar. Zulässige Übergänge sind in der Regel das Doppelte oder die Hälfte der aktuellen Segmentgröße. Zum Beispiel: Wenn die aktuelle Volume-Segmentgröße 32 KiB beträgt, ist eine neue Volume-Segmentgröße von entweder 16 KiB oder 64 KiB zulässig.
+
+*SSD-Cache-fähige Volumes* -- Sie können eine Segmentgröße von 4 KiB für SSD-Cache-fähige Volumes festlegen. Stellen Sie sicher, dass Sie die Segmentgröße von 4 KiB nur für SSD-Cache-fähige Volumes auswählen, die kleine Block-E/A-Operationen verarbeiten (zum Beispiel 16 KiB E/A-Blockgrößen oder kleiner). Die Leistung kann beeinträchtigt werden, wenn Sie 4 KiB als Segmentgröße für SSD-Cache-fähige Volumes auswählen, die sequenzielle Operationen mit großen Blöcken verarbeiten.
+
+*Zeitaufwand für die Änderung der Segmentgröße* – Der Zeitaufwand für die Änderung der Segmentgröße eines Volumes hängt von diesen Variablen ab:
+
+*** Die E/A-Last vom Host
+*** Die Änderungspriorität des Volumens
+*** Die Anzahl der Laufwerke in der Volumengruppe
+*** Die Anzahl der Laufwerkskanäle
+*** Die Rechenleistung der Storage-Array-Controller Wenn Sie die Segmentgröße für ein Volume ändern, wird die I/O-Leistung beeinträchtigt, aber Ihre Daten bleiben verfügbar.
+
+
+
+
+ a| 
+Sicherheitsfähig
+ a| 
+*Ja* erscheint neben „Secure-capable“ nur, wenn die Laufwerke im Pool oder in der Volume-Gruppe secure-capable sind.
+
+Die Laufwerkssicherheit verhindert unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Storage-Array entfernt wurde. Diese Option ist nur verfügbar, wenn die Laufwerkssicherheitsfunktion aktiviert ist und ein Sicherheitsschlüssel für das Storage-Array eingerichtet wurde.
+
+Ein Pool oder eine Volumengruppe kann sowohl sicherheitsfähige als auch nicht-sicherheitsfähige Laufwerke enthalten, aber alle Laufwerke müssen sicherheitsfähig sein, um ihre Verschlüsselungsfunktionen nutzen zu können.
+
+
+
+ a| 
+DA
+ a| 
+*Ja* erscheint neben „DA“ nur, wenn die Laufwerke im Pool oder in der Volume-Gruppe Data Assurance (DA) unterstützen.
+
+DA erhöht die Datenintegrität im gesamten Speichersystem. DA ermöglicht dem Storage-Array, Fehler zu erkennen, die beim Datentransfer von den Controllern zu den Laufwerken auftreten können. Die Verwendung von DA für das neue Volume stellt sicher, dass alle Fehler erkannt werden.
+
+
+
+ a| 
+Ressource bereitgestellt (EF300 und EF600 only)
+ a| 
+*Ja* erscheint neben „Ressource bereitgestellt“ nur, wenn die Laufwerke diese Option unterstützen. Ressourcenbereitstellung ist eine Funktion, die in den EF300- und EF600-Speicherarrays verfügbar ist und es ermöglicht, Volumes sofort ohne Hintergrundinitialisierung zu verwenden.
+
+|===
+====
+
+
+. Um die Volume-Erstellungssequenz für die ausgewählte Anwendung fortzusetzen, klicken Sie auf *Weiter* und gehen Sie zu <<Schritt 4: Überprüfen Sie die Volumenkonfiguration>>.
+
+
+
+
+== Schritt 4: Überprüfen Sie die Volumenkonfiguration
+
+Überprüfen Sie eine Zusammenfassung der Volumes, die Sie erstellen möchten, und nehmen Sie alle notwendigen Änderungen vor.
+
+.Schritte
+. Überprüfen Sie die Bände, die Sie erstellen möchten. Klicken Sie auf *Zurück*, um Änderungen vorzunehmen.
+. Wenn Sie mit Ihrer Volume-Konfiguration zufrieden sind, klicken Sie auf *Finish*.
+
+
+.Ergebnisse
+System Manager erstellt die neuen Volumes in den ausgewählten Pools und Volume-Gruppen und zeigt die neuen Volumes anschließend in der Tabelle All Volumes an.
+
+.Nachdem Sie fertig sind
+* Führen Sie alle notwendigen Änderungen am Betriebssystem des Anwendungshosts durch, damit die Anwendungen das Volume verwenden können.
+* Starten Sie das betriebssystemspezifische Dienstprogramm (erhältlich von einem Drittanbieter), und führen Sie dann den SMcli-Befehl  `-identifyDevices` aus, um die Volumennamen mit den Namen der Host-Speicherarrays zu korrelieren.
++
+Die SMcli ist direkt über den SANtricity System Manager verfügbar. Diese herunterladbare Version der SMcli ist auf E4000, EF600, EF600C, EF300, EF300C, E5700, EF570, E2800 und EF280 Controllern verfügbar. Um die SMcli im SANtricity System Manager herunterzuladen, wählen Sie *Einstellungen* > *System* und *Add-ons* > *Command Line Interface*.
+
+

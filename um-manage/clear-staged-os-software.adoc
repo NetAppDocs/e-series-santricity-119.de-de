@@ -1,0 +1,28 @@
+---
+permalink: um-manage/clear-staged-os-software.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, clear, staged, os, software 
+summary: Sie können zwischengespeicherte Betriebssystemsoftware entfernen, um sicherzustellen, dass eine ausstehende Version nicht versehentlich zu einem späteren Zeitpunkt aktiviert wird. Das Entfernen der zwischengespeicherten Betriebssystemsoftware hat keine Auswirkungen auf die aktuell auf den Storage-Arrays ausgeführte Version. 
+---
+= Bereitgestellte Betriebssystemsoftware im SANtricity Unified Manager löschen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können zwischengespeicherte Betriebssystemsoftware entfernen, um sicherzustellen, dass eine ausstehende Version nicht versehentlich zu einem späteren Zeitpunkt aktiviert wird. Das Entfernen der zwischengespeicherten Betriebssystemsoftware hat keine Auswirkungen auf die aktuell auf den Storage-Arrays ausgeführte Version.
+
+.Schritte
+. Wählen Sie in der Hauptansicht *Verwalten* und dann Menü:Upgrade Center[Clear Staged OS Software].
++
+Das Dialogfeld „Clear Staged OS Software“ wird geöffnet und listet alle erkannten Speichersysteme mit ausstehender Software oder NVSRAM auf.
+
+. Filtern oder sortieren Sie bei Bedarf die Speichersysteme in der Liste, damit Sie alle Systeme anzeigen können, die gestufte Software haben.
+. Wählen Sie die Kontrollkästchen für die Speichersysteme mit ausstehender Software aus, die Sie löschen möchten.
+. Klicken Sie auf *Clear*.
++
+Der Status des Vorgangs wird im Dialogfeld angezeigt.
+
+

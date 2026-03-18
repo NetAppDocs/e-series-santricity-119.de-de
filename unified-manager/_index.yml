@@ -1,0 +1,47 @@
+---
+indexpage:
+  title: Verwaltung mehrerer Arrays mit SANtricity Unified Manager 7
+  summary: Mit der SANtricity Softwaredokumentation können Sie Ihr Storage-Array installieren,
+    einrichten und warten.
+  keywords: santricity, install, setup, maintain, storage array
+  lead: Mit der SANtricity Softwaredokumentation können Sie Ihr Storage-Array installieren,
+    einrichten und warten.
+  tiles:
+  - title: Einrichten
+    links:
+    - title: SANtricity Unified Manager-Oberflächenübersicht
+      url: "../um-admin/overview-interface-unified.html"
+    - title: Administratorpasswort festlegen
+      url: "../um-admin/administrator-password-protection-unified.html"
+  - title: Arrays entdecken
+    links:
+    - title: Überlegungen zur Erkennung
+      url: "../um-manage/considerations-for-discovering-arrays.html"
+    - title: Einzelarray
+      url: "../um-manage/discover-single-array.html"
+    - title: Mehrere Arrays
+      url: "../um-manage/discover-multiple-arrays.html"
+  - title: Arrays verwalten
+    links:
+    - title: Speicherarray-Gruppen
+      url: "../um-manage/overview-manage-groups.html"
+    - title: Speicherarray-Status
+      url: "../um-manage/storage-array-status.html"
+    - title: Software aktualisieren
+      url: "../um-manage/upgrade-controller-firmware.html"
+  - title: Zugriff verwalten
+    links:
+    - title: Benutzerzugriff
+      url: "../um-certificates/how-access-management-works-unified.html"
+    - title: Zertifikate
+      url: "../um-certificates/how-certificates-work-unified.html"
+    - title: Verzeichnisdienste
+      url: "../um-certificates/access-management-with-directory-services-unified.html"
+  - title: Einstellungen verwalten
+    links:
+    - title: Importeinstellungen
+      url: "../um-manage/how-import-settings-works.html"
+    - title: Passworteinstellungen ändern
+      url: "../um-certificates/change-local-user-passwords-settings-unified.html"
+    - title: Verzeichnisserver-Einstellungen ändern
+      url: "../um-certificates/edit-directory-server-settings-unified.html"

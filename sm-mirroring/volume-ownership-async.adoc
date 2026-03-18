@@ -1,0 +1,28 @@
+---
+permalink: sm-mirroring/volume-ownership-async.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volume, ownership, async, change, preferred, controller, owner, mirrored, pair, 
+summary: Sie können den bevorzugten Controller-Besitzer in einem gespiegelten Paar ändern. 
+---
+= Erfahren Sie mehr über die Volume-Zuständigkeit bei der asynchronen Spiegelung in SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den bevorzugten Controller-Besitzer in einem gespiegelten Paar ändern.
+
+Wenn das primäre Volume des gespiegelten Paares Controller A gehört, dann wird auch das sekundäre Volume von Controller A des entfernten Speichersystems besessen. Das Ändern des Eigentümers des primären Volumes ändert automatisch den Eigentümer des sekundären Volumes, um sicherzustellen, dass beide Volumes demselben Controller gehören. Aktuelle Eigentümeränderungen auf der primären Seite werden automatisch auf entsprechende aktuelle Eigentümeränderungen auf der sekundären Seite übertragen.
+
+Beispielsweise gehört ein primäres Volume Controller A, und dann ändern Sie den Controller-Besitzer auf Controller B. In diesem Fall ändert der nächste Remote-Schreibvorgang den Controller-Besitzer des sekundären Volume von Controller A auf B. Da Controller-Besitzeränderungen auf der sekundären Seite von der primären Seite gesteuert werden, ist keine besondere Intervention durch den Speicheradministrator erforderlich.
+
+
+
+== Controller-Resets
+
+Ein Controller-Reset verursacht eine Änderung der Volume-Zugehörigkeit auf der primären Seite vom bevorzugten Controller-Besitzer zum alternativen Controller im Speicherarray.
+
+Manchmal wird ein Remote-Schreibvorgang durch einen Controller-Reset oder einen Neustart des Speichersystems unterbrochen, bevor er auf das sekundäre Volume geschrieben werden kann. In diesem Fall muss der Controller keine vollständige Synchronisierung des gespiegelten Paares durchführen.
+
+Wird ein Remote-Schreibvorgang während eines Controller-Resets unterbrochen, liest der neue Controller-Besitzer auf der primären Seite die in einer Protokolldatei im reservierten Kapazitätsvolume des bevorzugten Controller-Besitzers gespeicherten Informationen. Anschließend kopiert der neue Controller-Besitzer die betroffenen Datenblöcke vom primären Volume auf das sekundäre Volume, wodurch eine vollständige Synchronisierung der gespiegelten Volumes entfällt.

@@ -1,0 +1,29 @@
+---
+permalink: sm-storage/change-workload-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, workload, settings 
+summary: Sie können den Namen einer Arbeitslast ändern und den zugehörigen Anwendungstyp anzeigen. Ändern Sie den Namen einer Arbeitslast, wenn der aktuelle Name nicht mehr aussagekräftig oder zutreffend ist. 
+---
+= Workload-Einstellungen im SANtricity System Manager ändern
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den Namen einer Arbeitslast ändern und den zugehörigen Anwendungstyp anzeigen. Ändern Sie den Namen einer Arbeitslast, wenn der aktuelle Name nicht mehr aussagekräftig oder zutreffend ist.
+
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Wählen Sie die Registerkarte *Applications & Workloads* aus.
++
+Die Ansicht „Anwendungen und Workloads" wird angezeigt.
+
+. Wählen Sie die Arbeitslast aus, die Sie ändern möchten, und wählen Sie dann *View/Edit Settings*.
++
+Das Dialogfeld „Einstellungen für Applications & Workloads“ wird angezeigt.
+
+. *Optional:* Ändern Sie den vom Benutzer angegebenen Namen der Arbeitslast.
+. Klicken Sie auf *Speichern*.
+

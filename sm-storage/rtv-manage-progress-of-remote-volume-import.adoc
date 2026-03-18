@@ -1,0 +1,35 @@
+---
+permalink: sm-storage/rtv-manage-progress-of-remote-volume-import.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage, imports 
+summary: Nachdem der Importvorgang begonnen hat, können Sie den Fortschritt anzeigen und Maßnahmen ergreifen. 
+---
+= Den Fortschritt von Importen aus Remote-Speichern im SANtricity System Manager verwalten
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nachdem der Importvorgang begonnen hat, können Sie den Fortschritt anzeigen und Maßnahmen ergreifen.
+
+.Über diese Aufgabe
+Für jeden Importvorgang zeigt das Dialogfeld „Laufende Vorgänge“ den Fortschritt in Prozent und die voraussichtliche Restzeit an. Zu den Aktionen gehören das Ändern der Importpriorität, das Anhalten und Fortsetzen von Vorgängen sowie das Trennen von der Operation.
+
+Sie können die laufenden Vorgänge auch von der Home-Seite aus anzeigen (menu:Home[Show operations in progress]).
+
+.Schritte
+. Wählen Sie auf der Seite „Remote Storage“ die Option *View Operations*.
++
+Das Dialogfeld „Laufende Vorgänge“ wird angezeigt.
+
+. Bei Bedarf können Sie die Links in der Spalte *Aktionen* verwenden, um einen Vorgang anzuhalten und fortzusetzen, die Priorität zu ändern oder die Verbindung zu trennen.
++
+** *Priorität ändern* – Wählen Sie *Priorität ändern*, um die Verarbeitungspriorität eines laufenden oder ausstehenden Vorgangs zu ändern. Weisen Sie dem Vorgang eine Priorität zu und klicken Sie dann auf *OK*.
+** *Stopp* – Wählen Sie *Stopp*, um das Kopieren der Daten vom Remote-Speichergerät anzuhalten. Die Beziehung zwischen dem Import-Paar bleibt weiterhin bestehen, und Sie können *Fortsetzen* wählen, wenn Sie bereit sind, den Importvorgang fortzusetzen.
+** *Fortsetzen* – Wählen Sie *Fortsetzen*, um einen angehaltenen oder fehlgeschlagenen Prozess an der Stelle fortzusetzen, an der er gestoppt wurde. Weisen Sie als Nächstes dem Vorgang „Fortsetzen“ eine Priorität zu und klicken Sie dann auf *OK*. Dieser Vorgang startet den Import _nicht_ von Anfang an neu. Wenn Sie den Prozess von Anfang an neu starten möchten, müssen Sie *Trennen* auswählen und den Import anschließend über den Assistenten „Import Remote Storage“ neu erstellen.
+** *Trennen* -- Wählen Sie *Trennen*, um die Beziehung zwischen dem Quell- und dem Ziel-Volume für einen Importvorgang zu trennen, der gestoppt, abgeschlossen oder fehlgeschlagen ist.
+
+
+

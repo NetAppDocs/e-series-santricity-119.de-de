@@ -1,0 +1,81 @@
+---
+permalink: um-manage/mirroring-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, mirroring, terminology 
+summary: Erfahren Sie, wie die Begriffe der Spiegelung auf Ihr Storage-Array zutreffen. 
+---
+= Erfahren Sie mehr über die Spiegelungsterminologie im SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Begriffe der Spiegelung auf Ihr Storage-Array zutreffen.
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+Lokales Speicherarray
+ a| 
+Das lokale Speicherarray ist das Speicherarray, auf das Sie zugreifen.
+
+
+
+ a| 
+Mirror Konsistenzgruppe
+ a| 
+Eine Spiegel-Konsistenzgruppe ist ein Container für ein oder mehrere gespiegelte Paare. Für asynchrone Spiegelungsvorgänge müssen Sie eine Spiegel-Konsistenzgruppe erstellen. Alle gespiegelten Paare in einer Gruppe werden gleichzeitig resynchronisiert, wodurch ein konsistenter Wiederherstellungspunkt erhalten bleibt.
+
+Die synchrone Spiegelung verwendet keine Konsistenzgruppen.
+
+
+
+ a| 
+Spiegeltes Paar
+ a| 
+Ein gespiegeltes Paar besteht aus zwei Volumina, einem primären Volume und einem sekundären Volume.
+
+Bei asynchroner Spiegelung gehört ein gespiegeltes Paar immer zu einer Spiegel-Konsistenzgruppe. Schreibvorgänge werden zuerst auf dem primären Volume ausgeführt und dann auf das sekundäre Volume repliziert. Jedes gespiegelte Paar in einer Spiegel-Konsistenzgruppe teilt die gleichen Synchronisierungseinstellungen.
+
+
+
+ a| 
+Primärvolume
+ a| 
+Das primäre Volume eines gespiegelten Paares ist das Quellvolume, das gespiegelt werden soll.
+
+
+
+ a| 
+Remote-Speicherarray
+ a| 
+Das entfernte Speichersystem wird üblicherweise als sekundärer Standort bezeichnet, der in der Regel eine Replik der Daten in einer Spiegelkonfiguration enthält.
+
+
+
+ a| 
+Reservierte Kapazität
+ a| 
+Die reservierte Kapazität ist die physisch zugewiesene Kapazität, die für jeden Kopiervorgang und jedes Speicherobjekt verwendet wird. Sie ist für den Host nicht direkt lesbar.
+
+Diese Volumes sind erforderlich, damit der Controller die Informationen, die zum Aufrechterhalten der Spiegelung im Betriebszustand benötigt werden, dauerhaft speichern kann. Sie enthalten Informationen wie Delta-Protokolle und Copy-on-Write-Daten.
+
+
+
+ a| 
+sekundäres Volume
+ a| 
+Das sekundäre Volume eines gespiegelten Paares befindet sich üblicherweise an einem sekundären Standort und enthält eine Replik der Daten.
+
+
+
+ a| 
+Synchronisierung
+ a| 
+Die Synchronisierung erfolgt bei der ersten Synchronisierung zwischen dem lokalen Storage-Array und dem entfernten Storage-Array. Die Synchronisierung erfolgt auch, wenn die primären und sekundären Volumes nach einer Kommunikationsunterbrechung nicht mehr synchron sind. Wenn die Kommunikationsverbindung wieder funktioniert, werden alle nicht replizierten Daten mit dem Storage-Array des sekundären Volumes synchronisiert.
+
+|===

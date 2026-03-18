@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/export-saml-service-provider-files.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, export, saml, Service Provider, files, 
+summary: 'Bei Bedarf können Sie die Metadaten des Service Providers für das Storage Array exportieren und die Datei(en) wieder in das Identity Provider (IdP) System importieren.' 
+---
+= SAML-Dienstanbieterdateien im SANtricity System Manager exportieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bei Bedarf können Sie die Metadaten des Service Providers für das Storage Array exportieren und die Datei(en) wieder in das Identity Provider (IdP) System importieren.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+* SAML ist konfiguriert und aktiviert.
+
+
+.Über diese Aufgabe
+In dieser Aufgabe exportieren Sie Metadaten von den Controllern (eine Datei pro Controller). Der IdP benötigt diese Metadaten, um eine Vertrauensbeziehung zu den Controllern aufzubauen und um Authentifizierungsanfragen zu verarbeiten. Die Datei enthält Informationen wie den Domänennamen oder die IP-Adresse des Controllers, die der IdP zum Senden von Anfragen verwenden kann.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *SAML* aus.
+. Wählen Sie *Export*.
++
+Das Dialogfeld „Export Service Provider Files“ wird geöffnet.
+
+. Klicken Sie für jeden Controller auf *Export*, um die Metadatendatei auf Ihrem lokalen System zu speichern.
++
+[NOTE]
+====
+Die Domänennamenfelder für jeden Controller sind schreibgeschützt.
+
+====
++
+Notieren Sie sich, wo die Datei gespeichert ist.
+
+. Suchen Sie auf dem lokalen System die Service Provider-Metadatendatei(en), die Sie exportiert haben.
++
+Für jeden Controller gibt es eine XML-formatierte Datei.
+
+. Importieren Sie vom IdP-Server die Metadatendatei(en) des Service Providers. Sie können die Dateien entweder direkt importieren oder die Controller-Informationen manuell daraus eingeben.
+. Klicken Sie auf *Schließen*.
+

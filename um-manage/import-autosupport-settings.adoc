@@ -1,0 +1,49 @@
+---
+permalink: um-manage/import-autosupport-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, autosupport, settings 
+summary: Sie können eine AutoSupport-Konfiguration von einem Speichersystem auf andere Speichersysteme importieren. Diese Stapelverarbeitung spart Zeit, wenn Sie mehrere Arrays im Netzwerk konfigurieren müssen. 
+---
+= Importieren Sie AutoSupport-Einstellungen im SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine AutoSupport-Konfiguration von einem Speichersystem auf andere Speichersysteme importieren. Diese Stapelverarbeitung spart Zeit, wenn Sie mehrere Arrays im Netzwerk konfigurieren müssen.
+
+.Bevor Sie beginnen
+* AutoSupport ist im System Manager für das Speichersystem konfiguriert, das Sie als Quelle verwenden möchten (menu:Support[Support Center]).
+* Die bestehende Konfiguration der Zielspeicherarrays wird im System Manager gesichert (Menü:Einstellungen[System > Save Storage Array Configuration]).
+
+
+.Über diese Aufgabe
+Zu den importierten Einstellungen gehören die einzelnen Funktionen (Basis AutoSupport, AutoSupport OnDemand und Ferndiagnose), das Wartungsfenster, die Bereitstellungsmethode und der Versandplan.
+
+.Schritte
+. Klicken Sie auf der Seite *Verwalten* auf *Import Settings*.
++
+Der Importeinstellungen-Assistent wird geöffnet.
+
+. Im Dialogfeld „Einstellungen auswählen“ wählen Sie *AutoSupport* und klicken Sie dann auf *Weiter*.
++
+Es öffnet sich ein Dialogfeld zur Auswahl des Quell-Arrays.
+
+. Wählen Sie im Dialogfeld „Quelle auswählen“ das Array mit den Einstellungen aus, die Sie importieren möchten, und klicken Sie dann auf *Next*.
+. Wählen Sie im Dialogfeld „Ziele auswählen“ ein oder mehrere Arrays aus, die die neuen Einstellungen erhalten sollen.
++
+[NOTE]
+====
+Speicherarrays mit Firmware unter 8.50 stehen nicht zur Auswahl. Außerdem wird ein Array in diesem Dialogfeld nicht angezeigt, wenn Unified Manager nicht mit diesem Array kommunizieren kann (zum Beispiel, wenn es offline ist oder wenn es Zertifikats-, Passwort- oder Netzwerkprobleme gibt).
+
+====
+. Klicken Sie auf *Finish*.
++
+Auf der Seite „Vorgänge“ werden die Ergebnisse des Importvorgangs angezeigt. Falls der Vorgang fehlschlägt, können Sie auf die entsprechende Zeile klicken, um weitere Informationen zu sehen.
+
+
+
+.Ergebnisse
+Die Zielspeicherarrays sind nun mit den gleichen AutoSupport-Einstellungen wie das Quellarray konfiguriert.

@@ -1,0 +1,110 @@
+---
+permalink: um-manage/overview-upgrade-center-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, upgrade, center 
+summary: Im Upgrade Center können Sie SANtricity OS Software und NVSRAM Upgrades für mehrere Speicherarrays verwalten. 
+---
+= Erfahren Sie mehr über das Upgrade Center im SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Im Upgrade Center können Sie SANtricity OS Software und NVSRAM Upgrades für mehrere Speicherarrays verwalten.
+
+
+
+== Wie funktionieren Upgrades?
+
+Sie laden die neueste OS-Software herunter und aktualisieren anschließend ein oder mehrere Arrays.
+
+
+
+=== Upgrade-Workflow
+
+Die folgenden Schritte bieten einen allgemeinen Arbeitsablauf für die Durchführung von Software-Upgrades.
+
+. Laden Sie die neueste SANtricity OS Softwaredatei von der Support-Website herunter (ein Link ist im Unified Manager auf der Support-Seite verfügbar). Speichern Sie die Datei auf dem Management-Hostsystem (dem Host, auf dem Sie über einen Browser auf den Unified Manager zugreifen), und entpacken Sie anschließend die Datei.
+. Im Unified Manager laden Sie die SANtricity OS Software-Datei und die NVSRAM-Datei in das Repository (einen Bereich des Web Services Proxy-Servers, in dem Dateien gespeichert werden). Sie können Dateien entweder über menu:Upgrade Center[Upgrade SANtricity OS Software oder von Upgrade Center > Manage Software Repository] hinzufügen.
+. Nachdem die Dateien in das Repository geladen wurden, können Sie dann die Datei auswählen, die für das Upgrade verwendet werden soll. Auf der Seite Upgrade SANtricity OS software (Menü: Upgrade Center[Upgrade SANtricity OS software]) wählen Sie die SANtricity OS software-Datei und die NVSRAM-Datei aus. Nachdem Sie eine Softwaredatei ausgewählt haben, wird auf dieser Seite eine Liste kompatibler Storage Arrays angezeigt. Anschließend wählen Sie die Storage Arrays aus, die Sie mit der neuen Software upgraden möchten. (Sie können keine inkompatiblen Arrays auswählen.)
+. Anschließend können Sie die Softwareübertragung und -aktivierung sofort starten oder die Dateien für die Aktivierung zu einem späteren Zeitpunkt bereitstellen. Während des Upgrade-Prozesses führt Unified Manager die folgenden Aufgaben aus:
++
+.. Führt eine Integritätsprüfung der Speicherarrays durch, um festzustellen, ob Bedingungen vorliegen, die das Upgrade möglicherweise am Abschluss hindern könnten. Wenn eines der Arrays die Integritätsprüfung nicht besteht, können Sie dieses bestimmte Array überspringen und das Upgrade für die anderen fortsetzen oder den gesamten Prozess stoppen und die Arrays, die nicht bestanden haben, beheben.
+.. Überträgt die Upgrade-Dateien auf jeden Controller.
+.. Die Controller werden neu gestartet und die neue SANtricity OS-Software wird jeweils für einen Controller aktiviert. Während der Aktivierung wird die vorhandene SANtricity OS-Datei durch die neue Datei ersetzt.
++
+[NOTE]
+====
+Sie können auch festlegen, dass die Software zu einem späteren Zeitpunkt aktiviert wird.
+
+====
+
+
+
+
+
+
+=== Sofortiges oder gestaffeltes Upgrade
+
+Sie können das Upgrade sofort aktivieren oder es für einen späteren Zeitpunkt vorbereiten. Sie könnten sich aus folgenden Gründen dafür entscheiden, die Aktivierung später durchzuführen:
+
+* *Tageszeit* – Die Aktivierung der Software kann längere Zeit in Anspruch nehmen, daher sollten Sie warten, bis die E/A-Lasten geringer sind. Je nach E/A-Last und Cache-Größe kann ein Controller-Upgrade typischerweise zwischen 15 und 25 Minuten dauern. Die Controller werden während der Aktivierung neu gestartet und führen ein Failover durch, sodass die Leistung bis zum Abschluss des Upgrades niedriger als gewöhnlich sein kann.
+* *Pakettyp* -- Sie möchten möglicherweise die neue Software und Firmware auf einem Speichersystem testen, bevor Sie die Dateien auf anderen Speichersystemen aktualisieren.
+
+
+Um die bereitgestellte Software zu aktivieren, gehen Sie zu menu:Support[Upgrade Center] und klicken Sie im Bereich mit der Bezeichnung SANtricity OS Controller Software upgrade auf *Aktivieren*.
+
+
+
+=== Gesundheitscheck
+
+Ein Health-Check wird als Teil des Upgrade-Prozesses durchgeführt, aber Sie können auch vor Beginn separat einen Health-Check ausführen (gehen Sie zu Menü:Upgrade Center[Pre-Upgrade Health Check]).
+
+Die Systemprüfung beurteilt alle Komponenten des Speichersystems, um sicherzustellen, dass das Upgrade durchgeführt werden kann. Die folgenden Bedingungen könnten das Upgrade verhindern:
+
+* Fehlerhafte zugewiesene Laufwerke
+* Hot spares im Einsatz
+* Unvollständige Volumengruppen
+* Exklusive Operationen laufen
+* Fehlende Volumes
+* Controller im nicht optimalen Zustand
+* Übermäßige Anzahl von Ereignisprotokollereignissen
+* Validierungsfehler der Konfigurationsdatenbank
+* Laufwerke mit alten Versionen von DACstore
+
+
+
+
+== Was muss ich vor dem Upgrade wissen?
+
+Bevor Sie mehrere Storage-Arrays aufrüsten, überprüfen Sie die wichtigsten Überlegungen im Rahmen Ihrer Planung.
+
+
+
+=== Aktuelle Versionen
+
+Sie können die aktuellen SANtricity OS Softwareversionen auf der Seite „Manage“ des Unified Manager für jedes erkannte Storage Array einsehen. Die Version wird in der Spalte „SANtricity OS Software“ angezeigt. Die Informationen zur Controller-Firmware und zum NVSRAM sind in einem Popup-Dialogfeld verfügbar, wenn Sie in jeder Zeile auf die SANtricity OS-Version klicken.
+
+
+
+=== Weitere Komponenten, die ein Upgrade erfordern
+
+Im Rahmen des Upgrade-Prozesses müssen Sie möglicherweise auch den Multipath-/Failover-Treiber des Hosts oder den HBA-Treiber aktualisieren, damit der Host korrekt mit den Controllern interagieren kann.
+
+Informationen zur Kompatibilität finden Sie in der https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitätsmatrix"^]. Beachten Sie außerdem die Verfahren in den Express Guides für Ihr Betriebssystem. Express Guides sind erhältlich von der https://docs.netapp.com/us-en/e-series/index.html["E-Series und SANtricity Dokumentation"^].
+
+
+
+=== Dualcontroller
+
+Wenn ein Speichersystem zwei Controller enthält und ein Multipath-Treiber installiert ist, kann das Speichersystem die E/A-Verarbeitung während des Upgrades fortsetzen. Während des Upgrades läuft folgender Prozess ab:
+
+. Controller A gibt alle seine LUNs an Controller B weiter.
+. Das Upgrade erfolgt auf Controller A.
+. Controller A übernimmt wieder seine LUNs und alle LUNs von Controller B.
+. Das Upgrade erfolgt auf Controller B.
+
+
+Nach Abschluss des Upgrades müssen Sie möglicherweise die Volumes manuell zwischen den Controllern neu verteilen, um sicherzustellen, dass die Volumes wieder dem richtigen Controller zugeordnet werden.

@@ -1,0 +1,254 @@
+---
+permalink: sm-storage/volume-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volume, terms 
+summary: Erfahren Sie, wie die Volumenbegriffe auf Ihr Storage-Array zutreffen. 
+---
+= Erfahren Sie mehr über die Volumenterminologie in SANtricity-Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Volumenbegriffe auf Ihr Storage-Array zutreffen.
+
+
+
+== Alle Volumentypen
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+Zugewiesene Kapazität
+ a| 
+Sie verwenden die zugewiesene Kapazität, um Volumes zu erstellen und für Copy Services-Operationen.
+
+Zugewiesene Kapazität und gemeldete Kapazität sind bei Thick Volumes identisch, unterscheiden sich jedoch bei Thin Volumes. Bei einem Thick Volume entspricht der physisch zugewiesene Speicherplatz dem Speicherplatz, der dem Host gemeldet wird. Bei einem Thin Volume ist die gemeldete Kapazität die Kapazität, die den Hosts gemeldet wird, während die zugewiesene Kapazität die Menge an Laufwerksspeicher ist, die derzeit für das Schreiben von Daten zugewiesen ist.
+
+
+
+ a| 
+Anwendung
+ a| 
+Eine Anwendung ist Software wie SQL Server oder Exchange. Sie definieren eine oder mehrere Workloads zur Unterstützung jeder Anwendung. Für einige Anwendungen empfiehlt das System automatisch eine Volume-Konfiguration, die den Speicher optimiert. Merkmale wie E/A-Typ, Segmentgröße, Controller-Zugehörigkeit sowie Lese- und Schreibcache sind in der Volume-Konfiguration enthalten.
+
+
+
+ a| 
+Kapazität
+ a| 
+Kapazität ist die Menge an Daten, die Sie in einem Volume speichern können.
+
+
+
+ a| 
+Controller-Besitz
+ a| 
+Die Controller-Zugehörigkeit definiert den Controller, der als besitzender oder primärer Controller des Volumes festgelegt ist. Ein Volume kann einen bevorzugten Controller (A oder B) haben, der das Volume „besitzt“. Die Volume-Zugehörigkeit wird mithilfe der Funktion Automatischer Lastausgleich automatisch angepasst, um etwaige Lastausgleichsprobleme zu beheben, wenn Arbeitslasten zwischen den Controllern verschoben werden. Automatischer Lastausgleich bietet eine automatisierte E/A-Lastverteilung und stellt sicher, dass der eingehende E/A-Datenverkehr von den Hosts dynamisch verwaltet und auf beide Controller verteilt wird.
+
+
+
+ a| 
+Dynamisches Cache-Lese-Prefetching
+ a| 
+Die dynamische Cache-Vorabruffunktion ermöglicht es dem Controller, zusätzliche sequenzielle Datenblöcke in den Cache zu kopieren, während er Datenblöcke von einem Laufwerk in den Cache liest. Dieses Caching erhöht die Wahrscheinlichkeit, dass zukünftige Anforderungen an Daten aus dem Cache erfüllt werden können. Die dynamische Cache-Vorabruffunktion ist wichtig für Multimedia-Anwendungen, die sequenzielle I/O verwenden. Die Rate und Menge der Daten, die in den Cache vorabgerufen werden, passt sich automatisch an die Rate und die Anforderungsgröße der Host-Lesezugriffe an. Zufälliger Zugriff führt nicht dazu, dass Daten in den Cache vorabgerufen werden. Diese Funktion gilt nicht, wenn das Lesecaching deaktiviert ist.
+
+Für ein Thin Volume ist das dynamische Cache-Lese-Prefetching immer deaktiviert und kann nicht geändert werden.
+
+
+
+ a| 
+Bereich für freie Kapazität
+ a| 
+Ein freier Kapazitätsbereich ist die freie Kapazität, die durch das Löschen eines Volumes oder durch die Nichtnutzung der gesamten verfügbaren freien Kapazität bei der Volume-Erstellung entstehen kann. Wenn Sie ein Volume in einer Volume-Gruppe erstellen, die einen oder mehrere freie Kapazitätsbereiche hat, ist die Kapazität des Volumes auf den größten freien Kapazitätsbereich in dieser Volume-Gruppe begrenzt. Wenn eine Volume-Gruppe beispielsweise insgesamt 15 GiB freie Kapazität hat und der größte freie Kapazitätsbereich 10 GiB beträgt, ist das größte Volume, das Sie erstellen können, 10 GiB.
+
+Durch die Konsolidierung freier Kapazität können Sie zusätzliche Volumes aus der maximalen Menge an freier Kapazität in einer Volume-Gruppe erstellen.
+
+
+
+ a| 
+Host
+ a| 
+Ein Host ist ein Server, der E/A an ein Volume auf einem Storage-Array sendet.
+
+
+
+ a| 
+Host-Cluster
+ a| 
+Ein Hostcluster ist eine Gruppe von Hosts. Sie erstellen einen Hostcluster, um es einfach zu machen, denselben Volumes mehreren Hosts zuzuweisen.
+
+
+
+ a| 
+Hot-Spare-Laufwerk
+ a| 
+Hot-Spare-Laufwerke werden nur mit Volume-Gruppen unterstützt. Ein Hot-Spare-Laufwerk enthält keine Daten und dient als Standby, falls ein Laufwerk in RAID 1-, RAID 3-, RAID 5- oder RAID 6-Volumes innerhalb einer Volume-Gruppe ausfällt. Das Hot-Spare-Laufwerk bietet eine zusätzliche Redundanzebene für Ihr Storage-Array.
+
+
+
+ a| 
+LUN
+ a| 
+Eine logische Einheitennummer (LUN) ist die Nummer, die dem Adressraum zugewiesen wird, den ein Host für den Zugriff auf ein Volume verwendet. Das Volume wird dem Host als Kapazität in Form einer LUN präsentiert.
+
+Jeder Host verfügt über einen eigenen LUN-Adressraum. Daher kann dieselbe LUN von verschiedenen Hosts verwendet werden, um auf unterschiedliche Volumes zuzugreifen.
+
+
+
+ a| 
+Medienscan
+ a| 
+Ein Medienscan bietet eine Möglichkeit, Speichermedienfehler zu erkennen, bevor sie bei einem normalen Lese- oder Schreibvorgang auf den Laufwerken festgestellt werden. Ein Medienscan wird als Hintergrundoperation durchgeführt und scannt alle Daten und Redundanzinformationen in definierten Benutzervolumes.
+
+
+
+ a| 
+Namensraum
+ a| 
+Ein Namespace ist NVM-Speicher, der für Blockzugriff formatiert ist. Er ist analog zu einer logischen Einheit in SCSI, die sich auf ein Volume im Speicherarray bezieht.
+
+
+
+ a| 
+Pool
+ a| 
+Ein Pool ist eine Gruppe von Laufwerken, die logisch zusammengefasst sind. Sie können einen Pool verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einem Pool oder einer Volume-Gruppe.)
+
+
+
+ a| 
+Pool- oder Volumengruppenkapazität
+ a| 
+Pool-, Volume- oder Volume-Gruppenkapazität ist die Kapazität in einem Speichersystem, die einem Pool oder einer Volume-Gruppe zugewiesen wurde. Diese Kapazität wird verwendet, um Volumes zu erstellen und die verschiedenen Kapazitätsanforderungen von Copy Services-Operationen und Speicherobjekten zu erfüllen.
+
+
+
+ a| 
+Lesecache
+ a| 
+Der Lesecache ist ein Puffer, der Daten speichert, die von den Laufwerken gelesen wurden. Die Daten für einen Lesevorgang können bereits von einem vorherigen Vorgang im Cache vorhanden sein, wodurch der Zugriff auf die Laufwerke entfällt. Die Daten verbleiben im Lesecache, bis sie gelöscht werden.
+
+
+
+ a| 
+Gemeldete Kapazität
+ a| 
+Die gemeldete Kapazität ist die Kapazität, die dem Host gemeldet wird und auf die der Host zugreifen kann.
+
+Die gemeldete Kapazität und die zugewiesene Kapazität sind bei Thick Volumes identisch, unterscheiden sich jedoch bei Thin Volumes. Bei einem Thick Volume entspricht der physisch zugewiesene Speicherplatz dem Speicherplatz, der dem Host gemeldet wird. Bei einem Thin Volume ist die gemeldete Kapazität die Kapazität, die dem Host gemeldet wird, während die zugewiesene Kapazität die Menge an Laufwerksspeicher ist, die derzeit für das Schreiben von Daten zugewiesen ist.
+
+
+
+ a| 
+Segmentgröße
+ a| 
+Ein Segment ist die Datenmenge in Kilobyte (KiB), die auf einem Laufwerk gespeichert wird, bevor das Storage-Array im Stripe (RAID-Gruppe) zum nächsten Laufwerk wechselt. Die Segmentgröße ist gleich oder kleiner als die Kapazität der Volume-Gruppe. Die Segmentgröße ist fest und kann für Pools nicht geändert werden.
+
+
+
+ a| 
+Striping
+ a| 
+Striping ist eine Methode zur Datenspeicherung in einem Speichersystem. Striping unterteilt den Datenstrom in Blöcke einer bestimmten Größe (genannt „Blockgröße“) und schreibt diese Blöcke dann nacheinander auf die Laufwerke. Diese Methode der Datenspeicherung wird verwendet, um Daten auf mehrere physische Laufwerke zu verteilen und zu speichern. Striping ist gleichbedeutend mit RAID 0 und verteilt die Daten ohne Parität auf alle Laufwerke in einer RAID-Gruppe.
+
+
+
+ a| 
+Volumen
+ a| 
+Ein Volume ist ein Container, in dem Anwendungen, Datenbanken und Dateisysteme Daten speichern. Es ist die logische Komponente, die für den Host erstellt wird, um auf den Speicher des Speichersystems zuzugreifen.
+
+
+
+ a| 
+Volumenzuordnung
+ a| 
+Die Volume-Zuordnung ist, wie Host-LUNs einem Volume zugeordnet werden.
+
+
+
+ a| 
+Volumenname
+ a| 
+Ein Volume-Name ist eine Zeichenfolge, die dem Volume bei seiner Erstellung zugewiesen wird. Sie können entweder den Standardnamen übernehmen oder einen aussagekräftigeren Namen angeben, der den Typ der im Volume gespeicherten Daten beschreibt.
+
+
+
+ a| 
+Volume-Gruppe
+ a| 
+Eine Volume-Gruppe ist ein Container für Volumes mit gemeinsamen Eigenschaften. Eine Volume-Gruppe hat eine definierte Kapazität und ein definiertes RAID-Level. Sie können eine Volume-Gruppe verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einer Volume-Gruppe oder einem Pool.)
+
+
+
+ a| 
+Arbeitslast
+ a| 
+Eine Workload ist ein Speicherobjekt, das eine Anwendung unterstützt. Sie können eine oder mehrere Workloads bzw. Instanzen pro Anwendung definieren. Bei einigen Anwendungen konfiguriert das System die Workload so, dass sie Volumes mit ähnlichen zugrunde liegenden Volume-Eigenschaften enthält. Diese Volume-Eigenschaften werden basierend auf dem Typ der Anwendung, die die Workload unterstützt, optimiert. Wenn Sie beispielsweise eine Workload erstellen, die eine Microsoft SQL Server Anwendung unterstützt, und anschließend Volumes für diese Workload erstellen, werden die zugrunde liegenden Volume-Eigenschaften optimiert, um Microsoft SQL Server zu unterstützen.
+
+
+
+ a| 
+Schreibcache
+ a| 
+Der Schreibcache ist ein Puffer, der Daten vom Host speichert, die noch nicht auf die Laufwerke geschrieben wurden. Die Daten verbleiben im Schreibcache, bis sie auf die Laufwerke geschrieben werden. Schreibcaching kann die I/O-Leistung erhöhen.
+
+
+
+ a| 
+Schreib-Caching mit Spiegelung
+ a| 
+Schreibcache mit Spiegelung tritt auf, wenn die in den Cache-Speicher eines Controllers geschriebenen Daten auch in den Cache-Speicher des anderen Controllers geschrieben werden. Daher kann der andere Controller, falls einer ausfällt, alle ausstehenden Schreibvorgänge abschließen. Die Spiegelung des Schreibcaches ist nur verfügbar, wenn Schreibcache aktiviert ist und zwei Controller vorhanden sind. Schreibcache mit Spiegelung ist die Standardeinstellung bei der Volume-Erstellung.
+
+
+
+ a| 
+Schreib-Cache ohne Batterien
+ a| 
+Die Einstellung „Schreibcache ohne Batterien“ ermöglicht es, den Schreibcache fortzusetzen, selbst wenn die Batterien fehlen, defekt, vollständig entladen oder nicht vollständig geladen sind. Die Auswahl von Schreibcache ohne Batterien wird normalerweise nicht empfohlen, da Daten verloren gehen könnten, wenn die Stromversorgung ausfällt. Normalerweise wird der Schreibcache vom Controller vorübergehend deaktiviert, bis die Batterien geladen sind oder eine defekte Batterie ersetzt wurde.
+
+|===
+
+
+== Speziell für Thin Volumes
+
+[NOTE]
+====
+System Manager bietet keine Option zum Erstellen von Thin Volumes. Wenn Sie Thin Volumes erstellen möchten, verwenden Sie die Befehlszeile (CLI).
+
+====
+[NOTE]
+====
+Thin Volumes sind auf dem Speichersystem EF600/EF600C oder EF300/EF300C nicht verfügbar.
+
+====
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+Zugewiesene Kapazitätsgrenze
+ a| 
+Die zugewiesene Kapazitätsgrenze ist die Obergrenze dafür, wie groß die zugewiesene physische Kapazität für ein Thin Volume werden kann.
+
+
+
+ a| 
+Beschriebene Kapazität
+ a| 
+Die geschriebene Kapazität ist die Kapazitätsmenge, die aus der reservierten Kapazität für Thin Volumes geschrieben wurde.
+
+
+
+ a| 
+Warnschwelle
+ a| 
+Sie können eine Warnschwellenwert-Benachrichtigung festlegen, die ausgegeben wird, wenn die zugewiesene Kapazität für ein Thin Volume den Prozentsatz voll erreicht (den Warnschwellenwert).
+
+|===

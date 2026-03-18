@@ -1,0 +1,88 @@
+---
+permalink: sm-interface/faq-storage-system-setup.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zur Einrichtung des Speichersystems für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was ist, wenn ich nicht alle meine Hardwarekomponenten sehe?
+
+Wenn im Dialogfeld „Hardware überprüfen“ nicht alle Ihre Hardwarekomponenten angezeigt werden, könnte dies bedeuten, dass ein Laufwerksschacht nicht richtig angeschlossen ist oder dass ein inkompatibler Schacht im Storage-Array installiert ist.
+
+Verifizieren Sie, dass alle Laufwerksschächte korrekt angeschlossen sind. Wenn Sie unsicher sind, welche Laufwerksschächte kompatibel sind, wenden Sie sich an den technischen Support.
+
+
+
+== Was ist, wenn ich nicht alle meine Hosts sehe?
+
+Wenn Sie Ihre verbundenen Hosts nicht sehen, ist die automatische Erkennung fehlgeschlagen, die Hosts sind nicht ordnungsgemäß verbunden oder es sind derzeit keine Hosts verbunden.
+
+Sie können Hosts später konfigurieren, sobald die Einrichtung abgeschlossen ist. Sie können Hosts manuell wie folgt erstellen:
+
+* Sie können Hosts manuell erstellen und die entsprechenden Host-Port-Kennungen zuweisen, indem Sie zu Menü:Storage[Hosts] gehen. Hosts, die manuell erstellt wurden, werden ebenfalls im *Initial Setup*-Assistenten angezeigt.
+* Das Ziel und der Host müssen für den Host-Porttyp (zum Beispiel iSCSI oder NVMe über RoCE) konfiguriert sein, und eine Sitzung zum Speicher muss hergestellt werden, bevor die automatische Erkennung funktioniert.
+
+
+
+
+== Wie hilft mir die Identifizierung von Anwendungen bei der Verwaltung meines Storage-Arrays?
+
+Wenn Sie Anwendungen identifizieren, empfiehlt SANtricity System Manager automatisch eine Volume-Konfiguration, die den Speicher basierend auf dem Anwendungstyp optimiert.
+
+Durch die Optimierung von Volumes nach Anwendung können Datenspeichervorgänge effizienter gestaltet werden. Merkmale wie I/O-Typ, Segmentgröße, Controller-Zugehörigkeit sowie Lese- und Schreibcache sind in der Volume-Konfiguration enthalten. Außerdem können Sie Leistungsdaten nach Anwendung und nach Workload anzeigen, um die Latenz, IOPS und MiB/s von Anwendungen und ihren zugehörigen Workloads zu bewerten.
+
+
+
+== Was ist eine Arbeitsbelastung?
+
+Für einige Anwendungen in Ihrem Netzwerk, wie SQL Server oder Exchange, können Sie eine Arbeitslast definieren, die den Speicher für diese Anwendung optimiert.
+
+Eine Workload ist ein Speicherobjekt, das eine Anwendung unterstützt. Sie können eine oder mehrere Workloads bzw. Instanzen pro Anwendung definieren. Bei einigen Anwendungen konfiguriert das System die Workload so, dass sie Volumes mit ähnlichen zugrunde liegenden Volume-Eigenschaften enthält. Diese Volume-Eigenschaften werden basierend auf dem Typ der Anwendung, die die Workload unterstützt, optimiert. Wenn Sie beispielsweise eine Workload erstellen, die eine Microsoft SQL Server Anwendung unterstützt, und anschließend Volumes für diese Workload erstellen, werden die zugrunde liegenden Volume-Eigenschaften optimiert, um Microsoft SQL Server zu unterstützen.
+
+Bei der Volume-Erstellung werden Sie vom System aufgefordert, Fragen zur Nutzung einer Workload zu beantworten. Wenn Sie beispielsweise Volumes für Microsoft Exchange erstellen, werden Sie gefragt, wie viele Postfächer Sie benötigen, wie hoch Ihr durchschnittlicher Postfachspeicherbedarf ist und wie viele Kopien der Datenbank Sie möchten. Das System verwendet diese Informationen, um eine optimale Volume-Konfiguration für Sie zu erstellen, die Sie bei Bedarf bearbeiten können.
+
+
+
+== Wie konfiguriere ich die Zustellungsmethode für AutoSupport?
+
+Um auf die Konfigurationsaufgaben für AutoSupport-Zustellungsmethoden zuzugreifen, gehen Sie zu Menü:Support[Support Center] und klicken Sie dann auf die *AutoSupport*-Registerkarte.
+
+Folgende Protokolle werden unterstützt: HTTPS und SMTP.
+
+
+
+== Woran erkenne ich, ob ich die empfohlene Poolkonfiguration akzeptieren sollte?
+
+Ob Sie die empfohlene Poolkonfiguration akzeptieren, hängt von einigen Faktoren ab.
+
+Bestimmen Sie die Art des Speichers, die für Ihre Anforderungen am besten geeignet ist, indem Sie die folgenden Fragen beantworten:
+
+* Bevorzugen Sie mehrere Pools mit kleinerer Kapazität statt der größtmöglichen Pools?
+* Bevorzugen Sie RAID-Volume-Gruppen gegenüber Pools?
+* Bevorzugen Sie es, Ihre Laufwerke manuell bereitzustellen, anstatt eine empfohlene Konfiguration zu erhalten?
+
+
+Wenn Sie eine dieser Fragen mit Ja beantwortet haben, sollten Sie die empfohlene Poolkonfiguration ablehnen.
+
+
+
+== SANtricity System Manager hat keine Hosts erkannt. Was soll ich tun?
+
+Wenn Sie Ihre verbundenen Hosts nicht sehen, ist die automatische Erkennung fehlgeschlagen, die Hosts sind nicht ordnungsgemäß verbunden oder es sind derzeit keine Hosts verbunden.
+
+Sie können Hosts später konfigurieren, sobald die Einrichtung abgeschlossen ist. Sie können Hosts manuell wie folgt erstellen:
+
+* Sie können Hosts manuell erstellen und die entsprechenden Host-Port-Kennungen zuweisen, indem Sie zu Menü:Storage[Hosts] gehen. Hosts, die manuell erstellt wurden, werden ebenfalls im *Initial Setup*-Assistenten angezeigt.
+* Das Ziel und der Host müssen für den Host-Porttyp (zum Beispiel iSCSI oder NVMe über RoCE) konfiguriert sein, und eine Sitzung zum Speicher muss hergestellt werden, bevor die automatische Erkennung funktioniert.
+

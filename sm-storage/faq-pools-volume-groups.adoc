@@ -1,0 +1,694 @@
+---
+permalink: sm-storage/faq-pools-volume-groups.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zu Pools und Volumengruppen für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was ist eine Volumengruppe?
+
+Eine Volume-Gruppe ist ein Container für Volumes mit gemeinsamen Eigenschaften. Eine Volume-Gruppe hat eine definierte Kapazität und ein definiertes RAID-Level. Sie können eine Volume-Gruppe verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einer Volume-Gruppe oder einem Pool.)
+
+
+
+== Was ist ein Pool?
+
+Ein Pool ist eine Gruppe von Laufwerken, die logisch zusammengefasst sind. Sie können einen Pool verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einem Pool oder einer Volume-Gruppe.)
+
+Pools können die Notwendigkeit für Administratoren eliminieren, die Nutzung auf jedem Host zu überwachen, um festzustellen, wann ihnen wahrscheinlich der Speicherplatz ausgeht, und herkömmliche Ausfälle durch Festplatten-Größenänderungen zu vermeiden. Wenn ein Pool fast erschöpft ist, können dem Pool zusätzliche Laufwerke unterbrechungsfrei hinzugefügt werden, und das Kapazitätswachstum ist für den Host transparent.
+
+Bei Pools werden Daten automatisch neu verteilt, um das Gleichgewicht zu erhalten. Durch die Verteilung von Paritätsinformationen und Reservekapazität im gesamten Pool kann jedes Laufwerk im Pool verwendet werden, um ein ausgefallenes Laufwerk wiederherzustellen. Dieser Ansatz verwendet keine dedizierten Hot-Spare-Laufwerke; stattdessen wird Reservekapazität im gesamten Pool reserviert. Bei einem Laufwerksausfall werden Segmente auf anderen Laufwerken gelesen, um die Daten wiederherzustellen. Anschließend wird ein neues Laufwerk ausgewählt, um jedes Segment zu beschreiben, das sich auf einem ausgefallenen Laufwerk befand, sodass die Datenverteilung auf die Laufwerke erhalten bleibt.
+
+
+
+== Was ist reservierte Kapazität?
+
+Reservierte Kapazität ist die physisch zugewiesene Kapazität, die Daten für Kopierdienstobjekte wie Snapshot-Images, Konsistenzgruppenmitglied-Volumes und gespiegelte Paar-Volumes speichert.
+
+Das reservierte Kapazitäts-Volume, das mit einem Copy-Service-Vorgang verknüpft ist, befindet sich in einem Pool oder einer Volumengruppe. Sie erstellen reservierte Kapazität entweder aus einem Pool oder einer Volumengruppe.
+
+
+
+== Was ist FDE/FIPS-Sicherheit?
+
+FDE/FIPS-Sicherheit bezieht sich auf sicherheitsfähige Laufwerke, die Daten beim Schreiben verschlüsseln und beim Lesen mithilfe eines eindeutigen Verschlüsselungsschlüssels entschlüsseln. Diese sicherheitsfähigen Laufwerke verhindern unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Speicher-Array entfernt wurde.
+
+Sicherheitsfähige Laufwerke können entweder Full Disk Encryption (FDE)-Laufwerke oder Federal Information Processing Standard (FIPS)-Laufwerke sein. FIPS-Laufwerke wurden einer Zertifizierung unterzogen.
+
+[NOTE]
+====
+Für Volumes, die FIPS-Unterstützung benötigen, verwenden Sie ausschließlich FIPS-Laufwerke. Das Mischen von FIPS- und FDE-Laufwerken in einer Volume-Gruppe oder einem Pool führt dazu, dass alle Laufwerke als FDE-Laufwerke behandelt werden. Außerdem kann ein FDE-Laufwerk nicht zu einer reinen FIPS-Volume-Gruppe oder einem Pool hinzugefügt oder als Ersatz verwendet werden.
+
+====
+
+
+== Was ist Redundanzprüfung?
+
+Eine Redundanzprüfung ermittelt, ob die Daten auf einem Volume in einem Pool oder einer Volume-Gruppe konsistent sind. Redundanzdaten werden verwendet, um Informationen auf einem Ersatzlaufwerk schnell zu rekonstruieren, falls eines der Laufwerke im Pool oder in der Volume-Gruppe ausfällt.
+
+Sie können diese Prüfung jeweils nur für einen Pool oder eine Volume-Gruppe durchführen. Eine Volume-Redundanzprüfung führt die folgenden Aktionen aus:
+
+* Durchsucht die Datenblöcke in einem RAID-3-, RAID-5- oder RAID-6-Volume und prüft anschließend die Redundanzinformationen für jeden Block. (RAID 3 kann nur Volume-Gruppen mithilfe der Befehlszeilenschnittstelle zugewiesen werden.)
+* Vergleicht die Datenblöcke auf RAID 1 gespiegelten Laufwerken.
+* Gibt Redundanzfehler zurück, wenn die Daten von der Controller-Firmware als inkonsistent eingestuft werden.
+
+
+[NOTE]
+====
+Die sofortige Durchführung einer Redundanzprüfung für denselben Pool oder dieselbe Volume-Gruppe kann einen Fehler verursachen. Um dieses Problem zu vermeiden, warten Sie ein bis zwei Minuten, bevor Sie eine weitere Redundanzprüfung für denselben Pool oder dieselbe Volume-Gruppe durchführen.
+
+====
+
+
+== Worin bestehen die Unterschiede zwischen Pools und Volumengruppen?
+
+Ein Pool ist ähnlich wie eine Volume Group, mit den folgenden Unterschieden.
+
+* Die Daten in einem Pool werden zufällig auf allen Laufwerken im Pool gespeichert, im Gegensatz zu Daten in einer Volume-Gruppe, die auf demselben Satz von Laufwerken gespeichert werden.
+* Ein Pool weist bei einem Festplattenausfall eine geringere Leistungsbeeinträchtigung auf und benötigt weniger Zeit für die Wiederherstellung.
+* Ein Pool verfügt über integrierte Erhaltungskapazität; daher benötigt er keine dedizierten Hot-Spare-Laufwerke.
+* Ein Pool ermöglicht das Gruppieren einer großen Anzahl von Laufwerken.
+* Für einen Pool ist kein bestimmtes RAID-Level erforderlich.
+
+
+
+
+== Warum sollte ich einen Pool manuell konfigurieren wollen?
+
+Die folgenden Beispiele beschreiben, warum Sie einen Pool manuell konfigurieren möchten.
+
+* Wenn Sie mehrere Anwendungen auf Ihrem Speichersystem haben und nicht möchten, dass diese um die gleichen Laufwerksressourcen konkurrieren, könnten Sie erwägen, manuell einen kleineren Pool für eine oder mehrere der Anwendungen zu erstellen.
++
+Sie können nur ein oder zwei Volumes zuweisen, anstatt die Workload einem großen Pool zuzuweisen, der viele Volumes hat, über die die Daten verteilt werden können. Das manuelle Erstellen eines separaten Pools, der der Workload einer bestimmten Anwendung gewidmet ist, kann es Storage Array-Operationen ermöglichen, schneller und mit weniger Konflikten ausgeführt zu werden.
+
++
+So erstellen Sie manuell einen Pool: Wählen Sie *Speicher* und dann *Pools & Volumengruppen*. Klicken Sie auf der Registerkarte *Gesamte Kapazität* auf menu:Create[Pool].
+
+* Sind mehrere Pools desselben Laufwerkstyps vorhanden, erscheint eine Meldung, die darauf hinweist, dass System Manager die Laufwerke nicht automatisch für einen Pool empfehlen kann. Sie können die Laufwerke jedoch manuell zu einem bestehenden Pool hinzufügen.
++
+So fügen Sie einem bestehenden Pool manuell Laufwerke hinzu: Wählen Sie auf der Seite „Pools & Volume Groups“ den Pool aus und klicken Sie dann auf *Add Capacity*.
+
+
+
+
+
+== Warum sind Kapazitätswarnungen wichtig?
+
+Kapazitätswarnungen zeigen an, wann einem Pool Laufwerke hinzugefügt werden müssen. Ein Pool benötigt ausreichend freie Kapazität, um Speicherarray-Operationen erfolgreich durchzuführen. Sie können Unterbrechungen dieser Operationen verhindern, indem Sie SANtricity System Manager so konfigurieren, dass Warnungen gesendet werden, wenn die freie Kapazität eines Pools einen bestimmten Prozentsatz erreicht oder überschreitet.
+
+Diesen Prozentsatz legen Sie beim Erstellen eines Pools fest, entweder über die Option *Pool auto-configuration* oder die Option *Create pool*. Wenn Sie die automatische Option wählen, bestimmen die Standardeinstellungen automatisch, wann Sie Benachrichtigungswarnungen erhalten. Wenn Sie sich dafür entscheiden, den Pool manuell zu erstellen, können Sie die Einstellungen für Benachrichtigungswarnungen selbst festlegen; oder, wenn Sie möchten, können Sie die Standardeinstellungen übernehmen. Sie können diese Einstellungen später im Menü:Einstellungen[Alerts] anpassen.
+
+[NOTE]
+====
+Wenn die freie Kapazität im Pool den angegebenen Prozentsatz erreicht, wird eine Warnmeldung mit der von Ihnen in der Warnkonfiguration angegebenen Methode gesendet.
+
+====
+
+
+== Warum kann ich meine Aufbewahrungskapazität nicht erhöhen?
+
+Wenn Sie Volumes auf der gesamten verfügbaren nutzbaren Kapazität erstellt haben, können Sie die Aufbewahrungskapazität möglicherweise nicht erhöhen.
+
+Die Preservation-Kapazität ist die Kapazität (Anzahl der Laufwerke), die in einem Pool reserviert wird, um potenzielle Laufwerksausfälle zu unterstützen. Wenn ein Pool erstellt wird, reserviert das System automatisch eine Standardmenge an Preservation-Kapazität, abhängig von der Anzahl der Laufwerke im Pool. Wenn Sie Volumes auf der gesamten verfügbaren nutzbaren Kapazität erstellt haben, können Sie die Preservation-Kapazität nicht erhöhen, ohne dem Pool Kapazität hinzuzufügen, entweder durch Hinzufügen von Laufwerken oder durch Löschen von Volumes.
+
+Sie können die Preservation-Kapazität unter *Pools & Volume Groups* ändern. Wählen Sie den Pool aus, den Sie bearbeiten möchten. Klicken Sie auf *View/Edit Settings* und wählen Sie dann die Registerkarte *Settings* aus.
+
+[NOTE]
+====
+Die Erhaltungskapazität wird als Anzahl von Laufwerken angegeben, auch wenn die tatsächliche Erhaltungskapazität auf die Laufwerke im Pool verteilt ist.
+
+====
+
+
+== Gibt es eine Begrenzung für die Anzahl der Laufwerke, die ich aus einem Pool entfernen kann?
+
+SANtricity System Manager legt Grenzwerte für die Anzahl der Laufwerke fest, die Sie aus einem Pool entfernen können.
+
+* Die Anzahl der Laufwerke in einem Pool darf nicht auf weniger als 11 Laufwerke reduziert werden.
+* Sie können keine Laufwerke entfernen, wenn im Pool nicht genügend freie Kapazität vorhanden ist, um die Daten der entfernten Laufwerke aufzunehmen, wenn diese Daten auf die verbleibenden Laufwerke im Pool verteilt werden.
+* Sie können maximal 60 Laufwerke gleichzeitig entfernen. Wenn Sie mehr als 60 Laufwerke auswählen, ist die Option „Laufwerke entfernen“ deaktiviert. Wenn Sie mehr als 60 Laufwerke entfernen müssen, wiederholen Sie den Vorgang „Laufwerke entfernen“.
+
+
+
+
+== Welche Medientypen werden für ein Laufwerk unterstützt?
+
+Die folgenden Medientypen werden unterstützt: Hard Disk Drive (HDD) und Solid State Disk (SSD).
+
+
+
+== Warum werden einige Laufwerke nicht angezeigt?
+
+Im Dialogfeld „Kapazität hinzufügen“ sind nicht alle Laufwerke verfügbar, um einem bestehenden Pool oder einer bestehenden Volumengruppe Kapazität hinzuzufügen.
+
+Laufwerke sind aus einem der folgenden Gründe nicht zulässig:
+
+* Ein Laufwerk muss nicht zugewiesen und nicht für den sicheren Betrieb aktiviert sein. Laufwerke, die bereits Teil eines anderen Pools, einer anderen Volume-Gruppe sind oder als Hot Spare konfiguriert wurden, sind nicht geeignet. Wenn ein Laufwerk nicht zugewiesen, aber für den sicheren Betrieb aktiviert ist, müssen Sie dieses Laufwerk manuell löschen, damit es geeignet ist.
+* Ein Laufwerk, das sich in einem nicht optimalen Zustand befindet, ist nicht berechtigt.
+* Wenn die Kapazität eines Laufwerks zu gering ist, ist es nicht geeignet.
+* Der Laufwerksmedientyp muss innerhalb eines Pools oder einer Volumengruppe übereinstimmen. Sie können Folgendes nicht mischen:
++
+** Festplattenlaufwerke (HDDs) mit Solid State Disks (SSDs)
+** NVMe mit SAS-Laufwerken
+** Laufwerke mit 512-Byte- und 4-KiB-Volume-Blockgrößen
+
+
+* Wenn ein Pool oder eine Volumengruppe ausschließlich sichere Laufwerke enthält, werden nicht sichere Laufwerke nicht aufgeführt.
+* Wenn ein Pool oder eine Volume-Gruppe alle Federal Information Processing Standards (FIPS)-Laufwerke enthält, werden Nicht-FIPS-Laufwerke nicht aufgeführt.
+* Enthält ein Pool oder eine Volumengruppe ausschließlich Data Assurance (DA)-fähige Laufwerke und ist mindestens ein DA-fähiges Volumen im Pool oder in der Volumengruppe vorhanden, ist ein Laufwerk, das nicht DA-fähig ist, nicht zulässig und kann daher nicht zu diesem Pool oder dieser Volumengruppe hinzugefügt werden. Wenn jedoch kein DA-fähiges Volumen im Pool oder in der Volumengruppe vorhanden ist, kann ein Laufwerk, das nicht DA-fähig ist, zu diesem Pool oder dieser Volumengruppe hinzugefügt werden. Wenn Sie sich entscheiden, diese Laufwerke zu mischen, beachten Sie, dass Sie keine DA-fähigen Volumen erstellen können.
+
+
+[NOTE]
+====
+Die Kapazität kann in Ihrem Speichersystem durch Hinzufügen neuer Laufwerke oder durch Löschen von Pools oder Volumengruppen erhöht werden.
+
+====
+
+
+== Wie kann ich den Schutz vor Regal-/Schubladenverlust aufrechterhalten?
+
+Um den Verlustschutz für Regale/Schubladen in einem Pool oder einer Volumengruppe aufrechtzuerhalten, verwenden Sie die in der folgenden Tabelle angegebenen Kriterien.
+
+[cols="1a,1a,1a"]
+|===
+| Ebene | Kriterien für den Schutz vor Regal-/Schubladenverlust | Mindestanzahl an Regalböden/Schubladen erforderlich 
+
+
+ a| 
+Pool
+ a| 
+Für Shelves darf der Pool nicht mehr als zwei Laufwerke in einem einzigen Shelf enthalten.
+
+Für Schubladen muss der Pool eine gleiche Anzahl von Laufwerken aus jeder Schublade enthalten.
+ a| 
+6 für Regale
+
+5 für Schubladen
+
+
+
+ a| 
+RAID 6
+ a| 
+Die Volume-Gruppe enthält nicht mehr als zwei Laufwerke in einem einzigen Fach oder einer Schublade.
+ a| 
+3
+
+
+
+ a| 
+RAID 3 oder RAID 5
+ a| 
+Jedes Laufwerk in der Volume-Gruppe befindet sich in einem separaten Shelf oder einer separaten Schublade.
+ a| 
+3
+
+
+
+ a| 
+RAID 1
+ a| 
+Jedes Laufwerk eines gespiegelten Paares muss sich in einem separaten Regal oder einer separaten Schublade befinden.
+ a| 
+2
+
+
+
+ a| 
+RAID 0
+ a| 
+Schutz vor Regal-/Schubladenverlust kann nicht erreicht werden.
+ a| 
+Nicht zutreffend
+
+|===
+[NOTE]
+====
+Schutz vor Shelf-/Schubladenverlust ist nicht gewährleistet, wenn ein Laufwerk im Pool oder in der Volume-Gruppe bereits ausgefallen ist. In dieser Situation führt der Verlust des Zugriffs auf ein Laufwerkshelf oder eine Schublade und damit auf ein weiteres Laufwerk im Pool oder in der Volume-Gruppe zum Datenverlust.
+
+====
+
+
+== Was ist die optimale Positionierung der Laufwerke für Pools und Volumengruppen?
+
+Beim Erstellen von Pools und Volumengruppen stellen Sie sicher, dass die Laufwerksauswahl zwischen den oberen und unteren Laufwerksschächten ausgewogen ist.
+
+Bei den Controllern EF600 und EF300 sind die Laufwerksschächte 0–11 an eine PCI-Brücke angeschlossen, während die Schächte 12–23 an eine andere PCI-Brücke angeschlossen sind. Für optimale Leistung sollten Sie die Laufwerksauswahl so ausbalancieren, dass ungefähr gleich viele Laufwerke aus den oberen und unteren Schächten stammen. Diese Anordnung stellt sicher, dass Ihre Volumes nicht früher als nötig an eine Bandbreitengrenze stoßen.
+
+
+
+== Welche RAID-Stufe ist für meine Anwendung am besten?
+
+Um die Leistung einer Volume-Gruppe zu maximieren, müssen Sie das passende RAID-Level auswählen. Sie können das passende RAID-Level bestimmen, indem Sie die Lese- und Schreibprozentsätze der Anwendungen kennen, die auf die Volume-Gruppe zugreifen. Verwenden Sie die Seite „Leistung“, um diese Prozentsätze zu erhalten.
+
+
+
+=== RAID-Level und Anwendungsleistung
+
+RAID verwendet eine Reihe von Konfigurationen, sogenannte _Levels_, um festzulegen, wie Benutzer- und Redundanzdaten auf die Laufwerke geschrieben und von ihnen abgerufen werden. Jedes RAID-Level bietet unterschiedliche Leistungsmerkmale. Anwendungen mit einem hohen Leseanteil werden mit RAID 5-Volumes oder RAID 6-Volumes aufgrund der herausragenden Leseleistung der RAID 5- und RAID 6-Konfigurationen eine gute Leistung erzielen.
+
+Anwendungen mit geringem Leseanteil (schreibintensive Anwendungen) laufen auf RAID-5-Volumes oder RAID-6-Volumes nicht so gut. Die verminderte Leistung ist das Ergebnis der Art und Weise, wie ein Controller Daten und Redundanzdaten auf die Laufwerke in einer RAID-5-Volumegruppe oder einer RAID-6-Volumegruppe schreibt.
+
+Wählen Sie basierend auf den folgenden Informationen ein RAID-Level aus.
+
+*RAID 0*
+
+* *Beschreibung*
++
+** Nicht-redundanter, Streifenmodus.
+
+
+* *So funktioniert es*
++
+** RAID 0 streift Daten über alle Laufwerke in der Volume-Gruppe.
+
+
+* *Datenschutzfunktionen*
++
+** RAID 0 ist für hohe Verfügbarkeitsanforderungen nicht empfehlenswert. RAID 0 eignet sich besser für nicht kritische Daten.
+** Wenn ein Einzellaufwerk in der Volume-Gruppe ausfällt, fallen alle zugehörigen Volumes aus und alle Daten gehen verloren.
+
+
+* *Anforderungen an die Laufwerksanzahl*
++
+** Für RAID Level 0 wird mindestens ein Laufwerk benötigt.
+** RAID 0-Volumegruppen können mehr als 30 Laufwerke enthalten.
+** Sie können eine Volumengruppe erstellen, die alle Laufwerke im Speicher-Array umfasst.
+
+
+
+
+*RAID 1 oder RAID 10*
+
+* *Beschreibung*
++
+** Streifen-/Spiegelmodus.
+
+
+* *So funktioniert es*
++
+** RAID 1 nutzt Festplattenspiegelung, um Daten gleichzeitig auf zwei identische Festplatten zu schreiben.
+** RAID 10 verwendet Drive Striping, um Daten über eine Gruppe von gespiegelten Laufwerkspaaren zu verteilen.
+
+
+* *Datenschutzfunktionen*
++
+** RAID 1 und RAID 10 bieten hohe Leistung und die beste Datenverfügbarkeit.
+** RAID 1 und RAID 10 verwenden Laufwerksspiegelung, um eine exakte Kopie von einem Laufwerk auf ein anderes Laufwerk zu erstellen.
+** Wenn eines der Laufwerke in einem Laufwerkspaar ausfällt, kann das Speichersystem sofort auf das andere Laufwerk umschalten, ohne dass es zu Datenverlust oder Serviceverlust kommt.
+** Der Ausfall eines Einzellaufwerks führt dazu, dass die zugehörigen Volumes beeinträchtigt werden. Das Spiegel-Laufwerk ermöglicht den Zugriff auf die Daten.
+** Ein Ausfall eines Laufwerkspaares in einer Volume-Gruppe führt zum Ausfall aller zugehörigen Volumes, und es kann zu Datenverlust kommen.
+
+
+* *Anforderungen an die Laufwerksanzahl*
++
+** Für RAID 1 werden mindestens zwei Laufwerke benötigt: ein Laufwerk für die Benutzerdaten und ein Laufwerk für die gespiegelten Daten.
+** Wenn Sie vier oder mehr Laufwerke auswählen, wird RAID 10 automatisch über die Volume-Gruppe konfiguriert: zwei Laufwerke für Benutzerdaten und zwei Laufwerke für die gespiegelte Daten.
+** Die Anzahl der Laufwerke in der Volume-Gruppe muss gerade sein. Wenn Sie keine gerade Anzahl von Laufwerken haben und noch einige nicht zugewiesene Laufwerke vorhanden sind, gehen Sie zu *Pools & Volume Groups*, um zusätzliche Laufwerke zur Volume-Gruppe hinzuzufügen, und wiederholen Sie den Vorgang.
+** RAID-1- und RAID-10-Volumegruppen können mehr als 30 Laufwerke enthalten. Eine Volumegruppe kann erstellt werden, die alle Laufwerke im Storage-Array umfasst.
+
+
+
+
+*RAID 5*
+
+* *Beschreibung*
++
+** Hoher I/O-Modus.
+
+
+* *So funktioniert es*
++
+** Benutzerdaten und redundante Informationen (Parität) werden über die Laufwerke gestreift.
+** Die entsprechende Kapazität eines Laufwerks wird für redundante Informationen verwendet.
+
+
+* *Datenschutzfunktionen*
++
+** Wenn ein Einzellaufwerk in einer RAID-5-Volumegruppe ausfällt, werden alle zugehörigen Volumes beeinträchtigt. Die redundanten Informationen ermöglichen weiterhin den Zugriff auf die Daten.
+** Wenn in einer RAID 5-Volumegruppe zwei oder mehr Laufwerke ausfallen, fallen alle zugehörigen Volumes aus und alle Daten gehen verloren.
+
+
+* *Anforderungen an die Laufwerksanzahl*
++
+** Sie müssen mindestens drei Laufwerke in der Volume-Gruppe haben.
+** Typischerweise sind Sie auf maximal 30 Laufwerke in der Volume-Gruppe beschränkt.
+
+
+
+
+*RAID 6*
+
+* *Beschreibung*
++
+** Hoher I/O-Modus.
+
+
+* *So funktioniert es*
++
+** Benutzerdaten und redundante Informationen (doppelte Parität) werden über die Laufwerke verteilt.
+** Die gleichwertige Kapazität von zwei Laufwerken wird für redundante Informationen verwendet.
+
+
+* *Datenschutzfunktionen*
++
+** Wenn in einer RAID-6-Volumegruppe ein oder zwei Laufwerke ausfallen, werden alle zugehörigen Volumes degradiert, aber die redundanten Informationen ermöglichen weiterhin den Zugriff auf die Daten.
+** Wenn in einer RAID 6-Volumegruppe drei oder mehr Laufwerke ausfallen, fallen alle zugehörigen Volumes aus und alle Daten gehen verloren.
+
+
+* *Anforderungen an die Laufwerksanzahl*
++
+** Sie müssen mindestens fünf Laufwerke in der Volume-Gruppe haben.
+** Typischerweise sind Sie auf maximal 30 Laufwerke in der Volume-Gruppe beschränkt.
+
+
+
+
+[NOTE]
+====
+Sie können den RAID-Level eines Pools nicht ändern. Die Benutzeroberfläche konfiguriert Pools automatisch als RAID 6.
+
+====
+
+
+=== RAID-Level und Datenschutz
+
+RAID 1, RAID 5 und RAID 6 schreiben Redundanzdaten auf die Laufwerksmedien, um Fehlertoleranz zu gewährleisten. Die Redundanzdaten können eine Kopie der Daten (gespiegelte Daten) oder ein aus den Daten abgeleiteter Fehlerkorrekturcode sein. Sie können die Redundanzdaten verwenden, um Informationen auf einem Ersatzlaufwerk schnell wiederherzustellen, falls ein Laufwerk ausfällt.
+
+Sie konfigurieren ein einzelnes RAID-Level über eine einzelne Volume-Gruppe. Alle Redundanzdaten für diese Volume-Gruppe werden innerhalb der Volume-Gruppe gespeichert. Die Kapazität der Volume-Gruppe ist die Gesamtkapazität der Mitgliedslaufwerke abzüglich der für Redundanzdaten reservierten Kapazität. Die Menge an Kapazität, die für Redundanz benötigt wird, hängt vom verwendeten RAID-Level ab.
+
+
+
+== Was ist Data Assurance?
+
+Data Assurance (DA) implementiert den T10 Protection Information (PI)-Standard, der die Datenintegrität erhöht, indem er Fehler erkennt und korrigiert, die bei der Übertragung von Daten entlang des I/O-Pfads auftreten könnten.
+
+Die Data Assurance-Funktion überprüft typischerweise den Abschnitt des E/A-Pfads zwischen den Controllern und den Laufwerken. DA-Funktionen werden auf Pool- und Volume-Gruppenebene bereitgestellt.
+
+Wenn diese Funktion aktiviert ist, fügt das Speichersystem jedem Datenblock im Volume Fehlerprüfcodes (auch bekannt als zyklische Redundanzprüfungen oder CRCs) hinzu. Nachdem ein Datenblock verschoben wurde, verwendet das Speichersystem diese CRC-Codes, um festzustellen, ob während der Übertragung Fehler aufgetreten sind. Potenziell beschädigte Daten werden weder auf die Festplatte geschrieben noch an den Host zurückgegeben. Wenn Sie die DA-Funktion verwenden möchten, wählen Sie beim Erstellen eines neuen Volumes einen Pool oder eine Volume-Gruppe aus, die DA-fähig ist (achten Sie in der Kandidatentabelle für Pools und Volume-Gruppen auf „Yes“ neben „DA“).
+
+Stellen Sie sicher, dass Sie diese DA-fähigen Volumes einem Host mit einer E/A-Schnittstelle zuweisen, die DA-fähig ist. Zu den DA-fähigen E/A-Schnittstellen gehören Fibre Channel, SAS, iSCSI über TCP/IP, NVMe/FC, NVMe/IB, NVMe/RoCE und iSER über InfiniBand (iSCSI Extensions for RDMA/IB). DA wird von SRP über InfiniBand nicht unterstützt.
+
+
+
+== Was ist secure-capable (Drive Security)?
+
+Die Laufwerkssicherheit ist eine Funktion, die unbefugten Zugriff auf Daten auf gesicherten Laufwerken verhindert, wenn diese aus dem Speicher-Array entfernt werden. Diese Laufwerke können entweder Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein.
+
+
+
+== Was muss ich über die Erhöhung der reservierten Kapazität wissen?
+
+Normalerweise sollten Sie die Kapazität erhöhen, wenn Sie eine Warnung erhalten, dass die reservierte Kapazität in Gefahr ist, voll zu werden. Sie können die reservierte Kapazität nur in Schritten von 8 GiB erhöhen.
+
+* Sie müssen über ausreichend freie Kapazität im Pool oder in der Volume-Gruppe verfügen, damit diese bei Bedarf erweitert werden kann.
++
+Wenn auf keinem Pool oder keiner Volume-Gruppe freie Kapazität vorhanden ist, können Sie einem Pool oder einer Volume-Gruppe nicht zugewiesene Kapazität in Form von ungenutzten Laufwerken hinzufügen.
+
+* Das Volume im Pool oder in der Volume-Gruppe muss den Status „Optimal“ haben und darf sich in keinem Änderungszustand befinden.
+* Im Pool oder in der Volumengruppe, die Sie zur Kapazitätserhöhung verwenden möchten, muss freie Kapazität vorhanden sein.
+* Sie können die reservierte Kapazität für ein schreibgeschütztes Snapshot-Volume nicht erhöhen. Nur Snapshot-Volumes, die Lese- und Schreibzugriff haben, benötigen reservierte Kapazität.
+
+
+Bei Snapshot-Operationen beträgt die reservierte Kapazität üblicherweise 40 Prozent des Basisvolumes. Bei asynchronen Spiegelungsoperationen beträgt die reservierte Kapazität üblicherweise 20 Prozent des Basisvolumes. Verwenden Sie einen höheren Prozentsatz, wenn Sie glauben, dass das Basisvolume vielen Änderungen unterliegt oder wenn die geschätzte Lebensdauer des Copy-Service-Vorgangs eines Speicherobjekts sehr lang sein wird.
+
+
+
+== Warum kann ich keinen anderen Betrag zur Verringerung auswählen?
+
+Sie können die reservierte Kapazität nur um den Betrag verringern, um den Sie sie erhöht haben. Reservierte Kapazität für Mitgliedsvolumes kann nur in der umgekehrten Reihenfolge entfernt werden, in der sie hinzugefügt wurden.
+
+Die reservierte Kapazität für ein Speicherobjekt kann nicht verringert werden, wenn eine dieser Bedingungen vorliegt:
+
+* Wenn das Speicherobjekt ein gespiegeltes Paar-Volume ist.
+* Wenn das Speicherobjekt nur ein Volume für reservierte Kapazität enthält. Das Speicherobjekt muss mindestens zwei Volumes für reservierte Kapazität enthalten.
+* Wenn das Speicherobjekt ein deaktiviertes Snapshot-Volume ist.
+* Wenn das Speicherobjekt ein oder mehrere zugehörige Snapshot-Images enthält.
+
+
+Sie können Volumes für reservierte Kapazität nur in der umgekehrten Reihenfolge entfernen, in der sie hinzugefügt wurden.
+
+Sie können die reservierte Kapazität für ein schreibgeschütztes Snapshot-Volume nicht verringern, da es keine zugeordnete reservierte Kapazität hat. Nur Snapshot-Volumes, die Lese- und Schreibzugriff haben, benötigen reservierte Kapazität.
+
+
+
+== Warum benötige ich reservierte Kapazität für jedes Mitgliedsvolumen?
+
+Jedes Mitgliedsvolume in einer Snapshot-Konsistenzgruppe muss über eine eigene reservierte Kapazität verfügen, um Änderungen der Hostanwendung am Basisvolume zu speichern, ohne das referenzierte Konsistenzgruppen-Snapshot-Image zu beeinträchtigen. Die reservierte Kapazität ermöglicht der Hostanwendung Schreibzugriff auf eine Kopie der Daten im als schreibbar gekennzeichneten Mitgliedsvolume.
+
+Ein Snapshot-Image einer Konsistenzgruppe ist für Hosts nicht direkt les- oder schreibbar. Vielmehr dient das Snapshot-Image ausschließlich zum Speichern der Daten, die vom Basisvolume erfasst wurden.
+
+Während der Erstellung eines Konsistenzgruppe-Snapshot-Volumes, das als Lese-/Schreib-Volume gekennzeichnet ist, erstellt der System Manager eine reservierte Kapazität für jedes Mitgliedsvolume in der Konsistenzgruppe. Diese reservierte Kapazität ermöglicht der Hostanwendung den Schreibzugriff auf eine Kopie der in der Konsistenzgruppe-Snapshot-Image enthaltenen Daten.
+
+
+
+== Wie kann ich alle SSD-Cache-Statistiken anzeigen und interpretieren?
+
+Sie können nominale Statistiken und detaillierte Statistiken für SSD-Cache anzeigen. Nominale Statistiken sind eine Teilmenge der detaillierten Statistiken.
+
+Die detaillierten Statistiken können nur angezeigt werden, wenn Sie alle SSD-Statistiken in eine  `.csv` Datei exportieren. Beachten Sie bei der Auswertung und Interpretation der Statistiken, dass einige Interpretationen durch die Betrachtung einer Kombination von Statistiken abgeleitet werden.
+
+
+
+=== Nominale Statistiken
+
+Um SSD-Cache-Statistiken anzuzeigen, wählen Sie Menü:Speicher[Pools & Volume-Gruppen]. Wählen Sie den SSD-Cache aus, für den Sie Statistiken anzeigen möchten, und wählen Sie dann Menü:Mehr[Statistiken anzeigen]. Die nominalen Statistiken werden im Dialogfeld „SSD-Cache-Statistiken anzeigen“ angezeigt.
+
+Die folgende Liste enthält nominale Statistiken, die eine Teilmenge der detaillierten Statistiken sind.
+
+[cols="25h,~"]
+|===
+| Nominalstatistik | Beschreibung 
+
+
+ a| 
+Lesen/Schreiben
+ a| 
+Die Gesamtzahl der Host-Lesevorgänge von oder Host-Schreibvorgänge auf den SSD-Cache-fähigen Volumes. Vergleichen Sie die Lesevorgänge im Verhältnis zu den Schreibvorgängen. Die Lesevorgänge müssen die Schreibvorgänge übersteigen, damit der SSD-Cache effektiv arbeitet. Je größer das Verhältnis von Lesevorgängen zu Schreibvorgängen ist, desto besser funktioniert der Cache.
+
+
+
+ a| 
+Cache-Treffer
+ a| 
+Eine Zählung der Cache-Treffer.
+
+
+
+ a| 
+Cache-Treffer (%)
+ a| 
+Berechnet aus Cache-Treffern / (Lese- + Schreibvorgänge). Der Cache-Treffer-Prozentsatz sollte für einen effektiven SSD-Cache-Betrieb über 50 Prozent liegen. Ein niedriger Wert kann verschiedene Ursachen haben:
+
+* Das Verhältnis von Lese- zu Schreibvorgängen ist zu gering
+* Lesevorgänge werden nicht wiederholt
+* Die Cache-Kapazität ist zu klein
+
+
+
+
+ a| 
+Cache-Zuweisung (%)
+ a| 
+Die Menge des SSD-Cache-Speichers, die zugewiesen ist, ausgedrückt als Prozentsatz des SSD-Cache-Speichers, der diesem Controller zur Verfügung steht. Abgeleitet aus zugewiesenen Bytes / verfügbaren Bytes. Der Cache-Zuweisungsprozentsatz wird normalerweise mit 100 Prozent angezeigt. Wenn dieser Wert unter 100 Prozent liegt, bedeutet dies entweder, dass der Cache noch nicht aufgewärmt wurde oder dass die SSD-Cache-Kapazität größer ist als alle abgerufenen Daten. Im letzteren Fall könnte eine kleinere SSD-Cache-Kapazität das gleiche Leistungsniveau bieten. Beachten Sie, dass dies nicht bedeutet, dass zwischengespeicherte Daten bereits im SSD-Cache abgelegt wurden; es handelt sich lediglich um einen Vorbereitungsschritt, bevor Daten im SSD-Cache abgelegt werden können.
+
+
+
+ a| 
+Cache-Auslastung (%)
+ a| 
+Die Menge an SSD-Cache-Speicher, die Daten von aktivierten Volumes enthält, wird als Prozentsatz des zugewiesenen SSD-Cache-Speichers angegeben. Dieser Wert repräsentiert die Auslastung bzw. Dichte des SSD-Cache, abgeleitet aus Benutzerdatenbytes / zugewiesenen Bytes. Der Prozentsatz der Cache-Auslastung liegt normalerweise unter 100 Prozent, möglicherweise deutlich darunter. Diese Zahl zeigt den Prozentsatz der SSD-Cache-Kapazität, der mit Cache-Daten gefüllt ist. Diese Zahl ist niedriger als 100 Prozent, da jede Zuordnungseinheit des SSD-Cache, der SSD-Cache-Block, in kleinere Einheiten, sogenannte Subblöcke, unterteilt ist, die weitgehend unabhängig voneinander gefüllt werden. Eine höhere Zahl ist im Allgemeinen besser, aber Leistungssteigerungen können auch mit einer kleineren Zahl erheblich sein.
+
+|===
+
+
+=== Detaillierte Statistiken
+
+Die detaillierten Statistiken bestehen aus den nominalen Statistiken sowie zusätzlichen Statistiken. Diese zusätzlichen Statistiken werden zusammen mit den nominalen Statistiken gespeichert, aber im Gegensatz zu den nominalen Statistiken werden sie nicht im Dialogfeld „SSD-Cache-Statistiken anzeigen“ angezeigt. Sie können die detaillierten Statistiken erst nach dem Exportieren der Statistiken in eine  `.csv` Datei einsehen.
+
+Beim Anzeigen der  `.csv` Datei beachten Sie, dass die detaillierten Statistiken nach den nominalen Statistiken aufgeführt sind:
+
+[cols="25h,~"]
+|===
+| Detaillierte Statistiken | Beschreibung 
+
+
+ a| 
+Leseblöcke
+ a| 
+Die Anzahl der Blöcke in Host-Lesevorgängen.
+
+
+
+ a| 
+Schreibblöcke
+ a| 
+Die Anzahl der Blöcke in Host-Schreibvorgängen.
+
+
+
+ a| 
+Volltreffer-Blöcke
+ a| 
+Die Anzahl der Blöcke in Cache-Treffern. Die vollständigen Trefferblöcke geben die Anzahl der Blöcke an, die vollständig aus dem SSD-Cache gelesen wurden. Der SSD-Cache ist nur bei den Vorgängen von Vorteil für die Leistung, bei denen es sich um vollständige Cache-Treffer handelt.
+
+
+
+ a| 
+Teiltreffer
+ a| 
+Die Anzahl der Host-Lesezugriffe, bei denen mindestens ein Block, aber nicht alle Blöcke, im SSD-Cache waren. Ein Teiltreffer ist ein SSD-Cache-, bei dem die Leseanforderungen vom Basisvolume erfüllt wurden.
+
+
+
+ a| 
+Teiltreffer - Blocks
+ a| 
+Die Anzahl der Blöcke in Teiltreffern. Teil-Cache-Treffer und Teil-Cache-Treffer-Blöcke entstehen, wenn ein Vorgang nur einen Teil seiner Daten im SSD-Cache hat. In diesem Fall muss der Vorgang die Daten vom zwischengespeicherten Festplattenlaufwerk (HDD)-Volume abrufen. Der SSD-Cache bietet für diese Art von Treffer keinen Leistungsvorteil. Wenn die Anzahl der Teil-Cache-Treffer-Blöcke höher ist als die der vollständigen Cache-Treffer-Blöcke, könnte ein anderer E/A-Charakteristiktyp (Dateisystem, Datenbank oder Webserver) die Leistung verbessern. Es ist zu erwarten, dass während des Aufwärmens des SSD-Caches mehr Teiltreffer und Fehltreffer als Cache-Treffer auftreten.
+
+
+
+ a| 
+Fehlende
+ a| 
+Die Anzahl der Host-Lesezugriffe, bei denen sich kein Block im SSD-Cache befand. Ein SSD-Cache-Miss tritt auf, wenn die Lesezugriffe vom Basisvolume bedient wurden. Es ist zu erwarten, dass während des Aufwärmens des SSD-Caches mehr Partial Hits und Misses als Cache-Treffer auftreten.
+
+
+
+ a| 
+Fehlversuche - Blocks
+ a| 
+Die Anzahl der Blöcke in Misses.
+
+
+
+ a| 
+Aktionen ausfüllen (Host Reads)
+ a| 
+Die Anzahl der Host-Lesevorgänge, bei denen Daten vom Basisvolume in den SSD-Cache kopiert wurden.
+
+
+
+ a| 
+Aktionen ausfüllen (Host Reads) - Blöcke
+ a| 
+Die Anzahl der Blöcke in Populate Actions (Host Reads).
+
+
+
+ a| 
+Aktionen ausfüllen (Host Writes)
+ a| 
+Die Anzahl der Host-Schreibvorgänge, bei denen Daten vom Basisvolume in den SSD-Cache kopiert wurden. Die Anzahl der Populate-Aktionen (Host-Schreibvorgänge) kann null sein, wenn die Cache-Konfigurationseinstellungen den Cache aufgrund eines Schreib-E/A-Vorgangs nicht füllen.
+
+
+
+ a| 
+Aktionen ausfüllen (Host Writes) - Blöcke
+ a| 
+Die Anzahl der Blöcke in Populate Actions (Host Writes).
+
+
+
+ a| 
+Aktionen ungültig machen
+ a| 
+Die Anzahl der Male, die Daten aus dem SSD-Cache ungültig gemacht oder entfernt wurden. Eine Cache-Invalidierungsoperation wird für jede Schreibanforderung eines Hosts, jede Leseanforderung eines Hosts mit Forced Unit Access (FUA), jede Verifizierungsanforderung und in einigen anderen Fällen durchgeführt.
+
+
+
+ a| 
+Recyclingaktionen
+ a| 
+Die Anzahl der Male, die der SSD-Cache-Block für ein anderes Basis-Volume und/oder einen anderen logischen Blockadressierungsbereich (LBA) wiederverwendet wurde. Für einen effektiven Cache-Betrieb muss die Anzahl der Wiederverwendungen im Vergleich zur kombinierten Anzahl der Lese- und Schreibvorgänge gering sein. Wenn die Anzahl der Wiederverwendungen nahe an der kombinierten Anzahl der Lese- und Schreibvorgänge liegt, arbeitet der SSD-Cache im Thrashing-Modus. Entweder muss die Cache-Kapazität erhöht werden oder die Arbeitslast ist nicht günstig für die Verwendung mit SSD-Cache.
+
+
+
+ a| 
+Verfügbare Bytes
+ a| 
+Die Anzahl der im SSD-Cache für diesen Controller verfügbaren Bytes.
+
+
+
+ a| 
+Zugewiesene Bytes
+ a| 
+Die Anzahl der vom Controller aus dem SSD-Cache reservierten Bytes. Die aus dem SSD-Cache reservierten Bytes können leer sein oder Daten von Basis-Volumes enthalten.
+
+
+
+ a| 
+Benutzerdaten-Bytes
+ a| 
+Die Anzahl der zugewiesenen Bytes im SSD-Cache, die Daten von Basis-Volumes enthalten. Die verfügbaren Bytes, die zugewiesenen Bytes und die Benutzerdatenbytes werden zur Berechnung des Cache-Allocation-Prozentsatzes und des Cache-Utilization-Prozentsatzes verwendet.
+
+|===
+
+
+== Was ist die Optimierungskapazität für Pools?
+
+SSD-Laufwerke haben eine längere Lebensdauer und eine bessere maximale Schreibleistung, wenn ein Teil ihrer Kapazität nicht zugewiesen ist.
+
+Bei Laufwerken, die einem Pool zugeordnet sind, setzt sich die nicht zugewiesene Kapazität aus der Preservation-Kapazität des Pools, der freien Kapazität (Kapazität, die nicht von Volumes genutzt wird) und einem Teil der nutzbaren Kapazität zusammen, der als zusätzliche Optimierungskapazität reserviert ist. Die zusätzliche Optimierungskapazität gewährleistet ein Mindestmaß an Optimierungskapazität, indem sie die nutzbare Kapazität reduziert und steht daher nicht für die Volume-Erstellung zur Verfügung.
+
+Beim Erstellen eines Pools wird eine empfohlene Optimierungskapazität generiert, die ein ausgewogenes Verhältnis zwischen Leistung, Laufwerksverschleiß und verfügbarer Kapazität bietet. Der Schieberegler „Zusätzliche Optimierungskapazität“ im Dialogfeld „Pool-Einstellungen“ ermöglicht Anpassungen an der Optimierungskapazität des Pools. Das Anpassen des Schiebereglers sorgt entweder für bessere Leistung und längere Laufwerksverschleißlebensdauer auf Kosten der verfügbaren Kapazität oder für zusätzliche verfügbare Kapazität auf Kosten von Leistung und Laufwerksverschleißlebensdauer.
+
+[NOTE]
+====
+Der Schieberegler „Zusätzliche Optimierungskapazität“ ist nur für EF600 und EF300 Storage-Systeme verfügbar.
+
+====
+
+
+== Was ist die Optimierungskapazität für Volume-Gruppen?
+
+SSD-Laufwerke haben eine längere Lebensdauer und eine bessere maximale Schreibleistung, wenn ein Teil ihrer Kapazität nicht zugewiesen ist.
+
+Bei Laufwerken, die einer Volume-Gruppe zugeordnet sind, setzt sich die nicht zugewiesene Kapazität aus der freien Kapazität der Volume-Gruppe (Kapazität, die nicht von Volumes genutzt wird) und einem Teil der nutzbaren Kapazität zusammen, der als Optimierungskapazität reserviert ist. Die zusätzliche Optimierungskapazität gewährleistet ein Mindestmaß an Optimierungskapazität, indem sie die nutzbare Kapazität reduziert und steht daher nicht für die Volume-Erstellung zur Verfügung.
+
+Beim Erstellen einer Volume-Gruppe wird eine empfohlene Optimierungskapazität generiert, die ein ausgewogenes Verhältnis zwischen Leistung, Laufwerksverschleiß und verfügbarer Kapazität bietet. Der Schieberegler „Zusätzliche Optimierungskapazität“ im Dialogfeld „Volume-Gruppeneinstellungen“ ermöglicht Anpassungen an der Optimierungskapazität einer Volume-Gruppe. Das Verstellen des Schiebereglers sorgt für eine bessere Leistung und Laufwerksverschleißlebensdauer auf Kosten der verfügbaren Kapazität oder für zusätzliche verfügbare Kapazität auf Kosten von Leistung und Laufwerksverschleißlebensdauer.
+
+[NOTE]
+====
+Der Schieberegler „Zusätzliche Optimierungskapazität“ ist nur für EF600 und EF300 Storage-Systeme verfügbar.
+
+====
+
+
+== Was kann die Ressourcenbereitstellung leisten?
+
+Resource Provisioning ist eine Funktion, die in den Storage-Arrays EF300 und EF600 verfügbar ist und es ermöglicht, Volumes sofort ohne Hintergrundinitialisierungsprozess zu verwenden.
+
+Ein ressourcenbereitgestelltes Volume ist ein Thick Volume in einer SSD-Volume-Gruppe oder einem Pool, wobei die Laufwerkskapazität bei der Erstellung des Volumes zugewiesen (dem Volume zugeordnet) wird, die Laufwerksblöcke jedoch freigegeben (nicht zugeordnet) sind. Im Vergleich dazu werden bei einem herkömmlichen Thick Volume alle Laufwerksblöcke während einer Hintergrundinitialisierung des Volumes zugeordnet, um die Data Assurance-Schutzinformationsfelder zu initialisieren und die Daten- und RAID-Parität in jedem RAID-Stripe konsistent zu machen. Bei einem ressourcenbereitgestellten Volume findet keine zeitgebundene Hintergrundinitialisierung statt. Stattdessen wird jeder RAID-Stripe beim ersten Schreibvorgang auf einen Volume-Block im Stripe initialisiert.
+
+Ressourcenbereitgestellte Volumes werden nur auf SSD-Volume-Gruppen und -Pools unterstützt, bei denen alle Laufwerke in der Gruppe oder im Pool die NVMe Deallocated or Unwritten Logical Block Error Enable (DULBE) Fehlerbehebungsfunktion unterstützen. Wenn ein ressourcenbereitgestelltes Volume erstellt wird, werden alle dem Volume zugewiesenen Laufwerksblöcke deallokiert (nicht zugeordnet). Zusätzlich können Hosts logische Blöcke im Volume mithilfe des NVMe Dataset Management-Befehls oder des SCSI Unmap-Befehls deallokieren. Das Deallokieren von Blöcken kann die Lebensdauer der SSD verbessern und die maximale Schreibleistung erhöhen. Die Verbesserung variiert je nach Laufwerksmodell und Kapazität.
+
+
+NOTE: DULBE wird auf EF300C oder EF600C Storage-Arrays derzeit nicht unterstützt.
+
+
+
+== Was muss ich über die Funktion „Resource-Provisioned Volumes“ wissen?
+
+Resource Provisioning ist eine Funktion, die in den Storage-Arrays EF300 und EF600 verfügbar ist und es ermöglicht, Volumes sofort ohne Hintergrundinitialisierungsprozess zu verwenden.
+
+Ein ressourcenbereitgestelltes Volume ist ein Thick Volume in einer SSD-Volume-Gruppe oder einem Pool, wobei die Laufwerkskapazität bei der Erstellung des Volumes zugewiesen (dem Volume zugeordnet) wird, die Laufwerksblöcke jedoch freigegeben (nicht zugeordnet) sind. Im Vergleich dazu werden bei einem herkömmlichen Thick Volume alle Laufwerksblöcke während einer Hintergrundinitialisierung des Volumes zugeordnet, um die Data Assurance-Schutzinformationsfelder zu initialisieren und die Daten- und RAID-Parität in jedem RAID-Stripe konsistent zu machen. Bei einem ressourcenbereitgestellten Volume findet keine zeitgebundene Hintergrundinitialisierung statt. Stattdessen wird jeder RAID-Stripe beim ersten Schreibvorgang auf einen Volume-Block im Stripe initialisiert.
+
+Ressourcenbereitgestellte Volumes werden nur auf SSD-Volume-Gruppen und -Pools unterstützt, bei denen alle Laufwerke in der Gruppe oder im Pool die NVMe Deallocated or Unwritten Logical Block Error Enable (DULBE) Fehlerbehebungsfunktion unterstützen. Wenn ein ressourcenbereitgestelltes Volume erstellt wird, werden alle dem Volume zugewiesenen Laufwerksblöcke deallokiert (nicht zugeordnet). Zusätzlich können Hosts logische Blöcke im Volume mithilfe des NVMe Dataset Management-Befehls oder des SCSI Unmap-Befehls deallokieren. Das Deallokieren von Blöcken kann die Lebensdauer der SSD verbessern und die maximale Schreibleistung erhöhen. Die Verbesserung variiert je nach Laufwerksmodell und Kapazität.
+
+Die Ressourcenbereitstellung ist standardmäßig auf Systemen aktiviert, deren Laufwerke DULBE unterstützen. Sie können diese Standardeinstellung unter *Pools & Volume Groups* deaktivieren.
+
+
+NOTE: DULBE wird auf EF300C oder EF600C Storage-Arrays derzeit nicht unterstützt.

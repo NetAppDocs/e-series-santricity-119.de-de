@@ -1,0 +1,42 @@
+---
+permalink: um-manage/upgrade-considerations.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, upgrade, considerations 
+summary: Bevor Sie Unified Manager zum Upgrade mehrerer Speicherarrays verwenden, überprüfen Sie die wichtigsten Überlegungen im Rahmen Ihrer Planung. 
+---
+= Erfahren Sie mehr über das Upgrade mehrerer Storage-Arrays mit SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie SANtricity Unified Manager verwenden, um mehrere Speicherarrays zu aktualisieren, überprüfen Sie die wichtigsten Überlegungen im Rahmen Ihrer Planung.
+
+
+
+== Aktuelle Versionen
+
+Sie können die aktuellen SANtricity OS Softwareversionen auf der Seite „Manage“ des Unified Manager für jedes erkannte Storage Array einsehen. Die Version wird in der Spalte „SANtricity OS Software“ angezeigt. Die Informationen zur Controller-Firmware und zum NVSRAM sind in einem Popup-Dialogfeld verfügbar, wenn Sie in jeder Zeile auf die SANtricity OS-Version klicken.
+
+
+
+== Weitere Komponenten, die ein Upgrade erfordern
+
+Im Rahmen des Upgrade-Prozesses müssen Sie möglicherweise auch den Multipath-/Failover-Treiber des Hosts oder den HBA-Treiber aktualisieren, damit der Host korrekt mit den Controllern interagieren kann.
+
+Informationen zur Kompatibilität finden Sie in der https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitätsmatrix"^]. Beachten Sie außerdem die Verfahren in den Express Guides für Ihr Betriebssystem. Express Guides sind erhältlich von der https://docs.netapp.com/us-en/e-series/index.html["E-Series und SANtricity Dokumentation"^].
+
+
+
+== Dualcontroller
+
+Wenn ein Speichersystem zwei Controller enthält und ein Multipath-Treiber installiert ist, kann das Speichersystem die E/A-Verarbeitung während des Upgrades fortsetzen. Während des Upgrades läuft folgender Prozess ab:
+
+. Controller A gibt alle seine LUNs an Controller B weiter.
+. Das Upgrade erfolgt auf Controller A.
+. Controller A übernimmt wieder seine LUNs und alle LUNs von Controller B.
+. Das Upgrade erfolgt auf Controller B.
+
+
+Nach Abschluss des Upgrades müssen Sie möglicherweise die Volumes manuell zwischen den Controllern neu verteilen, um sicherzustellen, dass die Volumes wieder dem richtigen Controller zugeordnet werden.

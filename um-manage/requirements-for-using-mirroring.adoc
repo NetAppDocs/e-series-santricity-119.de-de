@@ -1,0 +1,125 @@
+---
+permalink: um-manage/requirements-for-using-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, requirements, using, mirroring 
+summary: Wenn Sie die Spiegelung konfigurieren möchten, beachten Sie die folgenden Anforderungen. 
+---
+= Anforderungen für die Verwendung von Spiegelung im SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie die Spiegelung konfigurieren möchten, beachten Sie die folgenden Anforderungen.
+
+
+
+== Unified Manager
+
+* Der Web Services Proxy-Dienst muss ausgeführt werden.
+* Unified Manager muss auf Ihrem lokalen Host über eine HTTPS-Verbindung ausgeführt werden.
+* Unified Manager muss gültige SSL-Zertifikate für die Storage-Array anzeigen. Sie können ein selbstsigniertes Zertifikat akzeptieren oder Ihr eigenes Sicherheitszertifikat mit Unified Manager installieren, indem Sie zu menu:Certificate[Certificate Management] navigieren.
+
+
+
+
+== Speicherarrays
+
+[NOTE]
+====
+Synchrones Spiegeln ist auf dem Speicherarray EF600/EF600C oder EF300/EF300C nicht verfügbar.
+
+====
+* Sie müssen über zwei Speicherarrays verfügen.
+* Jedes Speicherarray muss über zwei Controller verfügen.
+* Die beiden Speicherarrays müssen im Unified Manager erkannt werden.
+* Jeder Controller im primären Array und im sekundären Array muss über einen konfigurierten Ethernet-Management-Port verfügen und mit Ihrem Netzwerk verbunden sein.
+* Die Speichersysteme haben eine Mindest-Firmware-Version von 7.84. (Sie können jeweils unterschiedliche Betriebssystemversionen ausführen.)
+* Sie müssen das Passwort für die lokalen und entfernten Speicherarrays kennen.
+* Sie müssen über ausreichend freien Speicherplatz auf dem entfernten Speichersystem verfügen, um ein sekundäres Volume zu erstellen, das gleich groß oder größer ist als das primäre Volume, das Sie spiegeln möchten.
+* Asynchrone Spiegelung wird auf Controllern mit Fibre Channel (FC)- oder iSCSI-Host-Ports unterstützt, während synchrone Spiegelung nur auf Controllern mit FC-Host-Ports unterstützt wird.
+
+
+
+
+== Konnektivitätsanforderungen
+
+Die Spiegelung über eine FC-Schnittstelle (asynchron oder synchron) erfordert Folgendes:
+
+* Jeder Controller des Speichersystems widmet seinen FC-Host-Port mit der höchsten Nummer den Spiegelungsvorgängen.
+* Wenn der Controller sowohl über Basis-FC-Ports als auch über Host-Schnittstellenkarten (HIC) FC-Ports verfügt, befindet sich der Port mit der höchsten Nummer auf einer HIC. Jeder Host, der an diesem dedizierten Port angemeldet ist, wird abgemeldet, und es werden keine Host-Anmeldeanfragen akzeptiert. I/O-Anfragen an diesem Port werden nur von Controllern akzeptiert, die an Spiegelungsoperationen teilnehmen.
+* Die dedizierten Spiegelungsports müssen an eine FC-Fabric-Umgebung angeschlossen sein, die die Schnittstellen für Verzeichnisdienste und Namensdienste unterstützt. Insbesondere werden FC-AL und Punkt-zu-Punkt nicht als Konnektivitätsoptionen zwischen den an Spiegelbeziehungen beteiligten Controllern unterstützt.
+
+
+Die Spiegelung über eine iSCSI-Schnittstelle (nur asynchron) erfordert Folgendes:
+
+* Im Gegensatz zu FC benötigt iSCSI keinen dedizierten Port. Wenn asynchrone Spiegelung in iSCSI-Umgebungen verwendet wird, ist es nicht notwendig, einen der Frontend-iSCSI-Ports des Storage-Arrays für die asynchrone Spiegelung zu reservieren; diese Ports werden sowohl für den asynchronen Spiegelungsdatenverkehr als auch für Host-zu-Array-I/O-Verbindungen gemeinsam genutzt.
+* Der Controller verwaltet eine Liste der entfernten Speichersysteme, mit denen der iSCSI-Initiator versucht, eine Sitzung herzustellen. Der erste Port, der erfolgreich eine iSCSI-Verbindung herstellt, wird für die gesamte nachfolgende Kommunikation mit diesem entfernten Speichersystem verwendet. Wenn die Kommunikation fehlschlägt, wird versucht, eine neue Sitzung über alle verfügbaren Ports herzustellen.
++
+
+NOTE: E4000-Controller unterstützen kein iSCSI-Mirroring.
+
+* iSCSI-Ports werden auf Array-Ebene portweise konfiguriert. Die Kommunikation zwischen den Controllern für Konfigurationsnachrichten und Datentransfer nutzt die globalen Einstellungen, einschließlich der Einstellungen für:
++
+** VLAN: Sowohl das lokale als auch das entfernte System müssen dieselbe VLAN-Einstellung haben, um zu kommunizieren
+** iSCSI-Listening-Port
+** Jumbo Frames
+** Ethernet-Priorität
+
+
+
+
+[NOTE]
+====
+Die iSCSI-Intercontroller-Kommunikation muss einen Host-Connect-Port und nicht den Management-Ethernet-Port verwenden.
+
+====
+
+
+== Kandidaten für gespiegelte Volumes
+
+* RAID-Level, Caching-Parameter und Segmentgröße können auf den primären und sekundären Volumes eines gespiegelten Paares unterschiedlich sein.
++
+
+NOTE: Für EF600- und EF300-Controller müssen das primäre und das sekundäre Volume eines asynchronen Spiegelpaares dasselbe Protokoll, dieselbe Tray-Ebene, dieselbe Segmentgröße, denselben Sicherheitstyp und denselben RAID-Level aufweisen. Nicht geeignete asynchrone Spiegelpaare werden nicht in der Liste der verfügbaren Volumes angezeigt.
+
+* Das sekundäre Volume muss mindestens so groß sein wie das primäre Volume.
+* Ein Volume kann nur an einer Spiegelbeziehung teilnehmen.
+* Für ein synchrones Spiegelpaar müssen das primäre und das sekundäre Volume Standard-Volumes sein. Sie dürfen keine Thin-Volumes oder Snapshot-Volumes sein.
+* Bei synchroner Spiegelung gibt es Beschränkungen hinsichtlich der Anzahl der unterstützten Volumes auf einem bestimmten Speichersystem. Stellen Sie sicher, dass die Anzahl der konfigurierten Volumes auf Ihrem Speichersystem unter dem unterstützten Limit liegt. Wenn synchrone Spiegelung aktiv ist, werden die beiden erstellten Volumes mit reservierter Kapazität auf das Volume-Limit angerechnet.
+* Für asynchrones Spiegeln müssen das primäre Volume und das sekundäre Volume über die gleichen Laufwerksicherheitsfunktionen verfügen.
++
+** Wenn das primäre Volume FIPS-fähig ist, muss auch das sekundäre Volume FIPS-fähig sein.
+** Wenn das primäre Volume FDE-fähig ist, muss das sekundäre Volume ebenfalls FDE-fähig sein.
+** Wenn das primäre Volume keine Laufwerkssicherheit verwendet, darf das sekundäre Volume ebenfalls keine Laufwerkssicherheit verwenden.
+
+
+* Primäre und sekundäre Volumes dürfen keine aktivierte Ressourcenpartitionierung haben.
+
+
+
+
+== Reservierte Kapazität
+
+Asynchrone Spiegelung:
+
+* Für ein primäres Volume und ein sekundäres Volume in einem gespiegelten Paar wird ein reserviertes Kapazitätsvolumen benötigt, um Protokollierungs-Schreibinformationen zu protokollieren und sich von Controller-Resets und anderen vorübergehenden Unterbrechungen erholen zu können.
+* Da sowohl das primäre Volume als auch das sekundäre Volume in einem gespiegelten Paar zusätzliche reservierte Kapazität benötigen, müssen Sie sicherstellen, dass auf beiden Speicherarrays in der Spiegelbeziehung freie Kapazität verfügbar ist.
+
+
+Synchrone Spiegelung:
+
+* Reservierter Speicherplatz ist für ein primäres Volume und für ein sekundäres Volume erforderlich, um Protokollierungs-Schreibinformationen zu speichern und sich von Controller-Resets und anderen vorübergehenden Unterbrechungen erholen zu können.
+* Die reservierten Kapazitätsvolumes werden automatisch erstellt, wenn die synchrone Spiegelung aktiviert wird. Da sowohl das primäre Volume als auch das sekundäre Volume eines Spiegelpaares reservierte Kapazität benötigen, müssen Sie sicherstellen, dass auf beiden Speicherarrays, die an der synchronen Spiegelung beteiligt sind, ausreichend freie Kapazität verfügbar ist.
+
+
+
+
+== Laufwerksicherheitsfunktion
+
+* Wenn Sie sichere Laufwerke verwenden, müssen das primäre Volume und das sekundäre Volume über kompatible Sicherheitseinstellungen verfügen. Diese Einschränkung wird nicht erzwungen; daher müssen Sie dies selbst überprüfen.
+* Wenn Sie sichere Laufwerke verwenden, sollten das primäre Volume und das sekundäre Volume denselben Laufwerkstyp verwenden. Diese Einschränkung wird nicht erzwungen; daher müssen Sie dies selbst überprüfen.
+* Wenn Sie Data Assurance (DA) verwenden, müssen das primäre Volume und das sekundäre Volume die gleichen DA-Einstellungen haben.
+

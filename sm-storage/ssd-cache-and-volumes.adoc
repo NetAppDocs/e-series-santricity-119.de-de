@@ -1,0 +1,39 @@
+---
+permalink: sm-storage/ssd-cache-and-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ssd, cache, volumes 
+summary: 'Sie können ein Volume zum SSD-Cache hinzufügen, um die Leseleistung zu verbessern. SSD-Cache besteht aus einer Gruppe von Solid-State-Disk (SSD)-Laufwerken, die Sie logisch in Ihrem Storage-Array zusammenfassen.' 
+---
+= Erfahren Sie mehr über SSD-Cache und Volumes in SANtricity software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Volume zum SSD-Cache hinzufügen, um die Leseleistung zu verbessern. SSD-Cache besteht aus einer Gruppe von Solid-State-Disk (SSD)-Laufwerken, die Sie logisch in Ihrem Storage-Array zusammenfassen.
+
+
+
+== Volumes
+
+Einfache Volume-I/O-Mechanismen werden verwendet, um Daten in den SSD-Cache zu verschieben und aus dem SSD-Cache zu lesen. Nachdem die Daten zwischengespeichert und auf den SSDs gespeichert wurden, werden nachfolgende Lesevorgänge dieser Daten im SSD-Cache durchgeführt, wodurch der Zugriff auf das HDD-Volume entfällt.
+
+SSD-Cache ist ein sekundärer Cache, der zusammen mit dem primären Cache im dynamischen Direktzugriffsspeicher (DRAM) des Controllers verwendet wird.
+
+* Im primären Cache werden die Daten nach einem Lesevorgang des Hosts im DRAM gespeichert.
+* Im SSD-Cache werden die Daten von Volumes kopiert und auf zwei internen RAID-Volumes (eines pro Controller) gespeichert, die automatisch erstellt werden, wenn Sie einen SSD-Cache erstellen.
+
+
+Die internen RAID-Volumes werden für interne Cache-Verarbeitungszwecke verwendet. Diese Volumes sind weder zugänglich noch werden sie in der Benutzeroberfläche angezeigt. Diese beiden Volumes werden jedoch auf die Gesamtanzahl der im Storage-Array zulässigen Volumes angerechnet.
+
+[NOTE]
+====
+Jedes Volume, das dem SSD-Cache eines Controllers zugewiesen ist, ist nicht für eine automatische Lastausgleichsübertragung berechtigt.
+
+====
+
+
+== Laufwerksicherheitsfunktion
+
+Um SSD-Cache auf einem Volume zu verwenden, das auch Drive Security (sicher aktiviert) nutzt, müssen die Drive Security-Funktionen des Volumes und des SSD-Caches übereinstimmen. Wenn sie nicht übereinstimmen, wird das Volume nicht sicher aktiviert.

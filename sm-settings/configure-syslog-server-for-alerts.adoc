@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/configure-syslog-server-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, syslog, server, alerts, 
+summary: Um Syslog-Warnungen zu konfigurieren, müssen Sie die Adresse eines Syslog-Servers und einen UDP-Port angeben. Es sind bis zu fünf Syslog-Server zulässig. 
+---
+= Konfigurieren Sie den Syslog-Server für Warnmeldungen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um Syslog-Warnungen zu konfigurieren, müssen Sie die Adresse eines Syslog-Servers und einen UDP-Port angeben. Es sind bis zu fünf Syslog-Server zulässig.
+
+.Bevor Sie beginnen
+* Die Adresse des Syslog-Servers muss verfügbar sein. Diese Adresse kann ein vollqualifizierter Domainname, eine IPv4-Adresse oder eine IPv6-Adresse sein.
+* UDP-Portnummer des Syslog-Servers muss verfügbar sein. Dieser Port ist typischerweise 514.
+
+
+.Über diese Aufgabe
+Diese Aufgabe beschreibt, wie Sie die Adresse und den Port für den Syslog-Server eingeben und dann die von Ihnen eingegebene Adresse testen.
+
+.Schritte
+. Menü auswählen: Settings[Alerts].
+. Wählen Sie die Registerkarte *Syslog* aus.
++
+Wenn noch kein Syslog-Server definiert ist, zeigt die Seite „Warnungen“ „Syslog-Server hinzufügen“ an.
+
+. Klicken Sie auf *Add Syslog Servers*.
++
+Das Dialogfeld „Syslog-Server hinzufügen“ wird geöffnet.
+
+. Geben Sie Informationen für einen oder mehrere syslog-Server ein (maximum of five), und klicken Sie dann auf *Add*.
++
+** *Serveradresse* -- Geben Sie eine vollqualifizierte Domain, eine IPv4-Adresse oder eine IPv6-Adresse ein.
+** *UDP-Port* -- Normalerweise ist der UDP-Port für syslog 514. Die Tabelle zeigt die konfigurierten syslog-Server an.
+
+
+. Um eine Testwarnung an die Serveradressen zu senden, wählen Sie *Test All Syslog Servers*.
+
+
+.Ergebnisse
+Der Ereignismonitor sendet Benachrichtigungen an den Syslog-Server, sobald ein meldepflichtiges Ereignis eintritt. Um die Syslog-Einstellungen für Revisionsprotokolle weiter zu konfigurieren, siehe  https://docs.netapp.com/us-en/e-series-santricity/sm-settings/configure-syslog-server-for-audit-logs.html["Syslog-Server für Revisionsprotokolle konfigurieren"].
+
+
+NOTE: Wenn mehrere Syslog-Server konfiguriert sind, erhalten alle konfigurierten Syslog-Server ein Revisionsprotokoll.

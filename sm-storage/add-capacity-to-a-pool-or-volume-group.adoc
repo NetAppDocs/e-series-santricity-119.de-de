@@ -1,0 +1,148 @@
+---
+permalink: sm-storage/add-capacity-to-a-pool-or-volume-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, capacity, pool, volume, group 
+summary: Sie können Laufwerke hinzufügen, um die freie Kapazität in einem bestehenden Pool oder einer bestehenden Volume-Gruppe zu erweitern. 
+---
+= Fügen Sie einem Pool oder einer Volumengruppe im SANtricity System Manager Kapazität hinzu
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Laufwerke hinzufügen, um die freie Kapazität in einem bestehenden Pool oder einer bestehenden Volumegruppe zu erweitern.
+
+Durch die Erweiterung wird dem Pool oder der Volume-Gruppe zusätzliche freie Kapazität hinzugefügt. Sie können diese freie Kapazität nutzen, um zusätzliche Volumes zu erstellen. Die Daten in den Volumes bleiben während dieses Vorgangs zugänglich.
+
+.Bevor Sie beginnen
+* Die Laufwerke müssen sich in einem Optimal-Status befinden.
+* Die Laufwerke müssen denselben Laufwerkstyp haben (HDD oder SSD).
+* Der Pool oder die Volume-Gruppe muss sich im optimalen Status befinden.
+* Die maximal zulässige Anzahl von Volumes in einer Volume-Gruppe beträgt 256.
+* Die maximal zulässige Anzahl von Volumes in einem Pool hängt vom Speichersystemmodell ab:
++
+** 2.048 Volumes (EF600 und E5700 Serien)
+** 1.024 Volumes (EF300)
+** 512 Volumes (E4000 und E2800 Serie)
+
+
+* Wenn der Pool oder die Volumengruppe ausschließlich secure-fähige Laufwerke enthält, fügen Sie nur Laufwerke hinzu, die secure-fähig sind, um die Verschlüsselungsfunktionen der secure-fähigen Laufwerke weiterhin nutzen zu können.
++
+Sicherheitsfähige Laufwerke können entweder Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein.
+
+
+
+.Über diese Aufgabe
+Für Pools können Sie maximal 60 Laufwerke gleichzeitig hinzufügen. Für Volumengruppen können Sie maximal zwei Laufwerke gleichzeitig hinzufügen. Wenn Sie mehr als die maximale Anzahl von Laufwerken hinzufügen müssen, wiederholen Sie den Vorgang. (Ein Pool darf nicht mehr Laufwerke enthalten als das maximale Limit für ein Speichersystem.)
+
+[NOTE]
+====
+Mit dem Hinzufügen von Laufwerken muss Ihre Erhaltungskapazität möglicherweise erhöht werden. Sie sollten erwägen, Ihre reservierte Kapazität nach einer Erweiterungsoperation zu erhöhen.
+
+====
+[NOTE]
+====
+Vermeiden Sie die Verwendung von Laufwerken, die Data Assurance (DA) unterstützen, um einem Pool oder einer Volume-Gruppe, die nicht DA-fähig ist, Kapazität hinzuzufügen. Der Pool oder die Volume-Gruppe kann die Fähigkeiten des DA-fähigen Laufwerks nicht nutzen. Erwägen Sie in diesem Fall die Verwendung von Laufwerken, die nicht DA-fähig sind.
+
+====
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Wählen Sie den Pool oder die Volumengruppe aus, zu der Sie Laufwerke hinzufügen möchten, und klicken Sie dann auf *Kapazität hinzufügen*.
++
+Das Dialogfeld „Kapazität hinzufügen“ wird angezeigt. Nur die nicht zugewiesenen Laufwerke, die mit dem Pool oder der Volume-Gruppe kompatibel sind, werden angezeigt.
+
+. Unter *Laufwerke auswählen, um die Kapazität zu erhöhen...*, wählen Sie ein oder mehrere Laufwerke aus, die Sie dem vorhandenen Pool oder der vorhandenen Volume-Gruppe hinzufügen möchten.
++
+Die Controller-Firmware ordnet die nicht zugewiesenen Laufwerke so an, dass die besten Optionen oben angezeigt werden. Die gesamte freie Kapazität, die dem Pool oder der Volumengruppe hinzugefügt wird, erscheint unterhalb der Liste in *Ausgewählte Gesamtkapazität*.
+
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Shelf
+ a| 
+Gibt den Regalplatz des Laufwerks an.
+
+
+
+ a| 
+Einschub
+ a| 
+Zeigt den Einbauort des Laufwerks an.
+
+
+
+ a| 
+Kapazität (GiB)
+ a| 
+Gibt die Laufwerkskapazität an.
+
+** Wählen Sie nach Möglichkeit Laufwerke aus, deren Kapazität der Kapazität der aktuellen Laufwerke im Pool oder in der Volume-Gruppe entspricht.
+** Wenn Sie nicht zugewiesene Laufwerke mit geringerer Kapazität hinzufügen müssen, beachten Sie, dass die nutzbare Kapazität jedes Laufwerks im Pool oder in der Volume-Gruppe verringert wird. Daher ist die Laufwerkskapazität im gesamten Pool oder in der Volume-Gruppe gleich.
+** Falls Sie nicht zugewiesene Laufwerke mit größerer Kapazität hinzufügen müssen, beachten Sie, dass die nutzbare Kapazität der nicht zugewiesenen Laufwerke, die Sie hinzufügen, reduziert wird, sodass sie den aktuellen Kapazitäten der Laufwerke im Pool oder in der Volume-Gruppe entspricht.
+
+
+
+
+ a| 
+Sicherheitsfähig
+ a| 
+Gibt an, ob das Laufwerk sicherheitsfähig ist.
+
+** Um Ihren Pool oder Ihre Volumengruppe mit der Funktion Drive Security zu schützen, müssen alle Laufwerke sicherheitsfähig sein.
+** Es ist möglich, einen Pool oder eine Volume-Gruppe mit einer Mischung aus sicherheitsfähigen und nicht sicherheitsfähigen Laufwerken zu erstellen, aber die Funktion „Laufwerkssicherheit“ kann nicht aktiviert werden.
+** Ein Pool oder eine Volume-Gruppe mit ausschließlich sicherheitsfähigen Laufwerken kann kein nicht-sicherheitsfähiges Laufwerk als Ersatz oder zur Erweiterung aufnehmen, selbst wenn die Verschlüsselungsfunktion nicht verwendet wird.
+** Laufwerke, die als secure-capable gemeldet werden, können entweder Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein.
+** Ein FIPS-Laufwerk kann Level 140-2 oder 140-3 haben, wobei Level 140-3 das höhere Sicherheitsniveau ist. Wenn Sie eine Mischung aus Laufwerken der Level 140-2 und 140-3 auswählen, arbeitet der Pool oder die Volume-Gruppe auf dem niedrigeren Sicherheitsniveau (140-2).
+
+
+
+
+ a| 
+DA-fähig
+ a| 
+Gibt an, ob das Laufwerk Data Assurance (DA)-fähig ist.
+
+** Die Verwendung von Laufwerken ohne Data Assurance (DA)-Unterstützung zur Kapazitätserweiterung eines DA-fähigen Pools oder einer DA-fähigen Volume-Gruppe wird nicht empfohlen. Der Pool oder die Volume-Gruppe verfügt dann nicht mehr über DA-Funktionen, und Sie haben keine Möglichkeit mehr, DA für neu erstellte Volumes innerhalb des Pools oder der Volume-Gruppe zu aktivieren.
+** Die Verwendung von Data Assurance (DA)-fähigen Laufwerken zur Kapazitätserweiterung eines Pools oder einer Volume-Gruppe, die nicht DA-fähig ist, wird nicht empfohlen, da dieser Pool oder diese Volume-Gruppe die Funktionen des DA-fähigen Laufwerks nicht nutzen kann (die Laufwerksattribute stimmen nicht überein). Erwägen Sie in dieser Situation die Verwendung von Laufwerken, die nicht DA-fähig sind.
+
+
+
+
+ a| 
+DULBE-fähig
+ a| 
+Gibt an, ob das Laufwerk die Option für Deallocated or Unwritten Logical Block Error (DULBE) besitzt. DULBE ist eine Option auf NVMe-Laufwerken, die es dem EF300- oder EF600-Speicherarray ermöglicht, ressourcenbereitgestellte Volumes zu unterstützen.
+
+|===
+====
+. Klicken Sie auf *Add*.
++
+Wenn Sie einem Pool oder einer Volume-Gruppe Laufwerke hinzufügen, wird ein Bestätigungsdialogfeld angezeigt, falls Sie ein Laufwerk ausgewählt haben, das dazu führt, dass der Pool oder die Volume-Gruppe eines oder mehrere der folgenden Attribute nicht mehr aufweist:
+
++
+** Schutz vor Shelf-Verlust ^*^
+** Schubladenverlustschutz ^*^
+** Vollständige Festplattenverschlüsselungsfunktion
+** Data Assurance-Funktion
+** DULBE-Fähigkeit
+
+
+
+
+
+NOTE: ^*^ Derzeit wird das Bestätigungsdialogfeld nicht angezeigt, wenn Laufwerke zu einem Pool mit Schutz vor Regalverlust oder Schubladenverlust hinzugefügt werden.
+
+. Klicken Sie auf *Ja*, um fortzufahren; andernfalls klicken Sie auf *Abbrechen*.
+
+
+.Ergebnisse
+Nachdem Sie die nicht zugewiesenen Laufwerke einem Pool oder einer Volumengruppe hinzugefügt haben, werden die Daten in jedem Volume des Pools oder der Volumengruppe neu verteilt, um die zusätzlichen Laufwerke einzubeziehen.

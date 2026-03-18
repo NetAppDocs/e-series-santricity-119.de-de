@@ -1,0 +1,39 @@
+---
+permalink: sm-mirroring/change-role-between-volumes-in-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, role, volumes, mirrored, pair, 
+summary: Sie können eine Rollenumkehr zwischen den beiden Volumes in einem gespiegelten Paar durchführen, die an der synchronen Spiegelung teilnehmen, zu administrativen Zwecken oder im Falle einer Katastrophe auf dem lokalen Speichersystem. 
+---
+= Ändern Sie die Rolle zwischen Volumes in einem gespiegelten Paar im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine Rollen-Umkehr zwischen den beiden Volumes in einem gespiegelten Paar durchführen, die an der synchronen Spiegelung teilnehmen. Diese Aufgabe kann aus administrativen Gründen oder im Falle einer Katastrophe auf dem lokalen Speichersystem erforderlich sein.
+
+.Über diese Aufgabe
+Sie können entweder das primäre Volume zum sekundären Volume herabstufen oder das sekundäre Volume zum primären Volume hochstufen. Alle Hosts, die auf das primäre Volume zugreifen, haben lesen/schreiben Zugriff auf das Volume. Wenn das primäre Volume zu einem sekundären Volume wird, werden nur noch vom primären Controller initiierte Remote-Schreibvorgänge auf das Volume geschrieben.
+
+.Schritte
+. Menü auswählen: Storage [Synchronous Mirroring].
+. Wählen Sie das gespiegelte Paar aus, das die Volumes enthält, für die Sie die Rolle ändern möchten, und wählen Sie dann menu:More[Change Role].
++
+Das System zeigt eine Bestätigung an.
+
+. Bestätigen Sie, dass Sie die Rolle der Volumes ändern möchten, und wählen Sie dann *Change Role*.
++
+[NOTE]
+====
+Wenn das lokale Speichersystem nicht mit dem Remote-Speichersystem kommunizieren kann, zeigt das System das Dialogfeld „Speichersystem kann nicht erreicht werden“ an, wenn eine Rollenänderung angefordert wird, das Remote-Speichersystem jedoch nicht kontaktiert werden kann. Klicken Sie auf *Ja*, um die Rollenänderung zu erzwingen.
+
+====
+
+
+.Ergebnisse
+System Manager führt die folgende Aktion aus:
+
+* Wenn das zugehörige Volume im gespiegelten Paar erreichbar ist, ändern sich die Rollen zwischen den Volumes. System Manager stuft das sekundäre Volume im gespiegelten Paar zur primären Rolle hoch oder das primäre Volume im gespiegelten Paar zur sekundären Rolle herab (abhängig von Ihrer Auswahl).
+

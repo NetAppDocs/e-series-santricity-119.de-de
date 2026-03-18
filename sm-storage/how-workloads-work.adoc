@@ -1,0 +1,48 @@
+---
+permalink: sm-storage/how-workloads-work.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, application, workloads, volume, 
+summary: Beim Erstellen eines Volumes wählen Sie eine Arbeitslast aus, um die Speicher-Array-Konfiguration für eine bestimmte Anwendung anzupassen. 
+---
+= Wie Workloads in der SANtricity-Software funktionieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Beim Erstellen eines Volumes wählen Sie eine Arbeitslast aus, um die Speicher-Array-Konfiguration für eine bestimmte Anwendung anzupassen.
+
+Eine Workload ist ein Speicherobjekt, das eine Anwendung unterstützt. Sie können eine oder mehrere Workloads bzw. Instanzen pro Anwendung definieren. Bei einigen Anwendungen konfiguriert das System die Workload so, dass sie Volumes mit ähnlichen zugrunde liegenden Volume-Eigenschaften enthält. Diese Volume-Eigenschaften werden basierend auf dem Typ der Anwendung, die die Workload unterstützt, optimiert. Wenn Sie beispielsweise eine Workload erstellen, die eine Microsoft SQL Server Anwendung unterstützt, und anschließend Volumes für diese Workload erstellen, werden die zugrunde liegenden Volume-Eigenschaften optimiert, um Microsoft SQL Server zu unterstützen.
+
+Während der Volume-Erstellung werden Sie vom System aufgefordert, Fragen zur Nutzung einer Workload zu beantworten. Wenn Sie beispielsweise Volumes für Microsoft Exchange erstellen, werden Sie gefragt, wie viele Postfächer Sie benötigen, wie hoch Ihr durchschnittlicher Postfachspeicherbedarf ist und wie viele Kopien der Datenbank Sie möchten. Das System verwendet diese Informationen, um eine optimale Volume-Konfiguration für Sie zu erstellen, die Sie bei Bedarf bearbeiten können. Optional können Sie diesen Schritt in der Volume-Erstellungssequenz überspringen.
+
+
+
+== Arten von Arbeitslasten
+
+Sie können zwei Arten von Workloads erstellen: Anwendungsspezifisch und Sonstige.
+
+* *Anwendungsspezifisch*. Wenn Sie Volumes mit einer anwendungsspezifischen Arbeitslast erstellen, kann das System eine optimierte Volume-Konfiguration empfehlen, um Konflikte zwischen der I/O der Anwendungsarbeitslast und anderem Datenverkehr Ihrer Anwendungsinstanz zu minimieren. Volume-Eigenschaften wie I/O-Typ, Segmentgröße, Controller-Zugehörigkeit sowie Lese- und Schreibcache werden automatisch empfohlen und für Arbeitslasten optimiert, die für die folgenden Anwendungstypen erstellt werden.
++
+** Microsoft® SQL Server™
+** Microsoft® Exchange Server™
+** Videoüberwachungsanwendungen
+** VMware ESXi™ (für Volumes, die mit Virtual Machine File System verwendet werden sollen)
++
+Sie können die empfohlene Volume-Konfiguration überprüfen und die vom System empfohlenen Volumes und Eigenschaften mit dem Dialogfeld „Volumes hinzufügen/bearbeiten“ bearbeiten, hinzufügen oder löschen.
+
+
+
+* *Andere* (oder Anwendungen ohne spezifische Unterstützung für die Volume-Erstellung). Andere Workloads verwenden eine Volume-Konfiguration, die Sie manuell angeben müssen, wenn Sie einen Workload erstellen möchten, der keiner bestimmten Anwendung zugeordnet ist, oder wenn das System keine integrierte Optimierung für die Anwendung bietet, die Sie auf dem Storage-Array verwenden möchten. Sie müssen die Volume-Konfiguration manuell im Dialogfeld „Volumes hinzufügen/bearbeiten“ angeben.
+
+
+
+
+== Anwendungs- und Workload-Ansichten
+
+Um Anwendungen und Workloads anzuzeigen, starten Sie SANtricity System Manager. Über diese Oberfläche können Sie Informationen zu einem anwendungsspezifischen Workload auf verschiedene Arten anzeigen:
+
+* Sie können die Registerkarte *Applications & Workloads* in der Kachel „Volumes“ auswählen, um die Volumes des Speicherarrays gruppiert nach Workload und dem Anwendungstyp, mit dem der Workload verknüpft ist, anzuzeigen.
+* Sie können die Registerkarte *Applications & Workloads* im Bereich Leistung auswählen, um Leistungskennzahlen (Latenz, IOPS und MBs) für logische Objekte anzuzeigen. Die Objekte sind nach Anwendung und zugehörigem Workload gruppiert. Durch das Sammeln dieser Leistungsdaten in regelmäßigen Abständen können Sie Basiswerte ermitteln und Trends analysieren, was hilfreich sein kann, wenn Sie Probleme im Zusammenhang mit der I/O-Leistung untersuchen.
+

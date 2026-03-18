@@ -1,0 +1,129 @@
+---
+permalink: um-manage/discover-multiple-arrays.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, discover, multiple, storage, arrays 
+summary: Sie entdecken mehrere Arrays, um alle Speicherarrays im Subnetz, in dem sich der Verwaltungsserver befindet, zu erkennen und die erkannten Arrays automatisch Ihrer Verwaltungsdomäne hinzuzufügen. 
+---
+= Entdecken Sie mehrere Speicherarrays in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie entdecken mehrere Arrays, um alle Speicherarrays im Subnetz, in dem sich der Verwaltungsserver befindet, zu erkennen und die erkannten Arrays automatisch Ihrer Verwaltungsdomäne hinzuzufügen.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security Admin-Berechtigungen verfügt.
+* Das Speichersystem muss korrekt eingerichtet und konfiguriert sein.
+* Die Passwörter für Speicherarrays müssen über die Kachel „Access Management“ des System Manager eingerichtet werden.
+* Um das Problem nicht vertrauenswürdiger Zertifikate zu beheben, müssen Sie vertrauenswürdige Zertifikatsdateien von einer Zertifizierungsstelle (CA) besitzen, und die Zertifikatsdateien müssen auf Ihrem lokalen System verfügbar sein.
+
+
+Die Ermittlung von Arrays ist ein mehrstufiger Prozess.
+
+
+
+== Schritt 1: Netzwerkadresse eingeben
+
+Sie geben einen Netzwerkadressbereich ein, um im lokalen Subnetzwerk zu suchen. Alle erfolgreich erreichten Storage-Arrays werden auf der Discover-Seite angezeigt und können Ihrer Management-Domäne hinzugefügt werden.
+
+Falls Sie den Erkennungsvorgang aus irgendeinem Grund abbrechen müssen, klicken Sie auf *Stop Discovery*.
+
+.Schritte
+. Wählen Sie auf der Seite *Verwalten* die Option *Hinzufügen/Entdecken*.
++
+Das Dialogfeld „Hinzufügen/Suchen“ wird angezeigt.
+
+. Wählen Sie die Option *Alle Speicherarrays innerhalb eines Netzwerkbereichs ermitteln* aus.
+. Geben Sie die Startnetzwerkadresse und die Endnetzwerkadresse ein, um in Ihrem lokalen Subnetzwerk zu suchen, und klicken Sie dann auf *Start Discovery*.
++
+Der Erkennungsprozess startet. Dieser Erkennungsprozess kann mehrere Minuten dauern. Die Tabelle auf der Seite „Erkennen“ wird ausgefüllt, sobald die Speicherarrays erkannt werden.
+
++
+[NOTE]
+====
+Wenn keine verwaltbaren Arrays gefunden werden, überprüfen Sie, ob die Speicherarrays ordnungsgemäß mit Ihrem Netzwerk verbunden sind und ihre zugewiesenen Adressen im gültigen Bereich liegen. Klicken Sie auf *New Discovery Parameters*, um zur Seite Add/Discover zurückzukehren.
+
+====
+. Überprüfen Sie die Liste der gefundenen Speicherarrays.
+. Wählen Sie das Kästchen neben jedem Speicherarray aus, das Sie Ihrer Verwaltungsdomäne hinzufügen möchten, und klicken Sie dann auf *Weiter*.
++
+Unified Manager führt eine Überprüfung der Anmeldeinformationen für jedes Array durch, das Sie der Verwaltungsdomäne hinzufügen. Möglicherweise müssen Sie alle selbstsignierten und nicht vertrauenswürdigen Zertifikate, die mit diesem Array verknüpft sind, auflösen.
+
+. Klicken Sie auf *Weiter*, um zum nächsten Schritt im Assistenten zu gelangen.
+
+
+
+
+== Schritt 2: Selbstsignierte Zertifikate während der Erkennung beheben
+
+Im Rahmen des Erkennungsprozesses überprüft das System, ob die Speicherarrays Zertifikate von einer vertrauenswürdigen Quelle verwenden.
+
+.Schritte
+. Führen Sie einen der folgenden Schritte aus:
++
+** Wenn Sie den Verbindungen zu den gefundenen Speicherarrays vertrauen, fahren Sie mit der nächsten Karte im Assistenten fort. Die selbstsignierten Zertifikate werden als vertrauenswürdig markiert und die Speicherarrays werden zu Unified Manager hinzugefügt.
+** Wenn Sie den Verbindungen zu den Speicherarrays nicht vertrauen, wählen Sie *Abbrechen* und validieren Sie die Sicherheitszertifikatsstrategie jedes Speicherarrays, bevor Sie eines davon zu Unified Manager hinzufügen.
+
+
+. Klicken Sie auf *Weiter*, um zum nächsten Schritt im Assistenten zu gelangen.
+
+
+
+
+== Schritt 3: Nicht vertrauenswürdige Zertifikate während der Erkennung beheben
+
+Nicht vertrauenswürdige Zertifikate treten auf, wenn ein Speichersystem versucht, eine sichere Verbindung zum Unified Manager herzustellen, die Verbindung aber nicht als sicher bestätigt werden kann. Während des Erkennungsvorgangs des Speichersystems können Sie nicht vertrauenswürdige Zertifikate beheben, indem Sie ein Zertifikat einer Zertifizierungsstelle (CA) (oder ein von einer CA signiertes Zertifikat) importieren, das von einer vertrauenswürdigen Drittpartei ausgestellt wurde.
+
+Möglicherweise müssen Sie zusätzliche vertrauenswürdige CA-Zertifikate installieren, wenn eine der folgenden Bedingungen zutrifft:
+
+* Sie haben kürzlich ein Speicherarray hinzugefügt.
+* Eines oder beide Zertifikate sind abgelaufen.
+* Eines oder beide Zertifikate sind widerrufen.
+* Bei einem oder beiden Zertifikaten fehlt ein Stamm- oder Zwischenzertifikat.
+
+
+.Schritte
+. Wählen Sie das Kästchen neben jedem Speicherarray aus, für das Sie nicht vertrauenswürdige Zertifikate auflösen möchten, und wählen Sie dann die Schaltfläche **Import**.
++
+Es öffnet sich ein Dialogfeld zum Importieren der vertrauenswürdigen Zertifikatsdateien.
+
+. Klicken Sie auf *Durchsuchen*, um die Zertifikatsdateien für die Speicherarrays auszuwählen.
++
+Die Dateinamen werden im Dialogfeld angezeigt.
+
+. Klicken Sie auf *Import*.
++
+Die Dateien werden hochgeladen und validiert.
+
++
+[NOTE]
+====
+Jedes Speichersystem mit ungelösten Problemen bezüglich nicht vertrauenswürdiger Zertifikate wird nicht zu Unified Manager hinzugefügt.
+
+====
+. Klicken Sie auf *Weiter*, um zum nächsten Schritt im Assistenten zu gelangen.
+
+
+
+
+== Schritt 4: Passwörter eingeben
+
+Sie müssen die Passwörter für die Speicherarrays eingeben, die Sie Ihrer Management-Domäne hinzufügen möchten.
+
+.Schritte
+. Geben Sie das Passwort für jedes Speicherarray ein, das Sie zu Unified Manager hinzufügen möchten.
+. *Optional:* Speicherarrays einer Gruppe zuordnen: Wählen Sie in der Drop-down-Liste die gewünschte Gruppe aus, um sie mit den ausgewählten Speicherarrays zu verknüpfen.
+. Klicken Sie auf *Finish*.
+
+
+.Nachdem Sie fertig sind
+Die Speicherarrays werden Ihrer Verwaltungsdomäne hinzugefügt und mit der ausgewählten Gruppe (sofern angegeben) verknüpft.
+
+[NOTE]
+====
+Es kann mehrere Minuten dauern, bis Unified Manager eine Verbindung zu den angegebenen Storage Arrays herstellt.
+
+====

@@ -1,0 +1,49 @@
+---
+permalink: sm-hardware/fail-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, fail, drive, 
+summary: Wenn Sie dazu aufgefordert werden, können Sie ein Laufwerk manuell ausfallen lassen. 
+---
+= Ein Laufwerk manuell im SANtricity System Manager ausfallen lassen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie dazu aufgefordert werden, können Sie ein Laufwerk manuell ausfallen lassen.
+
+.Über diese Aufgabe
+System Manager überwacht die Laufwerke im Storage-Array. Wenn festgestellt wird, dass ein Laufwerk viele Fehler generiert, benachrichtigt Sie der Recovery Guru über einen bevorstehenden Laufwerksausfall. Wenn dies geschieht und Sie ein Ersatzlaufwerk zur Verfügung haben, möchten Sie das Laufwerk möglicherweise ausfallen lassen, um vorbeugende Maßnahmen zu ergreifen. Wenn Sie kein Ersatzlaufwerk zur Verfügung haben, können Sie warten, bis das Laufwerk von selbst ausfällt.
+
+[CAUTION]
+====
+*Möglicher Datenverlust* – Dieser Vorgang kann zu Datenverlust oder zum Verlust der Datenredundanz führen. Führen Sie diesen Vorgang nur auf Anweisung des technischen Supports oder des Recovery Gurus durch.
+
+====
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Controller anzeigt, klicken Sie auf die Registerkarte *Drives*.
++
+Die Grafik ändert sich, um die Laufwerke anstelle der Controller anzuzeigen.
+
+. Klicken Sie auf das Laufwerk, das ausfallen soll.
++
+Das Kontextmenü des Laufwerks wird angezeigt.
+
+. Wählen Sie *Fail* aus.
+. Lassen Sie das Kästchen *Inhalt des Laufwerks vor dem Ausfall kopieren* aktiviert.
++
+Die Kopieroption wird nur für zugewiesene Laufwerke und für Nicht-RAID 0-Volume-Gruppen angezeigt.
+
++
+Bevor Sie das Laufwerk als defekt einstufen, stellen Sie sicher, dass Sie den Inhalt des Laufwerks kopieren. Je nach Konfiguration könnten Sie andernfalls alle Daten oder die Datenredundanz im zugehörigen Pool oder der Volume-Gruppe verlieren, wenn Sie den Inhalt des Laufwerks nicht zuerst kopieren.
+
++
+Die Kopieroption ermöglicht eine schnellere Wiederherstellung des Laufwerks als die Rekonstruktion und verringert die Wahrscheinlichkeit eines Volume-Ausfalls, falls während des Kopiervorgangs ein anderes Laufwerk ausfallen sollte.
+
+. Bestätigen Sie, dass Sie das Laufwerk ausfallen lassen möchten.
++
+Nach dem Ausfall des Laufwerks warten Sie mindestens 60 Sekunden, bevor Sie es entfernen.
+
+

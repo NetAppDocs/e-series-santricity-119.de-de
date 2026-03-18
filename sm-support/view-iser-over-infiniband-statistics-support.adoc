@@ -1,0 +1,34 @@
+---
+permalink: sm-support/view-iser-over-infiniband-statistics-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, iser, over, infiniband, statistics 
+summary: Wenn der Controller Ihres Storage-Arrays einen iSER-over-InfiniBand-Port enthält, können Sie Daten zu den Host-Verbindungen anzeigen. 
+---
+= iSER über InfiniBand Statistiken im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn der Controller Ihres Speichersystems einen iSER over InfiniBand-Port umfasst, können Sie Daten über die Host-Verbindungen anzeigen.
+
+.Über diese Aufgabe
+System Manager zeigt die folgenden Arten von iSER über InfiniBand Statistiken. Alle Statistiken sind schreibgeschützt und können nicht gesetzt werden.
+
+* *Lokale Ziel (Protokoll) Statistiken* -- Liefert Statistiken für das iSER over InfiniBand Ziel, die den Blockzugriff auf seine Speichermedien anzeigen.
+* *iSER over InfiniBand Interface Statistiken* -- Liefert Statistiken für alle iSER-Ports auf der InfiniBand Interface, einschließlich Leistungsstatistiken und Informationen zu Verbindungsfehlern, die mit jedem Switch-Port verbunden sind.
+
+
+Sie können jede dieser Statistiken als Rohstatistiken oder als Basisstatistiken anzeigen. Rohstatistiken sind alle Statistiken, die seit dem Start der Controller gesammelt wurden. Basisstatistiken sind zeitpunktgenaue Statistiken, die seit der Festlegung des Basiszeitpunkts gesammelt wurden.
+
+.Schritte
+. Menü auswählen: Support [Support Center > Diagnostics] Registerkarte.
+. Wählen Sie *View iSER over InfiniBand Statistiken* aus.
+. Klicken Sie auf einen Tab, um die verschiedenen Statistiken anzuzeigen.
+. Um die Ausgangsbasis festzulegen, klicken Sie auf *Set new baseline*.
++
+Durch das Festlegen der Baseline wird ein neuer Startpunkt für die Erfassung der Statistiken gesetzt. Dieselbe Baseline wird für alle iSER over InfiniBand Statistiken verwendet.
+
+

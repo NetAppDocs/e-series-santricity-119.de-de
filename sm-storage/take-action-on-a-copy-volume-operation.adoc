@@ -1,0 +1,68 @@
+---
+permalink: sm-storage/take-action-on-a-copy-volume-operation.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy, volume, 
+summary: Sie können einen laufenden Copy Volume-Vorgang anzeigen und stoppen, die Priorität ändern, erneut kopieren oder einen Copy Volume-Vorgang löschen. 
+---
+= Führen Sie im SANtricity System Manager eine Aktion für einen Copy Volume-Vorgang durch
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen laufenden Copy Volume-Vorgang anzeigen und stoppen, die Priorität ändern, erneut kopieren oder einen Copy Volume-Vorgang löschen.
+
+.Schritte
+. Menü auswählen: Home [Laufende Operationen anzeigen].
++
+Das Dialogfeld „Laufende Vorgänge“ wird angezeigt.
+
+. Suchen Sie die Copy Volume-Operation, für die Sie eine Aktion ausführen möchten, und klicken Sie dann auf den Link in der Spalte *Actions*, um eine der folgenden Aktionen auszuführen.
++
+Lesen Sie alle Warnhinweise in den Dialogen, insbesondere wenn Sie einen Vorgang stoppen.
+
++
+[cols="25h,~"]
+|===
+| Aktion | Beschreibung 
+
+
+ a| 
+Stopp
+ a| 
+Sie können einen Copy Volume-Vorgang stoppen, während der Vorgang den Status „In Bearbeitung“, „Ausstehend“ oder „Fehlgeschlagen“ hat.
+
+Wenn das Copy Volume gestoppt wird, haben alle zugeordneten Hosts Schreibzugriff auf das Quell-Volume. Wenn Daten auf das Quell-Volume geschrieben werden, stimmen die Daten auf dem Ziel-Volume nicht mehr mit den Daten auf dem Quell-Volume überein.
+
+
+
+ a| 
+Priorität ändern
+ a| 
+Sie können die Priorität eines Copy Volume-Vorgangs ändern, während sich der Vorgang im Status „In Bearbeitung“ befindet, um die Geschwindigkeit festzulegen, mit der ein Copy Volume-Vorgang abgeschlossen wird.
+
+
+
+ a| 
+Erneut kopieren
+ a| 
+Sie können ein Volume erneut kopieren, wenn Sie einen Kopiervorgang gestoppt haben und ihn erneut starten möchten oder wenn ein Kopiervorgang fehlgeschlagen oder angehalten wurde. Der Kopiervorgang beginnt dann von Anfang an.
+
+Die erneute Kopieraktion überschreibt vorhandene Daten auf dem Ziel-Volume und schlägt alle mit dem Ziel-Volume verknüpften Snapshot-Volumes fehl, falls welche existieren.
+
+
+
+ a| 
+Löschen
+ a| 
+Sie können den Vorgang „Copy Volume“ entfernen, während der Vorgang den Status „In Bearbeitung“, „Ausstehend“ oder „Fehlgeschlagen“ hat.
+
+[NOTE]
+====
+Vergewissern Sie sich, dass Sie diesen Vorgang wirklich durchführen möchten, bevor Sie *Löschen* auswählen. Es gibt keinen Bestätigungsdialog.
+
+====
+|===
+

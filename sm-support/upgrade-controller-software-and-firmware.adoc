@@ -1,0 +1,100 @@
+---
+permalink: sm-support/upgrade-controller-software-and-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, upgrade, software, firmware 
+summary: 'Sie können die Software Ihres Storage-Arrays sowie optional die IOM-Firmware und den nichtflüchtigen statischen Direktzugriffsspeicher (NVSRAM) aktualisieren, um sicherzustellen, dass Sie alle neuesten Funktionen und Fehlerbehebungen erhalten.' 
+---
+= Upgrade der Controller-Software und -Firmware im SANtricity System Manager
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können die Software Ihres Storage-Arrays und optional die IOM-Firmware sowie den nichtflüchtigen statischen Direktzugriffsspeicher (NVSRAM) aktualisieren, um sicherzustellen, dass Sie über alle aktuellen Funktionen und Fehlerbehebungen verfügen.
+
+.Bevor Sie beginnen
+* Sie wissen, ob Sie Ihre IOM-Firmware aktualisieren möchten.
++
+Normalerweise sollten Sie alle Komponenten gleichzeitig aktualisieren. Sie können jedoch entscheiden, die IOM-Firmware nicht zu aktualisieren, wenn Sie sie nicht im Rahmen des SANtricity OS-Software-Upgrades aktualisieren möchten oder wenn Ihnen der technische Support empfohlen hat, die IOM-Firmware auf eine ältere Version zurückzusetzen (Sie können die Firmware nur über die Befehlszeile downgraden).
+
+* Sie wissen, ob Sie die Controller-NVSRAM-Datei aktualisieren möchten.
++
+Normalerweise sollten Sie alle Komponenten gleichzeitig aktualisieren. Sie können jedoch davon absehen, die Controller-NVSRAM-Datei zu aktualisieren, wenn Ihre Datei entweder gepatcht wurde oder eine benutzerdefinierte Version ist und Sie diese nicht überschreiben möchten.
+
+* Sie wissen, ob Sie Ihr OS-Upgrade jetzt oder später aktivieren möchten.
++
+Gründe für eine spätere Aktivierung könnten sein:
+
++
+** *Tageszeit* – Die Aktivierung der Software und Firmware kann längere Zeit in Anspruch nehmen, daher sollten Sie warten, bis die E/A-Lasten geringer sind. Die Controller führen während der Aktivierung ein Failover durch, sodass die Leistung bis zum Abschluss des Upgrades geringer als gewöhnlich sein kann.
+** *Pakettyp* -- Sie möchten möglicherweise die neue Software und Firmware auf einem Speichersystem testen, bevor Sie die Dateien auf anderen Speichersystemen aktualisieren.
+
+
+* Sie wissen, ob Sie von ungesicherten Laufwerken oder intern gesicherten Laufwerken auf einen externen Key-Management-Server (KMS) für die Laufwerkssicherheit umsteigen möchten.
+* Sie wissen, ob Sie rollenbasierte Zugriffssteuerung in Ihrem Speichersystem verwenden möchten.
+
+
+.Über diese Aufgabe
+Sie können wählen, nur die OS-Softwaredatei oder nur die Controller-NVSRAM-Datei zu aktualisieren, oder Sie können beide Dateien aktualisieren.
+
+Führen Sie diese Operation nur durch, wenn Sie vom technischen Support dazu aufgefordert werden.
+
+[CAUTION]
+====
+*Risiko von Datenverlust oder Risiko von Beschädigung des Speichersystems* -- Nehmen Sie während des Upgrades keine Änderungen am Speichersystem vor. Stellen Sie die Stromversorgung des Speichersystems sicher.
+
+====
+.Schritte
+. Wenn Ihr Storage-Array nur einen Controller enthält oder Sie keinen Multipath-Treiber installiert haben, stoppen Sie die E/A-Aktivität zum Storage-Array, um Anwendungsfehler zu vermeiden. Wenn Ihr Storage-Array zwei Controller hat und Sie einen Multipath-Treiber installiert haben, müssen Sie die E/A-Aktivität nicht stoppen.
+. Menü auswählen: Support[Upgrade Center].
+. Laden Sie die neue Datei von der Support site auf Ihren Management-Client herunter.
++
+.. Klicken Sie auf *NetApp Support*, um die Support-Website zu öffnen.
+.. Klicken Sie auf der Support-Website auf die Registerkarte *Downloads* und wählen Sie dann *Downloads* aus.
+.. Wählen Sie *E-Series SANtricity OS Controller Software* aus.
+.. Folgen Sie den übrigen Anweisungen.
+
+
++
+[NOTE]
+====
+Ab Version 8.42 ist digital signierte Firmware erforderlich. Wenn Sie versuchen, unsignierte Firmware herunterzuladen, wird eine Fehlermeldung angezeigt und der Download wird abgebrochen.
+
+====
+. Wenn Sie die IOM-Firmware zu diesem Zeitpunkt NICHT aktualisieren möchten, klicken Sie auf *Suspend IOM Auto-Synchronization*.
++
+Wenn Sie ein Speichersystem mit nur einem Controller haben, wird die IOM-Firmware nicht aktualisiert.
+
+. Klicken Sie unter SANtricity OS Software-Upgrade auf *Upgrade starten*.
++
+Das Dialogfeld „SANtricity OS-Software aktualisieren“ wird angezeigt.
+
+. Wählen Sie eine oder mehrere Dateien aus, um den Upgrade-Prozess zu starten:
++
+.. Wählen Sie die SANtricity OS Software-Datei aus, indem Sie auf *Browse* klicken und zu der OS Software-Datei navigieren, die Sie von der Support web site heruntergeladen haben.
+.. Wählen Sie die Controller-NVSRAM-Datei aus, indem Sie auf *Durchsuchen* klicken und zu der NVSRAM-Datei navigieren, die Sie von der Support-Website heruntergeladen haben. Controller-NVSRAM-Dateien haben einen Dateinamen ähnlich wie  `N2800-830000-000.dlp`.
+
+
++
+Diese Aktionen treten auf:
+
++
+** Standardmäßig werden nur die Dateien angezeigt, die mit der aktuellen Speicherarray-Konfiguration kompatibel sind.
+** Wenn Sie eine Datei für das Upgrade auswählen, werden der Name und die Größe der Datei angezeigt.
+
+
+. *Optional:* Wenn Sie eine SANtricity OS Software-Datei zum Upgrade ausgewählt haben, können Sie die Dateien auf den Controller übertragen, ohne sie zu aktivieren, indem Sie das Kästchen *Dateien jetzt übertragen, aber kein Upgrade durchführen (Upgrade später aktivieren)* auswählen.
+. Klicken Sie auf *Start*, und bestätigen Sie, dass Sie den Vorgang ausführen möchten.
++
+Sie können den Vorgang während der Vorabprüfung vor dem Upgrade abbrechen, jedoch nicht während der Übertragung oder Aktivierung.
+
+. *Optional:* Um eine Liste der aktualisierten Elemente anzuzeigen, klicken Sie auf *Save Log*.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `drive_upgrade_log-timestamp.txt` gespeichert.
+
+
+
+.Nachdem Sie fertig sind
+* Überprüfen Sie, ob alle Komponenten auf der Hardware-Seite angezeigt werden.
+* Überprüfen Sie die neuen Software- und Firmware-Versionen, indem Sie das Dialogfeld „Software and Firmware Inventory“ aufrufen (gehen Sie zum Menü:Support[Upgrade Center], und klicken Sie dann auf den Link für *Software and Firmware Inventory*).
+* Wenn Sie den NVSRAM des Controllers aktualisiert haben, gehen alle benutzerdefinierten Einstellungen, die Sie auf den bestehenden NVSRAM angewendet haben, während des Aktivierungsprozesses verloren. Sie müssen die benutzerdefinierten Einstellungen nach Abschluss der Aktivierung erneut auf den NVSRAM anwenden.
+

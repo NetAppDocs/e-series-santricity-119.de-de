@@ -1,0 +1,69 @@
+---
+permalink: sm-storage/assign-hot-spares-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, assign hot spares 
+summary: Sie können ein Hot-Spare-Laufwerk als Standby-Laufwerk für zusätzlichen Datenschutz in RAID-1-, RAID-5- oder RAID-6-Volume-Gruppen festlegen. Wenn ein Laufwerk in einer dieser Volume-Gruppen ausfällt, rekonstruiert der Controller die Daten vom ausgefallenen Laufwerk auf das Hot-Spare-Laufwerk. 
+---
+= Hot-Spare-Geräte im SANtricity System Manager zuweisen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Hot-Spare-Laufwerk als Standby-Laufwerk für zusätzlichen Datenschutz in RAID-1-, RAID-5- oder RAID-6-Volume-Gruppen festlegen. Wenn ein Laufwerk in einer dieser Volume-Gruppen ausfällt, rekonstruiert der Controller die Daten vom ausgefallenen Laufwerk auf das Hot-Spare-Laufwerk.
+
+.Bevor Sie beginnen
+* Es müssen RAID 1-, RAID 5- oder RAID 6-Volumegruppen erstellt werden. (Hot spares können nicht für Pools verwendet werden. Stattdessen nutzt ein Pool die freie Kapazität innerhalb jedes Laufwerks zum Schutz seiner Daten.)
+* Es muss ein Laufwerk verfügbar sein, das die folgenden Kriterien erfüllt:
++
+** Nicht zugewiesen, mit Optimal-Status.
+** Gleicher Medientyp wie die Laufwerke in der Volume-Gruppe (zum Beispiel SSDs).
+** Gleicher Schnittstellentyp wie die Laufwerke in der Volume-Gruppe (zum Beispiel SAS).
+** Kapazität, die gleich oder größer ist als die genutzte Kapazität der Laufwerke in der Volumengruppe.
+
+
+
+
+.Über diese Aufgabe
+Diese Aufgabe beschreibt, wie Sie manuell ein Hot-Spare-Laufwerk über die Hardware-Seite zuweisen. Die empfohlene Abdeckung beträgt zwei Hot-Spare-Laufwerke pro Laufwerksgruppe.
+
+[CAUTION]
+====
+Hot spares können auch über den Initial Setup-Assistenten zugewiesen werden. Sie können feststellen, ob Hot spares bereits zugewiesen sind, indem Sie auf der Hardware-Seite nach Laufwerksschächten suchen, die in Pink angezeigt werden.
+
+====
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Controller anzeigt, klicken Sie auf die Registerkarte *Drives*.
++
+Die Grafik ändert sich, um die Laufwerke anstelle der Controller anzuzeigen.
+
+. Wählen Sie ein nicht zugewiesenes Laufwerk (grau dargestellt) aus, das Sie als Hot Spare verwenden möchten.
++
+Das Kontextmenü des Laufwerks wird geöffnet.
+
+. Wählen Sie *Assign hot spare* aus.
++
+Wenn das Laufwerk secure-enabled ist, öffnet sich das Dialogfeld *Secure Erase Drive*. Um ein secure-enabled Laufwerk als Hot-Spare zu verwenden, müssen Sie zuerst eine Secure Erase-Operation durchführen, um alle Daten zu entfernen und die Sicherheitsattribute zurückzusetzen.
+
++
+[CAUTION]
+====
+*Möglicher Datenverlust* – Stellen Sie sicher, dass Sie das richtige Laufwerk ausgewählt haben. Nach Abschluss der Secure Erase-Operation können Sie keine der Daten wiederherstellen.
+
+====
++
+Wenn das Laufwerk *nicht* sicherheitsaktiviert ist, wird das Dialogfeld „Hot-Spare-Laufwerk zuweisen bestätigen“ geöffnet.
+
+. Überprüfen Sie den Text im Dialogfeld und bestätigen Sie anschließend den Vorgang.
++
+Das Laufwerk wird auf der Hardware-Seite rosa angezeigt, was darauf hinweist, dass es jetzt ein Hot Spare ist.
+
+
+
+
+
+== Ergebnisse
+
+Wenn ein Laufwerk innerhalb einer RAID 1-, RAID 5- oder RAID 6-Volumegruppe ausfällt, verwendet der Controller automatisch Redundanzdaten, um die Daten vom ausgefallenen Laufwerk auf das Hot Spare wiederherzustellen.

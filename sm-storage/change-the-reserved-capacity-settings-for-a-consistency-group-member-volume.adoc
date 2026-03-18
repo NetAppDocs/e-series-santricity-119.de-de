@@ -1,0 +1,64 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-consistency-group-member-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, consistency group, member volume 
+summary: Sie können die Einstellungen für ein Konsistenzgruppenmitglied-Volume ändern, um den Prozentsatz anzupassen, bei dem System Manager eine Warnmeldung sendet, wenn die reservierte Kapazität für ein Mitgliedsvolume fast voll ist, und um die Richtlinie zu ändern, die verwendet wird, wenn die reservierte Kapazität ihren maximal definierten Prozentsatz erreicht. 
+---
+= Ändern Sie die Einstellungen für die reservierte Kapazität eines Konsistenzgruppenmitglied-Volumes in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für ein Konsistenzgruppenmitglied-Volume ändern, um den Prozentsatz anzupassen, bei dem SANtricity System Manager eine Warnmeldung sendet, wenn die reservierte Kapazität für ein Mitgliedsvolume fast voll ist, und um die Richtlinie zu ändern, die angewendet werden soll, wenn die reservierte Kapazität ihren maximal definierten Prozentsatz erreicht.
+
+.Über diese Aufgabe
+Durch das Ändern der Einstellungen für die reservierte Kapazität eines einzelnen Mitgliedsvolumes werden auch die Einstellungen für die reservierte Kapazität aller Mitgliedsvolumes geändert, die mit einer Konsistenzgruppe verknüpft sind.
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Klicken Sie auf die Registerkarte *Reserved Capacity*.
+. Wählen Sie das Konsistenzgruppenmitglied-Volume aus, das Sie bearbeiten möchten, und klicken Sie dann auf *Einstellungen anzeigen/bearbeiten*.
++
+Das Dialogfeld „Einstellungen für reservierte Member Volume-Kapazität“ wird angezeigt.
+
+. Ändern Sie die Einstellungen für die reservierte Kapazität des Member-Volumes nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Benachrichtige mich, wenn...
+ a| 
+Verwenden Sie das Drehfeld, um den Prozentsatz einzustellen, bei dem der System Manager eine Warnmeldung sendet, wenn die reservierte Kapazität für ein Mitgliedsvolume fast voll ist.
+
+Wenn die reservierte Kapazität für das Mitgliedsvolume den festgelegten Schwellenwert überschreitet, sendet System Manager eine Warnung, sodass Sie Zeit haben, die reservierte Kapazität zu erhöhen oder unnötige Objekte zu löschen.
+
+
+NOTE: Wenn Sie die Alarmeinstellung für ein Mitgliedsvolume ändern, wird sie für _alle_ Mitgliedsvolumes geändert, die zur selben Konsistenzgruppe gehören.
+
+
+
+ a| 
+Richtlinie für vollständig reservierte Kapazität
+ a| 
+Sie können eine der folgenden Richtlinien wählen:
+
+** *Ältestes Snapshot-Image löschen* -- System Manager löscht automatisch das älteste Snapshot-Image in der Konsistenzgruppe, wodurch die reservierte Kapazität des Mitglieds zur Wiederverwendung innerhalb der Gruppe freigegeben wird.
+** *Schreibvorgänge auf das Basisvolume ablehnen* -- Wenn die reservierte Kapazität ihren maximal definierten Prozentsatz erreicht, lehnt System Manager jede E/A-Schreibanforderung an das Basisvolume ab, die den Zugriff auf die reservierte Kapazität ausgelöst hat.
+
+
+|===
+====
+. Klicken Sie auf *Speichern*, um Ihre Änderungen zu übernehmen.
+
+
+.Ergebnisse
+System Manager ändert die Einstellungen für die reservierte Kapazität des Mitgliedsvolumes sowie die Einstellungen für die reservierte Kapazität aller Mitgliedsvolumes in der Konsistenzgruppe.

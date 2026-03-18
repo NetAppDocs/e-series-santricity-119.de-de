@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/configure-login-banner.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, login, banner, 
+summary: Sie können ein Anmeldebanner erstellen, das Benutzern angezeigt wird, bevor sie Sitzungen im SANtricity System Manager einrichten. Das Banner kann einen Hinweis und eine Einwilligungserklärung enthalten. 
+---
+= Anmeldebanner im SANtricity System Manager konfigurieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Anmeldebanner erstellen, das Benutzern angezeigt wird, bevor sie Sitzungen im SANtricity System Manager einrichten. Das Banner kann einen Hinweis und eine Einwilligungserklärung enthalten.
+
+.Über diese Aufgabe
+Wenn Sie ein Banner erstellen, erscheint es vor dem Anmeldebildschirm in einem Dialogfeld.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Wählen Sie im Abschnitt *Allgemein* die Option *Anmeldebanner konfigurieren*.
++
+Das Dialogfeld „Anmeldebanner konfigurieren“ wird geöffnet.
+
+. Geben Sie den Text ein, der im Anmeldebanner angezeigt werden soll.
++
+[NOTE]
+====
+Verwenden Sie keine HTML- oder andere Markup-Tags zur Formatierung.
+
+====
+. Klicken Sie auf *Speichern*.
+
+
+.Ergebnisse
+Beim nächsten Anmelden am System Manager öffnet sich der Text in einem Dialogfeld. Benutzer müssen auf *OK* klicken, um zum Anmeldebildschirm zu gelangen.

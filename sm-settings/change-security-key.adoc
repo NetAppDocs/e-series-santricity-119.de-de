@@ -1,0 +1,62 @@
+---
+permalink: sm-settings/change-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, security, key, 
+summary: Sie können den Sicherheitsschlüssel jederzeit durch einen neuen ersetzen. Sie müssen möglicherweise einen Sicherheitsschlüssel ändern, wenn in Ihrem Unternehmen ein potenzieller Sicherheitsverstoß vorliegt und Sie sicherstellen möchten, dass Unbefugte keinen Zugriff auf die Daten der Laufwerke haben. 
+---
+= Ändern Sie einen Sicherheitsschlüssel in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den Sicherheitsschlüssel jederzeit durch einen neuen ersetzen. Sie müssen möglicherweise einen Sicherheitsschlüssel ändern, wenn in Ihrem Unternehmen ein potenzieller Sicherheitsverstoß vorliegt und Sie sicherstellen möchten, dass Unbefugte keinen Zugriff auf die Daten der Laufwerke haben.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *Security key management* wählen Sie *Change Key*.
++
+Das Dialogfeld „Sicherheitsschlüssel ändern“ wird geöffnet.
+
+. Geben Sie Informationen in die folgenden Felder ein.
++
+** *Sicherheitsschlüssel-Kennung definieren* -- (Nur für interne Sicherheitsschlüssel.) Übernehmen Sie den Standardwert (Name des Speicherarrays und Zeitstempel, der von der Controller-Firmware generiert wird) oder geben Sie einen eigenen Wert ein. Sie können bis zu 189 alphanumerische Zeichen ohne Leerzeichen, Satzzeichen oder Symbole eingeben.
++
+[NOTE]
+====
+Zusätzliche Zeichen werden automatisch generiert und an beide Enden der Zeichenkette, die Sie eingeben, angehängt. Die generierten Zeichen helfen dabei, sicherzustellen, dass der Bezeichner eindeutig ist.
+
+====
+** *Passphrase festlegen/Passphrase wiederholen* – Geben Sie in jedem dieser Felder Ihre Passphrase ein. Der Wert kann zwischen 8 und 32 Zeichen haben und muss jeweils Folgendes enthalten:
++
+*** Ein oder mehrere Großbuchstaben. Beachten Sie, dass die Passphrase Groß-/Kleinschreibung beachtet.
+*** Eine Zahl (eine oder mehrere).
+*** Ein nicht-alphanumerisches Zeichen, wie !, *, @ (eines oder mehrere).
+
+
+
+
+. Für externe Sicherheitsschlüssel, wenn Sie den alten Sicherheitsschlüssel löschen möchten, wenn der neue erstellt wird, aktivieren Sie das Kontrollkästchen „Aktuellen Sicherheitsschlüssel löschen…“ unten im Dialogfeld.
++
+[CAUTION]
+====
+*Notieren Sie sich Ihre Eingaben unbedingt zur späteren Verwendung* -- Wenn Sie ein sicherheitsfähiges Laufwerk aus dem Speichersystem verschieben müssen, benötigen Sie die Kennung und die Passphrase, um die Laufwerksdaten zu entsperren.
+
+====
+. Klicken Sie auf *Change*.
++
+Der neue Sicherheitsschlüssel überschreibt den vorherigen Schlüssel, der nicht mehr gültig ist.
+
++
+[NOTE]
+====
+Der Pfad für die heruntergeladene Datei kann vom Standard-Downloadverzeichnis Ihres Browsers abhängen.
+
+====
+. Notieren Sie sich Ihre Schlüsselkennung, die Passphrase und den Speicherort der heruntergeladenen Schlüsseldatei und klicken Sie dann auf *Schließen*.
+
+
+.Nachdem Sie fertig sind
+Sie sollten den Sicherheitsschlüssel validieren, um sicherzustellen, dass die Schlüsseldatei nicht beschädigt ist.

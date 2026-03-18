@@ -1,0 +1,41 @@
+---
+permalink: sm-support/overview-event-log.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, event, log 
+summary: Verwenden Sie das Ereignisprotokoll, um einen historischen Verlauf von Änderungen und Ereignissen anzuzeigen, die auf dem Storage-Array aufgetreten sind. 
+---
+= Erfahren Sie mehr über das Ereignisprotokoll in der SANtricity-Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das Ereignisprotokoll bietet eine historische Aufzeichnung der Ereignisse, die auf dem Storage-Array aufgetreten sind, was dem technischen Support bei der Fehlersuche von Ereignissen hilft, die zu Ausfällen geführt haben.
+
+Das Ereignisprotokoll kann als ergänzendes Diagnosetool zum Recovery Guru verwendet werden, um Ereignisse im Storage-Array nachzuverfolgen. Konsultieren Sie beim Versuch, sich von Komponentenausfällen im Storage-Array zu erholen, immer zuerst den Recovery Guru.
+
+
+
+== Ereigniskategorien
+
+Die Ereignisse im Ereignisprotokoll sind mit unterschiedlichen Status kategorisiert. Ereignisse, bei denen Sie Maßnahmen ergreifen müssen, haben die folgenden Status:
+
+* Kritisch
+* Warnung
+
+
+Ereignisse, die lediglich der Information dienen und keine sofortige Aktion erfordern, sind die folgenden:
+
+* Informationen
+
+
+
+
+== Kritische Ereignisse
+
+Kritische Ereignisse weisen auf ein Problem mit dem Storage-Array hin. Wenn Sie das kritische Ereignis sofort beheben, können Sie möglicherweise den Verlust des Datenzugriffs verhindern.
+
+Tritt ein kritisches Ereignis auf, wird es im Ereignisprotokoll erfasst. Alle kritischen Ereignisse werden an die SNMP-Managementkonsole oder an den von Ihnen konfigurierten E-Mail-Empfänger gesendet, der Benachrichtigungen über Warnmeldungen erhält. Ist die Shelf-ID zum Zeitpunkt des Ereignisses nicht bekannt, wird die Shelf-ID als „Shelf unknown“ aufgeführt.
+
+Wenn Sie ein kritisches Ereignis erhalten, lesen Sie das Recovery Guru-Verfahren für eine detaillierte Beschreibung des kritischen Ereignisses. Führen Sie das Recovery Guru-Verfahren aus, um das kritische Ereignis zu korrigieren. Um bestimmte kritische Ereignisse zu korrigieren, müssen Sie möglicherweise den technischen Support kontaktieren.

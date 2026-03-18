@@ -1,0 +1,223 @@
+---
+permalink: sm-hardware/view-drive-status-and-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, drive, status, settings, media, 
+summary: Sie können Status und Einstellungen der Laufwerke anzeigen, wie z. B. Medientyp, Schnittstellentyp und Kapazität. 
+---
+= Laufwerksstatus und -einstellungen im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Status und Einstellungen der Laufwerke anzeigen, wie z. B. Medientyp, Schnittstellentyp und Kapazität.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Controller anzeigt, klicken Sie auf die Registerkarte *Drives*.
++
+Die Grafik ändert sich, um die Laufwerke anstelle der Controller anzuzeigen.
+
+. Wählen Sie das Laufwerk aus, für das Sie Status und Einstellungen anzeigen möchten.
++
+Das Kontextmenü des Laufwerks wird geöffnet.
+
+. Wählen Sie *View settings* aus.
++
+Das Dialogfeld „Laufwerkseinstellungen“ wird geöffnet.
+
+. Um alle Einstellungen zu sehen, klicken Sie oben rechts im Dialogfeld auf *Show more settings*.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellungen | Beschreibung 
+
+
+ a| 
+Status
+ a| 
+Zeigt „Optimal“, „Offline“, „Nicht kritischer Fehler“ und „Ausgefallen“ an. Der Status „Optimal“ kennzeichnet den gewünschten Betriebszustand.
+
+
+
+ a| 
+Modus
+ a| 
+Zeigt Zugewiesen, Nicht zugewiesen, Hot Spare Standby oder Hot Spare in Verwendung an.
+
+
+
+ a| 
+Standort
+ a| 
+Zeigt die Regal- und Schachtnummer an, wo sich das Laufwerk befindet.
+
+
+
+ a| 
+Zugewiesen an/Kann schützen für/Schützt
+ a| 
+Wenn das Laufwerk einem Pool, einer Volume-Gruppe oder einem SSD-Cache zugewiesen ist, wird in diesem Feld „Assigned to.“ angezeigt. Der Wert kann ein Poolname, ein Volume-Gruppenname oder ein SSD-Cache-Name sein. Wenn das Laufwerk einem Hot-Spare-Laufwerk zugewiesen ist und sich im Standby-Modus befindet, wird in diesem Feld „Can protect for.“ angezeigt. Wenn das Hot-Spare-Laufwerk eine oder mehrere Volume-Gruppen schützen kann, werden die Volume-Gruppennamen angezeigt. Wenn es keine Volume-Gruppe schützen kann, werden 0 Volume-Gruppen angezeigt.
+
+Wenn das Laufwerk als Hot-Spare-Laufwerk zugewiesen ist und sich im Modus „In Verwendung“ befindet, wird in diesem Feld „Protecting“ angezeigt. Der Wert ist der Name der betroffenen Volume-Gruppe.
+
+Wenn das Laufwerk nicht zugewiesen ist, wird dieses Feld nicht angezeigt.
+
+
+
+ a| 
+Medientyp
+ a| 
+Zeigt den Typ des vom Laufwerk verwendeten Aufzeichnungsmediums an, der entweder Festplatte (HDD) oder Solid State Disk (SSD) sein kann.
+
+
+
+ a| 
+Prozent der genutzten Ausdauer (wird nur angezeigt, wenn SSD-Laufwerke vorhanden sind)
+ a| 
+Die bisher auf das Laufwerk geschriebene Datenmenge, dividiert durch das gesamte theoretische Schreiblimit.
+
+
+
+ a| 
+Schnittstellentyp
+ a| 
+Zeigt den Typ der Schnittstelle an, die das Laufwerk verwendet, wie z. B. SAS.
+
+
+
+ a| 
+Redundanz des Laufwerkspfads
+ a| 
+Zeigt an, ob die Verbindungen zwischen Laufwerk und Controller redundant sind (Ja) oder nicht (Nein).
+
+
+
+ a| 
+Kapazität (GiB)
+ a| 
+Zeigt die nutzbare Kapazität (konfigurierte Gesamtkapazität) des Laufwerks an.
+
+
+
+ a| 
+Geschwindigkeit (U/min)
+ a| 
+Zeigt die Geschwindigkeit in U/min an (wird bei SSDs nicht angezeigt).
+
+
+
+ a| 
+Aktuelle Datentransferrate
+ a| 
+Zeigt die Datentransferrate zwischen dem Laufwerk und dem Storage-Array an.
+
+
+
+ a| 
+Logische Sektorgröße (Bytes)
+ a| 
+Zeigt die logische Sektorgröße an, die das Laufwerk verwendet.
+
+
+
+ a| 
+Physikalische Sektorgröße (Bytes)
+ a| 
+Zeigt die physische Sektorgröße an, die das Laufwerk verwendet. Typischerweise beträgt die physische Sektorgröße bei Festplatten 4096 Byte.
+
+
+
+ a| 
+Laufwerks-Firmware-Version
+ a| 
+Zeigt den Revisionsstand der Laufwerksfirmware an.
+
+
+
+ a| 
+Weltweiter Identifikator
+ a| 
+Zeigt die eindeutige hexadezimale Kennung für das Laufwerk an.
+
+
+
+ a| 
+Produkt-ID
+ a| 
+Zeigt die Produktkennung an, die vom Hersteller vergeben wird.
+
+
+
+ a| 
+Seriennummer
+ a| 
+Zeigt die Seriennummer des Laufwerks an.
+
+
+
+ a| 
+Hersteller
+ a| 
+Zeigt den Hersteller des Laufwerks an.
+
+
+
+ a| 
+Herstellungsdatum
+ a| 
+Zeigt das Datum an, an dem das Laufwerk gebaut wurde.
+
+
+NOTE: Nicht verfügbar für NVMe-Laufwerke.
+
+
+
+ a| 
+Sicherheitsfähig
+ a| 
+Zeigt an, ob das Laufwerk sicherheitsfähig (Ja) oder nicht (Nein) ist. Sicherheitsfähige Laufwerke können entweder Full Disk Encryption (FDE)-Laufwerke oder Federal Information Processing Standard (FIPS)-Laufwerke (Stufe 140-2 oder 140-3) sein, die Daten beim Schreiben verschlüsseln und beim Lesen entschlüsseln. Diese Laufwerke gelten als secure-_capable_, da sie mithilfe der Drive Security-Funktion für zusätzliche Sicherheit eingesetzt werden können. Wenn die Drive Security-Funktion für Volumengruppen und Pools aktiviert ist, die mit diesen Laufwerken verwendet werden, werden die Laufwerke secure-_enabled_.
+
+
+
+ a| 
+Sicherheitsfähig
+ a| 
+Zeigt an, ob das Laufwerk sicher-aktiviert (Ja) ist oder nicht (Nein). Sicher-aktivierte Laufwerke werden mit der Funktion Drive Security verwendet. Wenn Sie die Funktion Drive Security aktivieren und dann Drive Security auf einen Pool oder eine Volumengruppe mit sicher-_fähigen_ Laufwerken anwenden, werden die Laufwerke sicher-_aktiviert_. Lese- und Schreibzugriff ist nur über einen Controller möglich, der mit dem korrekten Sicherheitsschlüssel konfiguriert ist. Diese zusätzliche Sicherheit verhindert unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Speicher-Array entfernt wurde.
+
+
+
+ a| 
+Lesen/schreiben zugänglich
+ a| 
+Zeigt an, ob das Laufwerk lesen/schreiben zugänglich ist (Ja) oder nicht (Nein).
+
+
+
+ a| 
+Laufwerkssicherheitsschlüsselkennung
+ a| 
+Zeigt den Sicherheitsschlüssel für sicherheitsfähige Laufwerke an. Drive Security ist eine Funktion von Speichersystemen, die eine zusätzliche Sicherheitsebene mit entweder Full Disk Encryption (FDE) Laufwerken oder Federal Information Processing Standard (FIPS) Laufwerken bietet. Wenn diese Laufwerke mit der Drive Security-Funktion verwendet werden, benötigen sie einen Sicherheitsschlüssel für den Zugriff auf ihre Daten. Wenn die Laufwerke physisch aus dem Array entfernt werden, können sie erst wieder betrieben werden, wenn sie in einem anderen Array installiert sind; in diesem Fall befinden sie sich im Security Locked-Zustand, bis der korrekte Sicherheitsschlüssel bereitgestellt wird.
+
+
+
+ a| 
+Data Assurance (DA)-fähig
+ a| 
+Zeigt an, ob die Data Assurance (DA) Funktion aktiviert (Ja) oder nicht (Nein) ist. Data Assurance (DA) ist eine Funktion, die Fehler prüft und korrigiert, die beim Übertragen von Daten durch die Controller bis zu den Laufwerken auftreten können. Data Assurance kann auf Pool- oder Volume-Gruppenebene aktiviert werden, wobei Hosts eine DA-fähige I/O-Schnittstelle wie Fibre Channel verwenden.
+
+
+
+ a| 
+DULBE-fähig
+ a| 
+Gibt an, ob die Option für Deallocated or Unwritten Logical Block Error (DULBE) aktiviert (Ja) oder nicht (Nein) ist. DULBE ist eine Option auf NVMe-Laufwerken, die es dem EF300 oder EF600 storage array ermöglicht, ressourcenbereitgestellte Volumes zu unterstützen.
+
+|===
+====
+. Klicken Sie auf *Schließen*.
+

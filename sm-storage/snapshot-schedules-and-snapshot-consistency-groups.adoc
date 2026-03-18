@@ -1,0 +1,38 @@
+---
+permalink: sm-storage/snapshot-schedules-and-snapshot-consistency-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot, schedules, snapshot, consistency groups 
+summary: Verwenden Sie Zeitpläne für die Erfassung von Snapshot-Images und verwenden Sie Snapshot-Konsistenzgruppen zur Verwaltung mehrerer Basis-Volumes. 
+---
+= Erfahren Sie mehr über Snapshot-Zeitpläne und Snapshot-Konsistenzgruppen im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verwenden Sie Zeitpläne für die Erfassung von Snapshot-Images und verwenden Sie Snapshot-Konsistenzgruppen zur Verwaltung mehrerer Basis-Volumes.
+
+Zur einfachen Verwaltung von Snapshot-Vorgängen für Basis-Volumes können Sie die folgenden Funktionen nutzen:
+
+* *Snapshot-Zeitplan* -- Automatisieren Sie Snapshots für ein einzelnes Basis-Volume.
+* *Snapshot-Konsistenzgruppe* -- Mehrere Basis-Volumes als eine Einheit verwalten.
+
+
+
+
+== Snapshot-Zeitplan
+
+Wenn Sie automatisch Snapshots für ein Basis-Volume erstellen möchten, können Sie einen Zeitplan erstellen. Sie können beispielsweise einen Zeitplan definieren, der Snapshot-Images jeden Samstag um Mitternacht, am ersten Tag jedes Monats oder zu beliebigen von Ihnen festgelegten Daten und Uhrzeiten erstellt. Nachdem das Maximum von 32 Snapshots für einen einzelnen Zeitplan erreicht ist, können Sie geplante Snapshots aussetzen, mehr reservierte Kapazität erstellen oder Snapshots löschen. Snapshots können manuell oder durch Automatisierung des Löschvorgangs gelöscht werden. Nachdem ein Snapshot-Image gelöscht wurde, steht zusätzliche reservierte Kapazität zur Wiederverwendung zur Verfügung.
+
+
+
+== Snapshot-Konsistenzgruppe
+
+Sie erstellen eine Snapshot-Konsistenzgruppe, wenn Sie sicherstellen möchten, dass Snapshot-Images auf mehreren Volumes zur gleichen Zeit erstellt werden. Snapshot-Image-Aktionen werden für die Snapshot-Konsistenzgruppe als Ganzes ausgeführt. Beispielsweise können Sie synchronisierte Snapshots aller Volumes mit demselben Zeitstempel planen. Snapshot-Konsistenzgruppen sind ideal für Anwendungen, die sich über mehrere Volumes erstrecken, wie zum Beispiel Datenbankanwendungen, die Protokolle auf einem Volume und die Datenbankdateien auf einem anderen Volume speichern.
+
+Die in einer Snapshot-Konsistenzgruppe enthaltenen Volumes werden als Mitgliedsvolumes bezeichnet. Wenn Sie ein Volume zu einer Konsistenzgruppe hinzufügen, erstellt System Manager automatisch eine neue reservierte Kapazität, die diesem Mitgliedsvolume entspricht. Sie können einen Zeitplan definieren, um automatisch ein Snapshot-Image jedes Mitgliedsvolumes zu erstellen.
+
+image::../media/sam1130-dwg-snapshots-consistency-groups-overview.gif[Übersicht der Snapshot-Konsistenzgruppe]
+
+^1^ Reservierte Kapazität; ^2^ Member Volume; ^3^ Snapshot-Bilder der Konsistenzgruppe

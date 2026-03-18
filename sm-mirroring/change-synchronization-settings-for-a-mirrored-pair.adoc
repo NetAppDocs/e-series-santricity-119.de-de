@@ -1,0 +1,57 @@
+---
+permalink: sm-mirroring/change-synchronization-settings-for-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, synchronization, settings, mirrored, pair, 
+summary: Sie können die Synchronisierungspriorität und die Resynchronisierungsrichtlinie ändern, die das gespiegelte Paar verwendet, um den Resynchronisierungsvorgang nach einer Kommunikationsunterbrechung abzuschließen. 
+---
+= Synchronisierungseinstellungen für ein gespiegeltes Paar im SANtricity System Manager ändern
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Synchronisierungspriorität und die Resynchronisierungsrichtlinie ändern, die das gespiegelte Paar verwendet, um den Resynchronisierungsvorgang nach einer Kommunikationsunterbrechung abzuschließen.
+
+.Über diese Aufgabe
+Sie können die Synchronisierungseinstellungen für ein gespiegeltes Paar nur auf dem Speicherarray bearbeiten, das das primäre Volume enthält.
+
+.Schritte
+. Menü auswählen: Storage [Synchronous Mirroring].
+. Wählen Sie das gespiegelte Paar aus, das Sie bearbeiten möchten, und wählen Sie dann Menü:Mehr[Einstellungen bearbeiten].
++
+Das System zeigt das Dialogfeld „Einstellungen anzeigen/bearbeiten“ an.
+
+. Verwenden Sie die Schiebereglerleiste, um die Synchronisierungspriorität zu bearbeiten.
++
+Die Synchronisierungspriorität bestimmt, wie viele Systemressourcen für die Durchführung der Resynchronisierungsoperation nach einer Kommunikationsunterbrechung im Vergleich zu Service-I/O-Anforderungen verwendet werden.
+
++
+.Mehr über Synchronisationsraten
+[%collapsible]
+====
+Es gibt fünf Synchronisierungsprioritätsraten:
+
+** Niedrigster
+** Niedrig
+** Mittel
+** Hoch
+** Höchste
+
+
+====
++
+Ist die Synchronisierungspriorität auf die niedrigste Rate eingestellt, wird die E/A-Aktivität priorisiert, und die Resynchronisierung dauert länger. Ist die Synchronisierungspriorität auf die höchste Rate eingestellt, wird die Resynchronisierung priorisiert, aber die E/A-Aktivität für das Storage-Array kann beeinträchtigt werden.
+
+. Bearbeiten Sie die Resynchronisierungsrichtlinie nach Bedarf.
++
+Sie können die gespiegelten Paare auf dem entfernten Speichersystem entweder manuell oder automatisch resynchronisieren.
+
++
+** *Manuell* (die empfohlene Option) -- Wählen Sie diese Option, um die Synchronisierung nach Wiederherstellung der Kommunikation zu einem gespiegelten Paar manuell fortzusetzen. Diese Option bietet die beste Möglichkeit zur Wiederherstellung von Daten.
+** *Automatisch* -- Wählen Sie diese Option, um die Resynchronisierung automatisch zu starten, nachdem die Kommunikation mit einem gespiegelten Paar wiederhergestellt wurde.
+
+
+. Wählen Sie *Save*.
+

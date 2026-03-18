@@ -1,0 +1,28 @@
+---
+permalink: um-manage/storage-array-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, storage, array, groups 
+summary: Sie können Ihre physische und virtualisierte Infrastruktur verwalten, indem Sie eine Gruppe von Speichersystemen erstellen. Sie möchten möglicherweise Speichersysteme gruppieren, um Überwachungs- oder Berichtsaufgaben einfacher auszuführen. 
+---
+= Erfahren Sie mehr über Speicherarray-Gruppen im SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Ihre physische und virtualisierte Infrastruktur verwalten, indem Sie eine Gruppe von Speichersystemen erstellen. Sie möchten möglicherweise Speichersysteme gruppieren, um Überwachungs- oder Berichtsaufgaben einfacher auszuführen.
+
+
+
+== Arten von Speicherarray-Gruppen
+
+* *Alle Gruppen*
++
+Die Gruppe „Alle“ ist die Standardgruppe und umfasst alle in Ihrer Organisation erkannten Speicherarrays. Die Gruppe „Alle“ kann in der Hauptansicht aufgerufen werden.
+
+* *Benutzerdefinierte Gruppe*
++
+Eine benutzerdefinierte Gruppe umfasst die Speicherarrays, die Sie manuell auswählen, um sie zu dieser Gruppe hinzuzufügen. Auf benutzerdefinierte Gruppen kann über die Hauptansicht zugegriffen werden.
+
+

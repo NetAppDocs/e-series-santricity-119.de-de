@@ -1,0 +1,35 @@
+---
+permalink: sm-support/collect-i-o-path-statistics.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, collect, i/o path, statistics 
+summary: Sie können die Statistiken-Datei mit den E/A-Pfadstatistiken speichern und zur Analyse an den technischen Support senden. 
+---
+= Erfassen Sie I/O-Pfad-Statistiken im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Statistiken-Datei mit den E/A-Pfadstatistiken speichern und zur Analyse an den technischen Support senden.
+
+.Über diese Aufgabe
+Der technische Support nutzt die I/O-Pfadstatistiken, um Leistungsprobleme zu diagnostizieren. Anwendungsleistungsprobleme können durch Speicherauslastung, CPU-Auslastung, Netzwerklatenz, I/O-Latenz oder andere Probleme verursacht werden. Die I/O-Pfadstatistiken werden automatisch während der Support-Datenerfassung gesammelt oder Sie können sie manuell erfassen. Außerdem werden, wenn Sie AutoSupport aktiviert haben, die I/O-Pfadstatistiken automatisch erfasst und an den technischen Support gesendet.
+
+Die Zähler für die I/O-Pfad-Statistiken werden zurückgesetzt, nachdem Sie bestätigt haben, dass Sie die I/O-Pfad-Statistiken erfassen möchten. Die Zähler werden auch zurückgesetzt, wenn Sie den Vorgang anschließend abbrechen. Die Zähler werden ebenfalls zurückgesetzt, wenn der Controller zurückgesetzt wird (Neustart).
+
+[NOTE]
+====
+Führen Sie diese Operation nur durch, wenn Sie vom technischen Support dazu aufgefordert werden.
+
+====
+.Schritte
+. Menü auswählen: Support [Support Center > Diagnostics] Registerkarte.
+. Wählen Sie *E/A-Pfadstatistiken erfassen* aus.
+. Bestätigen Sie, dass Sie den Vorgang durchführen möchten, indem Sie  `collect` eingeben, und klicken Sie dann auf *Sammeln*.
++
+Die Datei wird im Downloads-Ordner Ihres Browsers mit dem Dateinamen  `io-path-statistics.7z` gespeichert.
+
+. Befolgen Sie die Anweisungen des technischen Supports, um die Datei an sie zu senden.
+

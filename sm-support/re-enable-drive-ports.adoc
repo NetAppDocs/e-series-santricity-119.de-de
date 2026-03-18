@@ -1,0 +1,26 @@
+---
+permalink: sm-support/re-enable-drive-ports.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, re-enable, drive, ports 
+summary: Sie können dem Controller mitteilen, dass eine Korrekturmaßnahme ergriffen wurde, um einen Verdrahtungsfehler zu beheben. 
+---
+= Laufwerksports im SANtricity System Manager wieder aktivieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können dem Controller mitteilen, dass eine Korrekturmaßnahme ergriffen wurde, um einen Verdrahtungsfehler zu beheben.
+
+.Schritte
+. Menü auswählen: Support [Support Center > Diagnostics] Registerkarte.
+. Wählen Sie *Re-enable Drive Ports* und bestätigen Sie, dass Sie den Vorgang durchführen möchten.
++
+Diese Option wird nur angezeigt, wenn das Speichersystem deaktivierte Laufwerksanschlüsse hat.
+
++
+Der Controller reaktiviert alle SAS-Ports, die deaktiviert wurden, als eine Fehlverdrahtung erkannt wurde.
+
+

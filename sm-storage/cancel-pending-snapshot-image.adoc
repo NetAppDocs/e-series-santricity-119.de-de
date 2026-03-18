@@ -1,0 +1,29 @@
+---
+permalink: sm-storage/cancel-pending-snapshot-image.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, cancel, pending, snapshot, image 
+summary: Sie können ein ausstehendes Snapshot-Image abbrechen, bevor es abgeschlossen ist. Snapshots erfolgen asynchron, und der Status des Snapshots ist ausstehend, bis der Snapshot abgeschlossen ist. Das Snapshot-Image wird abgeschlossen, sobald der Synchronisierungsvorgang abgeschlossen ist. 
+---
+= Ein ausstehendes Snapshot-Image im SANtricity System Manager abbrechen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein ausstehendes Snapshot-Image abbrechen, bevor es abgeschlossen ist. Snapshots erfolgen asynchron, und der Status des Snapshots ist ausstehend, bis der Snapshot abgeschlossen ist. Das Snapshot-Image wird abgeschlossen, sobald der Synchronisierungsvorgang abgeschlossen ist.
+
+.Über diese Aufgabe
+Ein Snapshot-Image befindet sich aufgrund der folgenden gleichzeitigen Bedingungen im Status Pending:
+
+* Das Basisvolume einer Snapshot-Gruppe oder eines oder mehrerer Mitgliedsvolumes einer Konsistenzgruppe, die dieses Snapshot-Image enthält, ist Mitglied einer asynchronen Spiegelgruppe.
+* Das oder die Volumes befinden sich aktuell in einem asynchronen Spiegelungs-Synchronisierungsvorgang.
+
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Klicken Sie auf die Registerkarte *Reserved Capacity*.
+. Wählen Sie die Snapshot-Gruppe aus, für die Sie ein ausstehendes Snapshot-Image abbrechen möchten, und klicken Sie dann auf menu:Uncommon Tasks[Cancel pending snapshot image].
+. Klicken Sie auf *Ja*, um zu bestätigen, dass Sie das ausstehende Snapshot-Image abbrechen möchten.
+

@@ -1,0 +1,37 @@
+---
+permalink: sm-storage/delete-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, snapshot, volume 
+summary: Sie können ein Snapshot-Volume oder ein Snapshot-Konsistenzgruppen-Snapshot-Volume löschen, das nicht mehr für Sicherungs- oder Softwareapplikationstestzwecke benötigt wird. 
+---
+= Löschen eines Snapshot-Volumes im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Snapshot-Volume oder ein Snapshot-Konsistenzgruppen-Snapshot-Volume löschen, das nicht mehr für Sicherungs- oder Softwareapplikationstestzwecke benötigt wird.
+
+Sie können außerdem festlegen, ob Sie das mit einem  `read-write`Snapshot-Volume verknüpfte Snapshot-reservierte Kapazitätsvolume löschen oder das Snapshot-reservierte Kapazitätsvolume als nicht zugewiesenes Volume beibehalten möchten.
+
+.Über diese Aufgabe
+Das Löschen eines Basis-Volumes löscht automatisch alle zugehörigen Snapshot-Volumes oder Konsistenzgruppen-Snapshot-Volumes. Sie können ein Snapshot-Volume, das sich in einer Volume-Kopie mit dem Status *In Progress* befindet, nicht löschen.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Wählen Sie die Registerkarte *Snapshot Volumes* aus.
++
+System Manager zeigt alle Snapshot-Volumes an, die mit dem Speicherarray verknüpft sind.
+
+. Wählen Sie das Snapshot-Volume aus, das Sie löschen möchten, und wählen Sie dann menu:Uncommon Tasks[Delete].
+. Bestätigen Sie, dass Sie die Operation durchführen möchten, und klicken Sie dann auf *Löschen*.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Löscht alle Mitglieds-Snapshot-Volumes (für ein Snapshot-Konsistenzgruppen-Snapshot-Volume).
+* Entfernt alle zugehörigen Hostzuweisungen.
+

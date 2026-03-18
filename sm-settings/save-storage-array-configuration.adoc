@@ -1,0 +1,72 @@
+---
+permalink: sm-settings/save-storage-array-configuration.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, save, storage array, configuration, 
+summary: Sie können die Konfigurationsinformationen eines Speicherarrays in einer Skriptdatei speichern, um Zeit beim Einrichten zusätzlicher Speicherarrays mit derselben Konfiguration zu sparen. 
+---
+= Speicherarray-Konfiguration im SANtricity System Manager speichern
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Konfigurationsinformationen eines Storage Arrays in einer Skriptdatei speichern, um Zeit beim Einrichten zusätzlicher Storage Arrays mit derselben Konfiguration zu sparen.
+
+.Bevor Sie beginnen
+Das Speichersystem darf keinen Operationen unterzogen werden, die seine logischen Konfigurationseinstellungen ändern. Beispiele für diese Operationen sind das Erstellen oder Löschen von Volumes, das Herunterladen von Controller-Firmware, das Zuweisen oder Ändern von Hot-Spare-Laufwerken oder das Hinzufügen von Kapazität (Laufwerken) zu einer Volume-Gruppe.
+
+.Über diese Aufgabe
+Das Speichern der Speicherarray-Konfiguration generiert ein Befehlszeilenskript (CLI-Skript), das Speicherarray-Einstellungen, Volume-Konfiguration, Host-Konfiguration oder Host-zu-Volume-Zuordnungen für ein Speicherarray enthält. Sie können dieses generierte CLI-Skript verwenden, um eine Konfiguration auf ein anderes Speicherarray mit exakt derselben Hardwarekonfiguration zu replizieren.
+
+Sie sollten dieses generierte CLI-Skript jedoch nicht für die Notfallwiederherstellung verwenden. Führen Sie stattdessen eine Systemwiederherstellung durch, indem Sie die von Ihnen manuell erstellte Sicherungsdatei der Konfigurationsdatenbank verwenden oder sich an den technischen Support wenden, um diese Daten aus den neuesten Auto-Support-Daten zu erhalten.
+
+Bei diesem Vorgang werden diese Einstellungen _nicht_ gespeichert:
+
+* Die Lebensdauer der Batterie
+* Die Zeit des Controllers
+* Die Einstellungen des nichtflüchtigen statischen Direktzugriffsspeichers (NVSRAM)
+* Beliebige Premium-Funktionen
+* Das Speicherarray-Passwort
+* Der Betriebsstatus und die Zustände der Hardwarekomponenten
+* Der Betriebszustand (außer Optimal) und die Zustände der Volumengruppen
+* Kopierdienste, wie Spiegelung und Volumenkopie
+
+
+[CAUTION]
+====
+*Risiko von Anwendungsfehlern* – Verwenden Sie diese Option nicht, wenn das Speichersystem gerade eine Operation durchführt, die eine logische Konfigurationseinstellung ändert. Beispiele für diese Operationen sind das Erstellen oder Löschen von Volumes, das Herunterladen von Controller-Firmware, das Zuweisen oder Ändern von Hot-Spare-Laufwerken oder das Hinzufügen von Kapazität (Laufwerken) zu einer Volume-Gruppe.
+
+====
+.Schritte
+. Menü auswählen:Settings[System].
+. Wählen Sie *Speicher-Array-Konfiguration speichern*.
+. Wählen Sie die Elemente der Konfiguration aus, die Sie speichern möchten:
++
+** Speicherarray-Einstellungen
+** Volumenkonfiguration
+** Hostkonfiguration
+** Host-zu-Volume-Zuordnungen
+
+
++
+[NOTE]
+====
+Wenn Sie die Option *Host-zu-Volume-Zuordnungen* auswählen, werden die Optionen *Volume-Konfiguration* und *Host-Konfiguration* standardmäßig ebenfalls ausgewählt. Sie können „Host-zu-Volume-Zuordnungen“ nicht speichern, ohne auch „Volume-Konfiguration“ und „Host-Konfiguration“ zu speichern.
+
+====
+. Klicken Sie auf *Speichern*.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `storage-array-configuration.cfg` gespeichert.
+
+
+
+.Nachdem Sie fertig sind
+Um die gespeicherte Speicherarray-Konfiguration auf ein anderes Speicherarray zu laden, verwenden Sie die SANtricity Befehlszeilenschnittstelle (SMcli) mit der  `-f` Option, um die  `.cfg` Datei anzuwenden.
+
+[NOTE]
+====
+Sie können eine Speicherarray-Konfiguration auch auf andere Speicherarrays laden, indem Sie die Unified Manager-Oberfläche verwenden (select menu:Manage[Import Settings]).
+
+====

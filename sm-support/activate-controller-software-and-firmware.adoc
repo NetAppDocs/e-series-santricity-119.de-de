@@ -1,0 +1,53 @@
+---
+permalink: sm-support/activate-controller-software-and-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, activate, controller, software, firmware 
+summary: Sie können wählen, die Upgrade-Dateien sofort zu aktivieren oder bis zu einem passenderen Zeitpunkt zu warten. 
+---
+= Aktivieren Sie die Controller-Software und -Firmware im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können wählen, die Upgrade-Dateien sofort zu aktivieren oder bis zu einem passenderen Zeitpunkt zu warten.
+
+.Über diese Aufgabe
+Sie können die Dateien herunterladen und übertragen, ohne sie zu aktivieren. Sie könnten sich aus folgenden Gründen dafür entscheiden, später zu aktivieren:
+
+* *Tageszeit* – Die Aktivierung der Software und Firmware kann längere Zeit in Anspruch nehmen, daher sollten Sie warten, bis die E/A-Lasten geringer sind. Die Controller führen während der Aktivierung ein Failover durch, sodass die Leistung bis zum Abschluss des Upgrades geringer als gewöhnlich sein kann.
+* *Pakettyp* -- Sie möchten möglicherweise die neue Software und Firmware auf einem Speichersystem testen, bevor Sie die Dateien auf anderen Speichersystemen aktualisieren.
+
+
+Wenn Sie Software oder Firmware haben, die übertragen, aber nicht aktiviert wurde, sehen Sie eine Benachrichtigung im Benachrichtigungsbereich der System Manager-Startseite und auch auf der Upgrade Center-Seite.
+
+[CAUTION]
+====
+Sie können den Aktivierungsprozess nach seinem Start nicht mehr stoppen.
+
+====
+.Schritte
+. Menü auswählen: Support[Upgrade Center].
+. Klicken Sie im Bereich mit der Bezeichnung SANtricity OS Controller Software upgrade auf *Activate* und bestätigen Sie, dass Sie den Vorgang durchführen möchten.
++
+Sie können den Vorgang während der Vorabprüfung vor dem Upgrade abbrechen, jedoch nicht während der Aktivierung.
+
++
+Die Systemprüfung vor dem Upgrade beginnt. Wenn die Systemprüfung vor dem Upgrade erfolgreich ist, fährt der Upgrade-Prozess mit der Aktivierung der Dateien fort. Wenn die Systemprüfung vor dem Upgrade fehlschlägt, verwenden Sie den Recovery Guru oder kontaktieren Sie den technischen Support, um das Problem zu beheben. Für einige Arten von Bedingungen kann der technische Support Ihnen raten, das Upgrade trotz der Fehler fortzusetzen, indem Sie ein Kontrollkästchen *Upgrade zulassen* auswählen.
+
++
+Nach erfolgreichem Abschluss der Vorabprüfung des Upgrades erfolgt die Aktivierung. Die Zeit, die die Aktivierung in Anspruch nimmt, hängt von Ihrer Storage-Array-Konfiguration und den Komponenten ab, die Sie aktivieren.
+
+. *Optional:* Um eine Liste der aktualisierten Elemente anzuzeigen, klicken Sie auf *Save Log*.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `drive_upgrade_log-timestamp.txt` gespeichert.
+
+
+
+.Nachdem Sie fertig sind
+* Überprüfen Sie, ob alle Komponenten auf der Hardware-Seite angezeigt werden.
+* Überprüfen Sie die neuen Software- und Firmware-Versionen, indem Sie das Dialogfeld „Software and Firmware Inventory“ aufrufen (gehen Sie zum Menü:Support[Upgrade Center], und klicken Sie dann auf den Link für *Software and Firmware Inventory*).
+* Wenn Sie den NVSRAM des Controllers aktualisiert haben, gehen alle benutzerdefinierten Einstellungen, die Sie auf den bestehenden NVSRAM angewendet haben, während des Aktivierungsprozesses verloren. Sie müssen die benutzerdefinierten Einstellungen nach Abschluss der Aktivierung erneut auf den NVSRAM anwenden.
+

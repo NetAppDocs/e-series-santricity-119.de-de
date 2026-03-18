@@ -1,0 +1,118 @@
+---
+permalink: sm-support/overview-upgrade-center.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, upgrade, center 
+summary: Verwenden Sie das Upgrade Center, um die neueste Software und Firmware herunterzuladen und Ihr Storage-Array für die neuesten Funktionen und Fehlerbehebungen zu aktualisieren. 
+---
+= Erfahren Sie mehr über das Upgrade der SANtricity-Software
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verwenden Sie das Upgrade Center, um die neueste Software und Firmware herunterzuladen und Ihre Controller und Laufwerke zu aktualisieren.
+
+
+
+== Übersicht zum Controller-Upgrade
+
+Sie können die Software und Firmware Ihres Speichersystems für alle neuesten Funktionen und Fehlerbehebungen aktualisieren.
+
+
+
+=== Im Upgrade des OS-Controllers enthaltene Komponenten
+
+Mehrere Komponenten des Speicherarrays enthalten Software oder Hardware, die Sie möglicherweise gelegentlich upgraden möchten.
+
+* *Management software* -- System Manager ist die Software, die das Storage-Array verwaltet.
+* *Controller firmware* -- Die Controller-Firmware verwaltet die Ein-/Ausgabe zwischen Hosts und Volumes.
+* *Controller NVSRAM* -- Controller NVSRAM ist eine Controller-Datei, die die Standardeinstellungen für die Controller festlegt.
+* *IOM-Firmware* -- Die Firmware des E/A-Moduls (IOM) verwaltet die Verbindung zwischen einem Controller und einem Laufwerksschacht. Sie überwacht außerdem den Status der Komponenten.
+* *Supervisor-Software* -- Supervisor-Software ist die virtuelle Maschine auf einem Controller, in der die Software ausgeführt wird.
+
+
+image::../media/sam1130-dwg-upgrade-firmware-locations.gif[Speicherorte für Firmware-Upgrades]
+
+^1^ Controller shelf; ^2^ Drive shelf; ^3^ Software, Controller-Firmware, Controller-NVSRAM, Supervisor-Software; ^4^ Laufwerk-Firmware; ^5^ IOM-Firmware; ^6^ Laufwerk-Firmware
+
+Im Dialogfeld „Software- und Firmware-Inventar“ können Sie Ihre aktuellen Software- und Firmware-Versionen einsehen. Gehen Sie zum Menü:Support[Upgrade Center] und klicken Sie dann auf den Link für *Software and Firmware Inventory*.
+
+Im Rahmen des Upgrade-Prozesses müssen möglicherweise auch der Multipath-/Failover-Treiber und/oder der HBA-Treiber des Hosts aktualisiert werden, damit der Host korrekt mit den Controllern kommunizieren kann. Um festzustellen, ob dies der Fall ist, siehe das https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^].
+
+
+
+=== Wann sollte die I/O gestoppt werden?
+
+Wenn Ihr Speichersystem zwei Controller enthält und ein Multipath-Treiber installiert ist, kann das Speichersystem die E/A-Verarbeitung während des Upgrades fortsetzen. Während des Upgrades gibt Controller A alle seine Volumes an Controller B ab, führt das Upgrade durch, übernimmt seine Volumes und alle Volumes von Controller B zurück und führt dann das Upgrade von Controller B durch.
+
+
+
+=== Gesundheitscheck vor dem Upgrade
+
+Im Rahmen des Upgrade-Prozesses wird eine Vorabprüfung des Systemzustands durchgeführt. Die Vorabprüfung bewertet alle Komponenten des Storage-Arrays, um sicherzustellen, dass das Upgrade durchgeführt werden kann. Die folgenden Bedingungen können das Upgrade verhindern:
+
+* Fehlerhafte zugewiesene Laufwerke
+* Hot spares im Einsatz
+* Unvollständige Volumengruppen
+* Exklusive Operationen laufen
+* Fehlende Volumes
+* Controller im nicht optimalen Zustand
+* Übermäßige Anzahl von Ereignisprotokollereignissen
+* Validierungsfehler der Konfigurationsdatenbank
+* Laufwerke mit alten Versionen von DACstore
+
+
+Sie können den Vorab-Gesundheitscheck auch separat ausführen, ohne ein Upgrade durchzuführen.
+
+
+
+== Übersicht zum Upgrade der Laufwerk-Firmware
+
+Die Laufwerk-Firmware steuert die Low-Level-Betriebseigenschaften eines Laufwerks. Die Laufwerkshersteller veröffentlichen regelmäßig Updates für die Laufwerk-Firmware, um neue Funktionen hinzuzufügen, die Leistung zu verbessern und Fehler zu beheben.
+
+
+
+=== Online- und Offline-Upgrade der Laufwerk-Firmware
+
+Es gibt zwei Arten von Upgrade der Laufwerk-Firmware: online und offline.
+
+
+
+==== Online
+
+Bei einem Online-Upgrade werden die Laufwerke nacheinander, jeweils einzeln, aktualisiert. Das Speichersystem verarbeitet weiterhin E/A-Vorgänge, während das Upgrade durchgeführt wird. Sie müssen die E/A-Vorgänge nicht stoppen. Wenn ein Laufwerk ein Online-Upgrade durchführen kann, wird die Online-Methode automatisch verwendet.
+
+Zu den Laufwerken, die ein Online-Upgrade durchführen können, gehören die folgenden:
+
+* Laufwerke in einem optimalen Pool
+* Laufwerke in einer optimalen redundanten Volumengruppe (RAID 1, RAID 5, und RAID 6)
+* Nicht zugewiesene Laufwerke
+* Standby-Hot-Spare-Laufwerke
+
+
+Ein Online-Upgrade der Laufwerk-Firmware kann mehrere Stunden dauern und das Speicher-Array potenziellen Volume-Ausfällen aussetzen. Volume-Ausfälle können in diesen Fällen auftreten:
+
+* In einer RAID 1- oder RAID 5-Volumegruppe fällt ein Laufwerk aus, während ein anderes Laufwerk in der Volumegruppe aktualisiert wird.
+* In einem RAID 6-Pool oder einer Volume-Gruppe fallen zwei Laufwerke aus, während ein anderes Laufwerk im Pool oder in der Volume-Gruppe aufgerüstet wird.
+
+
+
+
+==== Offline (parallel)
+
+Während eines Offline-Upgrades werden alle Laufwerke desselben Typs gleichzeitig aktualisiert. Diese Methode erfordert das Stoppen der E/A-Aktivität für die Volumes, die den ausgewählten Laufwerken zugeordnet sind. Da mehrere Laufwerke gleichzeitig (parallel) aktualisiert werden können, wird die Gesamtausfallzeit erheblich reduziert. Wenn ein Laufwerk nur ein Offline-Upgrade durchführen kann, wird die Offline-Methode automatisch verwendet.
+
+Die folgenden Laufwerke MÜSSEN die Offline-Methode verwenden:
+
+* Laufwerke in einer nicht-redundanten Volume-Gruppe (RAID 0)
+* Laufwerke in einem nicht optimalen Pool oder einer nicht optimalen Volume-Gruppe
+* Laufwerke im SSD-Cache
+
+
+
+
+=== Kompatibilität
+
+Jede Laufwerksfirmwaredatei enthält Informationen über den Laufwerkstyp, auf dem die Firmware ausgeführt wird. Sie können die angegebene Firmwaredatei nur auf ein kompatibles Laufwerk herunterladen. System Manager prüft die Kompatibilität automatisch während des Upgrade-Prozesses.

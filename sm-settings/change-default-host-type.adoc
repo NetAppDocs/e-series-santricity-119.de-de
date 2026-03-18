@@ -1,0 +1,36 @@
+---
+permalink: sm-settings/change-default-host-type.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, default, host, type, 
+summary: Verwenden Sie die Einstellung „Standard-Hostbetriebssystem ändern“, um den Standard-Hosttyp auf Ebene des Speicherarrays zu ändern. Im Allgemeinen ändern Sie den Standard-Hosttyp, bevor Sie Hosts mit dem Speicherarray verbinden oder wenn Sie zusätzliche Hosts anschließen. 
+---
+= Standard-Hosttyp im SANtricity System Manager ändern
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verwenden Sie die Einstellung „Standard-Hostbetriebssystem ändern“, um den Standard-Hosttyp auf Ebene des Speicherarrays zu ändern. Im Allgemeinen ändern Sie den Standard-Hosttyp, bevor Sie Hosts mit dem Speicherarray verbinden oder wenn Sie zusätzliche Hosts anschließen.
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien:
+
+* Wenn alle Hosts, die Sie mit dem Speichersystem verbinden möchten, das gleiche Betriebssystem haben (homogene Hostumgebung), ändern Sie den Hosttyp so, dass er dem Betriebssystem entspricht.
+* Wenn Sie Hosts mit unterschiedlichen Betriebssystemen an das Speichersystem anschließen möchten (heterogene Hostumgebung), ändern Sie den Hosttyp so, dass er dem Betriebssystem der Mehrheit der Hosts entspricht.
++
+Wenn Sie beispielsweise acht verschiedene Hosts mit dem Speichersystem verbinden und auf sechs dieser Hosts ein Windows-Betriebssystem läuft, müssen Sie Windows als Standard-Host-Betriebssystemtyp auswählen.
+
+* Wenn die Mehrheit der verbundenen Hosts eine Mischung verschiedener Betriebssysteme aufweist, ändern Sie den Hosttyp auf Factory Default.
++
+Wenn Sie beispielsweise acht verschiedene Hosts an das Speichersystem anschließen und zwei dieser Hosts unter einem Windows-Betriebssystem laufen, drei unter einem VMware-Betriebssystem und drei unter einem Linux-Betriebssystem, müssen Sie als Standard-Host-Betriebssystemtyp Factory Default auswählen.
+
+
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *Zusätzliche Einstellungen* und klicken Sie dann auf *Standard-Host-Betriebssystemtyp ändern*.
+. Wählen Sie den Host-Betriebssystemtyp aus, den Sie als Standard verwenden möchten.
+. Klicken Sie auf *Change*.
+

@@ -1,0 +1,39 @@
+---
+permalink: sm-storage/delete-snapshot-image.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, snapshot, image 
+summary: Sie löschen Snapshot-Images, um das älteste Snapshot-Image aus einer Snapshot-Gruppe oder Snapshot-Konsistenzgruppe zu bereinigen. 
+---
+= Löschen eines Snapshot-Images im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie löschen Snapshot-Images, um das älteste Snapshot-Image aus einer Snapshot-Gruppe oder Snapshot-Konsistenzgruppe zu bereinigen.
+
+.Über diese Aufgabe
+Sie können ein einzelnes Snapshot-Image löschen oder Snapshot-Images aus Snapshot-Konsistenzgruppen löschen, die denselben Erstellungszeitstempel haben. Sie können auch Snapshot-Images aus einer Snapshot-Gruppe löschen.
+
+Sie können ein Snapshot-Image nicht löschen, wenn es nicht das älteste Snapshot-Image für das zugehörige Basis-Volume oder die Snapshot-Konsistenzgruppe ist.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Snapshot Images*.
+. Wählen Sie das Snapshot-Image aus, das Sie löschen möchten, und bestätigen Sie, dass Sie den Vorgang ausführen möchten.
++
+Wenn Sie ein Snapshot-Image einer Snapshot Konsistenzgruppe ausgewählt haben, wählen Sie jedes Mitgliedsvolume aus, das Sie löschen möchten, und bestätigen Sie, dass Sie den Vorgang ausführen möchten.
+
+. Klicken Sie auf *Delete*.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Löscht das Snapshot-Image aus dem Storage-Array.
+* Gibt die reservierte Kapazität zur Wiederverwendung innerhalb der Snapshot-Gruppe oder Snapshot-Konsistenzgruppe frei.
+* Deaktiviert alle zugehörigen Snapshot-Volumes, die für das gelöschte Snapshot-Image existieren.
+* Beim Löschen einer Snapshot-Konsistenzgruppe wird jedes mit dem gelöschten Snapshot-Image verknüpfte Mitgliedsvolume in den Status Gestoppt versetzt.
+

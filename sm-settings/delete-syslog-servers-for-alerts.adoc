@@ -1,0 +1,28 @@
+---
+permalink: sm-settings/delete-syslog-servers-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, syslog, servers, alerts, 
+summary: Sie können einen Syslog-Server löschen, sodass er keine Alerts mehr empfängt. 
+---
+= Syslog-Server für Warnmeldungen im SANtricity System Manager löschen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen Syslog-Server löschen, sodass er keine Alerts mehr empfängt.
+
+.Schritte
+. Menü auswählen: Settings[Alerts].
+. Wählen Sie die Registerkarte *Syslog* aus.
+. Wählen Sie eine Syslog-Serveradresse aus, und klicken Sie dann oben rechts auf *Entfernen*.
++
+Das Dialogfeld „Syslog-Server löschen bestätigen“ wird geöffnet.
+
+. Bestätigen Sie den Vorgang und klicken Sie dann auf *Löschen*.
+
+
+.Ergebnisse
+Der von Ihnen entfernte Server empfängt keine Benachrichtigungen mehr vom Ereignismonitor.

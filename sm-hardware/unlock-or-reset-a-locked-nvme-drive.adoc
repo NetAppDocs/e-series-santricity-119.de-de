@@ -1,0 +1,64 @@
+---
+permalink: sm-hardware/unlock-or-reset-a-locked-nvme-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, unlock, reset, locked, fips, nvme, drives, 
+summary: 'Wenn Sie ein oder mehrere gesperrte NVMe- oder FIPS-Laufwerke in ein Speichersystem einsetzen, können Sie die Laufwerksdaten entsperren, indem Sie die mit den Laufwerken verknüpfte Sicherheitsschlüsseldatei hinzufügen. Wenn Sie keinen Sicherheitsschlüssel haben, können Sie jedes gesperrte Laufwerk zurücksetzen, indem Sie dessen Physical Security ID (PSID) eingeben, um die Sicherheitsattribute zurückzusetzen und die Laufwerksdaten zu löschen.' 
+---
+= Entsperren oder Zurücksetzen gesperrter NVMe- oder FIPS-Laufwerke in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie ein oder mehrere gesperrte NVMe- oder FIPS-Laufwerke in ein Speichersystem einsetzen, können Sie die Laufwerksdaten entsperren, indem Sie die mit den Laufwerken verknüpfte Sicherheitsschlüsseldatei hinzufügen. Wenn Sie keinen Sicherheitsschlüssel haben, können Sie jedes gesperrte Laufwerk zurücksetzen, indem Sie dessen Physical Security ID (PSID) eingeben, um die Sicherheitsattribute zurückzusetzen und die Laufwerksdaten zu löschen.
+
+.Bevor Sie beginnen
+* Für die Entsperroption stellen Sie sicher, dass die Sicherheitsschlüsseldatei (mit einer Erweiterung von `.slk`) auf dem Verwaltungsclient (dem System mit einem Browser, der für den Zugriff auf den System Manager verwendet wird) verfügbar ist. Sie müssen außerdem die zum Schlüssel gehörige Passphrase kennen.
+* Für die Option „Zurücksetzen“ müssen Sie die PSID auf jedem Laufwerk finden, das Sie zurücksetzen möchten. Um die PSID zu finden, entfernen Sie das Laufwerk physisch und suchen Sie die PSID-Zeichenfolge (maximal 32 Zeichen) auf dem Etikett des Laufwerks, und installieren Sie das Laufwerk anschließend wieder.
+
+
+.Über diese Aufgabe
+Diese Anleitung beschreibt, wie Daten auf NVMe- oder FIPS-Laufwerken durch Importieren einer Sicherheitsschlüsseldatei in das Speichersystem entsperrt werden. Für Situationen, in denen der Sicherheitsschlüssel nicht verfügbar ist, beschreibt diese Anleitung außerdem, wie ein gesperrtes Laufwerk zurückgesetzt wird.
+
+[NOTE]
+====
+Wenn das Laufwerk mit einem externen Schlüsselverwaltungsserver gesperrt wurde, wählen Sie im System Manager Menü:Einstellungen[System > Sicherheitsschlüsselverwaltung], um die externe Schlüsselverwaltung zu konfigurieren und das Laufwerk zu entsperren.
+
+====
+Sie können auf die Entsperrfunktion entweder über die Hardware-Seite oder über das Menü: Einstellungen [System > Sicherheitsschlüsselverwaltung] zugreifen. Die folgende Aufgabe enthält Anweisungen von der Hardware-Seite.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Controller anzeigt, klicken Sie auf die Registerkarte *Drives*.
++
+Die Grafik ändert sich, um die Laufwerke anstelle der Controller anzuzeigen.
+
+. Wählen Sie das NVMe- oder FIPS-Laufwerk aus, das Sie entsperren oder zurücksetzen möchten.
++
+Das Kontextmenü des Laufwerks wird geöffnet.
+
+. Wählen Sie *Entsperren*, um die Sicherheitsschlüsseldatei anzuwenden, oder *Zurücksetzen*, wenn Sie keine Sicherheitsschlüsseldatei haben.
++
+Diese Optionen werden nur angezeigt, wenn Sie ein gesperrtes NVMe- oder FIPS-Laufwerk auswählen.
+
++
+[CAUTION]
+====
+Beim Zurücksetzen werden alle Daten gelöscht. Führen Sie ein Zurücksetzen nur durch, wenn Sie keinen Sicherheitsschlüssel besitzen. Das Zurücksetzen eines gesperrten Laufwerks entfernt dauerhaft alle Daten auf dem Laufwerk und setzt die Sicherheitsattribute auf „sicherheitsfähig“, aber nicht aktiviert, zurück. *Dieser Vorgang ist nicht reversibel.*
+
+====
+. Führen Sie einen der folgenden Schritte aus:
++
+.. *Entsperren*: Klicken Sie im Dialogfeld *Sicheres Laufwerk entsperren* auf *Durchsuchen* und wählen Sie dann die Sicherheitsschlüsseldatei aus, die dem Laufwerk entspricht, das Sie entsperren möchten. Geben Sie anschließend die Passphrase ein und klicken Sie dann auf *Entsperren*.
+.. *Zurücksetzen*: Geben Sie im Dialogfeld *Gesperrtes Laufwerk zurücksetzen* die PSID-Zeichenfolge in das Feld ein und geben Sie dann  `RESET` zur Bestätigung ein. Klicken Sie auf *Zurücksetzen*.
++
+Für einen Entsperrvorgang müssen Sie diesen nur einmal durchführen, um alle NVMe- oder FIPS-Laufwerke zu entsperren. Für einen Zurücksetzungsvorgang müssen Sie jedes Laufwerk, das Sie zurücksetzen möchten, einzeln auswählen.
+
+
+
+
+
+.Ergebnisse
+Das Laufwerk ist jetzt für die Verwendung in einer anderen Volume-Gruppe oder einem anderen Datenträgerpool oder in einem anderen Speicherarray verfügbar.

@@ -1,0 +1,47 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-mirrored-pair-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, mirrored pair volume 
+summary: Sie können die Einstellungen für ein gespiegeltes Volumepaar ändern, um den Prozentsatz festzulegen, bei dem der System Manager eine Warnmeldung sendet, wenn die reservierte Kapazität für ein gespiegeltes Volumepaar fast voll ist. 
+---
+= Ändern Sie die Einstellungen für die reservierte Kapazität eines gespiegelten Volume-Paars im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für ein gespiegeltes Volumepaar ändern, um den Prozentpunkt festzulegen, bei dem SANtricity System Manager eine Warnmeldung sendet, wenn die reservierte Kapazität für ein gespiegeltes Volumepaar fast voll ist.
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Wählen Sie die Registerkarte *Reserved Capacity* aus.
+. Wählen Sie das gespiegelte Paar-Volume aus, das Sie bearbeiten möchten, und klicken Sie dann auf *Einstellungen anzeigen/bearbeiten*.
++
+Das Dialogfeld „Reservierte Kapazitätseinstellungen für Mirrored Pair Volume“ wird angezeigt.
+
+. Ändern Sie die Einstellungen für die reservierte Kapazität des gespiegelten Pair-Volumes entsprechend.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Benachrichtige mich, wenn...
+ a| 
+Verwenden Sie das Drehfeld, um den Prozentsatz einzustellen, bei dem der System Manager eine Warnbenachrichtigung sendet, wenn die reservierte Kapazität für ein gespiegeltes Paar fast voll ist.
+
+Wenn die reservierte Kapazität für das gespiegelte Paar den festgelegten Schwellenwert überschreitet, sendet System Manager eine Warnung, sodass Sie Zeit haben, die reservierte Kapazität zu erhöhen.
+
+
+NOTE: Durch das Ändern der Alarmeinstellung für ein gespiegeltes Paar wird die Alarmeinstellung für alle gespiegelten Paare geändert, die zur selben Spiegel-Konsistenzgruppe gehören.
+
+|===
+====
+. Klicken Sie auf *Speichern*, um Ihre Änderungen zu übernehmen.
+

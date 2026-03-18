@@ -1,0 +1,65 @@
+---
+permalink: sm-settings/how-the-drive-security-feature-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, Drive Security, 
+summary: 'Drive Security ist eine Funktion von Speicherarrays, die eine zusätzliche Sicherheitsebene mit entweder Full Disk Encryption (FDE)-Laufwerken oder Federal Information Processing Standard (FIPS)-Laufwerken bietet.' 
+---
+= Funktionsweise der Laufwerkssicherheitsfunktion im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Drive Security ist eine Funktion von Speicherarrays, die eine zusätzliche Sicherheitsebene mit entweder Full Disk Encryption (FDE)-Laufwerken oder Federal Information Processing Standard (FIPS)-Laufwerken bietet.
+
+Bei Verwendung dieser Laufwerke mit der Drive Security-Funktion ist ein Sicherheitsschlüssel für den Zugriff auf ihre Daten erforderlich. Werden die Laufwerke physisch aus dem Array entfernt, können sie erst wieder betrieben werden, wenn sie in einem anderen Array installiert wurden. Zu diesem Zeitpunkt befinden sie sich im Security Locked-Zustand, bis der korrekte Sicherheitsschlüssel bereitgestellt wird.
+
+
+
+== So implementieren Sie Drive Security
+
+Um Drive Security zu implementieren, führen Sie die folgenden Schritte aus.
+
+. Statten Sie Ihr Speichersystem mit sicheren Laufwerken aus, entweder mit FDE- oder FIPS-Laufwerken. (Für Volumes, die FIPS-Unterstützung benötigen, verwenden Sie ausschließlich FIPS-Laufwerke. Das Mischen von FIPS- und FDE-Laufwerken in einer Volume-Gruppe oder einem Pool führt dazu, dass alle Laufwerke als FDE-Laufwerke behandelt werden. Außerdem kann ein FDE-Laufwerk in einer reinen FIPS-Volume-Gruppe oder einem Pool weder hinzugefügt noch als Ersatzlaufwerk verwendet werden.)
+. Erstellen Sie einen Sicherheitsschlüssel, der aus einer Zeichenfolge besteht, die vom Controller und den Laufwerken für lesen/schreiben gemeinsam genutzt wird. Sie können entweder einen internen Schlüssel aus dem persistenten Speicher des Controllers oder einen externen Schlüssel von einem Schlüsselverwaltungsserver erstellen. Für die externe Schlüsselverwaltung muss die Authentifizierung mit dem Schlüsselverwaltungsserver hergestellt werden.
+. Aktivieren Sie die Laufwerkssicherheit für Pools und Volumengruppen:
++
+** Erstellen Sie einen Pool oder eine Volumengruppe (suchen Sie in der Tabelle „Candidates“ in der Spalte *Secure-capable* nach *Yes*).
+** Wählen Sie beim Erstellen eines neuen Volumes einen Pool oder eine Volume-Gruppe aus (achten Sie auf *Ja* neben *Secure-fähig* in der Kandidatentabelle für Pools und Volume-Gruppen).
+
+
+
+
+
+
+== Wie die Laufwerkssicherheit auf Laufwerksebene funktioniert
+
+Ein sicheres Laufwerk, entweder FDE oder FIPS, verschlüsselt Daten beim Schreiben und entschlüsselt Daten beim Lesen. Diese Verschlüsselung und Entschlüsselung beeinträchtigt weder die Leistung noch den Arbeitsablauf des Benutzers. Jedes Laufwerk verfügt über einen eigenen, eindeutigen Verschlüsselungsschlüssel, der niemals vom Laufwerk übertragen werden kann.
+
+Die Funktion „Drive Security“ bietet eine zusätzliche Schutzebene mit sicherheitsfähigen Laufwerken. Wenn Volume-Gruppen oder Pools auf diesen Laufwerken für Drive Security ausgewählt werden, suchen die Laufwerke nach einem Sicherheitsschlüssel, bevor sie den Zugriff auf die Daten erlauben. Sie können Drive Security jederzeit für Pools und Volume-Gruppen aktivieren, ohne die vorhandenen Daten auf dem Laufwerk zu beeinträchtigen. Sie können Drive Security jedoch nicht deaktivieren, ohne alle Daten auf dem Laufwerk zu löschen.
+
+
+
+== Wie die Laufwerkssicherheit auf der Ebene des Speicherarrays funktioniert
+
+Mit der Funktion „Drive Security“ erstellen Sie einen Sicherheitsschlüssel, der zwischen den secure-enabled Laufwerken und Controllern in einem Storage-Array gemeinsam genutzt wird. Immer wenn die Stromversorgung der Laufwerke aus- und wieder eingeschaltet wird, wechseln die secure-enabled Laufwerke in den Security Locked-Zustand, bis der Controller den Sicherheitsschlüssel anwendet.
+
+Wenn ein sicherheitsaktiviertes Laufwerk aus dem Storage-Array entfernt und in einem anderen Storage-Array wieder eingebaut wird, befindet sich das Laufwerk im Security Locked-Zustand. Das neu eingesetzte Laufwerk sucht nach dem Security Key, bevor es die Daten wieder zugänglich macht. Um die Daten zu entsperren, wenden Sie den Security Key aus dem Quell-Storage-Array an. Nach einem erfolgreichen Entsperrvorgang verwendet das neu eingesetzte Laufwerk dann den bereits im Ziel-Storage-Array gespeicherten Security Key, und die importierte Security Key-Datei wird nicht mehr benötigt.
+
+[NOTE]
+====
+Für die interne Schlüsselverwaltung wird der eigentliche Sicherheitsschlüssel auf dem Controller an einem nicht zugänglichen Ort gespeichert. Er liegt weder in einem für Menschen lesbaren Format vor noch ist er für Benutzer zugänglich.
+
+====
+
+
+== Wie Drive Security auf Volume-Ebene funktioniert
+
+Wenn Sie einen Pool oder eine Volumengruppe aus sicherheitsfähigen Laufwerken erstellen, können Sie die Laufwerkssicherheit auch für diese Pools oder Volumengruppen aktivieren. Die Option „Laufwerkssicherheit“ macht die Laufwerke und die zugehörigen Volumengruppen und Pools sicher-_enabled_.
+
+Beachten Sie die folgenden Richtlinien, bevor Sie sichere Volume-Gruppen und Pools erstellen:
+
+* Volumengruppen und -pools müssen vollständig aus sicheren Laufwerken bestehen. (Für Volumen, die FIPS-Unterstützung benötigen, verwenden Sie nur FIPS-Laufwerke. Das Mischen von FIPS- und FDE-Laufwerken in einer Volumengruppe oder einem Pool führt dazu, dass alle Laufwerke als FDE-Laufwerke behandelt werden. Außerdem kann ein FDE-Laufwerk nicht zu einer reinen FIPS-Volumengruppe oder einem Pool hinzugefügt oder als Ersatz verwendet werden.)
+* Volumengruppen und -pools müssen sich in einem optimalen Zustand befinden.
+

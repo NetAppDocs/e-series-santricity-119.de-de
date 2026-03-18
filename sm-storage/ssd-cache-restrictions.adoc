@@ -1,0 +1,35 @@
+---
+permalink: sm-storage/ssd-cache-restrictions.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ssd, cache, restrictions 
+summary: Informieren Sie sich über die Einschränkungen bei der Verwendung von SSD-Cache auf Ihrem Speichersystem. 
+---
+= Erfahren Sie mehr über SSD-Cache-Beschränkungen in der SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Informieren Sie sich über die Einschränkungen bei der Verwendung von SSD-Cache auf Ihrem Speichersystem.
+
+
+
+== Einschränkungen
+
+* Jedes Volume, das dem SSD-Cache eines Controllers zugewiesen ist, ist nicht für eine automatische Lastausgleichsübertragung berechtigt.
+* Derzeit wird nur ein SSD-Cache pro Speicherarray unterstützt.
+* Die maximal nutzbare SSD-Cache-Kapazität auf einem Speichersystem beträgt 10 TB.
+* SSD-Cache wird auf Snapshot-Images nicht unterstützt.
+* Wenn Sie Volumes importieren oder exportieren, bei denen SSD-Cache aktiviert oder deaktiviert ist, werden die zwischengespeicherten Daten nicht importiert oder exportiert.
+* Sie können das letzte Laufwerk in einem SSD-Cache nicht entfernen, ohne zuerst den SSD-Cache zu löschen.
+
+
+
+
+== Einschränkungen bei der Laufwerkssicherheit
+
+* Sie können die Sicherheit auf SSD-Cache nur aktivieren, wenn Sie den SSD-Cache erstellen. Sie können die Sicherheit später nicht aktivieren, wie Sie es bei einem Volume können.
+* Wenn Sie im SSD-Cache Laufwerke, die sicherheitsfähig sind, mit Laufwerken mischen, die nicht sicherheitsfähig sind, können Sie die Laufwerkssicherheit für diese Laufwerke nicht aktivieren.
+* Secure-fähige Volumes müssen über einen SSD-Cache verfügen, der Secure-fähig ist.
+

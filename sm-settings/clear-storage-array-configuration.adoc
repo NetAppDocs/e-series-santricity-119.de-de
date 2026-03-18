@@ -1,0 +1,115 @@
+---
+permalink: sm-settings/clear-storage-array-configuration.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, clear, storage, array, configuration, 
+summary: Verwenden Sie die Operation „Konfiguration löschen“, wenn Sie alle Pools, Volumengruppen, Volumes, Hostdefinitionen und Hostzuweisungen aus dem Storage-Array löschen möchten. 
+---
+= Speicherarray-Konfiguration im SANtricity System Manager löschen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verwenden Sie die Operation „Konfiguration löschen“, wenn Sie alle Pools, Volumengruppen, Volumes, Hostdefinitionen und Hostzuweisungen aus dem Storage-Array löschen möchten.
+
+.Bevor Sie beginnen
+Bevor Sie die Storage-Array-Konfiguration löschen, sichern Sie die Daten.
+
+.Über diese Aufgabe
+Es gibt zwei Optionen für die Clear Storage Array-Konfiguration:
+
+* *Volume* – Normalerweise verwenden Sie die Option „Volume“, um ein Test-Speicherarray als Produktions-Speicherarray neu zu konfigurieren. Beispielsweise können Sie ein Speicherarray für Testzwecke konfigurieren und nach Abschluss der Tests die Testkonfiguration entfernen und das Speicherarray für eine Produktionsumgebung einrichten.
+* *Speicherarray* -- Normalerweise verwenden Sie die Option Speicherarray, um ein Speicherarray in eine andere Abteilung oder Gruppe zu verschieben. Beispielsweise verwenden Sie möglicherweise ein Speicherarray in der Entwicklungsabteilung, und nun erhält die Entwicklungsabteilung ein neues Speicherarray, sodass Sie das aktuelle Speicherarray in die Administration verschieben möchten, wo es neu konfiguriert wird.
++
+Die Option „Storage Array“ löscht einige zusätzliche Einstellungen.
+
+
+
+[cols="1a,1a,1a"]
+|===
+|  | Volumen | Speicherarray 
+
+
+ a| 
+Deaktiviert ARVM
+ a| 
+X
+ a| 
+X
+
+
+
+ a| 
+Löscht Pools und Volumengruppen
+ a| 
+X
+ a| 
+X
+
+
+
+ a| 
+Löscht Volumes
+ a| 
+X
+ a| 
+X
+
+
+
+ a| 
+Löscht Hosts und Host-Cluster
+ a| 
+X
+ a| 
+X
+
+
+
+ a| 
+Löscht Hostzuweisungen
+ a| 
+X
+ a| 
+X
+
+
+
+ a| 
+Löscht den Namen des Speicherarrays
+ a| 
+ a| 
+X
+
+
+
+ a| 
+Setzt die Cache-Einstellungen des Speicherarrays auf die Standardwerte zurück
+ a| 
+ a| 
+X
+
+|===
+[CAUTION]
+====
+*Risiko von Datenverlust* -- Bei diesem Vorgang werden alle Daten von Ihrem Speichersystem gelöscht. (Es handelt sich nicht um ein sicheres Löschen.) Sie können diesen Vorgang nach dem Start nicht mehr abbrechen. Führen Sie diesen Vorgang nur auf Anweisung des technischen Supports durch.
+
+====
+.Schritte
+. Menü auswählen:Settings[System].
+. Wählen Sie *Clear Storage Array Configuration*.
+. Wählen Sie in der Dropdown-Liste entweder *Volume* oder *Storage Array*.
+. *Optional:* Wenn Sie die Konfiguration (nicht die Daten) speichern möchten, verwenden Sie die Links im Dialogfeld.
+. Bestätigen Sie, dass Sie die Operation durchführen möchten.
+
+
+.Ergebnisse
+* Die aktuelle Konfiguration wird gelöscht, wodurch alle vorhandenen Daten auf dem Storage-Array vernichtet werden.
+* Alle Laufwerke sind nicht zugewiesen.
++
+
+NOTE: Das Speichersystem startet im Wiederherstellungsmodus. Sie müssen den Wiederherstellungsmodus beenden, bevor Sie das Speichersystem verwenden. Siehe  https://docs.netapp.com/us-en/e-series-santricity/sm-support/clear-recovery-mode.html["Wiederherstellungsmodus löschen"^] für weitere Informationen.
+
+

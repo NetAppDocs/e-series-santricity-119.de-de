@@ -1,0 +1,89 @@
+---
+permalink: um-admin/overview-interface-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, interface, GUI 
+summary: Unified Manager ist eine webbasierte Schnittstelle, mit der Sie mehrere Speicherarrays in einer einzigen Ansicht verwalten können. 
+---
+= Erfahren Sie mehr über SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity Unified Manager ist eine webbasierte Schnittstelle, mit der Sie mehrere Storage-Arrays in einer einzigen Ansicht verwalten können.
+
+
+
+== Hauptseite
+
+Wenn Sie sich bei Unified Manager anmelden, öffnet sich die Hauptseite mit *Verwalten – Alle*. Auf dieser Seite können Sie durch eine Liste der in Ihrem Netzwerk erkannten Speicherarrays scrollen, deren Status anzeigen und Operationen an einem einzelnen Array oder an einer Gruppe von Arrays durchführen.
+
+
+
+== Navigationsseitenleiste
+
+Sie können auf die Funktionen und Merkmale des Unified Manager über die Navigationsleiste zugreifen.
+
+[cols="25h,~"]
+|===
+| Bereich | Beschreibung 
+
+
+ a| 
+Verwalten
+ a| 
+Ermitteln Sie Speicherarrays in Ihrem Netzwerk, starten Sie SANtricity System Manager für ein Array, importieren Sie Einstellungen von einem Array auf mehrere Arrays und verwalten Sie Array-Gruppen. Wählen Sie die Kontrollkästchen neben den Array-Namen aus, um Vorgänge wie das Importieren von Einstellungen und das Erstellen von Array-Gruppen durchzuführen. Die Auslassungspunkte am Ende jeder Zeile bieten ein In-Line-Menü für Vorgänge an einem einzelnen Array, wie z. B. das Umbenennen.
+
+
+
+ a| 
+Betrieb
+ a| 
+Verfolgen Sie den Fortschritt von Stapelverarbeitungsvorgängen, wie das Importieren von Einstellungen von einem Array in ein anderes.
+
+[NOTE]
+====
+Einige Operationen sind nicht verfügbar, wenn ein Speichersystem einen nicht optimalen Status hat.
+
+====
+
+
+ a| 
+Zertifikatsverwaltung
+ a| 
+Verwalten Sie Zertifikate, um zwischen Browsern und Clients zu authentifizieren.
+
+
+
+ a| 
+Zugriffsverwaltung
+ a| 
+Benutzerauthentifizierung für die Unified Manager-Schnittstelle einrichten.
+
+
+
+ a| 
+Support
+ a| 
+Technische Supportoptionen, Ressourcen und Kontakte anzeigen.
+
+|===
+
+
+== Benutzeroberflächeneinstellungen und Hilfe
+
+Oben rechts in der Benutzeroberfläche können Sie auf Hilfe und andere Dokumentationen zugreifen. Sie können außerdem auf Verwaltungsoptionen zugreifen, die über das Dropdown-Menü neben Ihrem Anmeldenamen verfügbar sind.
+
+
+
+== Benutzeranmeldungen und Passwörter
+
+Der aktuell im System angemeldete Benutzer wird oben rechts in der Benutzeroberfläche angezeigt.
+
+Weitere Informationen zu Benutzern und Passwörtern finden Sie unter:
+
+* link:administrator-password-protection-unified.html["Administratorpasswortschutz festlegen"]
+* link:change-admin-password-unified.html["Ändern Sie das Administratorpasswort"]
+* link:../um-certificates/change-passwords-unified.html["Passwörter für lokale Benutzerprofile ändern"]
+

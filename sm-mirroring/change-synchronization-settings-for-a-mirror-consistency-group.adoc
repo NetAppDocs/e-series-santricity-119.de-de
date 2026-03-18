@@ -1,0 +1,66 @@
+---
+permalink: sm-mirroring/change-synchronization-settings-for-a-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, synchronization, settings, mirror, consistency, group, 
+summary: Sie können die Synchronisierungseinstellungen und Warnschwellenwerte ändern, die die Spiegel-Konsistenzgruppe auf dem lokalen Speicherarray verwendet, wenn Daten initial synchronisiert werden oder wenn Daten während asynchroner Spiegelungsvorgänge erneut synchronisiert werden. 
+---
+= Synchronisierungseinstellungen für eine Konsistenzgruppe im SANtricity System Manager ändern
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Synchronisierungseinstellungen und Warnschwellenwerte ändern, die die Spiegel-Konsistenzgruppe auf dem lokalen Speicherarray verwendet, wenn Daten initial synchronisiert werden oder wenn Daten während asynchroner Spiegelungsvorgänge erneut synchronisiert werden.
+
+.Über diese Aufgabe
+Eine Änderung der Synchronisierungseinstellungen wirkt sich auf die Synchronisierungsvorgänge aller gespiegelten Paare innerhalb der Konsistenzgruppe aus.
+
+.Schritte
+. Menü auswählen:Storage[Asynchronous Mirroring].
+. Wählen Sie die Registerkarte *Mirror Consistency Groups* aus.
++
+Die Tabelle „Mirrored Konsistenzgruppe“ wird angezeigt und zeigt alle Spiegel-Konsistenzgruppen an, die dem Speicherarray zugeordnet sind.
+
+. Wählen Sie die Spiegel-Konsistenzgruppe aus, die Sie bearbeiten möchten, und wählen Sie dann Menü:Mehr[Einstellungen bearbeiten].
++
+Das System zeigt das Dialogfeld „Einstellungen bearbeiten“ an.
+
+. Passen Sie die Synchronisierungs- und Alarmeinstellungen entsprechend an und klicken Sie dann auf *Speichern*.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Synchronisieren Sie die gespiegelten Paare...
+ a| 
+Geben Sie an, ob Sie die gespiegelten Paare auf dem Remote-Speicherarray manuell oder automatisch synchronisieren möchten.
+
+** **Manually** – Wählen Sie diese Option, um die gespiegelten Paare auf dem entfernten Speichersystem manuell zu synchronisieren.
+** **Automatisch, alle** – Wählen Sie diese Option, um die gespiegelten Paare auf dem Remote-Speicherarray automatisch zu synchronisieren, indem Sie das Zeitintervall vom Beginn der vorherigen Aktualisierung bis zum Beginn der nächsten Aktualisierung angeben. Das Standardintervall beträgt 10 Minuten.
+
+
+
+
+ a| 
+Benachrichtige mich...
+ a| 
+Wenn Sie die Synchronisierungsmethode auf automatisch einstellen, legen Sie die folgenden Benachrichtigungen fest:
+
+** **Synchronisierung** – Legen Sie die Zeitspanne fest, nach der System Manager eine Warnung sendet, dass die Synchronisierung nicht abgeschlossen wurde.
+** **Remote-Wiederherstellungspunkt** – Legen Sie ein Zeitlimit fest, nach dessen Ablauf der System Manager eine Warnung sendet, dass die Wiederherstellungspunktdaten auf dem Remote-Speicherarray älter als Ihr definiertes Zeitlimit sind. Definieren Sie das Zeitlimit ab dem Ende des vorherigen Updates.
+** **Reservierte Kapazitätsschwelle** – Legen Sie eine reservierte Kapazitätsmenge fest, bei der System Manager eine Warnung sendet, dass Sie sich der reservierten Kapazitätsschwelle nähern. Definieren Sie die Schwelle als Prozentsatz der verbleibenden Kapazität.
+
+
+|===
+====
+
+
+.Ergebnisse
+System Manager ändert die Synchronisierungseinstellungen für jedes gespiegelte Paar in der Konsistenzgruppe.

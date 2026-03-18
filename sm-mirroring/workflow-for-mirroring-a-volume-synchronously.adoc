@@ -1,0 +1,43 @@
+---
+permalink: sm-mirroring/workflow-for-mirroring-a-volume-synchronously.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, workflow, mirroring, synchronously, 
+summary: Sie konfigurieren die synchrone Spiegelung mithilfe des folgenden Arbeitsablaufs. 
+---
+= Ein Volume in der SANtricity Software synchron spiegeln
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie konfigurieren die synchrone Spiegelung mithilfe des folgenden Arbeitsablaufs.
+
+[NOTE]
+====
+Diese Funktion ist auf dem EF600/EF600C oder EF300/EF300C Speichersystem nicht verfügbar.
+
+====
+. Führen Sie die Erstkonfiguration im Unified Manager durch:
++
+.. Wählen Sie ein lokales Speicherarray als Quelle für den Datentransfer.
+.. Wählen Sie ein primäres Volume aus dem lokalen Speicherarray aus.
+.. Wählen Sie ein entferntes Speichersystem als Ziel für den Datentransfer und anschließend ein sekundäres Volume.
+.. Synchronisierungs- und Resynchronisierungsprioritäten auswählen.
+.. Beginnen Sie mit dem initialen Datentransfer vom primären Volume zum sekundären Volume. Je nach Volume-Größe kann dieser initiale Transfer mehrere Stunden dauern.
+
+
+. Überprüfen Sie den Fortschritt der anfänglichen Synchronisierung:
++
+.. Starten Sie im Unified Manager den System Manager für das lokale Array.
+.. Im System Manager können Sie den Status des Spiegelungsvorgangs einsehen. Nach Abschluss der Spiegelung ist der Status des gespiegelten Paares „Optimal“. Die beiden Arrays versuchen, während des normalen Betriebs synchron zu bleiben. Nur neue und geänderte Blöcke werden vom primären Volume auf das sekundäre Volume übertragen.
+
+
+. *Optional:* Sie können die Synchronisierungseinstellungen im System Manager ändern.
++
+[NOTE]
+====
+Da synchrone Replizierung kontinuierlich erfolgt, muss die Replikationsverbindung zwischen den beiden Standorten über ausreichende Bandbreite verfügen.
+
+====
+

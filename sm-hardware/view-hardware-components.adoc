@@ -1,0 +1,71 @@
+---
+permalink: sm-hardware/view-hardware-components.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, hardware, components, filtering, 
+summary: Die Hardware-Seite bietet Sortier- und Filterfunktionen, die das Auffinden von Komponenten erleichtern. 
+---
+= Hardwarekomponenten im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Hardware-Seite bietet Sortier- und Filterfunktionen, die das Auffinden von Komponenten erleichtern.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Verwenden Sie die in der folgenden Tabelle beschriebenen Funktionen, um Hardwarekomponenten anzuzeigen.
+
+
+[cols="25h,~"]
+|===
+| Funktion | Beschreibung 
+
+
+ a| 
+Laufwerke-, Controller- und Komponentenansichten
+ a| 
+Um zwischen der Vorder- und Rückseitenansicht zu wechseln, wählen Sie ganz rechts entweder *Laufwerke* oder *Controller & Komponenten* aus (der angezeigte Link hängt von der aktuellen Ansicht ab). Die Ansicht *Laufwerke* zeigt Laufwerke und alle leeren Laufwerksschächte an. Die Ansicht *Controller & Komponenten* zeigt die Controller sowie alle IOM (ESM) Module, Netzteil/Lüfter-Module oder leere Controller-Schächte an. Am unteren Rand der Seite können Sie auch *Alle Laufwerke anzeigen* auswählen.
+
+
+
+ a| 
+Drive-Ansichtsfilter
+ a| 
+Enthält das Speichersystem Laufwerke mit unterschiedlichen physischen und logischen Attributen, bietet die Seite *Hardware* Filter für die Laufwerksansicht. Diese Filterfelder helfen Ihnen, schnell bestimmte Laufwerke zu finden, indem Sie die angezeigten Laufwerkstypen auf der Seite einschränken. Klicken Sie unter *Laufwerke anzeigen, die...* auf das Filterfeld auf der linken Seite (standardmäßig *Beliebiger Laufwerkstyp*), um eine Dropdown-Liste mit physischen Attributen (zum Beispiel Kapazität und Geschwindigkeit) anzuzeigen. Klicken Sie auf das Filterfeld auf der rechten Seite (standardmäßig *Überall im Speichersystem*), um eine Dropdown-Liste mit logischen Attributen (zum Beispiel Zuordnung zu einer Volume-Gruppe) anzuzeigen. Sie können diese Filter gemeinsam oder einzeln verwenden.
+
+[NOTE]
+====
+Wenn das Speichersystem Laufwerke mit identischen physikalischen Eigenschaften enthält, wird das Feld *Beliebiger Laufwerkstyp* auf der linken Seite nicht angezeigt. Befinden sich alle Laufwerke am selben logischen Speicherort, wird das Feld *Beliebiger Ort im Speichersystem* auf der rechten Seite nicht angezeigt.
+
+====
+
+
+ a| 
+Legende
+ a| 
+Die Komponenten werden in bestimmten Farben dargestellt, um ihre Rollenstatus anzuzeigen. Um die Beschreibungen dieser Zustände ein- und auszublenden, klicken Sie auf *Legend*.
+
+
+
+ a| 
+Details zum Statussymbol anzeigen
+ a| 
+Die Statusanzeigen können Textbeschreibungen für Verfügbarkeitszustände enthalten. Klicken Sie auf *Statussymboldetails anzeigen*, um diesen Statustext anzuzeigen oder auszublenden.
+
+
+
+ a| 
+Regal-/Regalsymbole
+ a| 
+Jede Shelf-Ansicht bietet eine Liste zugehöriger Befehle sowie Eigenschaften und Status. Klicken Sie auf *Shelf*, um eine Drop-down-Liste von Befehlen anzuzeigen. Sie können auch eines der Symbole oben auswählen, um Status und Eigenschaften einzelner Komponenten anzuzeigen: Controller, IOMs (ESMs), Netzteile, Lüfter, Temperatur, Batterien und SFPs.
+
+
+
+ a| 
+Shelf-Reihenfolge
+ a| 
+Die Regale können auf der Seite „Hardware“ neu angeordnet werden. Verwenden Sie die Pfeile nach oben und unten oben rechts in jeder Regalansicht, um die Reihenfolge der Regale oben/unten zu ändern.
+
+|===

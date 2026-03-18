@@ -1,0 +1,132 @@
+---
+permalink: sm-storage/faq-snapshots.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zu Snapshots für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Warum sehe ich nicht alle meine Volumes, Hosts oder Hostcluster?
+
+Snapshot-Volumes mit einem für Data Assurance (DA) aktivierten Basis-Volume können keinem Host zugewiesen werden, der nicht Data Assurance (DA) fähig ist. Sie müssen DA auf dem Basis-Volume deaktivieren, bevor ein Snapshot-Volume einem Host zugewiesen werden kann, der nicht DA fähig ist.
+
+Beachten Sie die folgenden Richtlinien für den Host, dem Sie das Snapshot-Volume zuweisen:
+
+* Ein Host ist nicht DA-fähig, wenn er über eine E/A-Schnittstelle mit dem Storage-Array verbunden ist, die nicht DA-fähig ist.
+* Ein Hostcluster ist nicht DA-fähig, wenn es mindestens ein Hostmitglied gibt, das nicht DA-fähig ist.
+
+
+[NOTE]
+====
+Sie können DA auf einem Volume, das mit Snapshots (Konsistenzgruppen, Snapshot-Gruppen, Snapshot-Images und Snapshot-Volumes), Volume-Kopien und Spiegelungen verknüpft ist, nicht deaktivieren. Alle zugehörigen reservierten Kapazitäten und Snapshot-Objekte müssen gelöscht werden, bevor DA auf dem Basis-Volume deaktiviert werden kann.
+
+====
+
+
+== Was ist ein Snapshot-Image?
+
+Ein Snapshot-Image ist eine logische Kopie des Volume-Inhalts, die zu einem bestimmten Zeitpunkt erfasst wurde. Snapshot-Images benötigen minimalen Speicherplatz.
+
+Snapshot-Image-Daten werden wie folgt gespeichert:
+
+* Wenn ein Snapshot-Image erstellt wird, entspricht es exakt dem Basisvolume. Nach der Snapshot-Erstellung, wenn die erste Schreibanforderung für einen beliebigen Block oder eine Blockgruppe auf dem Basisvolume erfolgt, werden die Originaldaten in den für den Snapshot reservierten Speicher kopiert, bevor die neuen Daten auf das Basisvolume geschrieben werden.
+* Nachfolgende Snapshots enthalten nur Datenblöcke, die sich seit der Erstellung des ersten Snapshot-Images geändert haben. Jeder nachfolgende Copy-on-Write-Vorgang speichert die Originaldaten, die auf dem Basis-Volume überschrieben werden sollen, im für den Snapshot reservierten Speicherbereich, bevor die neuen Daten auf das Basis-Volume geschrieben werden.
+
+
+
+
+== Warum Snapshot-Images verwenden?
+
+Mit Snapshots können Sie sich vor versehentlichem oder böswilligem Datenverlust oder Datenbeschädigung schützen und die Wiederherstellung danach ermöglichen.
+
+Wählen Sie ein Basis-Volume oder eine Gruppe von Basis-Volumes, die als Snapshot-Konsistenzgruppe bezeichnet wird, und erfassen Sie dann Snapshot-Images auf eine oder mehrere der folgenden Arten:
+
+* Sie können ein Snapshot-Image eines einzelnen Basis-Volumes oder eine Snapshot-Konsistenzgruppe erstellen, die aus mehreren Basis-Volumes besteht.
+* Sie können Snapshots manuell erstellen oder einen Zeitplan für ein Basis-Volume oder eine Snapshot-Konsistenzgruppe erstellen, um automatisch periodische Snapshot-Images zu erfassen.
+* Sie können ein vom Host zugängliches Snapshot-Volume eines Snapshot-Images erstellen.
+* Sie können eine Rollback-Operation durchführen, um ein Snapshot-Image wiederherzustellen.
+
+
+Das System speichert mehrere Snapshot-Images als Wiederherstellungspunkte, mit denen Sie auf bekannte, intakte Datensätze zu bestimmten Zeitpunkten zurückgreifen können. Die Möglichkeit, zurückzurollen, bietet Schutz vor versehentlichem Löschen von Daten und Datenbeschädigung.
+
+
+
+== Welche Arten von Volumes können für Snapshots verwendet werden?
+
+Standard-Volumes und Thin-Volumes sind die einzigen Volume-Typen, die zum Speichern von Snapshot-Images verwendet werden können. Nicht-Standard-Volumes können nicht verwendet werden. Das Basis-Volume kann sich entweder in einem Pool oder einer Volume-Gruppe befinden.
+
+
+
+== Warum sollte ich eine Snapshot-Konsistenzgruppe erstellen?
+
+Sie erstellen eine Snapshot-Konsistenzgruppe, wenn Sie sicherstellen möchten, dass Snapshot-Images auf mehreren Volumes zur gleichen Zeit erstellt werden.
+
+Eine Datenbank, die aus mehreren Volumes besteht, die für Wiederherstellungszwecke konsistent bleiben müssen, würde eine Snapshot Konsistenzgruppe benötigen, um koordinierte Snapshots aller Volumes zu sammeln und diese zur Wiederherstellung der gesamten Datenbank zu verwenden.
+
+Die in einer Snapshot-Konsistenzgruppe enthaltenen Volumes werden als _Mitgliedsvolumes_ bezeichnet.
+
+Sie können die folgenden Snapshot-Operationen an einer Snapshot-Konsistenzgruppe durchführen:
+
+* Erstellen Sie ein Snapshot-Image einer Snapshot-Konsistenzgruppe, um simultane Images der Mitglieds-Volumes zu erhalten.
+* Erstellen Sie einen Zeitplan für die Snapshot-Konsistenzgruppe, um automatisch periodisch simultane Images der Mitglieds-Volumes zu erfassen.
+* Erstellen Sie ein vom Host zugängliches Snapshot-Volume eines Snapshot-Konsistenzgruppen-Images.
+* Führen Sie einen Rollback-Vorgang für eine Snapshot-Konsistenzgruppe durch.
+
+
+
+
+== Was ist ein Snapshot-Volume und wann benötigt es reservierte Kapazität?
+
+Ein Snapshot-Volume ermöglicht dem Host den Zugriff auf Daten im Snapshot-Image. Das Snapshot-Volume verfügt über eine eigene reservierte Kapazität, die alle Änderungen am Basis-Volume speichert, ohne das ursprüngliche Snapshot-Image zu beeinträchtigen. Snapshot-Images sind für Hosts weder Lese- noch Schreibzugriff zugänglich. Wenn Sie Snapshot-Daten lesen oder schreiben möchten, erstellen Sie ein Snapshot-Volume und weisen Sie es einem Host zu.
+
+Sie können zwei Arten von Snapshot-Volumes erstellen. Die Art des Snapshot-Volumes bestimmt, ob reservierte Kapazität verwendet wird.
+
+* *Schreibgeschützt* – Ein als schreibgeschützt erstelltes Snapshot-Volume ermöglicht einer Hostanwendung den Lesezugriff auf eine Kopie der im Snapshot-Image enthaltenen Daten. Ein schreibgeschütztes Snapshot-Volume verwendet keine reservierte Kapazität.
+* *Lese-Schreib* – Ein als Lese-Schreib erstelltes Snapshot-Volume ermöglicht es Ihnen, Änderungen am Snapshot-Volume vorzunehmen, ohne das referenzierte Snapshot-Image zu beeinträchtigen. Ein Lese-Schreib-Snapshot-Volume verwendet reservierte Kapazität, um diese Änderungen zu speichern. Sie können ein schreibgeschütztes Snapshot-Volume jederzeit in ein Lese-Schreib-Volume umwandeln.
+
+
+
+
+== Was ist eine Snapshot-Gruppe?
+
+Eine Snapshot-Gruppe ist eine Sammlung von zeitpunktgenauen Snapshot-Images eines einzelnen zugehörigen Basis-Volumes.
+
+System Manager organisiert Snapshot-Images in Snapshot-Gruppen. Snapshot-Gruppen erfordern keine Benutzeraktion, aber Sie können die reservierte Kapazität einer Snapshot-Gruppe jederzeit anpassen. Zusätzlich werden Sie möglicherweise aufgefordert, reservierte Kapazität zu erstellen, wenn die folgenden Bedingungen erfüllt sind:
+
+* Immer wenn Sie einen Snapshot eines Basisvolumes erstellen, dem noch keine Snapshot-Gruppe zugeordnet ist, erstellt System Manager automatisch eine Snapshot-Gruppe. Dadurch wird reservierte Kapazität für das Basisvolume erstellt, die zum Speichern nachfolgender Snapshot-Images verwendet wird.
+* Immer wenn Sie einen Snapshot-Zeitplan für ein Basisvolume erstellen, erstellt System Manager automatisch eine Snapshot-Gruppe.
+
+
+
+
+== Warum sollte ich ein Snapshot-Volume deaktivieren?
+
+Sie deaktivieren ein Snapshot-Volume, wenn Sie dem Snapshot-Image ein anderes Snapshot-Volume zuweisen möchten. Sie können das deaktivierte Snapshot-Volume für die spätere Verwendung reservieren.
+
+Wenn Sie das Snapshot-Volume oder das Konsistenzgruppe-Snapshot-Volume nicht mehr benötigen und nicht beabsichtigen, es zu einem späteren Zeitpunkt neu zu erstellen, sollten Sie das Volume löschen, anstatt es zu deaktivieren.
+
+
+
+== Was ist der Zustand „Disabled“?
+
+Ein Snapshot-Volume mit dem Status "Deaktiviert" ist derzeit keinem Snapshot-Image zugewiesen. Um das Snapshot-Volume zu aktivieren, müssen Sie die Operation „Neu erstellen“ verwenden, um dem deaktivierten Snapshot-Volume ein neues Snapshot-Image zuzuweisen.
+
+Die Eigenschaften eines Snapshot-Volumes werden durch das ihm zugewiesene Snapshot-Image definiert. Lese- und Schreibvorgänge werden auf einem Snapshot-Volume im Status „Deaktiviert“ angehalten.
+
+
+
+== Warum sollte ich einen Snapshot-Zeitplan aussetzen?
+
+Wenn ein Zeitplan angehalten wird, werden die geplanten Snapshot-Images nicht erstellt. Sie können einen Snapshot-Zeitplan pausieren, um Speicherplatz zu sparen und die geplanten Snapshots zu einem späteren Zeitpunkt fortsetzen.
+
+Wenn Sie den Snapshot-Zeitplan nicht benötigen, sollten Sie den Zeitplan löschen, anstatt ihn auszusetzen.

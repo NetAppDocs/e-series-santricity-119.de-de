@@ -1,0 +1,135 @@
+---
+permalink: sm-hardware/faq-storage-controller.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zu Speicherkontrollern für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was ist Auto-Negotiation?
+
+Auto-negotiation ist die Fähigkeit einer Netzwerkschnittstelle, ihre eigenen Verbindungsparameter (Geschwindigkeit und Duplex) automatisch mit einer anderen Netzwerkschnittstelle abzustimmen.
+
+Die automatische Aushandlung ist in der Regel die bevorzugte Einstellung für die Konfiguration von Management-Ports; schlägt die Aushandlung jedoch fehl, können nicht übereinstimmende Netzwerkschnittstelleneinstellungen die Netzwerkleistung erheblich beeinträchtigen. Wenn dieser Zustand nicht akzeptabel ist, sollten Sie die Netzwerkschnittstelleneinstellungen manuell auf eine korrekte Konfiguration setzen. Die automatische Aushandlung wird von den Ethernet-Management-Ports des Controllers durchgeführt. Die automatische Aushandlung wird von iSCSI-Hostbusadaptern nicht durchgeführt.
+
+[NOTE]
+====
+Schlägt die automatische Aushandlung fehl, versucht der Controller, eine Verbindung bei 10BASE-T, Halbduplex, herzustellen, was den kleinsten gemeinsamen Nenner darstellt.
+
+====
+
+
+== Was ist die zustandslose Adressautokonfiguration von IPv6?
+
+Bei der zustandslosen Autokonfiguration erhalten Hosts keine Adressen und andere Konfigurationsinformationen von einem Server.
+
+Die zustandslose automatische Konfiguration in IPv6 umfasst Link-Local-Adressen, Multicasting und das Neighbor Discovery (ND)-Protokoll. IPv6 kann die Schnittstellen-ID einer Adresse aus der zugrunde liegenden Data-Link-Layer-Adresse generieren.
+
+Zustandslose Autokonfiguration und zustandsbehaftete Autokonfiguration ergänzen sich gegenseitig. Zum Beispiel kann der Host die zustandslose Autokonfiguration verwenden, um seine eigenen Adressen zu konfigurieren, aber die zustandsbehaftete Autokonfiguration verwenden, um andere Informationen zu erhalten. Die zustandsbehaftete Autokonfiguration ermöglicht es Hosts, Adressen und andere Konfigurationsinformationen von einem Server zu erhalten. Internet Protocol version 6 (IPv6) definiert außerdem eine Methode, mit der alle IP-Adressen in einem Netzwerk gleichzeitig neu nummeriert werden können. IPv6 definiert eine Methode, mit der Geräte im Netzwerk ihre IP-Adresse und andere Parameter automatisch konfigurieren können, ohne dass ein Server erforderlich ist.
+
+Geräte führen diese Schritte aus, wenn sie die zustandslose automatische Konfiguration verwenden:
+
+. *Generiere eine Link-Local-Adresse* -- Das Gerät generiert eine Link-Local-Adresse, die aus 10 Bits, gefolgt von 54 Nullen und gefolgt von der 64-Bit-Schnittstellen-ID besteht.
+. *Testen Sie die Eindeutigkeit einer Link-Local-Adresse* -- Der Knoten testet, um sicherzustellen, dass die von ihm generierte Link-Local-Adresse nicht bereits im lokalen Netzwerk verwendet wird. Der Knoten sendet eine Nachbaranfrage-Nachricht mithilfe des ND-Protokolls. Als Antwort hört das lokale Netzwerk auf eine Nachbarankündigungs-Nachricht, die anzeigt, dass ein anderes Gerät die Link-Local-Adresse bereits verwendet. Ist dies der Fall, muss entweder eine neue Link-Local-Adresse generiert werden oder die automatische Konfiguration schlägt fehl und eine andere Methode muss verwendet werden.
+. *Zuweisung einer Link-Local-Adresse* – Wenn das Gerät den Eindeutigkeitstest besteht, weist das Gerät die Link-Local-Adresse seiner IP-Schnittstelle zu. Die Link-Local-Adresse kann für die Kommunikation im lokalen Netzwerk, jedoch nicht über das Internet, verwendet werden.
+. *Router kontaktieren* – Der Knoten versucht, einen lokalen Router zu kontaktieren, um weitere Informationen darüber zu erhalten, wie die Konfiguration fortgesetzt werden kann. Dieser Kontakt erfolgt entweder durch das Empfangen von Router-Advertisement-Nachrichten, die regelmäßig von den Routern gesendet werden, oder durch das Senden einer spezifischen Router-Solicitation-Nachricht, um einen Router nach Informationen darüber zu fragen, was als Nächstes zu tun ist.
+. *Anweisungen an den Knoten geben* – Der Router gibt dem Knoten Anweisungen zur Durchführung der automatischen Konfiguration. Alternativ teilt der Router dem Host mit, wie die globale Internetadresse ermittelt werden kann.
+. *Konfigurieren der globalen Adresse* -- Der Host konfiguriert sich selbst mit seiner global eindeutigen Internetadresse. Diese Adresse wird im Allgemeinen aus einem Netzwerkpräfix gebildet, das dem Host vom Router zugewiesen wird.
+
+
+
+
+== Welche Option soll ich wählen – DHCP oder manuelle Konfiguration?
+
+Die Standardmethode zur Netzwerkkonfiguration ist das Dynamic Host Configuration Protocol (DHCP). Verwenden Sie diese Option immer, es sei denn, Ihr Netzwerk verfügt nicht über einen DHCP-Server.
+
+
+
+== Was ist ein DHCP-Server?
+
+Dynamic Host Configuration Protocol (DHCP) ist ein Protokoll, das die Aufgabe der Zuweisung einer Internet Protocol (IP)-Adresse automatisiert.
+
+Jedem Gerät, das mit einem TCP/IP-Netzwerk verbunden ist, muss eine eindeutige IP-Adresse zugewiesen werden. Zu diesen Geräten gehören auch die Controller in Ihrem Storage-Array.
+
+Ohne DHCP gibt ein Netzwerkadministrator diese IP-Adressen manuell ein. Mit DHCP sendet ein Client, wenn er TCP/IP-Operationen starten muss, eine Broadcast-Anfrage nach Adressinformationen. Der DHCP-Server empfängt die Anfrage, weist für einen bestimmten Zeitraum, der als Lease-Periode bezeichnet wird, eine neue Adresse zu und sendet die Adresse an den Client. Mit DHCP kann ein Gerät jedes Mal, wenn es sich mit dem Netzwerk verbindet, eine andere IP-Adresse haben. In einigen Systemen kann sich die IP-Adresse des Geräts sogar ändern, während das Gerät noch verbunden ist.
+
+
+
+== Wie konfiguriere ich meinen DHCP Server?
+
+Sie müssen einen Dynamic Host Configuration Protocol (DHCP)-Server so konfigurieren, dass er statische Internet Protocol (IP)-Adressen für die Controller in Ihrem Storage-Array verwendet.
+
+Die von Ihrem DHCP-Server zugewiesenen IP-Adressen sind in der Regel dynamisch und können sich ändern, da sie eine Leasingdauer haben, die abläuft. Einige Geräte, beispielsweise Server und Router, müssen statische Adressen verwenden. Die Controller in Ihrem Storage-Array benötigen ebenfalls statische IP-Adressen.
+
+Informationen darüber, wie Sie statische Adressen zuweisen, finden Sie in der Dokumentation Ihres DHCP-Servers.
+
+
+
+== Warum muss ich die Netzwerkkonfiguration des Controllers ändern?
+
+Sie müssen die Netzwerkkonfiguration für jeden Controller festlegen – seine Internet Protocol (IP)-Adresse, Subnetzmaske und Gateway – wenn Sie Out-of-Band-Management verwenden.
+
+Sie können die Netzwerkkonfiguration mithilfe eines Dynamic Host Configuration Protocol (DHCP)-Servers festlegen. Wenn Sie keinen DHCP-Server verwenden, müssen Sie die Netzwerkkonfiguration manuell eingeben.
+
+
+
+== Wo erhalte ich die Netzwerkkonfiguration?
+
+Sie können die Internetprotokoll-(IP-)Adresse, die Subnetzmaske (subnet mask) und die Gateway-Informationen von Ihrem Netzwerkadministrator erhalten.
+
+Sie benötigen diese Informationen, wenn Sie Ports auf den Controllern konfigurieren.
+
+
+
+== Was sind ICMP PING-Antworten?
+
+Internet Control Message Protocol (ICMP) ist eines der Protokolle der TCP/IP-Suite.
+
+Die `ICMP echo request` und die(`ICMP echo reply` Meldungen sind allgemein als `ping` Meldungen bekannt. `Ping` ist ein Fehlerbehebungstool, das von Systemadministratoren verwendet wird, um die Konnektivität zwischen Netzwerkgeräten manuell zu testen sowie Netzwerkverzögerungen und Paketverlust zu prüfen. Der `ping` Befehl sendet ein `ICMP echo request` an ein Gerät im Netzwerk, und das Gerät antwortet sofort mit einem(`ICMP echo reply`. Manchmal verlangt die Netzwerksicherheitsrichtlinie eines Unternehmens, dass `ping` (`ICMP echo reply` auf allen Geräten deaktiviert wird, um deren Entdeckung durch Unbefugte zu erschweren.
+
+
+
+== Wann sollte ich die Portkonfiguration aktualisieren?
+
+Aktualisieren Sie den DHCP-Server jedes Mal, wenn der Server geändert oder aktualisiert wird und sich die DHCP-Informationen für das aktuelle Storage-Array und das Storage-Array, das Sie verwenden möchten, geändert haben.
+
+Aktualisieren Sie insbesondere die Portkonfiguration oder den iSNS-Server von dem DHCP-Server, wenn Sie wissen, dass der DHCP-Server andere Adressen zuweisen wird.
+
+[NOTE]
+====
+Das Aktualisieren einer Portkonfiguration ist destruktiv für alle iSCSI-Verbindungen an diesem Port.
+
+====
+
+
+== Was sollte ich nach der Konfiguration der Management-Ports tun?
+
+Wenn Sie die IP-Adresse für das Speicherarray geändert haben, möchten Sie möglicherweise die globale Array-Ansicht im SANtricity Unified Manager aktualisieren.
+
+Um die globale Array-Ansicht im Unified Manager zu aktualisieren, öffnen Sie die Benutzeroberfläche und gehen Sie zu menu:Manage[Discover].
+
+Falls Sie noch den SANtricity Storage Manager verwenden, gehen Sie zum Enterprise Management Window (EMW), wo Sie die neue IP-Adresse entfernen und erneut hinzufügen müssen.
+
+
+
+== Warum befindet sich das Speichersystem im nicht optimalen Modus?
+
+Ein Speichersystem im nicht optimalen Modus befindet sich aufgrund eines Invalid System Configuration-Zustands. Trotz dieses Zustands wird der normale E/A-Zugriff auf vorhandene Volumes vollständig unterstützt; allerdings werden einige Operationen vom SANtricity System Manager unterbunden.
+
+Ein Speichersystem kann aus einem dieser Gründe in den Status „Ungültige Systemkonfiguration“ wechseln:
+
+* Der Controller ist nicht konform, möglicherweise weil er einen falschen Submodel-ID-Code (SMID) hat oder das Limit der Premium-Funktionen überschritten wurde.
+* Ein interner Servicevorgang ist im Gange, wie zum Beispiel ein Firmware-Download für ein Laufwerk.
+* Der Controller hat den Paritätsfehlerschwellenwert überschritten und ist in den Lockdown-Modus gegangen.
+* Es ist eine allgemeine Sperrbedingung aufgetreten.
+

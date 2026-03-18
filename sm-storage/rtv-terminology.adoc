@@ -1,0 +1,68 @@
+---
+permalink: sm-storage/rtv-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage, terms 
+summary: Erfahren Sie, wie die Remote-Storage-Begriffe auf Ihr Storage-Array zutreffen. 
+---
+= Erfahren Sie mehr über die Remote Storage-Terminologie in SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Remote-Storage-Begriffe auf Ihr Storage-Array zutreffen.
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+IQN
+ a| 
+iSCSI Qualified Name (IQN)-Bezeichner, der ein eindeutiger Name für einen iSCSI-Initiator oder ein iSCSI-Ziel ist.
+
+
+
+ a| 
+LUN
+ a| 
+Logische Einheitennummer, die zur Identifizierung einer logischen Einheit verwendet wird, die einem Host zum Zugriff präsentiert werden kann.
+
+
+
+ a| 
+Remote-System
+ a| 
+Das Storage-System, auf dem die Daten ursprünglich gespeichert sind. Das Remote Storage-System kann entweder ein E-Series Modell oder ein System eines anderen Herstellers sein.
+
+
+
+ a| 
+Remote-Speichergerät
+ a| 
+Das physische oder logische Gerät, auf dem die Daten zunächst im Remote-System gespeichert werden. In einem E-Series Storage-System wird dies als „Volume“ bezeichnet.
+
+
+
+ a| 
+Remote-Speicherobjekt
+ a| 
+Ein Objekt, das Informationen enthält, die es dem E-Series-System ermöglichen, das Remote-System zu identifizieren und eine Verbindung herzustellen. Diese Informationen umfassen die IQN und IP-Adressen für das Remote-System. Das Remote-System-Objekt repräsentiert die Kommunikation zwischen dem Remote-System und dem E-Series-System.
+
+
+
+ a| 
+Remote-Storage-Volume
+ a| 
+Ein Standard-Volume auf dem E-Series Storage-System, das den Datenzugriff auf ein Remote-Speichergerät ermöglicht.
+
+
+
+ a| 
+Volumen
+ a| 
+Ein Container, in dem Daten gespeichert werden. Es ist die logische Komponente, die für den Host erstellt wird, um auf die Daten zuzugreifen.
+
+|===

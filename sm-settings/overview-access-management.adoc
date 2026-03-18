@@ -1,0 +1,59 @@
+---
+permalink: sm-settings/overview-access-management.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access, management, 
+summary: 'Zugriffsverwaltung ist eine Methode zur Einrichtung der Benutzerauthentifizierung im SANtricity System Manager. Zu den Authentifizierungsmethoden gehören RBAC (rollenbasierte Zugriffssteuerung), Directory Services und Security Assertion Markup Language (SAML) 2.0.' 
+---
+= Erfahren Sie mehr über das Zugriffsmanagement im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Zugriffsmanagement ist eine Methode zur Einrichtung der Benutzerauthentifizierung im SANtricity System Manager.
+
+
+
+== Welche Authentifizierungsmethoden stehen zur Verfügung?
+
+Zu den Authentifizierungsmethoden gehören RBAC (rollenbasierte Zugriffssteuerung), Directory Services und Security Assertion Markup Language (SAML):
+
+* *RBAC/Lokale Benutzerrollen* -- Die Authentifizierung erfolgt über die im Speichersystem implementierten RBAC-Funktionen. Lokale Benutzerrollen umfassen vordefinierte Benutzerprofile und Rollen mit spezifischen Zugriffsberechtigungen.
+* *Verzeichnisdienste* -- Die Authentifizierung wird über einen LDAP (Lightweight Directory Access Protocol)-Server und Verzeichnisdienste wie Microsoft's Active Directory verwaltet.
+* *SAML* -- Die Authentifizierung wird durch einen Identity Provider (IdP) mithilfe von SAML 2.0 verwaltet.
+
+
+Mehr erfahren:
+
+* link:how-access-management-works.html["Wie die Zugriffsverwaltung funktioniert"]
+* link:access-management-terminology.html["Terminologie des Zugriffsmanagements"]
+* link:permissions-for-mapped-roles.html["Berechtigungen für zugeordnete Rollen"]
+* link:access-management-with-local-user-roles.html["Lokale Benutzerrollen"]
+* link:access-management-with-directory-services.html["Verzeichnisdienste"]
+* link:access-management-with-saml.html["SAML"]
+
+
+
+
+== Wie konfiguriere ich die Authentifizierung?
+
+Das Speichersystem ist standardmäßig für die Verwendung lokaler Benutzerrollen konfiguriert, die eine Implementierung der rollenbasierten Zugriffssteuerung darstellen. Wenn Sie eine andere Methode konfigurieren möchten, gehen Sie zu menu:Settings[Access Management].
+
+Mehr erfahren:
+
+* link:add-directory-server.html["Fügen Sie einen LDAP-Verzeichnisserver hinzu"]
+* link:configure-saml.html["SAML konfigurieren"]
+
+
+
+
+== Verwandte Informationen
+
+Erfahren Sie mehr über Aufgaben im Zusammenhang mit der Zugriffsverwaltung:
+
+* link:change-passwords.html["Passwörter ändern"]
+* link:view-audit-log-activity.html["Revisionsprotokollaktivitäten anzeigen"]
+* link:configure-syslog-server-for-audit-logs.html["Syslog-Server für Revisionsprotokolle konfigurieren"]
+

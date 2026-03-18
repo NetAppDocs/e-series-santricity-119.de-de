@@ -1,0 +1,144 @@
+---
+permalink: sm-storage/create-pool-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, pool, manually 
+summary: 'Sie können einen Pool manuell (aus einer Reihe von Kandidaten) erstellen, wenn die Funktion Pool Auto Configuration keinen Pool bereitstellt, der Ihren Anforderungen entspricht.' 
+---
+= Erstellen Sie einen Pool manuell im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen Pool manuell (aus einer Reihe von Kandidaten) erstellen, wenn die Funktion Pool Auto Configuration keinen Pool bereitstellt, der Ihren Anforderungen entspricht.
+
+Ein Pool stellt die notwendige logische Speicherkapazität bereit, aus der Sie einzelne Volumes erstellen können, die dann zum Hosten Ihrer Anwendungen verwendet werden.
+
+.Bevor Sie beginnen
+* Sie müssen mindestens 11 Laufwerke desselben Typs (HDD oder SSD) haben.
+* Der Schutz vor Shelf-Ausfällen erfordert, dass die zum Pool gehörenden Laufwerke in mindestens sechs verschiedenen Laufwerksschächten untergebracht sind und sich nicht mehr als zwei Laufwerke in einem einzelnen Laufwerksschacht befinden.
+* Der Schutz vor Schubladenverlust erfordert, dass die Laufwerke des Pools in mindestens fünf verschiedenen Schubladen untergebracht sind und der Pool aus jeder Schublade die gleiche Anzahl von Laufwerkseinschüben enthält.
+* Bei der Konfiguration eines EF600- oder EF300-Speicherarrays ist darauf zu achten, dass jeder Controller Zugriff auf die gleiche Anzahl von Laufwerken in den ersten 12 Steckplätzen und die gleiche Anzahl von Laufwerken in den letzten 12 Steckplätzen hat. Diese Konfiguration hilft den Controllern, beide PCIe-Busse auf der Laufwerksseite effektiver zu nutzen. Derzeit ermöglicht System Manager die Laufwerksauswahl unter der erweiterten Funktion beim Erstellen einer Volumengruppe. Für die Poolerstellung wird empfohlen, alle Laufwerke im Speicherarray zu verwenden.
+
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Klicken Sie auf menu:Create[Pool].
++
+Das Dialogfeld „Pool erstellen“ wird angezeigt.
+
+. Geben Sie einen Namen für den Pool ein.
+. *Optional:* Falls Sie mehr als einen Laufwerkstyp in Ihrem Storage-Array haben, wählen Sie den Laufwerkstyp aus, den Sie verwenden möchten.
++
+Die Ergebnistabelle listet alle möglichen Pools auf, die Sie erstellen können.
+
+. Wählen Sie den Poolkandidaten aus, den Sie basierend auf den folgenden Merkmalen verwenden möchten, und klicken Sie dann auf *Erstellen*.
++
+[cols="25h,~"]
+|===
+| Merkmal | Verwenden 
+
+
+ a| 
+Freie Kapazität
+ a| 
+Zeigt die freie Kapazität des Poolkandidaten in GiB an. Wählen Sie einen Poolkandidaten mit der Kapazität für den Speicherbedarf Ihrer Anwendung aus.
+
+Die Erhaltungskapazität (Reserve) wird ebenfalls über den gesamten Pool verteilt und ist nicht Teil der freien Kapazität.
+
+
+
+ a| 
+Gesamtlaufwerke
+ a| 
+Zeigt die Anzahl der im Poolkandidaten verfügbaren Laufwerke an.
+
+System Manager reserviert automatisch so viele Laufwerke wie möglich für die Preservation-Kapazität (für je sechs Laufwerke in einem Pool reserviert System Manager ein Laufwerk für die Preservation-Kapazität).
+
+Wenn ein Laufwerksausfall auftritt, wird die Erhaltungskapazität verwendet, um die rekonstruierten Daten zu speichern.
+
+
+
+ a| 
+Laufwerksblockgröße (nur EF300 und EF600)
+ a| 
+Zeigt die Blockgröße (Sektorgröße) an, die die Laufwerke im Pool beschreiben können. Werte können sein:
+
+** 512 -- Sektorgröße 512 Byte.
+** 4K -- 4.096-Byte Sektorgröße.
+
+
+
+
+ a| 
+Sicherheitsfähig
+ a| 
+Gibt an, ob dieser Poolkandidat ausschließlich aus sicherheitsfähigen Laufwerken besteht, bei denen es sich entweder um Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke handeln kann.
+
+** Sie können Ihren Pool mit Drive Security schützen, aber alle Laufwerke müssen sicherheitsfähig sein, um diese Funktion zu nutzen.
+** Wenn Sie einen reinen FDE-Pool erstellen möchten, suchen Sie in der Spalte *Secure-Capable* nach *Yes - FDE*. Wenn Sie einen reinen FIPS-Pool erstellen möchten, suchen Sie nach *Yes - FIPS* oder *Yes - FIPS (Mixed)*. "Mixed" bedeutet eine Mischung aus 140-2- und 140-3-Laufwerken. Wenn Sie eine Mischung dieser Stufen verwenden, beachten Sie, dass der Pool dann auf dem niedrigeren Sicherheitsniveau (140-2) arbeitet.
+** Sie können einen Pool erstellen, der aus Laufwerken besteht, die möglicherweise sicherheitsfähig sind oder eine Mischung aus Sicherheitsstufen aufweisen. Wenn die Laufwerke im Pool Laufwerke enthalten, die nicht sicherheitsfähig sind, können Sie den Pool nicht sichern.
+
+
+
+
+ a| 
+Sicherheit aktivieren?
+ a| 
+Bietet die Möglichkeit, die Laufwerkssicherheitsfunktion für sicherheitsfähige Laufwerke zu aktivieren. Wenn der Pool sicherheitsfähig ist und Sie einen Sicherheitsschlüssel erstellt haben, können Sie die Sicherheit durch Aktivieren des Kästchens aktivieren.
+
+[NOTE]
+====
+Die einzige Möglichkeit, die Laufwerkssicherheit nach ihrer Aktivierung wieder zu entfernen, besteht darin, den Pool zu löschen und die Laufwerke zu löschen.
+
+====
+
+
+ a| 
+DA-fähig
+ a| 
+Zeigt an, ob Data Assurance (DA) für diesen Poolkandidaten verfügbar ist. DA prüft und korrigiert Fehler, die bei der Datenübertragung von den Controllern zu den Laufwerken auftreten können.
+
+DA ist aktiviert, wenn alle Laufwerke DA-fähig sind. DA kann nach der Erstellung des Volumes deaktiviert werden, indem Sie Menü:Storage[Volumes > Einstellungen anzeigen/bearbeiten > Erweitert > Datensicherung dauerhaft deaktivieren] auswählen. Wenn DA für ein Volume deaktiviert ist, kann es nicht wieder aktiviert werden.
+
+
+
+ a| 
+Ressourcenbereitstellungsfähig (EF300 und EF600 only)
+ a| 
+Zeigt an, ob Resource Provisioning für diesen Poolkandidaten verfügbar ist. Resource Provisioning ist eine Funktion der EF300- und EF600-Speicherarrays, die es ermöglicht, Volumes sofort ohne Hintergrundinitialisierung zu verwenden.
+
+
+
+ a| 
+Shelf-Ausfallschutz
+ a| 
+Zeigt an, ob Shelf-Loss-Schutz verfügbar ist.
+
+Shelf-Loss-Schutz gewährleistet die Zugänglichkeit der Daten auf den Volumes in einem Pool, falls es zu einem vollständigen Kommunikationsverlust mit einem Einzellaufwerk kommt.
+
+
+
+ a| 
+Schubladenverlustschutz
+ a| 
+Zeigt an, ob Schubladenverlustschutz verfügbar ist, der nur gegeben ist, wenn Sie ein Laufwerksregal verwenden, das Schubladen enthält.
+
+Der Schubladenverlustschutz gewährleistet die Zugänglichkeit zu den Daten auf den Volumes in einem Pool, falls ein vollständiger Kommunikationsverlust mit einer einzelnen Schublade in einem Laufwerksschacht auftritt.
+
+
+
+ a| 
+Unterstützte Volume-Blockgrößen (nur EF300 und EF600)
+ a| 
+Zeigt die Blockgrößen an, die für die Volumes im Pool erstellt werden können:
+
+** 512n -- 512 bytes nativ.
+** 512e -- 512 bytes emuliert.
+** 4K -- 4,096 Bytes.
+
+
+|===
+

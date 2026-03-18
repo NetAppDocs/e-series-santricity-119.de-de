@@ -1,0 +1,51 @@
+---
+permalink: um-manage/how-import-settings-works.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, settings, 
+summary: Mit Unified Manager können Sie Einstellungen von einem Storage-Array auf mehrere Storage-Arrays importieren. Die Funktion „Import Settings“ ist ein Batch-Vorgang, der Zeit spart, wenn Sie mehrere Arrays im Netzwerk konfigurieren müssen. 
+---
+= Erfahren Sie mehr über die Konfiguration mehrerer Speicherarrays im SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit SANtricity Unified Manager können Sie Einstellungen von einem Storage-Array auf mehrere Storage-Arrays importieren. Die Funktion „Import Settings“ ist ein Batch-Vorgang, der Zeit spart, wenn Sie mehrere Arrays im Netzwerk konfigurieren müssen.
+
+
+
+== Einstellungen für den Import verfügbar
+
+Die folgenden Konfigurationen können in mehrere Arrays importiert werden:
+
+* *Warnungen* -- Alarmierungsmethoden, um wichtige Ereignisse an Administratoren zu senden, mithilfe von E-Mail, einem Syslog-Server oder einem SNMP-Server.
+* *AutoSupport* -- Eine Funktion, die den Zustand eines Speichersystems überwacht und automatisch Meldungen an den technischen Support sendet.
+* *Verzeichnisdienste* -- Eine Methode der Benutzerauthentifizierung, die über einen LDAP (Lightweight Directory Access Protocol)-Server und einen Verzeichnisdienst wie Microsoft's Active Directory verwaltet wird.
+* *Speicherkonfiguration* -- Konfigurationen bezüglich der folgenden Punkte:
++
+** Volumes (nur Thick und Non-Repository Volumes)
+** Volumengruppen und Pools
+** Hot-Spare-Laufwerkszuweisungen
+
+
+* *Systemeinstellungen* -- Konfigurationen bezüglich der folgenden Punkte:
++
+** Medienscan-Einstellungen für ein Volume
+** SSD-Einstellungen
+** Automatischer Lastausgleich (beinhaltet keine Host-Konnektivitätsberichte)
+
+
+
+
+
+
+== Konfigurationsworkflow
+
+Um Einstellungen zu importieren, folgen Sie diesem Arbeitsablauf:
+
+. Konfigurieren Sie auf einem als Quelle zu verwendenden Speicherarray die Einstellungen mithilfe von System Manager.
+. Sichern Sie auf den Speicherarrays, die als Ziele verwendet werden sollen, deren Konfiguration mit System Manager.
+. Gehen Sie im Unified Manager zur Seite *Manage* und importieren Sie die Einstellungen.
+. Überprüfen Sie auf der Seite *Vorgänge* die Ergebnisse des Vorgangs Import Settings.
+

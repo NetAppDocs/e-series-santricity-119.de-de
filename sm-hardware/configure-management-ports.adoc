@@ -1,0 +1,98 @@
+---
+permalink: sm-hardware/configure-management-ports.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, management, port, 
+summary: Der Controller verfügt über einen Ethernet-Anschluss für das Systemmanagement. Bei Bedarf können Sie dessen Übertragungsparameter und IP-Adressen ändern. 
+---
+= Konfigurieren Sie den Management-Port im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Der Controller verfügt über einen Ethernet-Anschluss für das Systemmanagement. Bei Bedarf können Sie dessen Übertragungsparameter und IP-Adressen ändern.
+
+.Über diese Aufgabe
+Bei diesem Vorgang wählen Sie Port 1 aus und legen anschließend die Geschwindigkeit und die Portadressierungsmethode fest. Port 1 verbindet sich mit dem Netzwerk, in dem der Management-Client auf den Controller und den System Manager zugreifen kann.
+
+[NOTE]
+====
+Verwenden Sie Port 2 an keinem der Controller. Port 2 ist für den technischen Support reserviert.
+
+====
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Klicken Sie auf den Controller mit dem Management-Port, den Sie konfigurieren möchten.
++
+Das Kontextmenü des Controllers wird angezeigt.
+
+. Wählen Sie *Configure management ports* aus.
++
+Das Dialogfeld „Verwaltungsports konfigurieren“ wird geöffnet.
+
+. Stellen Sie sicher, dass Port 1 angezeigt wird, und klicken Sie dann auf *Next*.
+. Wählen Sie die Konfigurationsport-Einstellungen aus und klicken Sie dann auf *Next*.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Geschwindigkeit und Duplex-Modus
+ a| 
+Behalten Sie die Einstellung „Auto-negotiate“ bei, wenn der System Manager die Übertragungsparameter zwischen dem Storage Array und dem Netzwerk bestimmen soll; oder wenn Sie die Geschwindigkeit und den Modus Ihres Netzwerks kennen, wählen Sie die Parameter aus der Dropdown-Liste aus. Nur die gültigen Geschwindigkeits- und Duplex-Kombinationen erscheinen in der Liste.
+
+
+
+ a| 
+IPv4 aktivieren / IPv6 aktivieren
+ a| 
+Wählen Sie eine oder beide Optionen aus, um die Unterstützung für IPv4- und IPv6-Netzwerke zu aktivieren.
+
+|===
+====
++
+Wenn Sie *IPv4 aktivieren* auswählen, öffnet sich ein Dialogfeld zur Auswahl der IPv4-Einstellungen, nachdem Sie auf *Weiter* geklickt haben. Wenn Sie *IPv6 aktivieren* auswählen, öffnet sich ein Dialogfeld zur Auswahl der IPv6-Einstellungen, nachdem Sie auf *Weiter* geklickt haben. Wenn Sie beide Optionen auswählen, öffnet sich zuerst das Dialogfeld für die IPv4-Einstellungen, und nachdem Sie auf *Weiter* geklickt haben, öffnet sich das Dialogfeld für die IPv6-Einstellungen.
+
+. Konfigurieren Sie die IPv4- und/oder IPv6-Einstellungen, entweder automatisch oder manuell.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Automatische Konfiguration vom DHCP-Server beziehen
+ a| 
+Wählen Sie diese Option, um die Konfiguration automatisch zu erhalten.
+
+
+
+ a| 
+Statische Konfiguration manuell festlegen
+ a| 
+Wählen Sie diese Option und geben Sie anschließend die IP-Adresse des Controllers ein. (Sie können die Adressen bei Bedarf in die Felder kopieren und einfügen.) Geben Sie für IPv4 die Subnetzmaske und das Gateway an. Geben Sie für IPv6 die routbare IP-Adresse und die Router-IP-Adresse an.
+
+
+NOTE: Wenn Sie die IP-Adresskonfiguration ändern, verlieren Sie den Verwaltungspfad zum Storage-Array. Wenn Sie SANtricity Unified Manager zur globalen Verwaltung von Arrays in Ihrem Netzwerk verwenden, öffnen Sie die Benutzeroberfläche und gehen Sie zu Menü:Manage[Discover]. Wenn Sie SANtricity Storage Manager verwenden, müssen Sie das Gerät aus dem Enterprise Management Window (EMW) entfernen, es wieder zum EMW hinzufügen, indem Sie Menü:Edit[Add Storage Array] auswählen, und dann die neue IP-Adresse eingeben.
+
+|===
+====
+. Klicken Sie auf *Finish*.
+
+
+.Ergebnisse
+Die Konfiguration des Management-Ports wird in den Controller-Einstellungen auf der Registerkarte Management-Ports angezeigt.

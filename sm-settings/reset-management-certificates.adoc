@@ -1,0 +1,38 @@
+---
+permalink: sm-settings/reset-management-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reset, management, certificates, 
+summary: Sie können die Zertifikate auf den Controllern von der Verwendung von CA-signierten Zertifikaten wieder auf die werkseitig eingestellten, selbstsignierten Zertifikate zurücksetzen. 
+---
+= Verwaltungszertifikate im SANtricity System Manager zurücksetzen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Zertifikate auf den Controllern von der Verwendung von CA-signierten Zertifikaten wieder auf die werkseitig eingestellten, selbstsignierten Zertifikate zurücksetzen.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Zertifikatsfunktionen nicht angezeigt.
+* Von einer Zertifizierungsstelle signierte Zertifikate müssen zuvor importiert werden.
+
+
+.Über diese Aufgabe
+Die Funktion „Zurücksetzen“ löscht die aktuellen, von einer Zertifizierungsstelle signierten Zertifikatsdateien von jedem Controller. Die Controller verwenden dann wieder selbstsignierte Zertifikate.
+
+.Schritte
+. Menü auswählen: Settings[Certificates].
+. Wählen Sie auf der Registerkarte Array Management die Option *Reset* aus.
++
+Ein Dialogfeld „Zurücksetzen der Verwaltungszertifikate bestätigen“ wird geöffnet.
+
+. Geben Sie  `reset` in das Feld ein und klicken Sie dann auf *Zurücksetzen*.
++
+Nach dem Aktualisieren Ihres Browsers kann dieser den Zugriff auf die Zielseite blockieren und melden, dass die Seite HTTP Strict Transport Security verwendet. Diese Situation tritt auf, wenn Sie wieder zu selbstsignierten Zertifikaten wechseln. Um die Bedingung zu beseitigen, die den Zugriff auf das Ziel blockiert, müssen Sie die Browserdaten löschen.
+
+
+
+.Ergebnisse
+Die Controller verwenden wieder selbstsignierte Zertifikate. Daher fordert das System die Benutzer auf, das selbstsignierte Zertifikat für ihre Sitzungen manuell zu akzeptieren.

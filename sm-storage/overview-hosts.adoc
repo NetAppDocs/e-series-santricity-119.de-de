@@ -1,0 +1,55 @@
+---
+permalink: sm-storage/overview-hosts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hosts 
+summary: Sie können Hosts und Host-Cluster konfigurieren, die die Verbindungen zwischen dem Speicherarray und den Datenservern definieren. 
+---
+= Erfahren Sie mehr über Hosts und Hostcluster in SANtricity Software
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Hosts und Host-Cluster konfigurieren, die die Verbindungen zwischen dem Speicherarray und den Datenservern definieren.
+
+
+
+== Was sind Hosts und Host-Cluster?
+
+Ein Host ist ein Server, der I/O an ein Volume auf einem Storage-Array sendet. Ein Host-Cluster ist eine Gruppe von Hosts, die Sie erstellen können, um mehreren Hosts dieselben Volumes zuzuweisen.
+
+Mehr erfahren:
+
+* link:host-terminology.html["Host-Terminologie"]
+* link:access-volumes.html["Zugriffs-Volumes"]
+* link:maximum-number-of-luns.html["Maximale Anzahl von LUNs"]
+
+
+
+
+== Wie konfiguriere ich Hosts und Host-Cluster?
+
+Um Hostverbindungen zu definieren, können Sie zu Menü:Storage[Hosts] gehen, um den Host manuell zu konfigurieren. Wenn Sie möchten, dass zwei oder mehr Hosts gemeinsam auf denselben Satz von Volumes zugreifen, können Sie einen Cluster definieren und die Volumes diesem Cluster zuweisen.
+
+Mehr erfahren:
+
+* link:manual-host-creation.html["Manuelle Host-Erstellung"]
+* link:how-volumes-are-assigned-to-hosts-and-host-clusters.html["Wie Volumes Hosts und Host-Clustern zugewiesen werden"]
+* link:workflow-for-creating-hosts-and-assigning-volumes.html["Workflow für die Host-Erstellung und Volume-Zuweisung"]
+* link:create-host-manually.html["Host manuell erstellen"]
+* link:create-host-cluster.html["Host-Cluster erstellen"]
+* link:assign-volumes.html["Weisen Sie Volumes Hosts zu"]
+
+
+
+
+== Verwandte Informationen
+
+Erfahren Sie mehr über Aufgaben im Zusammenhang mit Hosts:
+
+* link:../sm-settings/set-automatic-load-balancing.html["Automatische Lastverteilung festlegen"]
+* link:../sm-settings/set-host-connectivity-reporting.html["Host-Konnektivitätsberichterstattung festlegen"]
+* link:../sm-settings/change-default-host-type.html["Standard-Hosttyp ändern"]
+

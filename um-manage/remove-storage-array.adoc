@@ -1,0 +1,29 @@
+---
+permalink: um-manage/remove-storage-array.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, remove, storage, arrays, 
+summary: Sie können ein oder mehrere Speicherarrays entfernen, wenn Sie sie nicht mehr über SANtricity Unified Manager verwalten möchten. 
+---
+= Speicherarrays aus SANtricity Unified Manager entfernen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein oder mehrere Speicherarrays entfernen, wenn Sie sie nicht mehr über SANtricity Unified Manager verwalten möchten.
+
+.Über diese Aufgabe
+Sie können auf keines der Speicherarrays zugreifen, die Sie entfernen. Sie können jedoch eine Verbindung zu jedem der entfernten Speicherarrays herstellen, indem Sie in einem Browser direkt dessen IP-Adresse oder Hostnamen aufrufen.
+
+Das Entfernen eines Speicherarrays hat keinerlei Auswirkungen auf das Speicherarray oder dessen Daten. Wenn ein Speicherarray versehentlich entfernt wurde, kann es wieder hinzugefügt werden.
+
+.Schritte
+. Wählen Sie die Seite *Manage* aus.
+. Wählen Sie ein oder mehrere Speicherarrays aus, die Sie entfernen möchten.
+. Menü auswählen: Uncommon Tasks[Remove storage array].
++
+Das Speicherarray wird aus allen Ansichten im SANtricity Unified Manager entfernt.
+
+

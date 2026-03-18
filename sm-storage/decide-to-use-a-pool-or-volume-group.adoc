@@ -1,0 +1,355 @@
+---
+permalink: sm-storage/decide-to-use-a-pool-or-volume-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, pool, volume group 
+summary: Sie können Volumes entweder mithilfe eines Pools oder einer Volume-Gruppe erstellen. Die beste Auswahl hängt in erster Linie von den wichtigsten Speicheranforderungen ab, wie der erwarteten I/O-Last, den Leistungsanforderungen und den Anforderungen an den Datenschutz. 
+---
+= Erfahren Sie mehr über Pools und Volumengruppen in SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Volumes entweder mithilfe eines Pools oder einer Volume-Gruppe erstellen. Die beste Auswahl hängt in erster Linie von den wichtigsten Speicheranforderungen ab, wie der erwarteten I/O-Last, den Leistungsanforderungen und den Anforderungen an den Datenschutz.
+
+
+
+== Gründe für die Wahl eines Pools oder einer Volumengruppe
+
+*Wähle einen Pool*
+
+* Wenn Sie schnellere Laufwerkswiederherstellungen und eine vereinfachte Speicherverwaltung benötigen, Thin Volumes erfordern und/oder eine stark zufällige Arbeitslast haben.
+* Wenn Sie die Daten für jedes Volume zufällig auf eine Reihe von Laufwerken verteilen möchten, die den Pool bilden.
++
+Sie können den RAID-Level von Pools oder den Volumes in den Pools weder festlegen noch ändern. Pools verwenden RAID-Level 6.
+
+
+
+*Wählen Sie eine Volume-Gruppe*
+
+* Wenn Sie maximale Systembandbreite, die Möglichkeit zur Feinabstimmung der Speichereinstellungen und eine stark sequenzielle Arbeitslast benötigen.
+* Wenn Sie die Daten basierend auf einem RAID-Level auf die Laufwerke verteilen möchten. Sie können den RAID-Level beim Erstellen der Volume-Gruppe angeben.
+* Wenn Sie die Daten für jedes Volume sequenziell über die Gruppe von Laufwerken schreiben möchten, die die Volume-Gruppe bilden.
+
+
+[NOTE]
+====
+Da Pools zusammen mit Volume Groups existieren können, kann ein Speicherarray sowohl Pools als auch Volume Groups enthalten.
+
+====
+
+
+== Merkmalsunterschiede zwischen Pools und Volumengruppen
+
+Die folgende Tabelle bietet einen Funktionsvergleich zwischen Volumengruppen und Pools.
+
+[cols="1a,1a,1a"]
+|===
+| Verwenden | Pool | Volume-Gruppe 
+
+
+ a| 
+Workload zufällig
+ a| 
+Besser
+ a| 
+Gut
+
+
+
+ a| 
+Workload sequenziell
+ a| 
+Gut
+ a| 
+Besser
+
+
+
+ a| 
+Laufwerkswiederherstellungszeit
+ a| 
+Schneller
+ a| 
+Langsamer
+
+
+
+ a| 
+Leistung (optimaler Modus)
+ a| 
+Gut: Am besten für kleine Blöcke und zufällige Arbeitslasten.
+ a| 
+Gut: Am besten geeignet für große, sequenzielle Arbeitslasten
+
+
+
+ a| 
+Leistung (Wiederherstellung eines Laufwerks)
+ a| 
+Besser: In der Regel besser als RAID 6
+ a| 
+Vermindert: Bis zu 40% Leistungsabfall
+
+
+
+ a| 
+Mehrere Laufwerksausfälle
+ a| 
+Besserer Datenschutz: Schnellere, priorisierte Wiederherstellungen
+ a| 
+Weniger Datenschutz: Langsame Wiederherstellung, höheres Risiko von Datenverlust
+
+
+
+ a| 
+Hinzufügen von Laufwerken
+ a| 
+Schneller: Fügen Sie dem Pool im Handumdrehen hinzu
+ a| 
+Langsamer: Erfordert Dynamic Capacity Expansion-Vorgang
+
+
+
+ a| 
+Unterstützung für dünne Volumen
+ a| 
+Ja
+ a| 
+Nein
+
+
+
+ a| 
+Unterstützung für Solid State Disk (SSD)
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+ a| 
+Vereinfachte Verwaltung
+ a| 
+Ja: Keine Hot Spares oder RAID-Einstellungen zu konfigurieren
+ a| 
+Nein: Hot Spares müssen zugewiesen und RAID konfiguriert werden
+
+
+
+ a| 
+Einstellbare Leistung
+ a| 
+Nein
+ a| 
+Ja
+
+|===
+
+
+== Funktionsvergleich von Pools und Volumengruppen
+
+Die Funktion und der Zweck eines Pools und einer Volume-Gruppe sind gleich. Beide Objekte sind eine Gruppe von Laufwerken, die in einem Storage-Array logisch zusammengefasst sind und zur Erstellung von Volumes verwendet werden, auf die ein Host zugreifen kann.
+
+Die folgende Tabelle hilft Ihnen zu entscheiden, ob ein Pool oder eine Volumengruppe am besten zu Ihren Speicheranforderungen passt.
+
+[cols="1a,1a,1a"]
+|===
+| Funktion | Pool | Volume-Gruppe 
+
+
+ a| 
+Verschiedene RAID-Level werden unterstützt
+ a| 
+Nein. Immer RAID 6 im System Manager.
+ a| 
+Ja. RAID 0, 1, 10, 5 und 6 verfügbar.
+
+
+
+ a| 
+Dünne Volumen unterstützt
+ a| 
+Ja
+ a| 
+Nein
+
+
+
+ a| 
+Vollständige Festplattenverschlüsselung (FDE) unterstützt
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+ a| 
+Data Assurance (DA) unterstützt
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+ a| 
+Schutz vor Regalverlust unterstützt
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+ a| 
+Schubladenverlustschutz unterstützt
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+ a| 
+Gemischte Laufwerksgeschwindigkeiten werden unterstützt
+ a| 
+Empfohlen, aber nicht erforderlich. Das langsamste Laufwerk bestimmt die Geschwindigkeit aller Laufwerke.
+ a| 
+Empfohlen, aber nicht erforderlich. Das langsamste Laufwerk bestimmt die Geschwindigkeit aller Laufwerke.
+
+
+
+ a| 
+Gemischte Laufwerkskapazität unterstützt
+ a| 
+Empfohlen, aber nicht erforderlich. Das kleinste Laufwerk bestimmt die Kapazität aller Laufwerke.
+ a| 
+Empfohlen, aber nicht erforderlich. Das kleinste Laufwerk bestimmt die Kapazität aller Laufwerke.
+
+
+
+ a| 
+Mindestanzahl an Laufwerken
+ a| 
+11
+ a| 
+Das hängt vom RAID-Level ab. RAID 0 benötigt 1. RAID 1 oder 10 benötigt 2 (eine gerade Anzahl ist erforderlich). RAID 5 Minimum ist 3. RAID 6 Minimum ist 5.
+
+
+
+ a| 
+Maximale Anzahl der Laufwerke
+ a| 
+Bis zur maximalen Grenze für das Speichersystem
+ a| 
+RAID 1 und 10--bis zum maximalen Limit des Speicherarrays RAID 5, 6--30 Laufwerke
+
+
+
+ a| 
+Kann beim Erstellen eines Volumes einzelne Laufwerke auswählen
+ a| 
+Nein
+ a| 
+Ja
+
+
+
+ a| 
+Segmentgröße kann beim Erstellen eines Volumens angegeben werden
+ a| 
+Ja. 128K wird unterstützt.
+ a| 
+Ja
+
+
+
+ a| 
+Kann E/A-Eigenschaften beim Erstellen eines Volumes angeben
+ a| 
+Nein
+ a| 
+Ja. Dateisystem, Datenbank, Multimedia und benutzerdefiniert werden unterstützt.
+
+
+
+ a| 
+Schutz vor Laufwerksausfall
+ a| 
+Verwendet die Erhaltungskapazität auf jedem Laufwerk im Pool, wodurch die Rekonstruktion schneller erfolgt.
+ a| 
+Verwendet ein Hot-Spare-Laufwerk. Die Wiederherstellung eines Laufwerks ist durch die IOPs des Laufwerks begrenzt.
+
+
+
+ a| 
+Warnung beim Erreichen der Kapazitätsgrenze
+ a| 
+Ja. Es kann eine Warnung eingestellt werden, wenn die belegte Kapazität einen Prozentsatz der maximalen Kapazität erreicht.
+ a| 
+Nein
+
+
+
+ a| 
+Migration zu einem anderen Speichersystem wird unterstützt
+ a| 
+Nein. Dafür ist zunächst eine Migration zu einer volume group erforderlich.
+ a| 
+Ja
+
+
+
+ a| 
+Dynamische Segmentgröße (DSS)
+ a| 
+Nein
+ a| 
+Ja
+
+
+
+ a| 
+Kann RAID-Level ändern
+ a| 
+Nein
+ a| 
+Ja
+
+
+
+ a| 
+Volumenerweiterung (Kapazitätserhöhung)
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+ a| 
+Kapazitätserweiterung (Kapazität hinzufügen)
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+ a| 
+Kapazitätsreduzierung
+ a| 
+Ja
+ a| 
+Nein
+
+|===
+[NOTE]
+====
+Gemischte Laufwerkstypen (HDD, SSD) werden weder für Pools noch für Volume-Gruppen unterstützt.
+
+====

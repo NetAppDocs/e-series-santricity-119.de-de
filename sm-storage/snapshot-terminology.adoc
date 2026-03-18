@@ -1,0 +1,96 @@
+---
+permalink: sm-storage/snapshot-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot, terms 
+summary: Erfahren Sie, wie die Snapshot-Begriffe auf Ihr Storage-Array zutreffen. 
+---
+= Erfahren Sie mehr über die Snapshot-Terminologie in SANtricity Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Snapshot-Begriffe auf Ihr Storage-Array zutreffen.
+
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+Schnappschussfunktion
+ a| 
+Die Funktion „Snapshots“ wird verwendet, um Images von Volumes zu erstellen und zu verwalten.
+
+
+
+ a| 
+Snapshot-Image
+ a| 
+Ein Snapshot-Image ist eine logische Kopie von Volume-Daten, die zu einem bestimmten Zeitpunkt erstellt wurde. Wie ein Wiederherstellungspunkt ermöglichen Snapshot-Images das Zurücksetzen auf einen bekannten, guten Datensatz. Obwohl der Host auf das Snapshot-Image zugreifen kann, kann er es nicht direkt lesen oder darauf schreiben.
+
+
+
+ a| 
+Grundvolumen
+ a| 
+Ein Basisvolume ist die Quelle, aus der ein Snapshot-Image erstellt wird. Es kann ein Thick- oder Thin-Volume sein und wird typischerweise einem Host zugewiesen. Das Basisvolume kann sich entweder in einer Volume-Gruppe oder einem Disk Pool befinden.
+
+
+
+ a| 
+Snapshot-Volume
+ a| 
+Ein Snapshot-Volume ermöglicht dem Host den Zugriff auf Daten im Snapshot-Image. Das Snapshot-Volume verfügt über eine eigene reservierte Kapazität, die alle Änderungen am Basis-Volume speichert, ohne das ursprüngliche Snapshot-Image zu beeinträchtigen.
+
+
+
+ a| 
+Snapshot-Gruppe
+ a| 
+Eine Snapshot-Gruppe ist eine Sammlung von Snapshot-Images von einem einzelnen Basis-Volume.
+
+
+
+ a| 
+Reserviertes Kapazitätsvolume
+ a| 
+Ein reserviertes Kapazitätsvolume verfolgt, welche Datenblöcke des Basisvolumes überschrieben werden und den erhaltenen Inhalt dieser Blöcke.
+
+
+
+ a| 
+Snapshot-Zeitplan
+ a| 
+Ein Snapshot-Zeitplan ist ein Zeitplan für die Erstellung automatisierter Snapshot-Bilder. Über den Zeitplan können Sie die Häufigkeit der Bilderstellung steuern.
+
+
+
+ a| 
+Snapshot-Konsistenzgruppe
+ a| 
+Eine Snapshot-Konsistenzgruppe ist eine Sammlung von Volumes, die beim Erstellen eines Snapshot-Images als eine Einheit behandelt werden. Jedes dieser Volumes hat sein eigenes Snapshot-Image, aber alle Images werden zum selben Zeitpunkt erstellt.
+
+
+
+ a| 
+Snapshot-Konsistenzgruppenmitgliedsvolume
+ a| 
+Jedes Volume, das zu einer Snapshot Konsistenzgruppe gehört, wird als Mitgliedsvolume bezeichnet. Wenn Sie ein Volume zu einer Snapshot Konsistenzgruppe hinzufügen, erstellt System Manager automatisch eine neue Snapshot-Gruppe, die diesem Mitgliedsvolume entspricht.
+
+
+
+ a| 
+Rollback
+ a| 
+Ein Rollback ist der Prozess, bei dem Daten in einem Basis-Volume auf einen früheren Zeitpunkt zurückgesetzt werden.
+
+
+
+ a| 
+Reservierte Kapazität
+ a| 
+Die reservierte Kapazität ist die physisch zugewiesene Kapazität, die für jeden Kopiervorgang und jedes Speicherobjekt verwendet wird. Sie ist für den Host nicht direkt lesbar.
+
+|===

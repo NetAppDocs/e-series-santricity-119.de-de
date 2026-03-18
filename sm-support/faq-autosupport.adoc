@@ -1,0 +1,313 @@
+---
+permalink: sm-support/faq-autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= AutoSupport FAQ für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Welche Daten erhebe ich?
+
+Die AutoSupport-Funktion und die manuelle Support-Datenerfassungsfunktion bieten Möglichkeiten, Daten in einem Kundensupportpaket für die Fernfehlerbehebung und Problemanalyse durch den technischen Support zu erfassen.
+
+Das Kundensupport-Paket fasst alle Arten von Informationen über das Speichersystem in einer einzigen komprimierten Datei zusammen. Die erfassten Informationen umfassen die physische Konfiguration, logische Konfiguration, Versionsinformationen, Ereignisse, Protokolldateien und Leistungsdaten. Die Informationen werden ausschließlich vom technischen Support verwendet, um Probleme mit dem Speichersystem zu lösen.
+
+
+
+== Was zeigen mir die Daten zu unlesbaren Sektoren?
+
+Sie können detaillierte Daten über nicht lesbare Sektoren anzeigen, die auf den Laufwerken in Ihrem Storage-Array erkannt wurden.
+
+Das Protokoll der nicht lesbaren Sektoren zeigt den zuletzt aufgetretenen nicht lesbaren Sektor zuerst an. Das Protokoll enthält die folgenden Informationen über die Volumes, die die nicht lesbaren Sektoren enthalten. Die Felder sind sortierbar.
+
+[cols="25h,~"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Betroffenes Volumen
+ a| 
+Zeigt die Bezeichnung des Volumes an. Wenn ein fehlendes Volume unlesbare Sektoren enthält, wird der World Wide Identifier für das fehlende Volume angezeigt.
+
+
+
+ a| 
+Logische Einheitennummer (LUN)
+ a| 
+Zeigt die LUN für das Volume an. Wenn das Volume keine LUN hat, zeigt das Dialogfeld NA an.
+
+
+
+ a| 
+Zugewiesen an
+ a| 
+Zeigt die Hosts oder Hostcluster an, die Zugriff auf das Volume haben. Wenn das Volume für keinen Host, kein Hostcluster oder sogar kein Default Cluster zugänglich ist, zeigt das Dialogfeld NA an.
+
+|===
+Um zusätzliche Informationen zu den nicht lesbaren Sektoren anzuzeigen, klicken Sie auf das Pluszeichen (+) neben einem Volume.
+
+[cols="25h,~"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+Datum/Uhrzeit
+ a| 
+Zeigt das Datum und die Uhrzeit an, zu der der unlesbare Sektor erkannt wurde.
+
+
+
+ a| 
+Volume Logical Block Address
+ a| 
+Zeigt die logische Blockadresse (LBA) des Volumes an.
+
+
+
+ a| 
+Laufwerksstandort
+ a| 
+Zeigt das Laufwerksfach, die Schublade (falls Ihr Laufwerksfach über Schubladen verfügt) und die Position des Einschubs.
+
+
+
+ a| 
+Logische Blockadresse des Laufwerks
+ a| 
+Zeigt die LBA des Laufwerks an.
+
+
+
+ a| 
+Fehlertyp
+ a| 
+Zeigt einen der folgenden Fehlertypen an:
+
+* *Physisch* -- Ein Fehler auf einem physischen Medium.
+* *Logisch* -- Ein Lesefehler an anderer Stelle im Stripe führt zu unlesbaren Daten. Zum Beispiel ein unlesbarer Sektor aufgrund von Medienfehlern an anderer Stelle im Volume.
+* *Inkonsistent* -- Inkonsistente Redundanzdaten.
+* *Data Assurance* -- Ein Data Assurance-Fehler.
+
+
+|===
+
+
+== Was ist ein Gesundheitsbild?
+
+Ein Gesundheitsabbild ist ein Rohdaten-Dump aus dem Prozessorspeicher des Controllers, den der technische Support zur Diagnose eines Problems mit dem Controller verwenden kann.
+
+Die Firmware erstellt automatisch ein Health-Image, wenn sie bestimmte Fehler erkennt. In bestimmten Fehlerszenarien kann der technische Support Sie bitten, die Health-Image-Datei abzurufen und an ihn zu senden.
+
+
+
+== Was bewirken die AutoSupport-Funktionen?
+
+Die AutoSupport-Funktion besteht aus drei Einzelfunktionen, die Sie separat aktivieren.
+
+* *Basic AutoSupport* -- Ermöglicht Ihrem Storage-Array, Daten automatisch zu erfassen und an den technischen Support zu senden.
+* *AutoSupport OnDemand* -- Ermöglicht dem technischen Support, die erneute Übertragung eines vorherigen AutoSupport-Versands anzufordern, wenn dies zur Fehlerbehebung eines Problems erforderlich ist. Alle Übertragungen werden vom Speichersystem initiiert, nicht vom AutoSupport Server. Das Speichersystem meldet sich regelmäßig beim AutoSupport Server, um festzustellen, ob ausstehende Anforderungen für erneute Übertragungen vorliegen, und reagiert entsprechend.
+* *Ferndiagnose* – Ermöglicht dem technischen Support, bei Bedarf zur Fehlerbehebung eine neue, aktuelle AutoSupport-Sendung anzufordern. Alle Übertragungen werden vom Speichersystem initiiert, nicht vom AutoSupport-Server. Das Speichersystem meldet sich regelmäßig beim AutoSupport-Server, um festzustellen, ob neue Anfragen ausstehen, und reagiert entsprechend.
+
+
+
+
+== Welche Art von Daten werden durch die AutoSupport-Funktion erfasst?
+
+Die AutoSupport-Funktion enthält drei Standard-Dispatch-Typen: Ereignis-Dispatches, geplante Dispatches und On-Demand- sowie Remote-Diagnose-Dispatches.
+
+Die AutoSupport-Daten enthalten keine Benutzerdaten.
+
+* *Ereignisübermittlungen*
++
+Wenn im System Ereignisse auftreten, die eine proaktive Benachrichtigung des technischen Supports erfordern, sendet die AutoSupport-Funktion automatisch eine ereignisgesteuerte Meldung.
+
++
+** Wird gesendet, wenn ein Supportereignis auf dem verwalteten Storage-Array auftritt.
+** Beinhaltet eine umfassende Momentaufnahme dessen, was mit dem Speichersystem zum Zeitpunkt des Ereignisses geschah.
+
+
+* *Geplante Sendungen*
++
+Die AutoSupport-Funktion versendet automatisch mehrere Meldungen in regelmäßigen Abständen.
+
++
+** *Tägliche Berichte* – Werden einmal täglich in einem vom Benutzer konfigurierbaren Zeitintervall versendet. Enthält die aktuellen Systemereignisprotokolle und Leistungsdaten.
+** *Wöchentliche Meldungen* – Werden einmal wöchentlich während eines vom Benutzer konfigurierbaren Zeitintervalls und Tages versendet. Enthält Konfigurations- und Systemstatusinformationen.
+
+
+* *AutoSupport OnDemand und Ferndiagnoseeinsätze*
++
+** *AutoSupport OnDemand* -- Ermöglicht dem technischen Support, die erneute Übertragung eines vorherigen AutoSupport-Versands anzufordern, wenn dies zur Fehlerbehebung eines Problems erforderlich ist. Alle Übertragungen werden vom Speichersystem initiiert, nicht vom AutoSupport Server. Das Speichersystem meldet sich regelmäßig beim AutoSupport Server, um festzustellen, ob ausstehende Anforderungen für erneute Übertragungen vorliegen, und reagiert entsprechend.
+** *Ferndiagnose* – Ermöglicht dem technischen Support, bei Bedarf zur Fehlerbehebung eine neue, aktuelle AutoSupport-Sendung anzufordern. Alle Übertragungen werden vom Speichersystem initiiert, nicht vom AutoSupport-Server. Das Speichersystem meldet sich regelmäßig beim AutoSupport-Server, um festzustellen, ob neue Anfragen ausstehen, und reagiert entsprechend.
+
+
+
+
+
+
+== Wie konfiguriere ich die Auslieferungsmethode für die AutoSupport-Funktion?
+
+Die AutoSupport-Funktion unterstützt die Protokolle HTTPS und SMTP für die Übermittlung von AutoSupport-Meldungen an den technischen Support.
+
+.Bevor Sie beginnen
+* Die AutoSupport-Funktion muss aktiviert sein. Sie können sehen, ob sie aktiviert ist, auf der AutoSupport-Seite.
+* In Ihrem Netzwerk muss ein DNS-Server installiert und konfiguriert werden. Die DNS-Server-Adresse muss im System Manager konfiguriert werden (diese Aufgabe ist auf der Seite Hardware verfügbar).
+
+
+.Über diese Aufgabe
+Überprüfen Sie die verschiedenen Protokolle:
+
+* *HTTPS* -- Ermöglicht die direkte Verbindung zum Zielserver des technischen Supports über HTTPS. Wenn Sie entweder AutoSupport OnDemand oder die Ferndiagnose aktivieren möchten, muss die AutoSupport-Übertragungsmethode auf HTTPS eingestellt sein.
+* *E-Mail* -- Ermöglicht die Verwendung eines E-Mail-Servers als Zustellungsmethode für den Versand von AutoSupport-Mitteilungen.
+
+
+[NOTE]
+====
+*Unterschiede zwischen der HTTPS- und der E-Mail-Methode*. Die E-Mail-Zustellungsmethode, die SMTP verwendet, weist einige wichtige Unterschiede zur HTTPS-Zustellungsmethode auf. Erstens ist die Größe der Sendungen bei der E-Mail-Methode auf 5 MB begrenzt, was bedeutet, dass einige ASUP-Datensammlungen nicht versendet werden. Zweitens ist die Funktion AutoSupport OnDemand nur bei der HTTPS-Zustellungsmethode verfügbar.
+
+====
+.Schritte
+. Menü auswählen: Support [Support Center > AutoSupport] Tab.
+. Wählen Sie *Configure AutoSupport Delivery Method*.
++
+Es erscheint ein Dialogfeld, in dem die Versandmethoden aufgelistet sind.
+
+. Wählen Sie die gewünschte Versandart und anschließend die Parameter für diese Versandart aus. Führen Sie einen der folgenden Schritte aus:
++
+** Wenn Sie HTTPS ausgewählt haben, wählen Sie einen der folgenden Übermittlungsparameter aus:
++
+*** *Direkt* -- Diese Übertragungsoption ist standardmäßig ausgewählt. Wenn Sie diese Option wählen, können Sie sich direkt über das HTTPS-Protokoll mit dem technischen Supportsystem des Zielsystems verbinden.
+*** *Über Proxyserver* – Mit dieser Option können Sie die HTTP-Proxyserver-Details angeben, die für die Verbindung mit dem Zielsystem des technischen Supports erforderlich sind. Sie müssen die Hostadresse und die Portnummer angeben. Die Host-Authentifizierungsdaten (Benutzername und Passwort) müssen Sie jedoch nur eingeben, wenn dies erforderlich ist.
+*** *Über Proxy-Autokonfigurationsskript (PAC)* – Geben Sie den Speicherort einer Proxy Auto-Configuration (PAC) Script-Datei an. Eine PAC-Datei ermöglicht es dem System, automatisch den geeigneten Proxyserver für die Verbindung mit dem Zielsystem des technischen Supports auszuwählen.
+
+
+** Wenn Sie E-Mail ausgewählt haben, geben Sie die folgenden Informationen ein:
++
+*** Die Mailserveradresse als vollqualifizierte Domain, IPv4-Adresse oder IPv6-Adresse.
+*** Die E-Mail-Adresse, die im Absenderfeld der AutoSupport Versand-E-Mail erscheint.
+*** *Optional; falls Sie einen Konfigurationstest durchführen möchten.* Die E-Mail-Adresse, an die eine Bestätigung gesendet wird, wenn das AutoSupport-System den Testauftrag erhält.
+*** Wenn Sie Nachrichten verschlüsseln möchten, wählen Sie als Verschlüsselungstyp entweder *SMTPS* oder *STARTTLS* und anschließend die Portnummer für verschlüsselte Nachrichten. Andernfalls wählen Sie *None*.
+*** Geben Sie bei Bedarf einen Benutzernamen und ein Passwort zur Authentifizierung mit dem ausgehenden Absender und dem Mailserver ein.
+
+
+
+
+. Klicken Sie auf *Konfiguration testen*, um die Verbindung zum technischen Support-Server mit den angegebenen Übertragungsparametern zu testen. Wenn Sie die AutoSupport On-Demand-Funktion aktiviert haben, testet das System auch die Verbindung für die AutoSupport OnDemand-Versandübertragung.
++
+Wenn der Konfigurationstest fehlschlägt, überprüfen Sie Ihre Konfigurationseinstellungen und führen Sie den Test erneut aus. Wenn der Test weiterhin fehlschlägt, wenden Sie sich an den technischen Support.
+
+. Klicken Sie auf *Speichern*.
+
+
+
+
+== Was sind Konfigurationsdaten?
+
+Wenn Sie die Option „Konfigurationsdaten sammeln“ auswählen, speichert das System den aktuellen Zustand der RAID-Konfigurationsdatenbank.
+
+Die RAID-Konfigurationsdatenbank enthält alle Daten für Volumengruppen und Festplattenpools auf dem Controller. Die Funktion „Konfigurationsdaten sammeln“ speichert dieselben Informationen wie der CLI-Befehl für `save storageArray dbmDatabase`.
+
+
+
+== Was muss ich vor dem Upgrade der SANtricity OS Software wissen?
+
+Bevor Sie die Software und Firmware Ihres Controllers aktualisieren, beachten Sie bitte die folgenden Punkte.
+
+* Sie haben das Dokument und die  `readme.txt` Datei gelesen und festgestellt, dass Sie das Upgrade durchführen möchten.
+* Sie wissen, ob Sie Ihre IOM-Firmware aktualisieren möchten.
++
+Normalerweise sollten Sie alle Komponenten gleichzeitig aktualisieren. Sie können jedoch entscheiden, die IOM-Firmware nicht zu aktualisieren, wenn Sie sie nicht im Rahmen des SANtricity OS Controller Software Upgrades aktualisieren möchten oder wenn Ihnen der technische Support empfohlen hat, Ihre IOM-Firmware downzugraden (Sie können Firmware nur über die Befehlszeile downgraden).
+
+* Sie wissen, ob Sie die Controller-NVSRAM-Datei aktualisieren möchten.
++
+Normalerweise sollten Sie alle Komponenten gleichzeitig aktualisieren. Sie können jedoch davon absehen, die Controller-NVSRAM-Datei zu aktualisieren, wenn Ihre Datei entweder gepatcht wurde oder eine benutzerdefinierte Version ist und Sie diese nicht überschreiben möchten.
+
+* Sie wissen, ob Sie jetzt oder später aktivieren möchten.
++
+Gründe für eine spätere Aktivierung könnten sein:
+
++
+** *Tageszeit* – Die Aktivierung der Software und Firmware kann längere Zeit in Anspruch nehmen, daher sollten Sie warten, bis die E/A-Lasten geringer sind. Die Controller führen während der Aktivierung ein Failover durch, sodass die Leistung bis zum Abschluss des Upgrades geringer als gewöhnlich sein kann.
+** *Pakettyp* -- Sie möchten möglicherweise die neue Software und Firmware auf einem Speichersystem testen, bevor Sie die Dateien auf anderen Speichersystemen aktualisieren.
+
+
+
+
+Diese Komponenten sind Teil des SANtricity OS Controller-Software-Upgrades:
+
+* *Management software* -- System Manager ist die Software, die das Storage-Array verwaltet.
+* *Controller firmware* -- Die Controller-Firmware verwaltet die Ein-/Ausgabe zwischen Hosts und Volumes.
+* *Controller NVSRAM* -- Controller NVSRAM ist eine Controller-Datei, die die Standardeinstellungen für die Controller festlegt.
+* *IOM-Firmware* -- Die Firmware des E/A-Moduls (IOM) verwaltet die Verbindung zwischen einem Controller und einem Laufwerksschacht. Sie überwacht außerdem den Status der Komponenten.
+* *Supervisor-Software* -- Supervisor-Software ist die virtuelle Maschine auf einem Controller, in der die Software ausgeführt wird.
+
+
+Im Rahmen des Upgrade-Prozesses müssen möglicherweise auch der Multipath-/Failover-Treiber und/oder der HBA-Treiber des Hosts aktualisiert werden, damit der Host korrekt mit den Controllern interagieren kann.
+
+[NOTE]
+====
+Um festzustellen, ob dies der Fall ist, siehe  https://mysupport.netapp.com/matrix["NetApp Interoperabilitätsmatrix-Tool"^].
+
+====
+Wenn Ihr Storage-Array nur einen Controller enthält oder Sie keinen Multipath-Treiber installiert haben, stoppen Sie die E/A-Aktivität zum Storage-Array, um Anwendungsfehler zu vermeiden. Wenn Ihr Storage-Array zwei Controller hat und Sie einen Multipath-Treiber installiert haben, müssen Sie die E/A-Aktivität nicht stoppen.
+
+
+CAUTION: Nehmen Sie während des Upgrades keine Änderungen am Storage Array vor.
+
+
+
+== Was muss ich wissen, bevor ich die automatische IOM-Synchronisierung aussetze?
+
+Durch das Aussetzen der IOM-Autosynchronisierung wird verhindert, dass die IOM-Firmware beim nächsten Upgrade der SANtricity OS-Controller-Software aktualisiert wird.
+
+Normalerweise werden Controller-Software und IOM-Firmware als Paket aktualisiert. Sie können die automatische IOM-Synchronisierung aussetzen, wenn Sie eine spezielle Version der IOM-Firmware haben, die Sie auf Ihrem Gehäuse beibehalten möchten. Andernfalls wird beim nächsten Upgrade der Controller-Software wieder die mit der Controller-Software gebündelte IOM-Firmware verwendet.
+
+
+
+== Warum verläuft mein Firmware-Upgrade so langsam?
+
+Der Fortschritt des Firmware-Upgrades hängt von der Gesamtlast des Systems ab.
+
+Während eines Online-Upgrades der Laufwerk-Firmware, wenn während des schnellen Rekonstruktionsprozesses eine Volumenübertragung stattfindet, initiiert das System eine vollständige Rekonstruktion auf dem übertragenen Volume. Dieser Vorgang kann beträchtliche Zeit in Anspruch nehmen. Die tatsächliche Dauer der vollständigen Rekonstruktion hängt von mehreren Faktoren ab, einschließlich der während der Rekonstruktionsoperation auftretenden I/O-Aktivität, der Anzahl der Laufwerke in der Volume-Gruppe, der Einstellung der Wiederherstellungspriorität und der Laufwerksleistung.
+
+
+
+== Was muss ich vor dem Upgrade der Laufwerk-Firmware wissen?
+
+Bevor Sie ein Upgrade der Laufwerk-Firmware durchführen, beachten Sie bitte die folgenden Punkte.
+
+* Sichern Sie vorsichtshalber Ihre Daten mit einer Festplatten-zu-Festplatten-Sicherung, einer Volume-Kopie (auf eine Volume-Gruppe, die von dem geplanten Firmware-Upgrade nicht betroffen ist) oder einem Remote Mirror.
+* Sie möchten möglicherweise nur einige Laufwerke aktualisieren, um das Verhalten der neuen Firmware zu testen und sicherzustellen, dass sie korrekt funktioniert. Wenn die neue Firmware korrekt funktioniert, aktualisieren Sie die verbleibenden Laufwerke.
+* Wenn Sie ausgefallene Laufwerke haben, beheben Sie diese, bevor Sie mit dem Firmware-Upgrade beginnen.
+* Wenn die Laufwerke ein Offline-Upgrade unterstützen, stoppen Sie die E/A-Aktivität aller mit den Laufwerken verbundenen Volumes. Wenn die E/A-Aktivität gestoppt ist, können keine Konfigurationsvorgänge für diese Volumes durchgeführt werden.
+* Entfernen Sie während des Upgrades der Laufwerk-Firmware keine Laufwerke.
+* Nehmen Sie während des Upgrades der Laufwerk-Firmware keine Konfigurationsänderungen am Storage-Array vor.
+
+
+
+
+== Wie wähle ich aus, welchen Upgradetyp ich durchführen soll?
+
+Sie wählen die Art des Upgrades, das auf dem Laufwerk durchgeführt werden soll, abhängig vom Zustand des Pools oder der Volume-Gruppe.
+
+* *Online*
++
+Wenn der Pool oder die Volume-Gruppe Redundanz unterstützt und Optimal ist, können Sie die Online-Methode verwenden, um die Laufwerk-Firmware zu aktualisieren. Die Online-Methode lädt Firmware herunter, , auf die zugehörigen Volumes, die diese Laufwerke verwenden. Sie müssen die E/A auf den zugehörigen Volumes, die diese Laufwerke verwenden, nicht stoppen. Diese Laufwerke werden einzeln auf die mit den Laufwerken verknüpften Volumes aktualisiert. Wenn das Laufwerk keinem Pool oder keiner Volume-Gruppe zugewiesen ist, kann seine Firmware mit der Online- oder der Offline-Methode aktualisiert werden. Die Systemleistung kann beeinträchtigt werden, wenn Sie die Online-Methode verwenden, um die Laufwerk-Firmware zu aktualisieren.
+
+* *Offline*
++
+Wenn der Pool oder die Volume-Gruppe keine Redundanz (RAID 0) unterstützt oder beeinträchtigt ist, müssen Sie die Offline-Methode verwenden, um die Laufwerk-Firmware zu aktualisieren. Die Offline-Methode aktualisiert die Firmware . Sie müssen alle E/A-Vorgänge zu allen zugehörigen Volumes, die diese Laufwerke verwenden, stoppen. Wenn das Laufwerk keinem Pool oder keiner Volume-Gruppe zugewiesen ist, kann seine Firmware entweder mit der Online- oder der Offline-Methode aktualisiert werden.
+
+

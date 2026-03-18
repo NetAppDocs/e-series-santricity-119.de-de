@@ -1,0 +1,30 @@
+---
+permalink: sm-hardware/switch-between-front-and-back-views.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, switch, front, back, views, shelves 
+summary: Die Hardware-Seite kann entweder die Vorderansicht oder die Rückansicht der Regale anzeigen. 
+---
+= Vorder- und Rückansicht im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Hardware-Seite kann entweder die Vorderansicht oder die Rückansicht der Regale anzeigen.
+
+.Über diese Aufgabe
+Die Rückansicht zeigt die Controller/IOMs und die Power-Fan-Module. Die Vorderansicht zeigt die Laufwerke.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Wenn die Grafik die Controller anzeigt, klicken Sie auf die Registerkarte *Drives*.
++
+Die Grafik ändert sich, um die Laufwerke anstelle der Controller anzuzeigen.
+
+. Optional können Sie *Alle Vorderseiten anzeigen* oder *Alle Rückseiten anzeigen* auswählen, die sich unten auf der Seite befinden.
+

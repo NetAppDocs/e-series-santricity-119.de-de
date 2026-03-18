@@ -1,0 +1,122 @@
+---
+permalink: sm-storage/rtv-import-remote-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, import, remote, storage 
+summary: Um einen Speicherimport von einem Remote-System in ein lokales E-Series Storage-System zu initiieren, verwenden Sie den Assistenten „Remote-Speicher importieren“. 
+---
+= Remote-Speicher in SANtricity System Manager importieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um einen Speicherimport von einem Remote-System in ein lokales E-Series Storage-System zu initiieren, verwenden Sie den Assistenten „Remote-Speicher importieren“.
+
+.Bevor Sie beginnen
+* Das E-Series Storage-System muss so konfiguriert werden, dass es mit dem Remote-System kommunizieren kann.
++
+[NOTE]
+====
+Die Hardwarekonfiguration wird im Benutzerhandbuch für die Remote-Storage-Funktion beschrieben, das im E-Series und SANtricity-Dokumentationszentrum unter  https://docs.netapp.com/us-en/e-series/remote-storage-volumes/setup-remote-volumes-concept.html["Hardware konfigurieren"^] und in der  https://www.netapp.com/pdf.html?item=/media/28697-tr-4893-deploy.pdf["Technischer Bericht zum Remote Storage"^] verfügbar ist.
+
+====
+* Sammeln Sie für das Remote-System folgende Informationen:
++
+** iSCSI IQN
+** iSCSI-IP-Adressen
+** LUN-Nummer des Remote-Speichergeräts (Source-Volume)
+
+
+* Für das lokale E-Series Storage-System erstellen oder wählen Sie ein Volume aus, das für den Datenimport verwendet werden soll. Siehe link:create-volumes.html["Volumes erstellen"]. Das Ziel-Volume muss die folgenden Anforderungen erfüllen:
++
+** Entspricht der Blockgröße des Remote-Storage-Geräts (des Source-Volumes).
+** Verfügt über eine Kapazität, die der des Remote-Speichergeräts entspricht oder größer ist.
+** Hat einen Zustand von Optimal und ist verfügbar.
+
+
+
+
+Eine vollständige Liste der Anforderungen finden Sie unter link:rtv-remote-storage-volume-requirements.html["Anforderungen an Remote-Storage-Volumes"].
+
+* *Empfohlen:* Sichern Sie die Volumes auf dem Remote-System, bevor Sie mit dem Importvorgang beginnen.
+
+
+.Über diese Aufgabe
+In dieser Aufgabe erstellen Sie eine Zuordnung zwischen dem Remote-Speichergerät und einem Volume auf dem lokalen E-Series Storage-System. Wenn Sie die Konfiguration abgeschlossen haben, beginnt der Import.
+
+[NOTE]
+====
+Da viele Variablen den Importvorgang und seine Dauer beeinflussen können, empfehlen wir, zunächst kleinere "`test`" Importe durchzuführen. Verwenden Sie diese Tests, um sicherzustellen, dass alle Verbindungen wie erwartet funktionieren und der Importvorgang in angemessener Zeit abgeschlossen wird.
+
+====
+.Schritte
+. Menü auswählen: Storage [Remote storage].
+. Klicken Sie auf *Import Remote Storage*.
++
+Ein Assistent zum Importieren von Remote-Speicher wird angezeigt.
+
+. Geben Sie im *Schritt 1a* des Panels „Quelle konfigurieren“ die Verbindungsinformationen ein. Wenn Sie eine weitere iSCSI-Verbindung hinzufügen möchten, klicken Sie auf *Weitere IP-Adresse hinzufügen*, um eine zusätzliche IP-Adresse für das Remote-Storage anzugeben. Wenn Sie fertig sind, klicken Sie auf *Weiter*.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Name
+ a| 
+Geben Sie einen Namen für das Remote-Speichergerät ein, um es in der System Manager-Oberfläche zu identifizieren.
+
+Ein Name darf maximal 30 Zeichen lang sein und nur Buchstaben, Zahlen und die folgenden Sonderzeichen enthalten: Unterstrich (_), Bindestrich (-) und das Rautezeichen (#). Ein Name darf keine Leerzeichen enthalten.
+
+
+
+ a| 
+iSCSI-Verbindungseigenschaften
+ a| 
+Geben Sie die Verbindungseigenschaften des Remote-Storage-Geräts ein:
+
+** *iSCSI Qualified Name (IQN)*: Geben Sie den iSCSI IQN ein.
+** *IP Address*: Geben Sie die IPv4-Adresse ein.
+** *Port*: Geben Sie die Portnummer ein, die für die Kommunikation zwischen Quell- und Zielgerät verwendet werden soll. Standardmäßig ist die Portnummer 3260.
+
+
+|===
+====
++
+Nachdem Sie auf *Weiter* geklickt haben, wird der *Schritt 1b* des Bereichs „Quelle konfigurieren“ angezeigt.
+
+. Wählen Sie im Feld *LUN* die LUN-Nummer des Remote-Speichergeräts aus, das als Quelle verwendet werden soll, und klicken Sie dann auf *Weiter*.
++
+Das Fenster „Ziel konfigurieren“ öffnet sich und zeigt Volume-Kandidaten an, die als Ziel für den Import dienen sollen. Einige Volumes werden aufgrund von Blockgröße, Kapazität oder Verfügbarkeit des Volumes nicht in der Liste der Kandidaten angezeigt.
+
+. Wählen Sie in der Tabelle ein Ziel-Volume auf dem E-Series Storage-System. Ändern Sie bei Bedarf die Importpriorität mithilfe des Schiebereglers. Klicken Sie auf *Weiter*. Bestätigen Sie den Vorgang im nächsten Dialogfeld durch Eingabe `continue`, und klicken Sie anschließend auf *Fortfahren*.
++
+Wenn das Ziel-Volume eine größere Kapazität als das Quell-Volume aufweist, wird diese zusätzliche Kapazität dem mit dem E-Series Storage-System verbundenen Host nicht gemeldet. Um die neue Kapazität zu nutzen, müssen Sie nach Abschluss des Importvorgangs und nach dem Trennen der Verbindung eine Dateisystemerweiterung auf dem Host durchführen.
+
++
+Nachdem Sie die Konfiguration im Dialog bestätigt haben, wird das Überprüfungsfenster angezeigt.
+
+. Überprüfen Sie im Review-Panel, ob die Einstellungen korrekt sind, und klicken Sie dann auf *Finish*, um den Import zu starten.
++
+Ein weiteres Dialogfeld wird geöffnet, in dem Sie gefragt werden, ob Sie einen weiteren Import initiieren möchten.
+
+. Klicken Sie bei Bedarf auf *Ja*, um einen weiteren Remote-Storage-Import zu erstellen. Mit einem Klick auf *Ja* kehren Sie zu *Schritt 1a* des Bereichs „Configure Source“ zurück, wo Sie die bestehende Konfiguration auswählen oder eine neue hinzufügen können. Wenn Sie keinen weiteren Import erstellen möchten, klicken Sie auf *Nein*, um das Dialogfeld zu schließen.
++
+Sobald der Importvorgang beginnt, wird das gesamte Ziel-Volume mit den kopierten Daten überschrieben. Wenn der Host während dieses Vorgangs neue Daten auf das Ziel-Volume schreibt, werden diese neuen Daten an das Remote-System (Quell-Volume) zurückübertragen.
+
+. Sehen Sie den Fortschritt des Vorgangs im Dialogfeld „Vorgänge anzeigen“ im Bereich „Remote Storage“.
+
+
+.Ergebnisse
+Die für den Importvorgang benötigte Zeit hängt von der Größe des Remote-Storage-Systems, der Prioritätseinstellung für den Import und der Menge der I/O-Last auf beiden Storage-Systemen und ihren zugehörigen Volumes ab.
+
+Sobald der Import abgeschlossen ist, ist das lokale Volume ein Duplikat des Remote-Storage-Geräts.
+
+.Nachdem Sie fertig sind
+Wenn Sie bereit sind, die Beziehung zwischen den beiden Volumes zu trennen, wählen Sie im Importobjekt in der Ansicht *Laufende Vorgänge* die Option *Trennen* aus. Sobald die Beziehung getrennt ist, kehrt die Leistung des lokalen Volumes zum Normalzustand zurück und wird nicht mehr durch die Remote-Verbindung beeinträchtigt.

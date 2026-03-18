@@ -1,0 +1,69 @@
+---
+indexpage:
+  title: Einzelarray-Verwaltung mit SANtricity System Manager 11.9
+  summary: Mit der SANtricity Softwaredokumentation können Sie Ihr Storage-Array installieren,
+    einrichten und warten.
+  keywords: santricity, install, setup, maintain, storage array
+  lead: Mit der SANtricity Softwaredokumentation können Sie Ihr Storage-Array installieren,
+    einrichten und warten.
+  tiles:
+  - title: Array einrichten
+    links:
+    - title: Ersteinrichtung
+      url: "../sm-interface/setup-wizard-overview.html"
+    - title: Administratorpasswort
+      url: "../sm-interface/administrator-password-protection.html"
+    - title: Warnmeldungen
+      url: "../sm-settings/how-alerts-work.html"
+    - title: AutoSupport
+      url: "../sm-support/autosupport-feature-overview.html"
+  - title: Speicher erstellen
+    links:
+    - title: Pools
+      url: "../sm-storage/create-pool-manually.html"
+    - title: Volume-Gruppen
+      url: "../sm-storage/create-volume-group.html"
+    - title: SSD-Cache
+      url: "../sm-storage/create-ssd-cache.html"
+    - title: Volumes
+      url: "../sm-storage/create-volumes.html"
+  - title: Hardware verwalten
+    links:
+    - title: Shelfs
+      url: "../sm-hardware/hardware-page-overview.html"
+    - title: Controller
+      url: "../sm-hardware/controller-states.html"
+    - title: Laufwerke
+      url: "../sm-hardware/drive-states.html"
+    - title: Zertifikate
+      url: "../sm-settings/how-certificates-work-sam.html"
+  - title: Spiegelung, Snapshots und Remote-Speicher
+    links:
+    - title: Asynchrone Spiegelung
+      url: "../sm-mirroring/how-asynchronous-mirroring-works.html"
+    - title: Synchrones Spiegeln
+      url: "../sm-mirroring/how-synchronous-mirroring-works.html"
+    - title: Snapshot-Speicherung
+      url: "../sm-storage/overview-snapshots.html"
+    - title: Remote-Speicher
+      url: "../sm-storage/rtv-how-remote-storage-works.html"
+  - title: Diagnostik
+    links:
+    - title: Supportdaten sammeln
+      url: "../sm-support/collect-support-data-manually.html"
+    - title: Upgrade-Fehler überprüfen
+      url: "../sm-support/review-the-possible-software-and-firmware-upgrade-errors.html"
+    - title: Problembenachrichtigungen
+      url: "../sm-interface/problem-notification.html"
+    - title: Laufende Vorgänge
+      url: "../sm-interface/view-and-act-on-operations-in-progress.html"
+  - title: Wiederherstellung und Ereignisse
+    links:
+    - title: Protokoll nicht lesbarer Sektoren
+      url: "../sm-support/view-unreadable-sectors-log.html"
+    - title: Recovery Guru
+      url: "../sm-interface/recover-from-problems-using-recovery-guru.html"
+    - title: Ereignisprotokoll
+      url: "../sm-support/overview-event-log.html"
+    - title: Wiederherstellungsunterstützungsdateien
+      url: "../sm-support/retrieve-recovery-support-files.html"

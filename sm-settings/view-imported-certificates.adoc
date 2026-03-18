@@ -1,0 +1,53 @@
+---
+permalink: sm-settings/view-imported-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, imported, certificate, information, 
+summary: Auf der Seite „Zertifikate“ können Sie den Zertifikatstyp, die ausstellende Zertifizierungsstelle und den Gültigkeitszeitraum der Zertifikate für das Storage-Array einsehen. 
+---
+= Importierte Zertifikatsinformationen im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Auf der Seite „Zertifikate“ können Sie den Zertifikatstyp, die ausstellende Zertifizierungsstelle und den Gültigkeitszeitraum der Zertifikate für das Storage-Array einsehen.
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Zertifikatsfunktionen nicht angezeigt.
+
+.Schritte
+. Menü auswählen: Settings[Certificates].
+. Wählen Sie einen der Tabs aus, um Informationen zu den Zertifikaten anzuzeigen.
++
+[cols="25h,~"]
+|===
+| Tab | Beschreibung 
+
+
+ a| 
+Array-Management
+ a| 
+Informationen zu den für jeden Controller importierten CA-signierten Zertifikaten anzeigen, einschließlich der Root-Datei, der Intermediate-Datei(en) und der Server-Datei(en).
+
+
+
+ a| 
+Vertrauenswürdig
+ a| 
+Informationen zu allen anderen für die Controller importierten Zertifikatstypen anzeigen. Verwenden Sie das Filterfeld unter *Zertifikate anzeigen, die...*, um entweder benutzerinstallierte oder vorinstallierte Zertifikate anzuzeigen.
+
+** *Vom Benutzer installiert* -- Zertifikate, die ein Benutzer in das Speichersystem hochgeladen hat, einschließlich vertrauenswürdiger Zertifikate, wenn der Controller als Client (statt als Server) fungiert, LDAPS-Zertifikate und Identity Federation-Zertifikate.
+** *Vorinstalliert* -- Selbstsignierte Zertifikate sind im Speicher-Array enthalten.
+
+
+
+
+ a| 
+Schlüsselmanagement
+ a| 
+Informationen zu den importierten CA-signierten Zertifikaten für einen externen Schlüsselverwaltungsserver anzeigen.
+
+|===
+

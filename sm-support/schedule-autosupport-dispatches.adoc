@@ -1,0 +1,33 @@
+---
+permalink: sm-support/schedule-autosupport-dispatches.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, schedule, autosupport, dispatches 
+summary: System Manager erstellt automatisch einen Standardzeitplan für AutoSupport-Sendungen. Wenn Sie möchten, können Sie Ihren eigenen Zeitplan festlegen. 
+---
+= Planen Sie AutoSupport-Sendungen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager erstellt automatisch einen Standardzeitplan für AutoSupport-Sendungen. Wenn Sie möchten, können Sie Ihren eigenen Zeitplan festlegen.
+
+.Bevor Sie beginnen
+Die AutoSupport-Funktion muss aktiviert sein. Sie können sehen, ob sie aktiviert ist, auf der AutoSupport-Seite.
+
+.Über diese Aufgabe
+* *Tägliche Zeit* -- Tägliche Meldungen werden im von Ihnen festgelegten Zeitraum erfasst und versendet. System Manager wählt innerhalb dieses Zeitraums einen zufälligen Zeitpunkt aus. Alle Zeitangaben erfolgen in Coordinated Universal Time (UTC), die von der lokalen Zeit des Storage Arrays abweichen kann. Sie müssen die lokale Zeit Ihres Storage Arrays in UTC umrechnen.
+* *Wochentag* – Wöchentliche Sendungen werden einmal pro Woche gesammelt und versendet. System Manager wählt einen zufälligen Tag aus den von Ihnen angegebenen Tagen aus. Deaktivieren Sie alle Tage, an denen Sie keinen wöchentlichen Versand zulassen möchten. System Manager wählt einen zufälligen Tag aus den von Ihnen erlaubten Tagen aus.
+* *Wöchentliche Zeit* -- Wöchentliche Meldungen werden gesammelt und einmal pro Woche während des von Ihnen angegebenen Zeitraums versendet. System Manager wählt eine zufällige Zeit innerhalb dieses Zeitraums aus. Alle Zeiten sind in Coordinated Universal Time (UTC) angegeben, die sich von der lokalen Zeit des Storage-Arrays unterscheiden kann. Sie müssen die lokale Zeit Ihres Storage-Arrays in UTC umrechnen.
+
+
+.Schritte
+. Menü auswählen: Support [Support Center > AutoSupport] Tab.
+. Wählen Sie *Schedule AutoSupport Dispatches*.
++
+Der Assistent „AutoSupport Versandplanung“ wird angezeigt.
+
+. Folgen Sie den Schritten im Assistenten.
+

@@ -1,0 +1,50 @@
+---
+permalink: sm-settings/access-management-tokens.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access management, tokens 
+summary: Zugriffstoken ermöglichen den Zugriff auf das Array, ohne den Benutzernamen und das Passwort preiszugeben. 
+---
+= Erfahren Sie mehr über Zugriffstoken und SANtricity software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Zugriffstoken bieten eine Methode der Authentifizierung mit der REST-API oder der Befehlszeilenschnittstelle (CLI), ohne Benutzernamen und Passwörter offenzulegen. Ein Token ist einem bestimmten Benutzer (einschließlich LDAP-Benutzern) zugeordnet und enthält einen Satz von Berechtigungen sowie ein Ablaufdatum.
+
+
+
+== SAML- und JSON-Webtoken-Zugriff
+
+Standardmäßig erlaubt ein System mit aktiviertem SAML keinen Zugriff auf herkömmliche Befehlszeilentools. Die REST API und die CLI sind effektiv nicht nutzbar, da der MFA-Workflow eine Weiterleitung zu einem Identity Provider-Server zur Authentifizierung erfordert. Daher müssen Sie Token im System Manager generieren, was vorschreibt, dass ein Benutzer per MFA authentifiziert wird.
+
+
+NOTE: Es ist nicht erforderlich, SAML zu aktivieren, um Web-Tokens zu verwenden, aber SAML wird für das höchste Maß an Sicherheit empfohlen.
+
+
+
+== Workflow zum Erstellen und Verwenden von Tokens
+
+. Erstellen Sie ein Token im System Manager und bestimmen Sie dessen Ablauf.
+. Kopieren Sie den Token-Text in die Zwischenablage oder laden Sie ihn in eine Datei herunter, und speichern Sie den Token-Text anschließend an einem sicheren Ort.
+. Verwenden Sie das Token wie folgt:
++
+** *Rest API*: Um ein Token in einer REST API-Anfrage zu verwenden, fügen Sie einen HTTP-Header zu Ihren Anfragen hinzu. Zum Beispiel:
+`Authorization: Bearer _<access-token-value>_`
+** *Sichere CLI*: Um ein Token in der CLI zu verwenden, fügen Sie den Tokenwert in die Befehlszeile ein oder verwenden Sie den Pfad zu einer Datei, die den Tokenwert enthält. Zum Beispiel:
++
+*** Tokenwert in der Befehlszeile: `-t _access-token-value_`
+*** Pfad zu einer Datei, die den Tokenwert enthält: `-T _access-token-file_`
+
+
+
+
+
+
+Mehr erfahren:
+
+* link:access-management-tokens-create.html["Zugriffstoken erstellen"]
+* link:access-management-tokens-edit.html["Zugriffstoken bearbeiten"]
+* link:access-management-tokens-revoke.html["Zugriffstoken widerrufen"]
+

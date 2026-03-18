@@ -1,0 +1,42 @@
+---
+permalink: sm-storage/rtv-modify-connection-settings-for-remote-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, modify, connection, settings, remote, storage 
+summary: Sie können die Verbindungseinstellungen für jede Remote-Speicherkonfiguration über die Option „Einstellungen anzeigen/bearbeiten“ bearbeiten, hinzufügen oder löschen. 
+---
+= Ändern Sie die Verbindungseinstellungen für den Remote-Speicher im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Verbindungseinstellungen für jede Remote-Speicherkonfiguration über die Option „Einstellungen anzeigen/bearbeiten“ bearbeiten, hinzufügen oder löschen.
+
+.Über diese Aufgabe
+Änderungen an den Verbindungseigenschaften wirken sich auf laufende Importvorgänge aus. Um Unterbrechungen zu vermeiden, nehmen Sie Änderungen an den Verbindungseigenschaften nur vor, wenn keine Importe ausgeführt werden.
+
+.Schritte
+. Menü auswählen: Storage [Remote storage].
+. Wählen Sie aus der Liste das Remote-Speicherobjekt aus, das Sie ändern möchten.
+. Klicken Sie auf *View/Edit Settings*.
++
+Das Dialogfeld „Remote Storage Settings“ wird angezeigt.
+
+. Klicken Sie auf die Registerkarte *Connection Properties*.
++
+Die konfigurierten IP-Adress- und Port-Einstellungen für den Remote-Storage-Import werden angezeigt.
+
+. Führen Sie eine der folgenden Aktionen aus:
++
+** *Bearbeiten* -- Klicken Sie auf *Bearbeiten* neben dem entsprechenden Eintrag für das Remote-Speicherobjekt. Geben Sie die geänderte IP-Adresse und/oder Portinformationen in die Felder ein.
+** *Hinzufügen* – Klicken Sie auf *Hinzufügen* und geben Sie anschließend die neue IP-Adresse und die Portinformationen in die entsprechenden Felder ein. Klicken Sie auf *Hinzufügen*, um zu bestätigen, und dann erscheint die neue Verbindung in der Liste der Remote-Speicherobjekte.
+** *Löschen* – Wählen Sie die gewünschte Verbindung aus der Liste aus und klicken Sie dann auf *Löschen*. Bestätigen Sie den Vorgang, indem Sie `delete` im dafür vorgesehenen Feld eingeben und klicken Sie dann auf *Löschen*. Die Verbindung wird aus der Liste der Remote-Speicherobjekte entfernt.
+
+
+. Klicken Sie auf *Speichern*.
++
+Die geänderten Verbindungseinstellungen werden auf das Remote-Storage-Objekt angewendet.
+
+

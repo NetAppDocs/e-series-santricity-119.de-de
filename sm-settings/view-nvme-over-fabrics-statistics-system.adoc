@@ -1,0 +1,33 @@
+---
+permalink: sm-settings/view-nvme-over-fabrics-statistics-system.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, nvme, fabrics, statistics, 
+summary: Sie können Daten über die NVMe over Fabrics-Verbindungen zu Ihrem Storage Array anzeigen. 
+---
+= NVMe-over-Fabrics-Statistiken im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Daten über die NVMe over Fabrics-Verbindungen zu Ihrem Storage Array anzeigen.
+
+.Über diese Aufgabe
+System Manager zeigt diese Arten von NVMe over Fabrics Statistiken. Alle Statistiken sind schreibgeschützt und können nicht gesetzt werden.
+
+* *NVMe Subsystemstatistiken* – Zeigt Statistiken für den NVMe-Controller und seine Warteschlange an. Der NVMe-Controller stellt einen Zugriffspfad zwischen einem Host und den Namespaces im Speicher-Array bereit. Sie können die NVMe-Subsystemstatistiken für Ereignisse wie Verbindungsfehler, Neustarts und Herunterfahren überprüfen.
+* *RDMA Interface statistics* – Bietet Statistiken für alle NVMe over Fabrics-Ports auf der RDMA-Schnittstelle, einschließlich Leistungsstatistiken und Informationen zu Verbindungsfehlern, die mit jedem Switch-Port verbunden sind. Diese Registerkarte wird nur angezeigt, wenn NVMe over Fabrics-Ports verfügbar sind.
+
+
+Sie können jede dieser Statistiken als Rohstatistiken oder als Basisstatistiken anzeigen. Rohstatistiken sind alle Statistiken, die seit dem Start der Controller gesammelt wurden. Basisstatistiken sind zeitpunktgenaue Statistiken, die seit der Festlegung des Basiszeitpunkts gesammelt wurden.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Wählen Sie *NVMe over Fabrics Statistiken anzeigen*.
+. *Optional:* Um die Basislinie festzulegen, klicken Sie auf *Set new baseline*.
++
+Durch das Festlegen der Baseline wird ein neuer Startpunkt für die Erfassung der Statistiken gesetzt. Dieselbe Baseline wird für alle NVMe-Statistiken verwendet.
+
+

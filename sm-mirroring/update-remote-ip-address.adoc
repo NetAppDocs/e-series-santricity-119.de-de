@@ -1,0 +1,34 @@
+---
+permalink: sm-mirroring/update-remote-ip-address.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, update, remote, ip, address, connection, 
+summary: Sie können die iSCSI-IP-Adresse für Ihr Remote-Speicherarray aktualisieren, um die Verbindung mit dem lokalen Speicherarray wiederherzustellen. 
+---
+= Aktualisieren Sie die IP-Adressen der Remote-Speicherarrays im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die iSCSI-IP-Adresse für Ihr Remote-Speicherarray aktualisieren, um die Verbindung mit dem lokalen Speicherarray wiederherzustellen.
+
+.Bevor Sie beginnen
+Sowohl das lokale Speichersystem als auch das entfernte Speichersystem müssen für asynchrone Spiegelung über eine iSCSI-Verbindung konfiguriert sein.
+
+.Schritte
+. Menü auswählen:Storage[Asynchronous Mirroring].
+. Wählen Sie die Registerkarte *Mirror Consistency Groups* aus.
++
+Die Tabelle „Mirror Consistency Group“ zeigt alle Konsistenzgruppen für Spiegelungen an, die dem Speicherarray zugeordnet sind.
+
+. Wählen Sie die Spiegel-Konsistenzgruppe aus, die Sie aktualisieren möchten, und wählen Sie dann Menü:Mehr[Remote-IP-Adresse aktualisieren].
++
+Das System zeigt das Dialogfeld „Remote-IP-Adresse aktualisieren“ an.
+
+. Wählen Sie *Aktualisieren*, um die iSCSI-IP-Adresse für Ihr Remote-Speicherarray zu aktualisieren.
+
+
+.Ergebnisse
+Das System setzt die IP-Adresse des entfernten Storage-Arrays zurück, um die Verbindung zum lokalen Storage-Array wiederherzustellen.

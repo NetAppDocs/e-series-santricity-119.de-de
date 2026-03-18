@@ -1,0 +1,53 @@
+---
+permalink: um-certificates/resolve-untrusted-certificates-certificate-page.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, resolve, untrusted, certificates 
+summary: Nicht vertrauenswürdige Zertifikate treten auf, wenn ein Speichersystem versucht, eine sichere Verbindung zu SANtricity Unified Manager herzustellen, die Verbindung jedoch nicht als sicher bestätigt werden kann. 
+---
+= Nicht vertrauenswürdige Zertifikate auflösen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nicht vertrauenswürdige Zertifikate treten auf, wenn ein Speichersystem versucht, eine sichere Verbindung zu SANtricity Unified Manager herzustellen, die Verbindung jedoch nicht als sicher bestätigt werden kann.
+
+Auf der Zertifikatsseite können Sie nicht vertrauenswürdige Zertifikate beheben, indem Sie ein selbstsigniertes Zertifikat aus dem Speicherarray importieren oder ein von einer vertrauenswürdigen dritten Partei ausgestelltes Zertifizierungsstellenzertifikat (CA-Zertifikat) importieren.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security Admin-Berechtigungen verfügt.
+* Wenn Sie ein von einer Zertifizierungsstelle signiertes Zertifikat importieren möchten:
++
+** Sie haben für jeden Controller im Speicherarray eine Zertifikatsignierungsanforderung (.CSR file) generiert und an die CA gesendet.
+** Die Zertifizierungsstelle hat vertrauenswürdige Zertifikatdateien zurückgegeben.
+** Die Zertifikatsdateien sind auf Ihrem lokalen System verfügbar.
+
+
+
+
+.Über diese Aufgabe
+Möglicherweise müssen Sie zusätzliche vertrauenswürdige CA-Zertifikate installieren, wenn eine der folgenden Bedingungen zutrifft:
+
+* Sie haben kürzlich ein Speicherarray hinzugefügt.
+* Eines oder beide Zertifikate sind abgelaufen.
+* Eines oder beide Zertifikate sind widerrufen.
+* Bei einem oder beiden Zertifikaten fehlt ein Stamm- oder Zwischenzertifikat.
+
+
+.Schritte
+. Wählen Sie *Certificate Management*.
+. Wählen Sie die Registerkarte *Trusted* aus.
++
+Auf dieser Seite werden alle für die Speicherarrays gemeldeten Zertifikate angezeigt.
+
+. Wählen Sie entweder menu:Import[Certificates], um ein CA-Zertifikat zu importieren, oder menu:Import[Self-Signed storage array certificates], um ein selbstsigniertes Zertifikat zu importieren.
++
+Um die Ansicht einzuschränken, können Sie das Filterfeld *Zertifikate anzeigen, die...* verwenden oder die Zertifikatszeilen sortieren, indem Sie auf eine der Spaltenköpfe klicken.
+
+. Wählen Sie im Dialogfeld das Zertifikat aus, und klicken Sie dann auf *Importieren*.
++
+Das Zertifikat wird hochgeladen und validiert.
+
+

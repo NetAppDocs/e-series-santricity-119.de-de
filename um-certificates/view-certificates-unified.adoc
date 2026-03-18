@@ -1,0 +1,28 @@
+---
+permalink: um-certificates/view-certificates-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, view certificates 
+summary: 'Sie können zusammenfassende Informationen zu einem Zertifikat einsehen, darunter die Organisation, die das Zertifikat verwendet, die Behörde, die das Zertifikat ausgestellt hat, die Gültigkeitsdauer und die Fingerabdrücke (eindeutige Kennungen).' 
+---
+= Zertifikate anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können zusammenfassende Informationen zu einem Zertifikat einsehen, darunter die Organisation, die das Zertifikat verwendet, die Behörde, die das Zertifikat ausgestellt hat, die Gültigkeitsdauer und die Fingerabdrücke (eindeutige Kennungen).
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Zertifikatsfunktionen nicht angezeigt.
+
+.Schritte
+. Wählen Sie *Certificate Management*.
+. Wählen Sie einen der folgenden Tabs aus:
++
+** *Management* – Zeigt das Zertifikat für das System an, auf dem der Web Services Proxy gehostet wird. Ein Management-Zertifikat kann selbstsigniert oder von einer Zertifizierungsstelle (CA) genehmigt sein. Es ermöglicht den sicheren Zugriff auf Unified Manager.
+** *Vertrauenswürdig* -- Zeigt Zertifikate an, auf die Unified Manager für Speichersysteme und andere Remote-Server, wie einen LDAP-Server, zugreifen kann. Die Zertifikate können von einer Zertifizierungsstelle (CA) ausgestellt oder selbstsigniert sein.
+
+
+. Um weitere Informationen zu einem Zertifikat anzuzeigen, wählen Sie die entsprechende Zeile aus, wählen Sie die Auslassungspunkte am Ende der Zeile und klicken Sie dann auf *Anzeigen* oder *Exportieren*.
+

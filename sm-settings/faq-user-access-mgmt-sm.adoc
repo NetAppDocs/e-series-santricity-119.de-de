@@ -1,0 +1,202 @@
+---
+permalink: sm-settings/faq-user-access-mgmt-sm.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zur Benutzerzugriffsverwaltung für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Warum kann ich mich nicht anmelden?
+
+Wenn beim Versuch, sich bei SANtricity System Manager anzumelden, ein Fehler auftritt, überprüfen Sie diese möglichen Ursachen.
+
+Anmeldefehler beim System Manager können aus einem der folgenden Gründe auftreten:
+
+* Sie haben einen falschen Benutzernamen oder ein falsches Passwort eingegeben.
+* Sie verfügen über unzureichende Berechtigungen.
+* Der Verzeichnisserver (sofern konfiguriert) ist möglicherweise nicht verfügbar. Wenn dies der Fall ist, versuchen Sie, sich mit einer lokalen Benutzerrolle anzumelden.
+* Sie haben mehrfach erfolglos versucht, sich anzumelden, wodurch der Sperrmodus ausgelöst wurde. Warten Sie 10 Minuten, um sich erneut anzumelden.
+* Es wurde eine Sperrbedingung ausgelöst und Ihr Revisionsprotokoll ist möglicherweise voll. Gehen Sie zur Zugriffsverwaltung und löschen Sie alte Ereignisse aus dem Revisionsprotokoll.
+* SAML-Authentifizierung ist aktiviert. Aktualisieren Sie Ihren Browser, um sich anzumelden.
+
+
+Anmeldefehler bei einem entfernten Storage-Array für Spiegelungsaufgaben können aus einem der folgenden Gründe auftreten:
+
+* Sie haben ein falsches Passwort eingegeben.
+* Sie haben mehrfach erfolglos versucht, sich anzumelden, wodurch der Sperrmodus ausgelöst wurde. Warten Sie 10 Minuten, um sich erneut anzumelden.
+* Die maximale Anzahl an Clientverbindungen zum Controller wurde erreicht. Prüfen Sie auf mehrere Benutzer oder Clients.
+
+
+
+
+== Was muss ich wissen, bevor ich einen Verzeichnisserver hinzufüge?
+
+Bevor Sie einen Verzeichnisserver in Access Management hinzufügen, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen.
+
+* Benutzergruppen müssen in Ihrem Verzeichnisdienst definiert werden.
+* Die Anmeldeinformationen für den LDAP-Server müssen verfügbar sein, einschließlich des Domainnamens, der Server-URL und optional des Benutzernamens und des Passworts des Bind-Kontos.
+* Für LDAPS-Server, die ein sicheres Protokoll verwenden, muss die Zertifikatskette des LDAP-Servers auf Ihrem lokalen Rechner installiert sein.
+
+
+
+
+== Was muss ich über die Zuordnung zu Speicherarray-Rollen wissen?
+
+Bevor Sie Gruppen Rollen zuordnen, beachten Sie die folgenden Richtlinien.
+
+Die im Speichersystem integrierten RBAC (rollenbasierte Zugriffssteuerung)-Funktionen umfassen die folgenden Rollen:
+
+* *Speicheradministrator* -- Voller lesen/schreiben-Zugriff auf die Speicherobjekte (zum Beispiel Volumes und Disk Pools), jedoch kein Zugriff auf die Sicherheitskonfiguration.
+* *Sicherheitsadministrator* -- Zugriff auf die Sicherheitskonfiguration in Access Management, Zertifikatsverwaltung, Revisionsprotokollverwaltung und die Möglichkeit, die Legacy-Managementoberfläche (SYMbol) ein- oder auszuschalten.
+* *Support admin* -- Zugriff auf alle Hardware-Ressourcen des Storage Arrays, Fehlerdaten, MEL-Ereignisse und Controller-Firmware-Upgrades. Kein Zugriff auf Storage-Objekte oder die Sicherheitskonfiguration.
+* *Monitor* -- Nur Lesezugriff auf alle Speicherobjekte, aber kein Zugriff auf die Sicherheitskonfiguration.
+
+
+
+
+=== Verzeichnisdienste
+
+Wenn Sie einen LDAP (Lightweight Directory Access Protocol)-Server und Verzeichnisdienste verwenden, stellen Sie sicher, dass:
+
+* Ein Administrator hat Benutzergruppen im Verzeichnisdienst definiert.
+* Sie kennen die Domänennamen der LDAP-Benutzergruppen. Reguläre Ausdrücke werden unterstützt. Diese Sonderzeichen regulärer Ausdrücke müssen mit einem Backslash (`\` maskiert werden, wenn sie nicht Teil eines regulären Ausdrucksmusters sind:
++
+[listing]
+----
+\.[]{}()<>*+-=!?^$|
+----
+* Die Rolle „Monitor“ ist für alle Benutzer, einschließlich des Administrators, erforderlich. System Manager funktioniert für keinen Benutzer ordnungsgemäß, wenn die Rolle „Monitor“ nicht vorhanden ist.
+
+
+
+
+=== SAML
+
+Wenn Sie die im Speichersystem integrierten Security Assertion Markup Language (SAML)-Funktionen nutzen, stellen Sie sicher, dass:
+
+* Ein Administrator eines Identity Provider (IdP) hat Benutzerattribute und Gruppenzugehörigkeit im IdP-System konfiguriert.
+* Sie kennen die Gruppenzugehörigkeitsnamen.
+* Sie kennen den Attributwert der zuzuordnenden Gruppe. Reguläre Ausdrücke werden unterstützt. Diese speziellen Zeichen regulärer Ausdrücke müssen mit einem Backslash (`\`) maskiert werden, wenn sie nicht Teil eines regulären Ausdrucksmusters sind:
++
+[listing]
+----
+\.[]{}()<>*+-=!?^$|
+----
+* Die Rolle „Monitor“ ist für alle Benutzer, einschließlich des Administrators, erforderlich. System Manager funktioniert für keinen Benutzer ordnungsgemäß, wenn die Rolle „Monitor“ nicht vorhanden ist.
+
+
+
+
+== Welche externen Managementtools könnten von dieser Änderung betroffen sein?
+
+Wenn Sie bestimmte Änderungen im SANtricity System Manager vornehmen, wie zum Beispiel das Wechseln der Managementoberfläche oder die Verwendung von SAML als Authentifizierungsverfahren, kann die Nutzung einiger externer Tools und Funktionen eingeschränkt sein.
+
+
+
+=== Managementoberfläche
+
+Tools, die direkt mit der Legacy Managementoberfläche (SYMbol) kommunizieren, wie beispielsweise der SANtricity SMI-S Provider oder OnCommand Insight (OCI), funktionieren nicht, sofern die Einstellung für die Legacy Managementoberfläche nicht aktiviert ist. Außerdem können Sie keine Legacy-CLI-Befehle verwenden oder Spiegelungsvorgänge durchführen, wenn diese Einstellung deaktiviert ist.
+
+Wenden Sie sich für weitere Informationen an den technischen Support.
+
+
+
+=== SAML-Authentifizierung
+
+Wenn SAML aktiviert ist, können die folgenden Clients nicht auf Speicherarray-Services und -Ressourcen zugreifen:
+
+* Enterprise Management Window (EMW)
+* Befehlszeilenschnittstelle (CLI)
+* Software Developer Kits (SDK)-Clients
+* In-Band-Clients
+* HTTP Basic Authentication REST-API-Clients
+* Anmeldung mit dem Standard-REST-API-Endpunkt
+
+
+Wenden Sie sich für weitere Informationen an den technischen Support.
+
+
+
+== Was muss ich wissen, bevor ich SAML konfiguriere und aktiviere?
+
+Bevor Sie die Security Assertion Markup Language (SAML)-Funktionen für die Authentifizierung konfigurieren und aktivieren, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen und die SAML-Beschränkungen verstehen.
+
+
+
+=== Anforderungen
+
+Bevor Sie beginnen, stellen Sie sicher, dass:
+
+* In Ihrem Netzwerk ist ein Identitätsanbieter (IdP) konfiguriert. Ein IdP ist ein externes System, das Anmeldeinformationen von einem Benutzer anfordert und bestimmt, ob der Benutzer erfolgreich authentifiziert wurde. Ihr Sicherheitsteam ist für die Wartung des IdP verantwortlich.
+* Ein IdP-Administrator hat Benutzerattribute und Gruppen im IdP-System konfiguriert.
+* Ein IdP-Administrator hat sichergestellt, dass der IdP die Möglichkeit unterstützt, bei der Authentifizierung eine Name ID zurückzugeben.
+* Ein Administrator hat sichergestellt, dass die Uhren des IdP-Servers und des Controllers synchronisiert sind (entweder über einen NTP-Server oder durch Anpassen der Controller-Uhreinstellungen).
+* Eine IdP-Metadatendatei wird vom IdP-System heruntergeladen und ist auf dem lokalen System verfügbar, das für den Zugriff auf System Manager verwendet wird.
+* Sie kennen die IP-Adresse oder den Domainnamen jedes Controllers im Storage-Array.
+
+
+
+
+=== Einschränkungen
+
+Zusätzlich zu den oben genannten Anforderungen stellen Sie bitte sicher, dass Sie die folgenden Einschränkungen verstehen:
+
+* Sobald SAML aktiviert ist, können Sie es _nicht_ über die Benutzeroberfläche deaktivieren, noch können Sie die IdP-Einstellungen bearbeiten. Wenn Sie die SAML-Konfiguration deaktivieren oder bearbeiten müssen, wenden Sie sich an den Technical Support, um Unterstützung zu erhalten. Wir empfehlen, dass Sie die SSO-Anmeldungen testen, bevor Sie SAML im letzten Konfigurationsschritt aktivieren. (Das System führt ebenfalls einen SSO-Anmeldetest durch, bevor SAML aktiviert wird.)
+* Wenn Sie SAML in Zukunft deaktivieren, stellt das System automatisch die vorherige Konfiguration (Local User Roles und/oder Directory Services) wieder her.
+* Wenn die Verzeichnisdienste aktuell für die Benutzerauthentifizierung konfiguriert sind, überschreibt SAML diese Konfiguration.
+* Wenn SAML konfiguriert ist, können die folgenden Clients nicht auf Speicherarray-Ressourcen zugreifen:
++
+** Enterprise Management Window (EMW)
+** Befehlszeilenschnittstelle (CLI)
+** Software Developer Kits (SDK)-Clients
+** In-Band-Clients
+** HTTP Basic Authentication REST-API-Clients
+** Anmeldung mit dem Standard-REST-API-Endpunkt
+
+
+
+
+
+
+== Welche Arten von Ereignissen werden im Revisionsprotokoll aufgezeichnet?
+
+Das Revisionsprotokoll kann Änderungsereignisse oder sowohl Änderungs- als auch Nur-Lese-Ereignisse aufzeichnen.
+
+Je nach Richtlinieneinstellungen werden die folgenden Ereignistypen angezeigt:
+
+* *Änderungsereignisse* -- Benutzeraktionen innerhalb von System Manager, die Änderungen am System beinhalten, wie die Bereitstellung von Speicher.
+* *Änderungs- und Lesezugriffsereignisse* -- Benutzeraktionen, die Änderungen am System beinhalten, sowie Ereignisse, die das Anzeigen oder Herunterladen von Informationen beinhalten, wie das Anzeigen von Volume-Zuweisungen.
+
+
+
+
+== Was muss ich wissen, bevor ich einen Syslog-Server konfiguriere?
+
+Sie können Revisionsprotokolle auf einem externen Syslog-Server archivieren.
+
+Bevor Sie einen Syslog-Server konfigurieren, beachten Sie die folgenden Richtlinien.
+
+* Stellen Sie sicher, dass Sie die Serveradresse, das Protokoll und die Portnummer kennen. Die Serveradresse kann eine vollqualifizierte Domain, eine IPv4-Adresse oder eine IPv6-Adresse sein.
+* Wenn Ihr Server ein sicheres Protokoll (zum Beispiel TLS) verwendet, muss ein Certificate Authority (CA)-Zertifikat auf Ihrem lokalen System verfügbar sein. CA-Zertifikate identifizieren Website-Betreiber für sichere Verbindungen zwischen Servern und Clients.
+* Nach der Konfiguration werden alle neuen Revisionsprotokolle an den Syslog-Server gesendet. Frühere Protokolle werden nicht übertragen.
+* Die Einstellungen für die Überschreibungsrichtlinie (verfügbar unter *Einstellungen anzeigen/bearbeiten*) haben keinen Einfluss darauf, wie Protokolle mit einer syslog-Serverkonfiguration verwaltet werden.
+* Revisionsprotokolle folgen dem RFC 5424-Nachrichtenformat.
+
+
+
+
+== Der Syslog-Server empfängt keine Revisionsprotokolle mehr. Was soll ich tun?
+
+Wenn Sie einen Syslog-Server mit dem TLS-Protokoll konfiguriert haben, kann der Server keine Nachrichten empfangen, falls das Zertifikat aus irgendeinem Grund ungültig wird. Eine Fehlermeldung über das ungültige Zertifikat wird im Revisionsprotokoll angezeigt.
+
+Um dieses Problem zu beheben, müssen Sie zunächst das Zertifikat für den Syslog-Server reparieren. Sobald eine gültige Zertifikatskette vorhanden ist, gehen Sie zu Menü:Einstellungen[Revisionsprotokoll > Syslog-Server konfigurieren > Alle testen].

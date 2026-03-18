@@ -1,0 +1,108 @@
+---
+permalink: um-certificates/use-ca-signed-certificate-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, ca-signed, certificates 
+summary: Sie können CA-signierte Zertifikate erhalten und importieren, um sicheren Zugriff auf das Managementsystem zu ermöglichen, auf dem Unified Manager gehostet wird. 
+---
+= Verwenden Sie CA-signierte Zertifikate für das Managementsystem
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können CA-signierte Zertifikate für den sicheren Zugriff auf das Managementsystem, das SANtricity Unified Manager hostet, erhalten und importieren.
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Zertifikatsfunktionen nicht angezeigt.
+
+.Über diese Aufgabe
+Die Verwendung von CA-signierten Zertifikaten ist ein dreistufiges Verfahren.
+
+
+
+== Schritt 1: Vervollständigen Sie eine CSR-Datei
+
+Sie müssen zunächst eine Zertifikatsignierungsanforderungsdatei (CSR) generieren, die Ihre Organisation und das Hostsystem identifiziert, auf dem der Web Services Proxy und Unified Manager installiert sind.
+
+[NOTE]
+====
+Alternativ können Sie mit einem Tool wie OpenSSL eine CSR-Datei generieren und zu <<Schritt 2: CSR-Datei einreichen>> springen.
+
+====
+.Schritte
+. Wählen Sie *Certificate Management*.
+. Wählen Sie auf der Registerkarte *Management* die Option *Complete CSR*.
+. Geben Sie die folgenden Informationen ein, und klicken Sie dann auf *Weiter*:
++
+** *Organisation* -- Der vollständige, rechtliche Name Ihres Unternehmens oder Ihrer Organisation. Fügen Sie Suffixe wie Inc. oder Corp. hinzu.
+** *Organisationseinheit (optional)* -- Die Abteilung Ihrer Organisation, die das Zertifikat bearbeitet.
+** *Stadt/Ort* -- Die Stadt, in der sich Ihr Hostsystem oder Ihr Unternehmen befindet.
+** *Bundesland/Region (optional)* -- Das Bundesland oder die Region, in der sich Ihr Hostsystem oder Ihr Unternehmen befindet.
+** *Country ISO code* -- Der zweistellige ISO-Code (Internationale Organisation für Normung) Ihres Landes, z. B. US.
+
+
+. Geben Sie die folgenden Informationen über das Hostsystem ein, auf dem der Web Services Proxy installiert ist:
++
+** *Allgemeiner Name* – Die IP-Adresse oder der DNS-Name des Hostsystems, auf dem der Web Services Proxy installiert ist. Stellen Sie sicher, dass diese Adresse korrekt ist; sie muss exakt mit der Adresse übereinstimmen, die Sie im Browser für den Zugriff auf Unified Manager eingeben. Verwenden Sie kein http:// oder https://. Der DNS-Name darf nicht mit einem Platzhalterzeichen beginnen.
+** *Alternative IP-Adressen* -- Wenn der allgemeine Name eine IP-Adresse ist, können Sie optional weitere IP-Adressen oder Aliase für das Hostsystem eingeben. Für mehrere Einträge verwenden Sie ein durch Kommas getrenntes Format.
+** *Alternative DNS-Namen* -- Falls der allgemeine Name ein DNS-Name ist, geben Sie zusätzliche DNS-Namen für das Hostsystem ein. Für mehrere Einträge verwenden Sie ein durch Kommas getrenntes Format. Wenn keine alternativen DNS-Namen vorhanden sind, Sie aber im ersten Feld einen DNS-Namen eingegeben haben, kopieren Sie diesen hierher. Der DNS-Name darf nicht mit einem Platzhalter beginnen.
+
+
+. Stellen Sie sicher, dass die Hostinformationen korrekt sind. Wenn dies nicht der Fall ist, schlagen die von der Zertifizierungsstelle zurückgegebenen Zertifikate beim Import fehl.
+. Klicken Sie auf *Finish*.
+. Gehe zu <<Schritt 2: CSR-Datei einreichen>>.
+
+
+
+
+== Schritt 2: CSR-Datei einreichen
+
+Nachdem Sie eine Zertifikatsignierungsanforderungsdatei (CSR) erstellt haben, senden Sie sie an eine Zertifizierungsstelle (CA), um signierte Management-Zertifikate für das System zu erhalten, das Unified Manager und den Web Services Proxy hostet.
+
+
+NOTE: E-Series Systeme benötigen das PEM-Format (Base64-ASCII-Kodierung) für signierte Zertifikate, das die folgenden Dateitypen umfasst: .pem, .crt, .cer oder .key.
+
+.Schritte
+. Suchen Sie die heruntergeladene CSR-Datei.
++
+Der Speicherort des Downloads hängt von Ihrem Browser ab.
+
+. Reichen Sie die CSR-Datei bei einer CA (zum Beispiel Verisign oder DigiCert) ein und fordern Sie signierte Zertifikate im PEM-Format an.
++
+[CAUTION]
+====
+*Nachdem Sie eine CSR-Datei an die CA übermittelt haben, generieren Sie keine neue CSR-Datei.* Jedes Mal, wenn Sie eine CSR generieren, erstellt das System ein privates und ein öffentliches Schlüsselpaar. Der öffentliche Schlüssel ist Teil der CSR, während der private Schlüssel im Keystore des Systems aufbewahrt wird. Wenn Sie die signierten Zertifikate erhalten und importieren, stellt das System sicher, dass sowohl der private als auch der öffentliche Schlüssel das ursprüngliche Paar sind. Wenn die Schlüssel nicht übereinstimmen, funktionieren die signierten Zertifikate nicht und Sie müssen neue Zertifikate bei der CA anfordern.
+
+====
+. Wenn die Zertifizierungsstelle die signierten Zertifikate zurücksendet, gehen Sie zu <<Schritt 3: Managementzertifikate importieren>>.
+
+
+
+
+== Schritt 3: Managementzertifikate importieren
+
+Nachdem Sie von der Zertifizierungsstelle (CA) signierte Zertifikate erhalten haben, importieren Sie die Zertifikate in das Hostsystem, auf dem der Web Services Proxy und die Unified Manager Schnittstelle installiert sind.
+
+.Bevor Sie beginnen
+* Sie haben von der Zertifizierungsstelle signierte Zertifikate erhalten. Diese Dateien enthalten das Stammzertifikat, ein oder mehrere Zwischenzertifikate und das Serverzertifikat.
+* Wenn die CA eine verkettete Zertifikatdatei bereitgestellt hat (zum Beispiel eine .p7b-Datei), müssen Sie die verkettete Datei in einzelne Dateien entpacken: das Stammzertifikat, ein oder mehrere Zwischenzertifikate und das Serverzertifikat. Sie können das Windows `certmgr`-Dienstprogramm verwenden, um die Dateien zu entpacken (Rechtsklick und Menü: Alle Aufgaben[Export]). Base-64-Kodierung wird empfohlen. Wenn der Export abgeschlossen ist, wird für jede Zertifikatdatei in der Kette eine CER-Datei angezeigt.
+* Sie haben die Zertifikatsdateien auf das Hostsystem kopiert, auf dem der Web Services Proxy ausgeführt wird.
+
+
+.Schritte
+. Wählen Sie *Certificate Management*.
+. Wählen Sie auf der Registerkarte *Verwaltung* *Import* aus.
++
+Es öffnet sich ein Dialogfeld zum Importieren der Zertifikatsdateien.
+
+. Klicken Sie auf *Durchsuchen*, um zuerst die Stamm- und Zwischenzertifikatsdateien auszuwählen und dann das Serverzertifikat auszuwählen. Wenn Sie die CSR mit einem externen Tool generiert haben, müssen Sie auch die private Schlüsseldatei importieren, die zusammen mit der CSR erstellt wurde.
++
+Die Dateinamen werden im Dialogfeld angezeigt.
+
+. Klicken Sie auf *Import*.
+
+
+.Ergebnisse
+Die Dateien werden hochgeladen und validiert. Die Zertifikatsinformationen werden auf der Seite Zertifikatsverwaltung angezeigt.

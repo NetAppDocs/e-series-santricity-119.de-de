@@ -1,0 +1,55 @@
+---
+permalink: sm-mirroring/overview-mirroring-async.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ARVM, asynchronous, mirroring, firmware, 
+summary: Die Funktion „Asynchrone Spiegelung“ bietet einen auf Controller-Ebene befindlichen, firmwarebasierten Mechanismus zur Datenreplizierung zwischen einem lokalen Storage-Array und einem entfernten Storage-Array. 
+---
+= Erfahren Sie mehr über asynchrones Mirroring in der SANtricity-Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Funktion „Asynchrone Spiegelung“ bietet einen auf Controller-Ebene befindlichen, firmwarebasierten Mechanismus zur Datenreplizierung zwischen einem lokalen Storage-Array und einem entfernten Storage-Array.
+
+
+
+== Was ist asynchrone Spiegelung?
+
+_Asynchrone Spiegelung_ erfasst den Zustand des primären Volumes zu einem bestimmten Zeitpunkt und kopiert nur die Daten, die sich seit der letzten Image-Erfassung geändert haben. Der primäre Standort kann sofort aktualisiert werden und der sekundäre Standort kann aktualisiert werden, sobald die Bandbreite es zulässt. Die Informationen werden zwischengespeichert und später gesendet, sobald Netzwerkressourcen verfügbar sind.
+
+Die asynchrone Spiegelung wird pro Volume erstellt, aber auf Gruppenebene verwaltet, sodass Sie einem beliebigen primären Volume auf einem bestimmten Storage-Array ein separates, entferntes gespiegeltes Volume zuordnen können. Diese Art der Spiegelung ist ideal, um die Anforderungen an einen unterbrechungsfreien Betrieb zu erfüllen, und ist im Allgemeinen für periodische Prozesse deutlich netzwerkeffizienter.
+
+Mehr erfahren:
+
+* link:how-asynchronous-mirroring-works.html["Wie asynchrones Spiegeln funktioniert"]
+* link:asynchronous-terminology.html["Terminologie der asynchronen Spiegelung"]
+* link:asynchronous-mirror-status.html["Asynchroner Spiegelungsstatus"]
+* link:volume-ownership-sync.html["Volume-Eigentümerschaft"]
+* link:role-change-of-a-mirror-consistency-group.html["Rollenwechsel einer Spiegel-Konsistenzgruppe"]
+
+
+
+
+== Wie konfiguriere ich asynchrone Spiegelung?
+
+Sie müssen die Unified Manager-Oberfläche verwenden, um die initiale Spiegelungskonfiguration zwischen den Arrays durchzuführen. Sobald sie konfiguriert ist, können Sie gespiegelte Paare und Konsistenzgruppen im System Manager verwalten.
+
+Mehr erfahren:
+
+* link:requirements-for-using-asynchronous-mirroring.html["Anforderungen für die Verwendung von asynchroner Spiegelung"]
+* link:workflow-for-mirroring-a-volume-asynchronously.html["Workflow für das asynchrone Spiegeln eines Volumes"]
+* link:../um-manage/create-asynchronous-mirrored-pair-um.html["Asynchrones Spiegelpaar erstellen (im Unified Manager)"]
+
+
+
+
+== Verwandte Informationen
+
+Erfahren Sie mehr über Konzepte im Zusammenhang mit asynchroner Spiegelung:
+
+* link:what-do-i-need-to-know-before-creating-a-mirror-consistency-group.html["Was Sie vor dem Erstellen einer Konsistenzgruppe für Spiegelungen wissen müssen"]
+* link:asynchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair.html["Was Sie vor dem Erstellen eines Spiegelpaares wissen müssen"]
+* link:how-does-asynchronous-mirroring-differ-from-synchronous-mirroring-async.html["Wie sich asynchrones Spiegeln vom synchronen Spiegeln unterscheidet"]
+

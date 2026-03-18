@@ -1,0 +1,27 @@
+---
+permalink: sm-settings/delete-alert-email-addresses.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, mail, server, email, addresses, alerts, 
+summary: Sie können den zuvor definierten Mailserver entfernen, sodass Warnmeldungen nicht mehr an die E-Mail-Adressen gesendet werden, oder Sie können einzelne E-Mail-Adressen entfernen. 
+---
+= Mailserver oder E-Mail-Adressen für Benachrichtigungen im SANtricity System Manager löschen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den zuvor definierten Mailserver entfernen, sodass Warnmeldungen nicht mehr an die E-Mail-Adressen gesendet werden, oder Sie können einzelne E-Mail-Adressen entfernen.
+
+.Schritte
+. Menü auswählen: Settings[Alerts].
+. Wählen Sie die Registerkarte *E-Mail* aus.
+. Führen Sie anhand der Tabelle einen der folgenden Schritte aus:
++
+** Um einen Mailserver zu entfernen, sodass Benachrichtigungen nicht mehr an die E-Mail-Adressen gesendet werden, wählen Sie die Zeile für den Mailserver aus.
+** Um eine E-Mail-Adresse zu entfernen, sodass keine Benachrichtigungen mehr an diese Adresse gesendet werden, wählen Sie die Zeile für die E-Mail-Adresse aus, die Sie löschen möchten. Die Schaltfläche *Löschen* oben rechts in der Tabelle wird zur Auswahl verfügbar.
+
+
+. Klicken Sie auf *Delete* und bestätigen Sie den Vorgang.
+

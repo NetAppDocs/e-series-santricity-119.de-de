@@ -1,0 +1,113 @@
+---
+permalink: um-manage/upgrade-controller-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, upgrade, os, operating system 
+summary: Aktualisieren Sie ein oder mehrere Speicherarrays mit der neuesten Software und dem neuesten NVSRAM, um sicherzustellen, dass Sie alle aktuellen Funktionen und Fehlerbehebungen haben. Controller-NVSRAM ist eine Controller-Datei, die die Standardeinstellungen für die Controller festlegt. 
+---
+= SANtricity Betriebssystem aktualisieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aktualisieren Sie ein oder mehrere Speicherarrays mit der neuesten Software und dem neuesten NVSRAM, um sicherzustellen, dass Sie alle aktuellen Funktionen und Fehlerbehebungen haben. Controller-NVSRAM ist eine Controller-Datei, die die Standardeinstellungen für die Controller festlegt.
+
+.Bevor Sie beginnen
+* Die neuesten SANtricity OS-Dateien sind auf dem Host-System verfügbar, auf dem der SANtricity Web Services Proxy und der Unified Manager ausgeführt werden.
+* Sie wissen, ob Sie Ihr Software-Upgrade jetzt oder später aktivieren möchten.
++
+Sie könnten sich aus folgenden Gründen für eine spätere Aktivierung entscheiden:
+
++
+** *Tageszeit* – Die Aktivierung der Software kann längere Zeit in Anspruch nehmen, daher sollten Sie warten, bis die E/A-Lasten geringer sind. Die Controller führen während der Aktivierung ein Failover durch, sodass die Leistung bis zum Abschluss des Upgrades geringer als gewöhnlich sein kann.
+** *Pakettyp* -- Möglicherweise möchten Sie die neue OS-Software auf einem Storage-Array testen, bevor Sie die Dateien auf anderen Storage-Arrays aktualisieren.
+
+
+
+
+
+IMPORTANT: Systeme müssen SANtricity OS 11.70.5 ausführen, um auf 11.80.x oder höher aktualisieren zu können.
+
+.Über diese Aufgabe
+++ ++
+
+[NOTE]
+====
+Risiko von Datenverlust oder Risiko einer Beschädigung des Speichersystems – Nehmen Sie während des Upgrades keine Änderungen am Speichersystem vor. Stellen Sie die Stromversorgung des Speichersystems sicher.
+
+====
+.Schritte
+. Wenn Ihr Speichersystem nur einen Controller enthält oder kein Multipath-Treiber verwendet wird, stoppen Sie die E/A-Aktivität des Speichersystems, um Anwendungsfehler zu vermeiden. Wenn Ihr Speichersystem zwei Controller besitzt und Sie einen Multipath-Treiber installiert haben, müssen Sie die E/A-Aktivität nicht stoppen.
+. Wählen Sie in der Hauptansicht *Manage* und anschließend ein oder mehrere Speicherarrays aus, die Sie aktualisieren möchten.
+. Menü auswählen: Upgrade Center [Upgrade SANtricity OS Software].
++
+Die Seite „SANtricity OS-Software aktualisieren“ wird angezeigt.
+
+. Laden Sie das neueste SANtricity OS-Softwarepaket von der NetApp Support-Website auf Ihren lokalen Rechner herunter.
++
+.. Klicken Sie auf *Add new file to software repository*.
+.. Klicken Sie auf den Link, um die neuesten *SANtricity OS Downloads* zu finden.
+.. Klicken Sie auf den Link *Download Latest Release*.
+.. Folgen Sie den restlichen Anweisungen, um die SANtricity OS-Datei und die NVSRAM-Datei auf Ihren lokalen Rechner herunterzuladen.
+
+
++
+[NOTE]
+====
+Ab Version 8.42 ist digital signierte Firmware erforderlich. Wenn Sie versuchen, unsignierte Firmware herunterzuladen, wird eine Fehlermeldung angezeigt und der Download wird abgebrochen.
+
+====
+. Wählen Sie die Betriebssystem-Softwaredatei und die NVSRAM-Datei aus, die Sie für das Upgrade der Controller verwenden möchten:
++
+.. Wählen Sie im Dropdown-Menü *Select a SANtricity OS software file* die OS-Datei aus, die Sie auf Ihren lokalen Rechner heruntergeladen haben.
++
+Wenn mehrere Dateien verfügbar sind, werden die Dateien vom neuesten zum ältesten Datum sortiert.
+
++
+[NOTE]
+====
+Das Software-Repository listet alle mit dem Web Services Proxy verknüpften Softwaredateien auf. Wenn Sie die Datei, die Sie verwenden möchten, nicht sehen, können Sie auf den Link *Neue Datei zum Software-Repository hinzufügen* klicken, um zu dem Speicherort zu navigieren, an dem sich die Betriebssystemdatei befindet, die Sie hinzufügen möchten.
+
+====
+.. Wählen Sie im Dropdown-Menü *Select an NVSRAM file* die Controller-Datei aus, die Sie verwenden möchten.
++
+Wenn mehrere Dateien vorhanden sind, werden die Dateien vom neuesten Datum zum ältesten Datum sortiert.
+
+
+
+. Überprüfen Sie in der Tabelle „Kompatible Speicherarrays“ die Speicherarrays, die mit der von Ihnen ausgewählten OS-Softwaredatei kompatibel sind, und wählen Sie dann die Arrays aus, die Sie aktualisieren möchten.
++
+** Die Speicherarrays, die Sie in der Ansicht „Verwalten“ ausgewählt haben und die mit der ausgewählten Firmware-Datei kompatibel sind, sind standardmäßig in der Tabelle „Kompatible Speicherarrays“ ausgewählt.
+** Die Speicherarrays, die nicht mit der ausgewählten Firmware-Datei aktualisiert werden können, sind in der Tabelle Kompatible Speicherarrays nicht auswählbar, wie durch den Status *Inkompatibel* angezeigt wird.
+
+
+. *Optional:* Um die Softwaredatei auf die Speichersysteme zu übertragen, ohne sie zu aktivieren, wählen Sie das Kästchen *Übertragen Sie die OS-Software auf die Speichersysteme, markieren Sie sie als bereitgestellt und aktivieren Sie sie zu einem späteren Zeitpunkt* aus.
+. Klicken Sie auf *Start*.
+. Je nachdem, ob Sie sich dafür entschieden haben, jetzt oder später zu aktivieren, führen Sie einen der folgenden Schritte aus:
++
+** Geben Sie *TRANSFER* ein, um zu bestätigen, dass Sie die vorgeschlagenen OS-Softwareversionen auf die Arrays übertragen möchten, die Sie für das Upgrade ausgewählt haben, und klicken Sie dann auf *Transfer*.
++
+Um die übertragene Software zu aktivieren, wählen Sie Menü:Upgrade Center[Activate Staged OS Software].
+
+** Geben Sie *UPGRADE* ein, um zu bestätigen, dass Sie die vorgeschlagenen OS-Softwareversionen auf den Arrays, die Sie zum Upgrade ausgewählt haben, übertragen und aktivieren möchten, und klicken Sie dann auf *Upgrade*.
++
+Das System überträgt die Softwaredatei auf jedes Speicherarray, das Sie für das Upgrade ausgewählt haben, und aktiviert diese Datei anschließend durch einen Neustart.
+
+
+
++
+Die folgenden Aktionen erfolgen während des Upgrade-Vorgangs:
+
++
+** Im Rahmen des Upgrade-Prozesses wird eine Vorabprüfung des Systemzustands durchgeführt. Die Vorabprüfung des Systemzustands bewertet alle Komponenten des Speichersystems, um sicherzustellen, dass das Upgrade durchgeführt werden kann.
+** Schlägt eine Integritätsprüfung für ein Speichersystem fehl, wird das Upgrade abgebrochen. Sie können auf die Auslassungspunkte (...) klicken und *Protokoll speichern* auswählen, um die Fehler einzusehen. Sie können auch wählen, den Integritätsprüfungsfehler zu überschreiben, und dann auf *Weiter* klicken, um mit dem Upgrade fortzufahren.
+** Sie können den Upgrade-Vorgang nach der Vorabprüfung des Systemzustands abbrechen.
+
+
+. *Optional:* Nach Abschluss des Upgrades können Sie eine Liste der aktualisierten Komponenten für ein bestimmtes Speichersystem anzeigen, indem Sie auf die Auslassungspunkte (...) klicken und dann *Save Log* auswählen.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `upgrade_log-<date>.json` gespeichert.
+
+

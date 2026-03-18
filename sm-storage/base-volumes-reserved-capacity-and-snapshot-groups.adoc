@@ -1,0 +1,48 @@
+---
+permalink: sm-storage/base-volumes-reserved-capacity-and-snapshot-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, base volumes, reserved capacity, snapshot groups 
+summary: Die Snapshots-Funktion nutzt Basisvolumes, reservierte Kapazität und Snapshot-Gruppen. 
+---
+= Erfahren Sie mehr über Basisvolumes, reservierte Kapazität und Snapshot-Gruppen im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Snapshots-Funktion nutzt Basisvolumes, reservierte Kapazität und Snapshot-Gruppen.
+
+
+
+== Basisvolumina
+
+Ein Basis-Volume ist das Volume, das als Quelle für ein Snapshot-Image verwendet wird. Ein Basis-Volume kann entweder ein Thick-Volume oder ein Thin-Volume sein und kann sich entweder in einem Pool oder einer Volume-Gruppe befinden.
+
+Um Momentaufnahmen des Basisvolumes zu erstellen, können Sie jederzeit ein Sofortabbild erstellen oder den Prozess automatisieren, indem Sie einen regelmäßigen Zeitplan für Snapshots definieren.
+
+Die folgende Abbildung zeigt die Beziehung zwischen Snapshot-Objekten und dem Basisvolumen.
+
+image::../media/sam1130-dwg-snapshots-images-overview.gif[Schnappschussobjekte und Basisvolumen]
+
+^1^ Basisvolumen; ^2^ Snapshot-Objekte in der Gruppe (Images und reservierte Kapazität); ^3^ Reservierte Kapazität für die Snapshot-Gruppe.
+
+
+
+== Reservierte Kapazität und Snapshot-Gruppen
+
+System Manager organisiert Snapshot-Images in Snapshot-Gruppen. Wenn System Manager die Snapshot-Gruppe einrichtet, erstellt er automatisch zugehörigen reservierten Speicherplatz, um die Snapshot-Images der Gruppe zu speichern und nachfolgende Änderungen an weiteren Snapshots zu verfolgen.
+
+Befindet sich das Basisvolume in einer Volume-Gruppe, kann die reservierte Kapazität entweder in einem Pool oder in einer Volume-Gruppe liegen. Befindet sich das Basisvolume in einem Pool, muss sich die reservierte Kapazität im selben Pool wie das Basisvolume befinden.
+
+Snapshot-Gruppen erfordern keine Benutzeraktion, aber Sie können die reservierte Kapazität einer Snapshot-Gruppe jederzeit anpassen. Darüber hinaus werden Sie möglicherweise aufgefordert, reservierte Kapazität zu erstellen, wenn die folgenden Bedingungen erfüllt sind:
+
+* Immer wenn Sie einen Snapshot eines Basisvolumes erstellen, das noch keine Snapshot-Gruppe hat, erstellt System Manager automatisch eine Snapshot-Gruppe. Diese Aktion erstellt außerdem reservierten Speicherplatz für das Basisvolume, der zum Speichern nachfolgender Snapshot-Images verwendet wird.
+* Immer wenn Sie einen Snapshot-Zeitplan für ein Basisvolume erstellen, erstellt System Manager automatisch eine Snapshot-Gruppe.
+
+
+
+
+== Automatische Löschung
+
+Bei der Arbeit mit Snapshots verwenden Sie die Standardoption, um die automatische Löschung zu aktivieren. Die automatische Löschung entfernt automatisch das älteste Snapshot-Image, wenn die Snapshot-Gruppe das Limit von 32 Images erreicht. Wenn Sie die automatische Löschung deaktivieren, werden die Limits der Snapshot-Gruppe schließlich überschritten, und Sie müssen manuelle Maßnahmen ergreifen, um die Snapshot-Gruppeneinstellungen zu konfigurieren und die reservierte Kapazität zu verwalten.

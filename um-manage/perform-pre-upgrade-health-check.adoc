@@ -1,0 +1,35 @@
+---
+permalink: um-manage/perform-pre-upgrade-health-check.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, perform, pre-upgrade, health, check 
+summary: Ein Systemzustandscheck wird als Teil des Upgrade-Prozesses durchgeführt, aber Sie können einen Systemzustandscheck auch separat ausführen, bevor Sie beginnen. Der Systemzustandscheck bewertet Komponenten des Speichersystems, um sicherzustellen, dass das Upgrade fortgesetzt werden kann. 
+---
+= Führen Sie vor dem Upgrade eine Integritätsprüfung in SANtricity Unified Manager durch.
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ein Systemzustandscheck wird als Teil des Upgrade-Prozesses durchgeführt, aber Sie können einen Systemzustandscheck auch separat ausführen, bevor Sie beginnen. Der Systemzustandscheck bewertet Komponenten des Speichersystems, um sicherzustellen, dass das Upgrade fortgesetzt werden kann.
+
+.Schritte
+. Wählen Sie in der Hauptansicht *Manage* und anschließend menu:Upgrade Center[Pre-Upgrade Health Check].
++
+Das Dialogfeld „Pre-Upgrade Health Check“ öffnet sich und listet alle gefundenen Speichersysteme auf.
+
+. Filtern oder sortieren Sie bei Bedarf die Speichersysteme in der Liste, damit Sie alle Systeme anzeigen können, die sich derzeit nicht im Optimal-Zustand befinden.
+. Wählen Sie die Kästchen für die Speichersysteme aus, die Sie durch die Integritätsprüfung führen möchten.
+. Klicken Sie auf *Start*.
++
+Der Fortschritt wird im Dialogfeld angezeigt, während die Systemprüfung durchgeführt wird.
+
+. Wenn der Gesundheitscheck abgeschlossen ist, können Sie auf die Auslassungspunkte (...) rechts neben jeder Zeile klicken, um weitere Informationen anzuzeigen und andere Aufgaben auszuführen.
++
+[NOTE]
+====
+Falls ein Array den Integritätscheck nicht besteht, können Sie dieses spezielle Array überspringen und mit dem Upgrade der anderen fortfahren, oder Sie können den gesamten Prozess stoppen und die Arrays, die den Integritätscheck nicht bestanden haben, untersuchen.
+
+====
+

@@ -1,0 +1,39 @@
+---
+permalink: sm-mirroring/remove-synchronous-mirror-relationship.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, synchronous, mirror, relationship, 
+summary: Sie entfernen ein gespiegeltes Paar, um die Spiegelbeziehung vom primären Volume auf dem lokalen Speichersystem und dem sekundären Volume auf dem entfernten Speichersystem zu entfernen. 
+---
+= Entfernen Sie synchrone Spiegelungsbeziehungen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie entfernen ein gespiegeltes Paar, um die Spiegelbeziehung vom primären Volume auf dem lokalen Speichersystem und dem sekundären Volume auf dem entfernten Speichersystem zu entfernen.
+
+.Über diese Aufgabe
+Sie können auch ein gespiegeltes Paar entfernen, um einen verwaisten gespiegelten Paar-Zustand zu korrigieren. Lesen Sie die folgenden Informationen zu verwaisten gespiegelten Paaren:
+
+* Ein verwaistes gespiegeltes Paar entsteht, wenn ein Mitgliedsvolume auf der einen Seite (lokal/remote) entfernt wurde, aber nicht auf der anderen Seite.
+* Verwaiste gespiegelte Paare werden erkannt, wenn die Kommunikation zwischen den Arrays wiederhergestellt ist.
+
+
+.Schritte
+. Menü auswählen: Storage [Synchronous Mirroring].
+. Wählen Sie das gespiegelte Paar aus, das Sie entfernen möchten, und wählen Sie dann Menü:Uncommon Tasks[Remove].
++
+Das Dialogfeld „Spiegelbeziehung entfernen“ wird angezeigt.
+
+. Bestätigen Sie, dass Sie das gespiegelte Paar entfernen möchten, und klicken Sie dann auf *Entfernen*.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Entfernt die Spiegelbeziehung vom gespiegelten Paar auf dem lokalen Storage-Array und auf dem entfernten Storage-Array.
+* Setzt das primäre Volume und das sekundäre Volume auf vom Host zugängliche, nicht gespiegelte Volumes zurück.
+* Aktualisiert die Kachel „Synchrones Spiegeln“ mit der Entfernung des synchron gespiegelten Paars.
+

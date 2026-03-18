@@ -1,0 +1,92 @@
+---
+permalink: sm-storage/interpret-performance-data.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, interpret, performance data 
+summary: Leistungsdaten können Ihnen bei der Optimierung der Leistung Ihres Storage-Arrays helfen. 
+---
+= Leistungsdaten im SANtricity System Manager interpretieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Leistungsdaten können Ihnen bei der Optimierung der Leistung Ihres Storage-Arrays helfen.
+
+Bei der Interpretation von Leistungsdaten ist zu beachten, dass mehrere Faktoren die Leistung Ihres Speichersystems beeinflussen. Die folgende Tabelle beschreibt die wichtigsten zu berücksichtigenden Bereiche.
+
+[cols="25h,~"]
+|===
+| Leistungsdaten | Auswirkungen auf die Leistungsoptimierung 
+
+
+ a| 
+Latenz (Millisekunden, oder ms)
+ a| 
+Überwachen Sie die I/O-Aktivität eines bestimmten Objekts.
+
+Potenzielle Objekte identifizieren, die Engpässe darstellen:
+
+* Wenn eine Volume-Gruppe von mehreren Volumes gemeinsam genutzt wird, benötigen die einzelnen Volumes möglicherweise ihre eigenen Volume-Gruppen, um die sequenzielle Leistung der Laufwerke zu verbessern und die Latenz zu verringern.
+* Bei Pools entstehen größere Latenzen und es kann zu ungleichmäßigen Workloads zwischen den Laufwerken kommen, wodurch die Latenzwerte weniger aussagekräftig und im Allgemeinen höher sind.
+* Laufwerkstyp und -geschwindigkeit beeinflussen die Latenz. Bei zufälligem I/O verbringen schneller drehende Laufwerke weniger Zeit damit, sich zu verschiedenen Positionen auf der Festplatte zu bewegen.
+* Zu wenige Laufwerke führen zu mehr in der Warteschlange befindlichen Befehlen und einer längeren Zeit, die das Laufwerk zur Verarbeitung des Befehls benötigt, was die allgemeine Latenz des Systems erhöht.
+* Größere I/Os haben aufgrund des zusätzlichen Zeitaufwands für die Datenübertragung eine höhere Latenz.
+* Eine höhere Latenz kann darauf hindeuten, dass das I/O-Muster zufällig ist. Laufwerke mit zufälligem I/O weisen eine höhere Latenz auf als solche mit sequenziellen Datenströmen.
+* Eine Diskrepanz in der Latenz zwischen Laufwerken oder Volumes einer gemeinsamen Volume-Gruppe könnte auf ein langsames Laufwerk hinweisen.
+
+
+
+
+ a| 
+IOPS
+ a| 
+Zu den Faktoren, die die Anzahl der Eingabe-/Ausgabeoperationen pro Sekunde (IOPS oder IOs/sec) beeinflussen, gehören diese Punkte:
+
+* Zugriffsmuster (zufällig oder sequenziell)
+* I/O-Größe
+* RAID-Ebene
+* Cache-Blockgröße
+* Ob Lesecaching aktiviert ist
+* Ob Schreibcache aktiviert ist
+* Dynamisches Cache-Lese-Prefetching
+* Segmentgröße
+* Die Anzahl der Laufwerke in den Volumengruppen oder im Speicherarray
+
+
+Je höher die Cache-Treffer-Rate, desto höher werden die I/O-Raten sein. Höhere Schreib-I/O-Raten werden mit aktiviertem Schreib-Caching im Vergleich zu deaktiviertem erlebt. Bei der Entscheidung, ob Schreib-Caching für ein einzelnes Volume aktiviert werden soll, betrachten Sie die aktuellen IOPS und die maximalen IOPS. Sie sollten höhere Raten für sequenzielle I/O-Muster als für zufällige I/O-Muster sehen. Unabhängig von Ihrem I/O-Muster aktivieren Sie das Schreib-Caching, um die I/O-Rate zu maximieren und die Anwendungsantwortzeit zu verkürzen.
+
+Sie können Leistungsverbesserungen, die durch die Änderung der Segmentgröße verursacht werden, in den IOPS-Statistiken für ein Volume sehen. Experimentieren Sie, um die optimale Segmentgröße zu bestimmen, oder verwenden Sie die Dateisystemgröße oder die Datenbank-Blockgröße.
+
+
+
+ a| 
+MiB/s
+ a| 
+Übertragungs- oder Durchsatzraten werden durch die I/O-Größe der Anwendung und die I/O-Rate bestimmt. Im Allgemeinen führen kleine I/O-Anwendungsanforderungen zu einer niedrigeren Transferrate, bieten jedoch eine schnellere I/O-Rate und kürzere Reaktionszeiten. Mit größeren I/O-Anwendungsanforderungen sind höhere Durchsatzraten möglich.
+
+Das Verständnis Ihrer typischen Anwendungs-I/O-Muster kann Ihnen helfen, die maximalen I/O-Transferraten für ein bestimmtes Storage Array zu bestimmen.
+
+
+
+ a| 
+CPU
+ a| 
+Dieser Wert ist ein Prozentsatz der verwendeten Verarbeitungskapazität.
+
+Möglicherweise stellen Sie eine unterschiedliche CPU-Auslastung bei Objekten desselben Typs fest. Beispielsweise ist die CPU-Auslastung eines Controllers hoch oder steigt mit der Zeit an, während die des anderen Controllers geringer oder stabiler ist. In diesem Fall möchten Sie möglicherweise die Controller-Zuständigkeit für ein oder mehrere Volumes auf den Controller mit dem niedrigeren CPU-Prozentsatz ändern.
+
+Sie sollten die CPU im gesamten Storage Array überwachen. Wenn die CPU im Laufe der Zeit weiterhin ansteigt, während die Anwendungsleistung abnimmt, müssen Sie möglicherweise Storage Arrays hinzufügen. Durch das Hinzufügen von Storage Arrays zu Ihrem Unternehmen können Sie die Anforderungen der Anwendungen weiterhin auf einem akzeptablen Leistungsniveau erfüllen.
+
+
+
+ a| 
+Reserve
+ a| 
+Headroom bezeichnet die verbleibende Leistungskapazität der Controller, der Controller-Hostkanäle und der Controller-Laufwerkskanäle. Dieser Wert wird in Prozent angegeben und stellt die Differenz zwischen der maximal möglichen Leistung dieser Objekte und dem aktuellen Leistungsniveau dar.
+
+* Für die Controller ist der Headroom ein Prozentsatz der maximal möglichen IOPS.
+* Bei den Kanälen wird der Headroom als Prozentsatz des maximalen Durchsatzes oder MiB/s angegeben. Lesedurchsatz, Schreibdurchsatz und bidirektionaler Durchsatz werden in die Berechnung einbezogen.
+
+
+|===

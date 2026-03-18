@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/view-local-user-roles.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, local, user, roles, 
+summary: 'Auf der Registerkarte „Lokale Benutzerrollen“ können Sie die Zuordnungen der Benutzerprofile zu den Standardrollen anzeigen. Diese Zuordnungen sind Teil der rollenbasierten Zugriffskontrollen (RBAC), die im Storage-Array durchgesetzt werden.' 
+---
+= Lokale Benutzerrollen im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Auf der Registerkarte „Lokale Benutzerrollen“ können Sie die Zuordnungen der Benutzerprofile zu den Standardrollen anzeigen. Diese Zuordnungen sind Teil der rollenbasierten Zugriffskontrollen (RBAC), die im Storage-Array durchgesetzt werden.
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+
+.Über diese Aufgabe
+Benutzerprofile und Zuordnungen können nicht geändert werden. Nur Passwörter können geändert werden.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *Local User Roles* aus.
++
+Die Benutzerprofile sind in der Tabelle dargestellt:
+
++
+** *Root admin* (admin) -- Superadministrator, der Zugriff auf alle Funktionen im System hat. Dieses Benutzerprofil umfasst alle Rollen.
+** *Speicheradministrator* (storage) – Der Administrator, der für die gesamte Speicherbereitstellung zuständig ist. Dieses Benutzerprofil umfasst die folgenden Rollen: Storage Admin, Support Admin und Monitor.
+** *Sicherheitsadministrator* (security) -- Der Benutzer, der für die Sicherheitskonfiguration verantwortlich ist, einschließlich Zugriffsverwaltung, Zertifikatsverwaltung und Funktionen für sichere Laufwerke. Dieses Benutzerprofil umfasst die folgenden Rollen: Security Admin und Monitor.
+** *Support admin* (support) -- Der Benutzer, der für Hardware-Ressourcen, Fehlerdaten und Firmware-Upgrades zuständig ist. Dieses Benutzerprofil umfasst die folgenden Rollen: Support admin und Monitor.
+** *Monitor* (monitor) -- Ein Benutzer mit Lesezugriff auf das System. Dieses Benutzerprofil umfasst ausschließlich die Rolle „Monitor“.
+
+
+

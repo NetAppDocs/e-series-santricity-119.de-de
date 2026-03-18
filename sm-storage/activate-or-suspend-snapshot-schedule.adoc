@@ -1,0 +1,34 @@
+---
+permalink: sm-storage/activate-or-suspend-snapshot-schedule.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot schedule 
+summary: Sie können die geplante Erfassung von Snapshot-Images vorübergehend unterbrechen, wenn Sie Speicherplatz sparen müssen. Diese Methode ist effizienter als das Löschen und spätere Neuerstellen des Snapshot-Zeitplans. 
+---
+= Aktivieren und Aussetzen eines Snapshot-Zeitplans im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die geplante Erfassung von Snapshot-Images vorübergehend unterbrechen, wenn Sie Speicherplatz sparen müssen. Diese Methode ist effizienter als das Löschen und spätere Neuerstellen des Snapshot-Zeitplans.
+
+.Über diese Aufgabe
+Der Status des Snapshot-Zeitplans bleibt ausgesetzt, bis Sie die Option *Aktivieren* verwenden, um die geplante Snapshot-Aktivität fortzusetzen.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Falls es noch nicht angezeigt wird, klicken Sie auf die Registerkarte *Schedules*.
++
+Die Zeitpläne sind auf der Seite aufgeführt.
+
+. Wählen Sie einen aktiven Snapshot-Zeitplan aus, den Sie aussetzen möchten, und klicken Sie dann auf *Aktivieren / Aussetzen*.
++
+Der Status in der Spalte „Status“ ändert sich zu *Ausgesetzt*, und der Snapshot-Zeitplan stoppt die Erfassung aller Snapshot Images.
+
+. Um die Erfassung von Snapshot-Bildern fortzusetzen, wählen Sie den angehaltenen Snapshot-Zeitplan aus, den Sie fortsetzen möchten, und klicken Sie dann auf *Aktivieren / Anhalten*.
++
+Der Status in der Spalte „Status“ ändert sich zu *Active*.
+
+

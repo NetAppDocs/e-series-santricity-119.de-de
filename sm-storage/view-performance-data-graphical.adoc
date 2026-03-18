@@ -1,0 +1,177 @@
+---
+permalink: sm-storage/view-performance-data-graphical.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, graphical, performance, 
+summary: Sie können grafische Leistungsdaten für logische Objekte, physische Objekte, Anwendungen und Workloads anzeigen. 
+---
+= Grafische Leistungsdaten im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können grafische Leistungsdaten für logische Objekte, physische Objekte, Anwendungen und Workloads anzeigen.
+
+.Über diese Aufgabe
+Die Leistungsdiagramme zeigen sowohl historische Daten als auch aktuell erfasste Live-Daten. Eine vertikale Linie im Diagramm mit der Bezeichnung Live updating unterscheidet historische Daten von Live-Daten.
+
+*Startseitenansicht*
+
+Die Startseite enthält ein Diagramm, das die Leistung auf Speicherarray-Ebene anzeigt. Sie können in dieser Ansicht nur bestimmte Metriken auswählen oder auf *Leistungsdetails anzeigen* klicken, um alle verfügbaren Metriken auszuwählen.
+
+*Detailansicht*
+
+Die in der detaillierten Leistungsansicht verfügbaren Diagramme sind unter drei Registerkarten angeordnet:
+
+* *Logische Ansicht* -- Zeigt Leistungsdaten für logische Objekte an, gruppiert nach Volumengruppen und Pools. Zu den logischen Objekten gehören Volumengruppen, Pools und Volumen.
+* *Physische Ansicht* -- Zeigt Leistungsdaten für den Controller, Hostkanäle, Laufwerkskanäle und Laufwerke an.
+* *Applications & Workloads View* -- Zeigt eine Liste logischer Objekte (Volumes) an, gruppiert nach den von Ihnen definierten Anwendungstypen und Workloads.
+
+
+.Schritte
+. Wählen Sie *Home* aus.
+. Um eine Array-Ansicht auszuwählen, klicken Sie auf die Schaltfläche IOPS, MiB/s oder CPU.
+. Um weitere Details zu sehen, klicken Sie auf *View Performance Details*.
+. Wählen Sie die Registerkarte *Logical View*, die Registerkarte *Physical View* oder die Registerkarte *Applications & Workloads View*.
++
+Je nach Objekttyp werden in den einzelnen Registerkarten unterschiedliche Diagramme angezeigt.
+
++
+[cols="25h,~"]
+|===
+| Registerkarten anzeigen | Leistungsdaten werden für jeden Objekttyp angezeigt 
+
+
+ a| 
+Logische Ansicht
+ a| 
+** *Speicherarray*: IOPS, MiB/s
+** *Pools*: Latenz, IOPS, MiB/s
+** *Volume groups*: Latenz, IOPS, MiB/s
+** *Volumes*: Latenz, IOPS, MiB/s
+
+
+
+
+ a| 
+Physische Ansicht
+ a| 
+** *Controller*: IOPS, MiB/s, CPU, Headroom
+** *Host-Kanäle*: Latenz, IOPS, MiB/s, Headroom
+** *Drive channels*: Latenz, IOPS, MiB/s
+** *Laufwerke*: Latenz, IOPS, MiB/s
+
+
+
+
+ a| 
+Anwendungs- und Workload-Ansicht
+ a| 
+** *Speicherarray*: IOPS, MiB/s
+** *Anwendungen*: Latenz, IOPS, MiB/s
+** *Workloads*: Latenz, IOPS, MiB/s
+** *Volumes*: Latenz, IOPS, MiB/s
+
+
+|===
+. Verwenden Sie die Optionen, um die Objekte und Informationen anzuzeigen, die Sie benötigen.
++
+.Optionen
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Optionen zum Anzeigen von Objekten | Beschreibung 
+
+
+ a| 
+Klappen Sie eine Schublade auf, um die Liste der Objekte anzuzeigen.
+ a| 
+_Navigationsleisten_ enthalten Speicherobjekte wie Pools, Volumengruppen und Laufwerke.
+
+Klicken Sie auf die Schublade, um die Liste der Objekte in der Schublade anzuzeigen.
+
+
+
+ a| 
+Objekte zur Anzeige auswählen.
+ a| 
+Markieren Sie das Kästchen links neben jedem Objekt, um die Leistungsdaten auszuwählen, die Sie anzeigen möchten.
+
+
+
+ a| 
+Verwenden Sie Filter, um Objektnamen oder Teilnamen zu finden.
+ a| 
+Geben Sie im Filterfeld den Namen oder einen Teilnamen von Objekten ein, um nur diese Objekte in der Schublade aufzulisten.
+
+
+
+ a| 
+Klicken Sie auf *Diagramme aktualisieren*, nachdem Sie Objekte ausgewählt haben.
+ a| 
+Nachdem Sie Objekte aus den Schubladen ausgewählt haben, wählen Sie *Diagramme aktualisieren*, um grafische Daten für die von Ihnen ausgewählten Elemente anzuzeigen.
+
+
+
+ a| 
+Diagramm ein- oder ausblenden
+ a| 
+Wählen Sie den Diagrammtitel aus, um das Diagramm ein- oder auszublenden.
+
+|===
+====
+. Nutzen Sie bei Bedarf die zusätzlichen Optionen zur Anzeige von Leistungsdaten.
++
+.Zusätzliche Optionen
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Option | Beschreibung 
+
+
+ a| 
+Zeitrahmen
+ a| 
+Wählen Sie die Länge des Zeitraums aus, den Sie anzeigen möchten (5 Minuten, 1 Stunde, 8 Stunden, 1 Tag, 7 Tage oder 30 Tage). Standardmäßig ist 1 Stunde eingestellt.
+
+
+NOTE: Das Laden der Leistungsdaten für einen Zeitraum von 30 Tagen kann einige Minuten dauern. Navigieren Sie nicht von der Webseite weg, aktualisieren Sie die Webseite nicht und schließen Sie den Browser nicht, während die Daten geladen werden.
+
+
+
+ a| 
+Datenpunktdetails
+ a| 
+Bewegen Sie den Mauszeiger über das Diagramm, um Metriken für einen bestimmten Datenpunkt anzuzeigen.
+
+
+
+ a| 
+Scrollleiste
+ a| 
+Verwenden Sie die Bildlaufleiste unterhalb des Diagramms, um einen früheren oder späteren Zeitraum anzuzeigen.
+
+
+
+ a| 
+Zoomleiste
+ a| 
+Unterhalb des Diagramms ziehen Sie die Ziehpunkte des Zoombalkens, um auf einen Zeitraum herauszuzoomen. Je breiter der Zoombalken, desto weniger granular sind die Details des Diagramms.
+
+Um das Diagramm zurückzusetzen, wählen Sie eine der Zeitrahmenoptionen.
+
+
+
+ a| 
+Drag and Drop
+ a| 
+Ziehen Sie im Diagramm den Cursor von einem Zeitpunkt zu einem anderen, um auf einen Zeitraum zu zoomen.
+
+Um das Diagramm zurückzusetzen, wählen Sie eine der Zeitrahmenoptionen.
+
+|===
+====
+

@@ -1,0 +1,43 @@
+---
+permalink: sm-hardware/place-controller-offline.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, place, controller, offline, 
+summary: Wenn Sie dazu aufgefordert werden, können Sie einen Controller offline schalten. 
+---
+= Einen Controller im SANtricity System Manager offline schalten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie dazu aufgefordert werden, können Sie einen Controller offline schalten.
+
+.Bevor Sie beginnen
+* Ihr Speichersystem muss über zwei Controller verfügen. Der Controller, den Sie nicht offline schalten, muss online (im optimalen Zustand) sein.
+* Stellen Sie sicher, dass keine Volumes verwendet werden oder dass Sie auf allen Hosts, die diese Volumes verwenden, einen Multipath-Treiber installiert haben.
+
+
+.Über diese Aufgabe
+++ ++
+
+[CAUTION]
+====
+Schalten Sie einen Controller nur offline, wenn Sie vom Recovery Guru oder vom technischen Support dazu aufgefordert werden.
+
+====
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Klicken Sie auf den Controller, den Sie offline schalten möchten.
++
+Das Kontextmenü des Controllers wird angezeigt.
+
+. Wählen Sie *Place offline* und bestätigen Sie, dass Sie den Vorgang durchführen möchten.
+
+
+.Ergebnisse
+Es kann einige Minuten dauern, bis der System Manager den Status des Controllers auf „Offline“ aktualisiert hat. Führen Sie keine weiteren Vorgänge durch, bis der Status aktualisiert wurde.

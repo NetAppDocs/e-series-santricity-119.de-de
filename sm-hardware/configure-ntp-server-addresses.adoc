@@ -1,0 +1,69 @@
+---
+permalink: sm-hardware/configure-ntp-server-addresses.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, ntp, server, addresses, network, time, protocol, 
+summary: 'Sie können eine Verbindung zum Network Time Protocol (NTP)-Server konfigurieren, sodass der Controller den NTP-Server regelmäßig abfragt, um seine interne Zeit des Tages zu aktualisieren.' 
+---
+= Konfigurieren Sie NTP-Serveradressen im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine Verbindung zum Network Time Protocol (NTP)-Server konfigurieren, sodass der Controller den NTP-Server regelmäßig abfragt, um seine interne Zeit des Tages zu aktualisieren.
+
+.Bevor Sie beginnen
+* In Ihrem Netzwerk muss ein NTP-Server installiert und konfiguriert sein.
+* Sie müssen die Adresse des primären NTP-Servers und optional eines Backup-NTP-Servers kennen. Diese Adressen können vollqualifizierte Domainnamen, IPv4-Adressen oder IPv6-Adressen sein.
+
+
+[NOTE]
+====
+Wenn Sie einen oder mehrere Domänennamen für die NTP-Server angeben, müssen Sie auch einen DNS-Server konfigurieren, um die NTP-Serveradresse aufzulösen. Sie müssen den DNS-Server nur auf den Controllern konfigurieren, auf denen Sie NTP konfiguriert und einen Domänennamen angegeben haben.
+
+====
+.Über diese Aufgabe
+NTP ermöglicht es dem Speichersystem, die Uhren der Controller automatisch mit einem externen Host über das Simple Network Time Protocol (SNTP) zu synchronisieren. Der Controller fragt den konfigurierten NTP-Server regelmäßig ab und verwendet dann die Ergebnisse, um seine interne Uhrzeit zu aktualisieren. Wenn nur ein Controller NTP aktiviert hat, synchronisiert der alternative Controller seine Uhr regelmäßig mit dem Controller, der NTP aktiviert hat. Wenn keiner der Controller NTP aktiviert hat, synchronisieren die Controller ihre Uhren regelmäßig miteinander.
+
+[NOTE]
+====
+Sie müssen NTP nicht auf beiden Controllern konfigurieren; das Konfigurieren auf beiden verbessert jedoch die Fähigkeit des Storage Arrays, bei Hardware- oder Kommunikationsausfällen synchronisiert zu bleiben.
+
+====
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Laufwerke anzeigt, klicken Sie auf die Registerkarte *Controllers & Components*.
++
+Die Grafik ändert sich, um die Steuergeräte anstelle der Laufwerke anzuzeigen.
+
+. Klicken Sie auf den Controller, den Sie konfigurieren möchten.
++
+Das Kontextmenü des Controllers wird angezeigt.
+
+. Wählen Sie *Configure NTP server*.
++
+Das Dialogfeld „Netzwerkzeitprotokoll (NTP) Server konfigurieren“ wird geöffnet.
+
+. Wählen Sie *Ich möchte NTP auf dem Controller aktivieren* (*A* oder *B*).
++
+Zusätzliche Auswahlmöglichkeiten erscheinen im Dialogfeld.
+
+. Wählen Sie eine der folgenden Optionen:
++
+** *Automatisch NTP-Serveradressen vom DHCP-Server beziehen* -- Die erkannten NTP-Serveradressen werden angezeigt.
++
+[NOTE]
+====
+Wenn das Speichersystem so konfiguriert ist, dass es eine statische NTP-Adresse verwendet, werden keine NTP-Server angezeigt.
+
+====
+** *NTP-Serveradressen manuell angeben* -- Geben Sie die primäre NTP-Serveradresse und eine Backup-NTP-Serveradresse ein. Der Backup-Server ist optional. (Diese Adressfelder erscheinen, nachdem Sie das Optionsfeld ausgewählt haben.) Die Serveradresse kann ein vollqualifizierter Domainname, eine IPv4-Adresse oder eine IPv6-Adresse sein.
+
+
+. *Optional:* Geben Sie Serverinformationen und Authentifizierungsdaten für einen Backup-NTP-Server ein.
+. Klicken Sie auf *Speichern*.
+
+
+.Ergebnisse
+Die NTP-Serverkonfiguration wird in den Controller-Einstellungen, Registerkarte *DNS / NTP*, angezeigt.

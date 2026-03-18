@@ -1,0 +1,102 @@
+---
+permalink: sm-storage/start-snapshot-image-rollback-for-consistency-group-member-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, start, snapshot, image, rollback, snapshot, consistency, group, member, volumes 
+summary: Sie können eine Rollback-Operation durchführen, um den Inhalt der Konsistenzgruppen-Mitglieds-Volumes so zu ändern, dass er dem in einem Snapshot-Image gespeicherten Inhalt entspricht. 
+---
+= Starten Sie das Rollback von Snapshot-Images für Konsistenzgruppenmitglied-Volumes im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine Rollback-Operation durchführen, um den Inhalt der Konsistenzgruppen-Mitglieds-Volumes so zu ändern, dass er dem in einem Snapshot-Image gespeicherten Inhalt entspricht.
+
+Der Rollback-Vorgang ändert den Inhalt der Snapshot-Images, die mit der Snapshot-Konsistenzgruppe verknüpft sind, nicht.
+
+.Bevor Sie beginnen
+* Es ist genügend Reservekapazität vorhanden, um einen Rollback-Vorgang zu starten.
+* Das ausgewählte Snapshot-Image ist optimal und das ausgewählte Volume ist optimal.
+* Für das ausgewählte Volume ist kein Rollback-Vorgang aktiv.
+
+
+.Über diese Aufgabe
+Die Startsequenz für das Rollback ermöglicht das Starten eines Rollbacks für ein Snapshot-Image einer Snapshot-Konsistenzgruppe und bietet gleichzeitig Optionen zum Hinzufügen von Speicherkapazität. Sie können nicht mehr als einen Rollback-Vorgang für eine Snapshot-Konsistenzgruppe gleichzeitig starten.
+
+[NOTE]
+====
+Der Host hat sofortigen Zugriff auf die neu wiederhergestellten Volumes, aber die vorhandenen Member-Volumes erlauben dem Host nach dem Start des Rollbacks keinen Lese- und Schreibzugriff mehr. Sie können kurz vor dem Start des Rollbacks ein Snapshot-Image der Member-Volumes erstellen, um die ursprünglichen Volumes vor dem Rollback für Wiederherstellungszwecke zu sichern.
+
+====
+Der Prozess zum Starten des Rollbacks eines Snapshot-Images einer Snapshot-Konsistenzgruppe ist ein mehrstufiges Verfahren.
+
+
+
+== Schritt 1: Mitglieder auswählen
+
+Sie müssen die Mitgliedsvolumes auswählen, die zurückgesetzt werden sollen.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Wählen Sie die Registerkarte *Snapshot Images* aus.
+. Wählen Sie das Snapshot-Konsistenzgruppen-Snapshot-Image aus und wählen Sie dann Menü:Rollback[Start].
++
+Das Dialogfeld „Rollback starten“ wird angezeigt.
+
+. Wählen Sie das oder die Mitglieds-Volumes aus.
+. Klicken Sie auf *Weiter*, und führen Sie einen der folgenden Schritte aus:
++
+** Wenn eines der ausgewählten Mitgliedsvolumes mit mehr als einem reservierten Kapazitätsobjekt verknüpft ist, das Snapshot-Images speichert, wird das Dialogfeld „Kapazität überprüfen“ angezeigt. Gehen Sie zu <<Schritt 2: Kapazität überprüfen>>.
+** Wenn keines der ausgewählten Mitgliedsvolumes mit mehr als einem reservierten Kapazitätsobjekt verknüpft ist, das Snapshot-Images speichert, wird das Dialogfeld „Priorität bearbeiten“ angezeigt. Gehen Sie zu <<Schritt 3: Priorität bearbeiten>>.
+
+
+
+
+
+
+== Schritt 2: Kapazität überprüfen
+
+Wenn Sie Mitgliedsvolumes ausgewählt haben, die mehr als einem reservierten Kapazitätsobjekt zugeordnet sind, wie z. B. einer Snapshot-Gruppe und einem reservierten Kapazitätsvolume, können Sie die reservierte Kapazität für die zurückgesetzten Volume(s) überprüfen und erhöhen.
+
+.Schritte
+. Klicken Sie neben allen Mitgliedsvolumes mit sehr geringer (oder keiner) reservierter Kapazität auf den Link *Kapazität erhöhen* in der Spalte *Bearbeiten*.
++
+Das Dialogfeld „Reservierte Kapazität erhöhen“ wird angezeigt.
+
+. Stellen Sie mithilfe des Drehreglers den Kapazitätsprozentsatz ein, und klicken Sie dann auf *Erhöhen*.
++
+Wenn im Pool oder der Volume-Gruppe, die das ausgewählte Speicherobjekt enthält, kein freier Speicherplatz vorhanden ist und das Speicherarray über Unassigned Capacity verfügt, können Sie Kapazität hinzufügen. Sie können einen neuen Pool oder eine neue Volume-Gruppe erstellen und diesen Vorgang mit der neuen freien Kapazität in diesem Pool oder dieser Volume-Gruppe wiederholen.
+
+. Klicken Sie auf *Weiter* und gehen Sie zu <<Schritt 3: Priorität bearbeiten>>.
++
+Das Dialogfeld „Priorität bearbeiten“ wird angezeigt.
+
+
+
+
+
+== Schritt 3: Priorität bearbeiten
+
+Sie können die Priorität des Rollback-Vorgangs bei Bedarf bearbeiten.
+
+.Über diese Aufgabe
+Die Rollback-Priorität bestimmt, wie viele Systemressourcen dem Rollback-Vorgang auf Kosten der Systemleistung zugewiesen werden.
+
+.Schritte
+. Verwenden Sie den Schieberegler, um die Rollback-Priorität nach Bedarf anzupassen.
+. Bestätigen Sie, dass Sie diesen Vorgang durchführen möchten, und klicken Sie dann auf *Finish*.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Stellt die Konsistenzgruppen-Mitglied-Volumes mit dem im ausgewählten Snapshot-Image gespeicherten Inhalt wieder her.
+* Stellt die zurückgesetzten Volumes sofort für den Hostzugriff zur Verfügung. Sie müssen nicht warten, bis der Rollback-Vorgang abgeschlossen ist.
+
+
+.Nachdem Sie fertig sind
+Wählen Sie Menü:Home[Laufende Operationen anzeigen], um den Fortschritt der Rollback-Operation anzuzeigen.
+
+Wenn der Rollback-Vorgang nicht erfolgreich ist, wird der Vorgang angehalten. Sie können den angehaltenen Vorgang fortsetzen und, wenn er weiterhin nicht erfolgreich ist, das Recovery Guru-Verfahren befolgen, um das Problem zu beheben, oder den technischen Support kontaktieren.

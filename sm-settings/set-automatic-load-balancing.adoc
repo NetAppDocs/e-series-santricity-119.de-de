@@ -1,0 +1,49 @@
+---
+permalink: sm-settings/set-automatic-load-balancing.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, set, automatic, load, balancing, 
+summary: Die automatische Lastverteilung sorgt dafür, dass der eingehende I/O-Datenverkehr von den Hosts dynamisch verwaltet und auf beide Controller verteilt wird. Diese Funktion ist standardmäßig aktiviert, kann aber im System Manager deaktiviert werden. 
+---
+= Automatischen Lastausgleich im SANtricity System Manager einrichten
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die automatische Lastverteilungsfunktion stellt sicher, dass der eingehende E/A-Datenverkehr von den Hosts dynamisch verwaltet und auf beide Controller ausgeglichen wird. Diese Funktion ist standardmäßig aktiviert, kann aber im SANtricity System Manager deaktiviert werden.
+
+.Über diese Aufgabe
+Wenn die automatische Lastverteilung aktiviert ist, werden die folgenden Funktionen ausgeführt:
+
+* Überwacht und gleicht automatisch die Ressourcenauslastung der Controller aus.
+* Passt bei Bedarf automatisch die Zuständigkeit für den Lautstärkeregler an und optimiert so die I/O-Bandbreite zwischen den Hosts und dem Speichersystem.
+
+
+Möglicherweise möchten Sie die automatische Lastverteilung auf Ihrem Speichersystem aus folgenden Gründen deaktivieren:
+
+* Sie möchten nicht, dass die Controller-Zugehörigkeit eines bestimmten Volumes automatisch geändert wird, um die Workload auszugleichen.
+* Sie arbeiten in einer hochgradig optimierten Umgebung, in der die Lastverteilung gezielt so eingerichtet ist, dass eine bestimmte Verteilung zwischen den Controllern erreicht wird.
+
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *Zusätzliche Einstellungen*, und klicken Sie dann auf *Automatischen Lastausgleich aktivieren/deaktivieren*.
++
+Der Text unterhalb dieser Option gibt an, ob die Funktion derzeit aktiviert oder deaktiviert ist.
+
++
+Ein Bestätigungsdialogfeld wird geöffnet.
+
+. Bestätigen Sie durch Klicken auf *Ja*, um fortzufahren.
++
+Durch Auswahl dieser Option schalten Sie die Funktion zwischen aktiviert/deaktiviert um.
+
++
+[NOTE]
+====
+Wird diese Funktion von deaktiviert auf aktiviert umgeschaltet, wird die Funktion Host Connectivity Reporting automatisch ebenfalls aktiviert.
+
+====
+

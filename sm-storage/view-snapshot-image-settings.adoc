@@ -1,0 +1,28 @@
+---
+permalink: sm-storage/view-snapshot-image-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, snapshot, image, settings 
+summary: Sie können die Eigenschaften, den Status, die reservierte Kapazität und die zugeordneten Objekte anzeigen, die jedem Snapshot-Image zugewiesen sind. 
+---
+= Snapshot-Image-Einstellungen im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Eigenschaften, den Status, die reservierte Kapazität und die zugeordneten Objekte anzeigen, die jedem Snapshot-Image zugewiesen sind.
+
+.Über diese Aufgabe
+Zugehörige Objekte für ein Snapshot-Image umfassen das Basisvolume oder die Snapshot-Konsistenzgruppe, für die dieses Snapshot-Image ein Wiederherstellungspunkt ist, die zugehörige Snapshot-Gruppe und alle Snapshot-Volumes, die aus dem Snapshot-Image erstellt wurden. Verwenden Sie die Snapshot-Einstellungen, um festzulegen, ob Sie das Snapshot-Image kopieren oder konvertieren möchten.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Snapshot Images*.
+. Wählen Sie das Snapshot-Bild aus, das Sie anzeigen möchten, und klicken Sie dann auf *View Settings*.
++
+Das Dialogfeld „Snapshot Image Settings“ wird angezeigt.
+
+. Zeigen Sie die Einstellungen für das Snapshot-Bild an.
+

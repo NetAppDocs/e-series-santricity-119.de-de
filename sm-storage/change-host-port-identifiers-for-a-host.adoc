@@ -1,0 +1,78 @@
+---
+permalink: sm-storage/change-host-port-identifiers-for-a-host.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, host port, identifiers, host 
+summary: Ändern Sie die Host-Port-Kennungen, wenn Sie die Benutzerbezeichnung einer Host-Port-Kennung ändern, eine neue Host-Port-Kennung zum Host hinzufügen oder eine Host-Port-Kennung vom Host löschen möchten. 
+---
+= Ändern der Host-Port-Kennungen für einen Host im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ändern Sie die Host-Port-Kennungen, wenn Sie die Benutzerbezeichnung einer Host-Port-Kennung ändern, eine neue Host-Port-Kennung zum Host hinzufügen oder eine Host-Port-Kennung vom Host löschen möchten.
+
+.Über diese Aufgabe
+Beachten Sie beim Ändern von Host-Port-Kennungen die folgenden Richtlinien:
+
+* *Hinzufügen* – Wenn Sie einen Host-Port hinzufügen, ordnen Sie die Host-Port-Kennung dem Host zu, den Sie erstellt haben, um eine Verbindung zu Ihrem Storage-Array herzustellen. Sie können Portinformationen manuell mithilfe eines Host-Bus-Adapter (HBA) Dienstprogramms eingeben.
+* *Bearbeiten* -- Sie können die Host-Ports bearbeiten, um einen Host-Port einem anderen Host zuzuordnen. Möglicherweise haben Sie den Hostbusadapter oder iSCSI-Initiator auf einen anderen Host verschoben, daher müssen Sie den Host-Port dem neuen Host zuordnen.
+* *Löschen* -- Sie können Host-Ports löschen, um Host-Ports von einem Host zu entfernen (unassoziieren).
+
+
+.Schritte
+. Menü auswählen:Storage[Hosts].
+. Wählen Sie den Host aus, dem die Ports zugeordnet werden sollen, und klicken Sie dann auf *Einstellungen anzeigen/bearbeiten*.
++
+Wenn Sie einem Host in einem Host-Cluster Ports hinzufügen möchten, erweitern Sie das Host-Cluster und wählen Sie den gewünschten Host aus. Sie können auf Host-Cluster-Ebene keine Ports hinzufügen.
+
++
+Es erscheint ein Dialogfeld, das die aktuellen Host-Einstellungen anzeigt.
+
+. Klicken Sie auf die Registerkarte *Host Ports*.
++
+Im Dialogfeld werden die aktuellen Host-Port-Kennungen angezeigt.
+
+. Ändern Sie die Einstellungen für die Host-Port-Kennung nach Bedarf.
++
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Host-Port
+ a| 
+Sie können eine der folgenden Optionen wählen:
+
+** *Hinzufügen* – Verwenden Sie Hinzufügen, um dem Host eine neue Host-Port-Kennung zuzuweisen. Die Länge des Namens der Host-Port-Kennung wird durch die Host-Schnittstelle bestimmt. Fibre Channel- und Infiniband-Host-Port-Kennungennamen müssen 16 Zeichen lang sein. iSCSI-Host-Port-Kennungennamen dürfen maximal 223 Zeichen lang sein. Der Port muss eindeutig sein. Eine bereits konfigurierte Portnummer ist nicht zulässig.
+** *Löschen* – Verwenden Sie „Löschen“, um eine Host-Port-Kennung zu entfernen (die Zuordnung aufzuheben). Die Option „Löschen“ entfernt den Host-Port nicht physisch. Diese Option entfernt die Zuordnung zwischen dem Host-Port und dem Host. Sofern Sie den Host-Bus-Adapter oder den iSCSI-Initiator nicht entfernen, wird der Host-Port weiterhin vom Controller erkannt.
++
+[NOTE]
+====
+Wenn Sie eine Host-Port-Kennung löschen, ist diese nicht mehr mit diesem Host verknüpft. Außerdem verliert der Host den Zugriff auf alle ihm über diese Host-Port-Kennung zugewiesenen Volumes.
+
+====
+
+
+
+
+ a| 
+Etikett
+ a| 
+Um den Portbezeichnungsnamen zu ändern, klicken Sie auf das *Bearbeiten*-Symbol (Stift). Der Portbezeichnungsname muss eindeutig sein. Ein bereits konfigurierter Bezeichnungsname ist nicht zulässig.
+
+
+
+ a| 
+CHAP-Geheimnis
+ a| 
+Wird nur für iSCSI-Hosts angezeigt. Sie können das CHAP-Geheimnis für die Initiatoren (iSCSI-Hosts) festlegen oder ändern.
+
+System Manager verwendet das Challenge Handshake Authentication Protocol (CHAP), das die Identität von Targets und Initiatoren während der ersten Verbindungsherstellung überprüft. Die Authentifizierung basiert auf einem gemeinsamen Sicherheitsschlüssel, dem sogenannten CHAP-Geheimnis.
+
+|===
+. Klicken Sie auf *Speichern*.
+

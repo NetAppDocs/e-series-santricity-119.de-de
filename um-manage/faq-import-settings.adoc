@@ -1,0 +1,45 @@
+---
+permalink: um-manage/faq-import-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zu den Importeinstellungen für SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Welche Einstellungen werden importiert?
+
+Die Funktion „Einstellungen importieren“ ist ein Stapelverarbeitungsvorgang, der Konfigurationen von einem Storage-Array auf mehrere Storage-Arrays lädt. Die Einstellungen, die während dieses Vorgangs importiert werden, hängen davon ab, wie das Quell-Storage-Array im SANtricity System Manager konfiguriert ist.
+
+Die folgenden Einstellungen können in mehrere Speicherarrays importiert werden:
+
+* *E-Mail-Benachrichtigungen* -- Die Einstellungen umfassen eine Mailserveradresse und die E-Mail-Adressen der Benachrichtigungsempfänger.
+* *Syslog alerts* -- Zu den Einstellungen gehören eine Syslog-Serveradresse und ein UDP-Port.
+* *SNMP-Warnungen* -- Einstellungen umfassen einen Community-Namen und eine IP-Adresse für den SNMP-Server.
+* *AutoSupport* -- Zu den Einstellungen gehören die einzelnen Funktionen (Basis AutoSupport, AutoSupport OnDemand und Ferndiagnose), das Wartungsfenster, die Bereitstellungsmethode und der Versandplan.
+* *Verzeichnisdienste* -- Die Konfiguration umfasst den Domänennamen und die URL eines LDAP (Lightweight Directory Access Protocol)-Servers sowie die Zuordnungen der Benutzergruppen des LDAP-Servers zu den vordefinierten Rollen des Speichersystems.
+* *Speicherkonfiguration* -- Konfigurationen umfassen Volumes (nur Thick und nur Nicht-Repository-Volumes), Volume-Gruppen, Pools und Hot-Spare-Laufwerkszuweisungen.
+* *Systemeinstellungen* -- Die Konfigurationen umfassen Medienscan-Einstellungen für ein Volume, SSD-Cache für Controller und automatischen Lastausgleich (beinhaltet keine Host-Konnektivitätsberichterstattung).
+
+
+
+
+== Warum werden nicht alle meine Speicherarrays angezeigt?
+
+Während des Importvorgangs der Einstellungen sind einige Ihrer Speicherarrays möglicherweise nicht im Zielauswahldialogfeld verfügbar.
+
+Speicherarrays werden möglicherweise aus folgenden Gründen nicht angezeigt:
+
+* Die Firmware-Version ist unter 8.50.
+* Das Speichersystem ist offline.
+* Das System kann nicht mit diesem Array kommunizieren (zum Beispiel hat das Array Zertifikats-, Passwort- oder Netzwerkprobleme).
+

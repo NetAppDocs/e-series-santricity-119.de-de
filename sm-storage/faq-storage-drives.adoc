@@ -1,0 +1,58 @@
+---
+permalink: sm-storage/faq-storage-drives.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zu Speicherlaufwerken für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was ist ein Hot Spare-Laufwerk?
+
+Hot-Spare-Laufwerke fungieren als Standby-Laufwerke in RAID-1-, RAID-5- oder RAID-6-Volume-Gruppen. Sie sind voll funktionsfähige Laufwerke, die keine Daten enthalten. Fällt ein Laufwerk in der Volume-Gruppe aus, rekonstruiert der Controller die Daten des ausgefallenen Laufwerks automatisch auf ein Hot-Spare-Laufwerk.
+
+Fällt ein Laufwerk im Storage-Array aus, wird das Hot-Spare-Laufwerk automatisch für das ausgefallene Laufwerk eingesetzt, ohne dass ein physischer Austausch erforderlich ist. Wenn das Hot-Spare-Laufwerk verfügbar ist, wenn ein Laufwerk ausfällt, verwendet der Controller Redundanzdaten, um die Daten vom ausgefallenen Laufwerk auf das Hot-Spare-Laufwerk zu rekonstruieren.
+
+Ein Hot-Spare-Laufwerk ist keiner bestimmten Volume-Gruppe zugeordnet. Stattdessen können Sie ein Hot-Spare-Laufwerk für jedes ausgefallene Laufwerk im Storage-Array mit gleicher oder geringerer Kapazität verwenden. Ein Hot-Spare-Laufwerk muss denselben Medientyp (HDD oder SSD) haben wie die Laufwerke, die es schützt.
+
+[NOTE]
+====
+Hot-Spare-Laufwerke werden bei Pools nicht unterstützt. Anstelle von Hot-Spare-Laufwerken nutzen Pools die Erhaltungskapazität innerhalb jedes Laufwerks, das den Pool bildet.
+
+====
+
+
+== Was ist Erhaltungskapazität?
+
+Die Reservekapazität ist die Menge an Kapazität (Anzahl der Laufwerke), die in einem Pool reserviert ist, um potenzielle Laufwerksausfälle zu unterstützen.
+
+Wenn ein Pool erstellt wird, reserviert das System automatisch eine Standardmenge an Preservation-Kapazität, abhängig von der Anzahl der Laufwerke im Pool.
+
+Pools nutzen während der Rekonstruktion die Preservation Capacity, während Volume-Gruppen Hot-Spare-Laufwerke für denselben Zweck verwenden. Die Preservation Capacity-Methode ist eine Verbesserung gegenüber Hot-Spare-Laufwerken, da sie eine schnellere Rekonstruktion ermöglicht. Preservation Capacity wird auf mehrere Laufwerke im Pool verteilt, anstatt wie bei einem Hot-Spare-Laufwerk auf einem einzelnen Laufwerk konzentriert zu sein, sodass Sie nicht durch die Geschwindigkeit oder Verfügbarkeit eines einzelnen Laufwerks eingeschränkt sind.
+
+
+
+== Warum sollte ich ein Laufwerk logisch austauschen?
+
+Wenn ein Laufwerk ausfällt oder Sie es aus einem anderen Grund ersetzen möchten und Sie ein nicht zugewiesenes Laufwerk in Ihrem Speicher-Array haben, können Sie das ausgefallene Laufwerk logisch durch das nicht zugewiesene Laufwerk ersetzen. Wenn Sie kein nicht zugewiesenes Laufwerk haben, können Sie das Laufwerk stattdessen physisch ersetzen.
+
+Die Daten vom Originallaufwerk werden auf das Ersatzlaufwerk kopiert oder rekonstruiert.
+
+
+
+== Wo kann ich den Status eines Laufwerks einsehen, das sich in der Rekonstruktion befindet?
+
+Sie können den Status der Laufwerksrekonstruktion im Dashboard „Laufende Vorgänge“ einsehen.
+
+Klicken Sie auf der Startseite auf den Link *Aktuelle Vorgänge anzeigen* oben rechts.
+
+Je nach Laufwerk kann die vollständige Rekonstruktion einige Zeit in Anspruch nehmen. Wenn sich der Volume-Eigentümer geändert hat, kann anstelle der Schnellrekonstruktion eine vollständige Rekonstruktion erfolgen.

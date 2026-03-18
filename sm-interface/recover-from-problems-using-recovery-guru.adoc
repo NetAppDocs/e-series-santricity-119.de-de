@@ -1,0 +1,41 @@
+---
+permalink: sm-interface/recover-from-problems-using-recovery-guru.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, Recovery Guru 
+summary: Der Recovery Guru ist eine Komponente von System Manager, die Speicherarray-Probleme diagnostiziert und Wiederherstellungsverfahren zur Behebung der Probleme empfiehlt. 
+---
+= Beheben Sie Probleme mit dem SANtricity System Manager Recovery Guru
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Der Recovery Guru ist eine Komponente von SANtricity System Manager, die Speicherarray-Probleme diagnostiziert und Wiederherstellungsverfahren zur Behebung der Probleme empfiehlt.
+
+.Schritte
+. Wählen Sie *Home* aus.
+. Klicken Sie auf den Link mit der Bezeichnung *Recover from _n_ problems* oben in der Mitte des Fensters.
++
+Das Dialogfeld „Recovery Guru“ wird angezeigt.
+
+. Wählen Sie das erste Problem in der Übersichtsliste aus und befolgen Sie anschließend die Anweisungen im Wiederherstellungsverfahren, um das Problem zu beheben. Verwenden Sie gegebenenfalls die Austausch-Anweisungen, um ausgefallene Komponenten zu ersetzen. Wiederholen Sie diesen Schritt für jedes aufgeführte Problem.
++
+Mehrere Probleme in einem Speichersystem können miteinander zusammenhängen. In diesem Fall kann die Reihenfolge, in der die Probleme behoben werden, das Ergebnis beeinflussen. Wählen und beheben Sie die Probleme in der Reihenfolge, in der sie in der Übersichtsliste aufgeführt sind.
+
++
+Mehrere Ausfälle eines Netzteilgehäuses werden zusammengefasst und in der Übersicht als ein Problem aufgeführt. Mehrere Ausfälle eines Lüftergehäuses werden ebenfalls als ein Problem aufgeführt.
+
+. Um sicherzustellen, dass das Wiederherstellungsverfahren erfolgreich war, klicken Sie auf *Erneut prüfen*.
++
+Wenn Sie ein Problem für eine asynchrone Spiegelgruppe oder ein Mitglied einer asynchronen Spiegelgruppe ausgewählt haben, klicken Sie zuerst auf *Löschen*, um den Fehler vom Controller zu löschen, und klicken Sie dann auf *Erneut prüfen*, um das Ereignis aus dem Recovery Guru zu entfernen.
+
++
+Sind alle Probleme behoben, wechselt das Symbol für das Speicherarray schließlich von Needs Attention zu Optimal. Bei manchen Problemen wird während eines laufenden Vorgangs, wie beispielsweise einer Rekonstruktion, ein Fixing-Symbol angezeigt.
+
+. *Optional:* Um die Recovery Guru-Informationen in einer Datei zu speichern, klicken Sie auf das *Speichern*-Symbol.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `recovery-guru-failure-yyyy-mm-dd-hh-mm-ss-mmm.html` gespeichert.
+
+. Um die Recovery Guru-Informationen auszudrucken, klicken Sie auf das *Print*-Symbol.
+

@@ -1,0 +1,41 @@
+---
+permalink: um-certificates/delete-trusted-certificates-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, delete, trusted, certificates 
+summary: Sie können ein oder mehrere Zertifikate löschen, die nicht mehr benötigt werden, wie zum Beispiel ein abgelaufenes Zertifikat. 
+---
+= Vertrauenswürdige Zertifikate im SANtricity Unified Manager löschen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein oder mehrere Zertifikate löschen, die nicht mehr benötigt werden, wie zum Beispiel ein abgelaufenes Zertifikat.
+
+.Bevor Sie beginnen
+Importieren Sie das neue Zertifikat, bevor Sie das alte löschen.
+
+[CAUTION]
+====
+Beachten Sie, dass das Löschen eines Stamm- oder Zwischenzertifikats Auswirkungen auf mehrere Speichersysteme haben kann, da diese Speichersysteme dieselben Zertifikatsdateien gemeinsam nutzen können.
+
+====
+.Schritte
+. Wählen Sie *Certificate Management*.
+. Wählen Sie die Registerkarte *Trusted* aus.
+. Wählen Sie ein oder mehrere Zertifikate in der Tabelle aus und klicken Sie dann auf *Löschen*.
++
+[NOTE]
+====
+Die Funktion *Löschen* ist für vorinstallierte Zertifikate nicht verfügbar.
+
+====
++
+Das Dialogfeld „Vertrauenswürdiges Zertifikat löschen bestätigen“ wird geöffnet.
+
+. Bestätigen Sie die Löschung und klicken Sie dann auf *Löschen*.
++
+Das Zertifikat wird aus der Tabelle entfernt.
+
+

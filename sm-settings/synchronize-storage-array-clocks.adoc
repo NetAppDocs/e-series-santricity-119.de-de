@@ -1,0 +1,46 @@
+---
+permalink: sm-settings/synchronize-storage-array-clocks.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, synchronize, storage, array, clocks, 
+summary: 'Wenn Network Time Protocol (NTP) nicht aktiviert ist, können Sie die Uhren auf den Controllern manuell so einstellen, dass sie mit dem Management-Client (dem System, das zum Ausführen des Browsers verwendet wird, der auf SANtricity System Manager zugreift) synchronisiert sind.' 
+---
+= Synchronisieren Sie die Uhren der Speicherarrays in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Network Time Protocol (NTP) nicht aktiviert ist, können Sie die Uhren auf den Controllern manuell so einstellen, dass sie mit dem Management-Client (dem System, das zum Ausführen des Browsers verwendet wird, der auf SANtricity System Manager zugreift) synchronisiert sind.
+
+.Über diese Aufgabe
+Die Synchronisierung stellt sicher, dass die Zeitstempel der Ereignisse im Ereignisprotokoll mit den Zeitstempeln in den Host-Protokolldateien übereinstimmen. Während des Synchronisierungsprozesses bleiben die Controller verfügbar und betriebsbereit.
+
+[NOTE]
+====
+Wenn NTP im System Manager aktiviert ist, verwenden Sie diese Option nicht, um die Uhren zu synchronisieren. Stattdessen synchronisiert NTP die Uhren automatisch mit einem externen Host über SNTP (Simple Network Time Protocol).
+
+====
+[NOTE]
+====
+Nach der Synchronisierung kann es vorkommen, dass Leistungsstatistiken verloren gehen oder verfälscht sind, Zeitpläne (ASUP, Snapshots usw.) beeinträchtigt werden und Zeitstempel in Protokolldaten verfälscht sind. Die Verwendung von NTP vermeidet dieses Problem.
+
+====
+.Schritte
+. Menü auswählen:Settings[System].
+. Klicken Sie unter *Allgemein* auf *Speicherarray-Uhren synchronisieren*.
++
+Das Dialogfeld „Speicherarray-Uhren synchronisieren“ wird geöffnet. Es zeigt das aktuelle Datum und die aktuelle Uhrzeit für den/die Controller und den als Verwaltungsclient verwendeten Computer an.
+
++
+[NOTE]
+====
+Bei Simplex-Speicherarrays wird nur ein Controller angezeigt.
+
+====
+. Falls die im Dialogfeld angezeigten Zeiten nicht übereinstimmen, klicken Sie auf *Synchronize*.
+
+
+.Ergebnisse
+Nach erfolgreicher Synchronisierung sind die Zeitstempel für das Ereignisprotokoll und die Hostprotokolle identisch.

@@ -1,0 +1,43 @@
+---
+permalink: um-manage/create-storage-array-group.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, create, storage, array, group 
+summary: Sie erstellen Speichergruppen und fügen dann Speicherarrays zu den Gruppen hinzu. Die Speichergruppe definiert, welche Laufwerke den Speicher bereitstellen, der das Volume bildet. 
+---
+= Konfigurieren einer Speicherarray-Gruppe in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie erstellen Speichergruppen und fügen dann Speicherarrays zu den Gruppen hinzu.
+
+Das Konfigurieren von Gruppen ist ein zweistufiges Verfahren.
+
+
+
+== Schritt 1: Gruppe erstellen
+
+Zuerst erstellen Sie eine Gruppe. Die Speichergruppe definiert, welche Laufwerke den Speicher bereitstellen, aus dem das Volume besteht.
+
+.Schritte
+. Auf der Seite „Manage“ wählen Sie im Menü: Manage Groups[Create storage array group].
+. Geben Sie im Feld *Name* einen Namen für die neue Gruppe ein.
+. Wählen Sie die Speicherarrays aus, die Sie der neuen Gruppe hinzufügen möchten.
+. Klicken Sie auf *Create*.
+
+
+
+
+== Schritt 2: Speicherarray zur Gruppe hinzufügen
+
+Sie können einer benutzerdefinierten Gruppe ein oder mehrere Storage-Arrays hinzufügen.
+
+.Schritte
+. Wählen Sie in der Hauptansicht *Manage* und anschließend die Gruppe aus, der Sie Speicherarrays hinzufügen möchten.
+. Menü auswählen: Manage Groups [Add storage arrays to group].
+. Wählen Sie die Speicherarrays aus, die Sie der Gruppe hinzufügen möchten.
+. Klicken Sie auf *Hinzufügen*.
+

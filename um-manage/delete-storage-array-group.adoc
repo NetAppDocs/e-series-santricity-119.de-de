@@ -1,0 +1,24 @@
+---
+permalink: um-manage/delete-storage-array-group.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, delete, storage, array, group 
+summary: Sie können eine oder mehrere Speicherarray-Gruppen entfernen, die nicht mehr benötigt werden. 
+---
+= Löschen einer Speicherarray-Gruppe in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine oder mehrere Speicherarray-Gruppen entfernen, die nicht mehr benötigt werden.
+
+.Über diese Aufgabe
+Bei diesem Vorgang wird nur die Speicherarray-Gruppe gelöscht. Die mit der gelöschten Gruppe verknüpften Speicherarrays bleiben über die Ansicht „Manage All“ oder jede andere Gruppe, der sie zugeordnet sind, weiterhin zugänglich.
+
+.Schritte
+. Auf der Seite „Verwalten“ wählen Sie Menü:Manage Groups[Delete storage array group].
+. Wählen Sie eine oder mehrere Speicherarray-Gruppen aus, die Sie löschen möchten.
+. Klicken Sie auf *Delete*.
+

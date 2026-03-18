@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/overview-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, certificates, 
+summary: 'Sie können den System Manager verwenden, um Zertifikatsignierungsanforderungen (CSRs) zu erstellen, Zertifikate zu importieren und bestehende Zertifikate zu verwalten.' 
+---
+= Erfahren Sie mehr über Zertifikate im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können SANtricity System Manager verwenden, um Certificate Signing Requests (CSRs) zu erstellen, Zertifikate zu importieren und bestehende Zertifikate zu verwalten.
+
+
+
+== Was sind Zertifikate?
+
+_Zertifikate_ sind digitale Dateien, die Online-Entitäten wie Websites und Server für die sichere Kommunikation im Internet identifizieren. Es gibt zwei Arten von Zertifikaten: Ein _signiertes Zertifikat_ wird von einer Zertifizierungsstelle (CA) validiert, während ein _selbstsigniertes Zertifikat_ vom Inhaber der Entität selbst und nicht von einem Dritten validiert wird.
+
+Mehr erfahren:
+
+* link:how-certificates-work-sam.html["Wie Zertifikate funktionieren"]
+* link:certificate-terminology.html["Zertifikatsterminologie"]
+
+
+
+
+== Wie konfiguriere ich signierte Zertifikate?
+
+Sie können eine Signaturanforderung im System Manager oder extern mithilfe eines privaten und eines öffentlichen Schlüsselpaares generieren. Die Signaturanforderung wird an eine CA gesendet, um die Zertifikatsdateien zu erstellen. Sobald die CA die Zertifikatsdateien zurückgesendet hat, importieren Sie sie mit System Manager.
+
+Mehr erfahren:
+
+* link:use-ca-signed-certificates-for-controllers.html["Verwenden Sie CA-signierte Zertifikate für Controller"]
+* link:use-ca-signed-certificates-for-authentication-with-a-key-management-server.html["Verwenden Sie CA-signierte Zertifikate zur Authentifizierung mit einem Schlüsselverwaltungsserver"]
+
+
+
+
+== Verwandte Informationen
+
+Erfahren Sie mehr über Aufgaben im Zusammenhang mit Zertifikaten:
+
+* link:view-imported-certificates.html["Informationen zu importiertem Zertifikat anzeigen"]
+* link:enable-certificate-revocation-checking.html["Zertifikatssperrprüfung aktivieren"]
+

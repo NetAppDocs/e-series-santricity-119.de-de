@@ -1,0 +1,159 @@
+---
+permalink: sm-mirroring/asynchronous-mirror-status.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, asynchronous, mirror, status, consistency, group, 
+summary: Der Spiegelstatus definiert den Zustand von Spiegel-Konsistenzgruppen und gespiegelten Volume-Paaren. 
+---
+= Status der asynchronen Spiegelung im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Der Spiegelstatus definiert den Zustand von Spiegel-Konsistenzgruppen und gespiegelten Volume-Paaren.
+
+
+
+== Status für Konsistenzgruppen für Spiegelungen
+
+[cols="25h,~"]
+|===
+| Status | Beschreibung 
+
+
+ a| 
+Synchronisierung (initial sync)
+ a| 
+Der Fortschritt der initialen Datensynchronisation, die zwischen den gespiegelten Volume-Paaren abgeschlossen wurde.
+
+Während einer ersten Synchronisierung können die Volumes in die folgenden Zustände übergehen: Degraded/Ausgefallen/Optimal/Unknown.
+
+
+
+ a| 
+Synchronisierung (Intervallsynchronisierung)
+ a| 
+Der Fortschritt der abgeschlossenen periodischen Datensynchronisation zwischen den gespiegelten Volume-Paaren.
+
+
+
+ a| 
+System ausgesetzt
+ a| 
+Vom Speichersystem ausgesetzte Synchronisierung der Daten auf allen gespiegelten Paaren auf Konsistenzgruppenebene.
+
+Mindestens ein gespiegeltes Paar in der Spiegel-Konsistenzgruppe befindet sich im Zustand „Gestoppt“ oder „Fehlgeschlagen“.
+
+
+
+ a| 
+Benutzer gesperrt
+ a| 
+Vom Benutzer angehaltene Synchronisierung von Daten auf allen gespiegelten Paaren auf Ebene der Spiegel-Konsistenzgruppe.
+
+Dieser Zustand hilft, etwaige Leistungseinbußen für die Host-Anwendung zu reduzieren, die auftreten könnten, während geänderte Daten auf dem lokalen Speicherarray auf das Remote-Speicherarray kopiert werden.
+
+
+
+ a| 
+Angehalten
+ a| 
+Der Datensynchronisierungsprozess wurde aufgrund eines Fehlers beim Zugriff auf das entfernte Storage-Array vorübergehend unterbrochen.
+
+
+
+ a| 
+Waise
+ a| 
+Ein verwaistes gespiegeltes Volume existiert, wenn ein Mitgliedsvolume in einer Konsistenzspiegelgruppe auf einer Seite der Konsistenzspiegelgruppe (entweder auf der primären oder der sekundären Seite) entfernt wurde, aber nicht auf der anderen Seite.
+
+Verwaiste gespiegelte Volume-Paare werden erkannt, wenn die Kommunikation zwischen den Arrays wiederhergestellt ist und die beiden Seiten der Spiegelkonfiguration die Spiegelparameter abgleichen.
+
+Sie können ein gespiegeltes Paar entfernen, um einen verwaisten gespiegelten Paar-Zustand zu korrigieren.
+
+
+
+ a| 
+Rollenwechsel ausstehend/in Bearbeitung
+ a| 
+Ein Rollenwechsel zwischen den Spiegel-Konsistenzgruppen steht bevor oder ist im Gange.
+
+Die Rollenumkehr (zu einer primären oder sekundären Rolle) betrifft alle asynchronen gespiegelten Paare innerhalb der ausgewählten Spiegel-Konsistenzgruppe.
+
+Sie können eine ausstehende Rollenänderung abbrechen, aber nicht eine laufende Rollenänderung.
+
+
+
+ a| 
+Rollenkonflikt
+ a| 
+Ein Rollenkonflikt trat zwischen Spiegel-Konsistenzgruppen auf, weil während eines Rollenwechselvorgangs ein Kommunikationsproblem zwischen dem lokalen Speicherarray und dem entfernten Speicherarray auftrat.
+
+Wenn das Kommunikationsproblem behoben ist, tritt ein Rollenkonflikt auf. Verwenden Sie den Recovery Guru, um diesen Fehler zu beheben.
+
+Eine erzwungene Beförderung ist beim Lösen eines Rollenkonflikts nicht zulässig.
+
+|===
+
+
+== Status für gespiegelte Paare
+
+Der Status eines gespiegelten Paares gibt an, ob die Daten auf dem primären Volume und auf dem sekundären Volume synchronisiert sind.
+
+[cols="25h,~"]
+|===
+| Status | Beschreibung 
+
+
+ a| 
+Synchronisierung
+ a| 
+Der Fortschritt der anfänglichen oder periodischen Datensynchronisation, die zwischen den gespiegelten Paaren abgeschlossen wurde.
+
+Es gibt zwei Arten der Synchronisierung: die initiale Synchronisierung und die periodische Synchronisierung. Der Fortschritt der initialen Synchronisierung wird ebenfalls im Dialogfeld „Langlaufende Operationen“ angezeigt.
+
+
+
+ a| 
+Optimal
+ a| 
+Die Volumes im gespiegelten Paar sind synchronisiert, was darauf hinweist, dass die Verbindung zwischen den Speicherarrays betriebsbereit ist und jedes Volume sich im gewünschten Betriebszustand befindet.
+
+
+
+ a| 
+Unvollständig
+ a| 
+Das asynchrone gespiegelte Paar ist auf dem entfernten Speichersystem unvollständig, weil die Spiegelpaar-Erstellungssequenz auf einem Speichersystem initiiert wurde, das vom System Manager nicht unterstützt wird, und das gespiegelte Paar auf dem sekundären Volume noch nicht abgeschlossen wurde.
+
+Der Prozess zur Erstellung des Spiegelpaares ist abgeschlossen, sobald ein Volume der Spiegel-Konsistenzgruppe auf dem Remote-Speicherarray hinzugefügt wurde. Dieses Volume wird zum sekundären Volume im asynchronen gespiegelten Paar.
+
+Das gespiegelte Paar wird automatisch vervollständigt, wenn das entfernte Speichersystem vom System Manager verwaltet wird.
+
+
+
+ a| 
+Fehlgeschlagen
+ a| 
+Der asynchrone Spiegelungsvorgang kann aufgrund eines Fehlers bei den primären Volumes, den sekundären Volumes oder der für den Spiegel reservierten Kapazität nicht normal durchgeführt werden.
+
+
+
+ a| 
+Waise
+ a| 
+Ein verwaistes gespiegeltes Volume existiert, wenn ein Mitgliedsvolume in einer Konsistenzspiegelgruppe auf einer Seite der Konsistenzspiegelgruppe (entweder auf der primären oder der sekundären Seite) entfernt wurde, aber nicht auf der anderen Seite.
+
+Verwaiste gespiegelte Volume-Paare werden erkannt, wenn die Kommunikation zwischen den beiden Speicherarrays wiederhergestellt ist und die beiden Seiten der Spiegelkonfiguration die Spiegelparameter abgleichen.
+
+Sie können ein gespiegeltes Paar entfernen, um einen verwaisten gespiegelten Paar-Zustand zu korrigieren.
+
+
+
+ a| 
+Angehalten
+ a| 
+Das gespiegelte Paar befindet sich im Zustand „Gestoppt“, da die Konsistenzgruppe im Zustand „System angehalten“ ist.
+
+|===

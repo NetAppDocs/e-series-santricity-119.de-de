@@ -1,0 +1,129 @@
+---
+permalink: sm-settings/faq-nvme-protocol.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zum NVMe-Protokoll für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Wie interpretiere ich die NVMe over Fabrics Statistiken?
+
+Das Dialogfeld „NVMe over Fabrics Statistiken anzeigen“ zeigt Statistiken für das NVMe-Subsystem und die RDMA-Schnittstelle an. Alle Statistiken sind schreibgeschützt und können nicht gesetzt werden.
+
+* *NVMe Subsystem Statistiken* -- Zeigt Statistiken für den NVMe-Controller und seine Warteschlange an. Der NVMe-Controller stellt einen Zugriffspfad zwischen einem Host und den Namespaces im Storage-Array bereit. Sie können die NVMe Subsystem Statistiken für Ereignisse wie Verbindungsfehler, Resets und Herunterfahren einsehen. Weitere Informationen zu diesen Statistiken finden Sie unter *Legende für Tabellenüberschriften anzeigen*.
+* *RDMA Interface Statistiken* -- Bietet Statistiken für alle NVMe over Fabrics-Ports auf der RDMA-Schnittstelle, einschließlich Leistungsstatistiken und Informationen zu Verbindungsfehlern, die mit jedem Switch-Port verbunden sind. Diese Registerkarte wird nur angezeigt, wenn NVMe over Fabrics-Ports verfügbar sind. Weitere Informationen zu den Statistiken erhalten Sie, wenn Sie auf *Legende für Tabellenüberschriften anzeigen* klicken.
+
+
+Sie können jede dieser Statistiken als Rohstatistiken oder als Basisstatistiken anzeigen. Rohstatistiken sind alle Statistiken, die seit dem Start der Controller gesammelt wurden. Basisstatistiken sind zeitpunktgenaue Statistiken, die seit der Festlegung des Basiszeitpunkts gesammelt wurden.
+
+
+
+== Was muss ich sonst noch tun, um NVMe über InfiniBand zu konfigurieren oder zu diagnostizieren?
+
+In der folgenden Tabelle sind die SANtricity System Manager-Funktionen aufgeführt, mit denen Sie NVMe over InfiniBand Sitzungen konfigurieren und verwalten können.
+
+[NOTE]
+====
+Die NVMe over InfiniBand-Einstellungen sind nur verfügbar, wenn der Controller Ihres Speichersystems einen NVMe over InfiniBand-Port enthält.
+
+====
+[cols="35h,~"]
+|===
+| Aktion | Standort 
+
+
+ a| 
+NVMe über InfiniBand-Ports konfigurieren
+ a| 
+. Wählen Sie *Hardware* aus.
+. Wählen Sie die Registerkarte *Controllers & Components*.
+. Wählen Sie einen Controller aus.
+. Wählen Sie *NVMe über InfiniBand-Ports konfigurieren*.
+
+
+oder
+
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *NVMe over InfiniBand settings* und wählen Sie dann *Configure NVMe over InfiniBand Ports* aus.
+
+
+
+
+ a| 
+NVMe over InfiniBand Statistiken anzeigen
+ a| 
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *NVMe over InfiniBand settings* und wählen Sie dann *View NVMe over Fabrics Statistiken*.
+
+
+|===
+
+
+== Was muss ich sonst noch tun, um NVMe über RoCE zu konfigurieren oder zu diagnostizieren?
+
+Sie können NVMe over RoCE auf den Seiten „Hardware“ und „Einstellungen“ konfigurieren und verwalten.
+
+[NOTE]
+====
+Die NVMe over RoCE-Einstellungen sind nur verfügbar, wenn der Controller Ihres Storage-Arrays über einen NVMe over RoCE-Port verfügt.
+
+====
+[cols="35h,~"]
+|===
+| Aktion | Standort 
+
+
+ a| 
+NVMe-over-RoCE-Ports konfigurieren
+ a| 
+. Wählen Sie *Hardware* aus.
+. Wählen Sie die Registerkarte *Controllers & Components*.
+. Wählen Sie einen Controller aus.
+. Wählen Sie *Configure NVMe over RoCE ports*.
+
+
+oder
+
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *NVMe over RoCE settings* und wählen Sie dann *Configure NVMe over RoCE Ports*.
+
+
+
+
+ a| 
+NVMe-over-Fabrics-Statistiken anzeigen
+ a| 
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *NVMe over RoCE settings*, und wählen Sie dann *View NVMe over Fabrics Statistics*.
+
+
+|===
+
+
+== Warum gibt es zwei IP-Adressen für einen physischen Port?
+
+Das EF600-Speicherarray kann zwei HICs umfassen -- einen externen und einen internen.
+
+In dieser Konfiguration ist der externe HIC mit einem internen, zusätzlichen HIC verbunden. Jeder physische Port, auf den Sie vom externen HIC aus zugreifen können, hat einen zugehörigen virtuellen Port vom internen HIC.
+
+Um die maximale Leistung von 200Gb zu erreichen, müssen Sie sowohl dem physischen als auch dem virtuellen Port eine eindeutige IP-Adresse zuweisen, damit der Host Verbindungen zu jedem herstellen kann. Wenn Sie dem virtuellen Port keine IP-Adresse zuweisen, arbeitet der HIC mit ungefähr der Hälfte seiner möglichen Geschwindigkeit.
+
+
+
+== Warum gibt es zwei Parametersätze für einen physischen Port?
+
+Das EF600-Speicherarray kann zwei HICs umfassen -- einen externen und einen internen.
+
+In dieser Konfiguration ist der externe HIC mit einem internen, zusätzlichen HIC verbunden. Jeder physische Port, auf den Sie vom externen HIC aus zugreifen können, hat einen zugehörigen virtuellen Port vom internen HIC.
+
+Um die maximale 200Gb-Leistung zu erreichen, müssen Sie sowohl dem physischen als auch dem virtuellen Port Parameter zuweisen, damit der Host Verbindungen zu jedem herstellen kann. Wenn Sie dem virtuellen Port keine Parameter zuweisen, läuft der HIC mit ungefähr der Hälfte seiner möglichen Geschwindigkeit.

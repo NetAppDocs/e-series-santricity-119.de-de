@@ -1,0 +1,60 @@
+---
+permalink: sm-storage/assign-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, assign volumes 
+summary: Sie müssen einem Host oder einem Hostcluster ein Volume zuweisen, damit es für E/A-Operationen verwendet werden kann. Durch diese Zuweisung erhält ein Host oder Hostcluster Zugriff auf ein oder mehrere Volumes in einem Speicherarray. 
+---
+= Weisen Sie Volumes Hosts im SANtricity System Manager zu.
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen einem Host oder einem Hostcluster ein Volume zuweisen, damit es für E/A-Operationen verwendet werden kann. Durch diese Zuweisung erhält ein Host oder Hostcluster Zugriff auf ein oder mehrere Volumes in einem Speicherarray.
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien, wenn Sie Volumes Hosts zuweisen:
+
+* Sie können ein Volume jeweils nur einem Host oder Host Cluster zuweisen.
+* Zugewiesene Volumes werden von den Controllern im Storage-Array gemeinsam genutzt.
+* Dieselbe logische Einheitennummer (LUN) kann nicht zweimal von einem Host oder einem Hostcluster für den Zugriff auf ein Volume verwendet werden. Sie müssen eine eindeutige LUN verwenden.
+* Bei neuen Volume-Gruppen verkürzt sich die Initialisierungszeit, wenn Sie warten, bis alle Volumes erstellt und initialisiert sind, bevor Sie sie einem Host zuweisen. Beachten Sie, dass sobald ein Volume, das mit der Volume-Gruppe verknüpft ist, zugeordnet wird, _alle_ Volumes wieder auf die langsamere Initialisierung zurückfallen. Den Initialisierungsfortschritt können Sie im Menü:Home[Operations in Progress] einsehen.
+
+
+Die Zuweisung eines Volumes schlägt unter diesen Bedingungen fehl:
+
+* Alle Volumes sind zugewiesen.
+* Das Volume ist bereits einem anderen Host oder Host-Cluster zugewiesen.
+
+
+Die Möglichkeit, ein Volume zuzuweisen, ist unter diesen Bedingungen nicht verfügbar:
+
+* Es existieren keine gültigen Hosts oder Host-Cluster.
+* Für den Host wurden keine Host-Port-Kennungen definiert.
+* Alle Volumenzuordnungen wurden festgelegt.
+
+
+Während dieser Aufgabe werden alle nicht zugewiesenen Volumes angezeigt, aber die Funktionen für Hosts mit oder ohne Data Assurance (DA) gelten wie folgt:
+
+* Für einen DA-fähigen Host können Sie Volumes auswählen, die entweder DA-fähig oder nicht DA-fähig sind.
+* Für einen Host, der nicht DA-fähig ist, wird beim Auswählen eines DA-fähigen Volumes eine Warnung angezeigt, dass das System DA auf dem Volume automatisch deaktivieren muss, bevor das Volume dem Host zugewiesen wird.
+
+
+.Schritte
+. Menü auswählen:Storage[Hosts].
+. Wählen Sie den Host oder Host-Cluster aus, dem Sie Volumes zuweisen möchten, und klicken Sie dann auf *Assign Volumes*.
++
+Es erscheint ein Dialogfeld, das alle zuweisbaren Volumes auflistet. Sie können jede der Spalten sortieren oder etwas in das *Filter*-Feld eingeben, um bestimmte Volumes leichter zu finden.
+
+. Markieren Sie das Kästchen neben jedem Volume, das Sie zuweisen möchten, oder markieren Sie das Kästchen in der Tabellenüberschrift, um alle Volumes auszuwählen.
+. Klicken Sie auf *Assign*, um den Vorgang abzuschließen.
+
+
+.Ergebnisse
+Nach erfolgreicher Zuordnung eines oder mehrerer Volumes zu einem Host oder einem Host Cluster führt das System die folgenden Aktionen aus:
+
+* Das zugewiesene Volume erhält die nächste verfügbare LUN-Nummer. Der Host verwendet die LUN-Nummer, um auf das Volume zuzugreifen.
+* Der vom Benutzer angegebene Datenträgername wird in den dem Host zugeordneten Datenträgerlisten angezeigt. Falls zutreffend, wird auch der werkseitig konfigurierte Zugriffsdatenträger in den dem Host zugeordneten Datenträgerlisten angezeigt.
+

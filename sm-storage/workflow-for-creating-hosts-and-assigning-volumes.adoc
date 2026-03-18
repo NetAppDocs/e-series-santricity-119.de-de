@@ -1,0 +1,16 @@
+---
+permalink: sm-storage/workflow-for-creating-hosts-and-assigning-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, workflow, host, creation, volume, assignment 
+summary: Die folgende Abbildung veranschaulicht, wie der Hostzugriff konfiguriert wird. 
+---
+= Wie die Host-Erstellung und die Volume-Zuweisung im SANtricity System Manager funktionieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die folgende Abbildung veranschaulicht, wie der Hostzugriff konfiguriert wird.
+
+image::../media/sam1130-flw-hosts-create-host.gif[Host-Workflow konfigurieren]

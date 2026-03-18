@@ -1,0 +1,65 @@
+---
+permalink: sm-storage/start-snapshot-image-rollback-for-base-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, start, snapshot, image, rollback, base, volume 
+summary: Sie können einen Rollback durchführen, um den Inhalt eines Basisvolumes an den Inhalt anzupassen, der in einem Snapshot-Image gespeichert ist. Der Rollback ändert nicht den Inhalt der Snapshot-Images, die dem Basisvolume zugeordnet sind. 
+---
+= Starten Sie das Rollback des Snapshot-Images für ein Basis-Volume im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine Rollback-Operation durchführen, um den Inhalt eines Basis-Volumes so zu ändern, dass er dem Inhalt entspricht, der in einem Snapshot-Image gespeichert ist.
+
+Der Rollback-Vorgang ändert den Inhalt der Snapshot-Images, die dem Basisvolume zugeordnet sind, nicht.
+
+.Bevor Sie beginnen
+* Es ist genügend Reservekapazität vorhanden, um einen Rollback-Vorgang zu starten.
+* Das ausgewählte Snapshot-Image ist optimal und das ausgewählte Volume ist optimal.
+* Für das ausgewählte Volume ist kein Rollback-Vorgang aktiv.
+
+
+.Über diese Aufgabe
+Die Startsequenz für das Rollback ermöglicht es Ihnen, ein Rollback auf einem Snapshot-Image eines Basisvolumes zu starten und bietet Optionen, die Speicherkapazität zu erweitern. Sie können nicht mehr als einen Rollback-Vorgang für ein Basisvolume gleichzeitig starten.
+
+[NOTE]
+====
+Der Host kann sofort auf das neue, zurückgesetzte Basisvolume zugreifen, aber das bestehende Basisvolume erlaubt dem Host nach Beginn des Rollbacks keinen Lese- und Schreibzugriff mehr. Sie können einen Snapshot des Basisvolumes unmittelbar vor dem Start des Rollbacks erstellen, um das Basisvolume vor dem Rollback für die Wiederherstellung zu sichern.
+
+====
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Wählen Sie die Registerkarte *Snapshot Images* aus.
+. Wählen Sie das Snapshot-Image aus, und wählen Sie dann Menü:Rollback[Start].
++
+Das Dialogfeld „Rollback starten bestätigen“ wird angezeigt.
+
+. *Optional:* Wählen Sie bei Bedarf die Option *Kapazität erhöhen*.
++
+Das Dialogfeld „Reservierte Kapazität erhöhen“ wird angezeigt.
+
++
+.. Verwenden Sie das Drehrad, um den Kapazitätsprozentsatz anzupassen.
++
+Wenn im Pool oder der Volume-Gruppe, die das ausgewählte Speicherobjekt enthält, kein freier Speicherplatz vorhanden ist und das Speicherarray über Unassigned Capacity verfügt, können Sie Kapazität hinzufügen. Sie können einen neuen Pool oder eine neue Volume-Gruppe erstellen und dann diesen Vorgang mit der neuen freien Kapazität in diesem Pool oder dieser Volume-Gruppe erneut versuchen.
+
+.. Klicken Sie auf *Increase*.
+
+
+. Bestätigen Sie, dass Sie diese Operation durchführen möchten, und klicken Sie dann auf *Rollback*.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Stellt das Volume mit dem Inhalt wieder her, der auf dem ausgewählten Snapshot-Image gespeichert ist.
+* Stellt die zurückgesetzten Volumes sofort für den Hostzugriff zur Verfügung. Sie müssen nicht warten, bis der Rollback-Vorgang abgeschlossen ist.
+
+
+.Nachdem Sie fertig sind
+Wählen Sie Menü:Home[Laufende Operationen anzeigen], um den Fortschritt der Rollback-Operation anzuzeigen.
+
+Wenn der Rollback-Vorgang nicht erfolgreich ist, wird der Vorgang angehalten. Sie können den angehaltenen Vorgang fortsetzen und, wenn er weiterhin nicht erfolgreich ist, das Recovery Guru-Verfahren befolgen, um das Problem zu beheben, oder den technischen Support kontaktieren.

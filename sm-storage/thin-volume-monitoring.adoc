@@ -1,0 +1,36 @@
+---
+permalink: sm-storage/thin-volume-monitoring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, thin, volume, monitoring 
+summary: Sie können dünne Volumes auf Speicherplatz überwachen und entsprechende Warnmeldungen generieren, um Kapazitätsengpässe zu vermeiden. 
+---
+= Erfahren Sie mehr über die Überwachung dünner Volumes in SANtricity Software
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können dünne Volumes auf Speicherplatz überwachen und entsprechende Warnmeldungen generieren, um Kapazitätsengpässe zu vermeiden.
+
+Thin-Provisioning-Umgebungen können mehr logischen Speicherplatz zuweisen, als ihnen physischer Speicher zur Verfügung steht. Sie können die Registerkarte menu:Storage[Volumes > Thin Volume Monitoring] auswählen, um zu überwachen, wie stark Ihre Thin Volumes wachsen, bevor sie das zugewiesene Kapazitätsmaximum erreichen.
+
+Sie können die Thin Monitoring-Ansicht verwenden, um die folgenden Aktionen auszuführen:
+
+* Definieren Sie das Limit, das die zugewiesene Kapazität einschränkt, auf die sich ein Thin Volume automatisch erweitern kann.
+* Legen Sie den Prozentsatz fest, bei dem eine Warnung (Warnschwelle überschritten) im Benachrichtigungsbereich auf der Startseite angezeigt wird, wenn ein Thin Volume sich der maximal zugewiesenen Kapazitätsgrenze nähert.
+
+
+Um die Kapazität eines Thin-Volumes zu erhöhen, erhöhen Sie dessen angegebene Kapazität.
+
+[NOTE]
+====
+System Manager bietet keine Option zum Erstellen von Thin Volumes. Wenn Sie Thin Volumes erstellen möchten, verwenden Sie die Command Line Interface (CLI).
+
+====
+[NOTE]
+====
+Thin Volumes sind auf dem Speichersystem EF600/EF600C oder EF300/EF300C nicht verfügbar.
+
+====

@@ -1,0 +1,64 @@
+---
+permalink: sm-hardware/erase-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, erase, drives, removal, 
+summary: Mit der Option „Löschen“ können Sie ein nicht zugewiesenes Laufwerk für die Entfernung aus dem System vorbereiten. Dieses Verfahren entfernt die Daten dauerhaft und stellt sicher, dass die Daten nicht erneut gelesen werden können. 
+---
+= Laufwerke im SANtricity System Manager löschen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit der Option „Löschen“ können Sie ein nicht zugewiesenes Laufwerk für die Entfernung aus dem System vorbereiten. Dieses Verfahren entfernt die Daten dauerhaft und stellt sicher, dass die Daten nicht erneut gelesen werden können.
+
+.Bevor Sie beginnen
+Das Laufwerk muss sich im Status Unassigned befinden.
+
+.Über diese Aufgabe
+Verwenden Sie die Option „Löschen“ nur, wenn Sie alle Daten auf einem Laufwerk dauerhaft entfernen möchten. Wenn das Laufwerk sicherheitsaktiviert ist, führt die Option „Löschen“ eine kryptografische Löschung durch und setzt die Sicherheitsattribute des Laufwerks wieder auf „sicher-fähig“ zurück.
+
+[NOTE]
+====
+Die Löschfunktion unterstützt einige ältere Laufwerksmodelle nicht. Wenn Sie versuchen, eines dieser älteren Modelle zu löschen, erscheint eine Fehlermeldung.
+
+====
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Controller anzeigt, klicken Sie auf die Registerkarte *Drives*.
++
+Die Grafik ändert sich, um die Laufwerke anstelle der Controller anzuzeigen.
+
+. Optional können Sie die Filterfelder verwenden, um alle nicht zugewiesenen Laufwerke im Shelf anzuzeigen. Wählen Sie in der Dropdown-Liste *Laufwerke anzeigen, die...* die Option *Nicht zugewiesen* aus.
++
+Die Regalansicht zeigt nur die nicht zugewiesenen Laufwerke an; alle anderen sind ausgegraut.
+
+. Um das Kontextmenü des Laufwerks zu öffnen, klicken Sie auf ein Laufwerk, das Sie löschen möchten. (Wenn Sie mehrere Laufwerke auswählen möchten, können Sie dies im Dialogfeld "Laufwerke löschen" tun.)
++
+[CAUTION]
+====
+*Möglicher Datenverlust* -- Der Löschvorgang kann nicht rückgängig gemacht werden. Stellen Sie sicher, dass Sie während des Verfahrens die richtigen Laufwerke auswählen.
+
+====
+. Wählen Sie im Kontextmenü *Löschen* aus.
++
+Das Dialogfeld „Laufwerke löschen“ wird geöffnet und zeigt alle für einen Löschvorgang berechtigten Laufwerke an.
+
+. Wählen Sie bei Bedarf weitere Laufwerke aus der Tabelle aus. Sie können nicht _alle_ Laufwerke auswählen; stellen Sie sicher, dass ein Laufwerk nicht ausgewählt bleibt.
+. Bestätigen Sie den Vorgang, indem Sie  `erase` eingeben, und klicken Sie dann auf *Löschen*.
++
+[CAUTION]
+====
+Stellen Sie sicher, dass Sie mit diesem Vorgang fortfahren möchten. Sobald Sie im nächsten Dialogfeld auf Ja klicken, kann der Vorgang nicht mehr abgebrochen werden.
+
+====
+. Klicken Sie im Dialogfeld „Estimated Completion Time“ auf *Ja*, um mit dem Löschvorgang fortzufahren.
+
+
+.Ergebnisse
+Der Löschvorgang kann mehrere Minuten oder mehrere Stunden dauern. Sie können den Status im Menü:Home[View Operations in Progress] einsehen. Wenn der Löschvorgang abgeschlossen ist, stehen die Laufwerke zur Verwendung in einer anderen Volume-Gruppe oder einem anderen Datenträgerpool oder in einem anderen Speichersystem zur Verfügung.
+
+.Nachdem Sie fertig sind
+Wenn Sie das Laufwerk wieder verwenden möchten, müssen Sie es zuerst initialisieren. Wählen Sie dazu *Initialisieren* im Kontextmenü des Laufwerks.

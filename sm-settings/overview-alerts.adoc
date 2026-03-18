@@ -1,0 +1,50 @@
+---
+permalink: sm-settings/overview-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, Alerts, 
+summary: Sie können System Manager so konfigurieren, dass Warnungen zum Storage-Array per E-Mail, SNMP-Traps und Syslog-Meldungen gesendet werden. 
+---
+= Erfahren Sie mehr über Warnmeldungen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können SANtricity System Manager so konfigurieren, dass er Speicherarray-Warnungen per E-Mail, SNMP-Traps und Syslog-Nachrichten sendet.
+
+
+
+== Was sind Warnmeldungen?
+
+_Alerts_ benachrichtigen Administratoren über wichtige Ereignisse, die auf dem Storage-Array auftreten. Zu diesen Ereignissen zählen beispielsweise ein Batterieausfall, das Wechseln einer Komponente von Optimal zu Offline oder Redundanzfehler im Controller. Alle Critical-Ereignisse werden als „alertable“ betrachtet, ebenso wie einige Warning- und Informational-Ereignisse.
+
+Mehr erfahren:
+
+* link:how-alerts-work.html["So funktionieren Benachrichtigungen"]
+* link:alerts-terminology.html["Terminologie für Warnmeldungen"]
+
+
+
+
+== Wie konfiguriere ich Benachrichtigungen?
+
+Sie können Warnmeldungen so konfigurieren, dass sie als Nachricht an eine oder mehrere E-Mail-Adressen, als SNMP-Trap an einen SNMP-Server oder als Nachricht an einen Syslog-Server gesendet werden. Die Konfiguration der Warnmeldungen ist im Menü:Einstellungen[Warnmeldungen] verfügbar.
+
+Mehr erfahren:
+
+* link:configure-mail-server-and-recipients-for-alerts.html["Mailserver und Empfänger für Benachrichtigungen konfigurieren"]
+* link:configure-syslog-server-for-alerts.html["Syslog-Server für Warnmeldungen konfigurieren"]
+* link:configure-snmp-alerts.html["SNMP-Warnmeldungen konfigurieren"]
+
+
+
+
+== Verwandte Informationen
+
+Erfahren Sie mehr über Konzepte im Zusammenhang mit Warnmeldungen:
+
+* link:../sm-support/overview-event-log.html["Ereignisprotokollübersicht"]
+* link:why-are-timestamps-inconsistent-between-the-array-and-alerts.html["Inkonsistente Zeitstempel"]
+

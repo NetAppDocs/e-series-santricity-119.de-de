@@ -1,0 +1,121 @@
+---
+permalink: sm-interface/view-storage-hierarchy.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, storage hierarchy 
+summary: Die Speicherhierarchie auf der Hauptschnittstelle bietet eine organisierte Ansicht der verschiedenen Hardwarekomponenten und Speicherobjekte, die von Ihrem Storage-Array verwaltet werden. 
+---
+= Speicherhierarchie im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Speicherhierarchie auf der Hauptschnittstelle bietet eine organisierte Ansicht der verschiedenen Hardwarekomponenten und Speicherobjekte, die von Ihrem Storage-Array verwaltet werden.
+
+Um die Speicherhierarchie anzuzeigen, gehen Sie zur Startseite und klicken Sie auf den Dropdown-Pfeil auf einer Speicherarray-Komponente oder einem Speicherobjekt. Ein Speicherarray besteht aus einer Sammlung von physischen und logischen Komponenten.
+
+
+
+== Physikalische Komponenten
+
+Die physikalischen Komponenten eines Speicherarrays werden in dieser Tabelle beschrieben.
+
+[cols="25h,~"]
+|===
+| Komponente | Beschreibung 
+
+
+ a| 
+Controller
+ a| 
+Ein Controller besteht aus einer Platine, Firmware und Software. Er steuert die Laufwerke und implementiert die System Manager-Funktionen.
+
+
+
+ a| 
+Shelf
+ a| 
+Ein Shelf ist ein in einem Schrank oder Rack installiertes Gehäuse. Es enthält die Hardwarekomponenten für das Storage-Array. Es gibt zwei Arten von Shelfs: ein Controller-Shelf und ein Laufwerks-Shelf. Ein Controller-Shelf enthält Controller und Laufwerke. Ein Laufwerks-Shelf enthält Eingabe-/Ausgabemodule (IOMs) und Laufwerke.
+
+[NOTE]
+====
+Wenn Ihr Storage-Array verschiedene Medientypen oder verschiedene Schnittstellentypen enthält, wird für jeden Laufwerkstyp ein Laufwerksschacht angezeigt.
+
+====
+
+
+ a| 
+Laufwerk
+ a| 
+Ein Laufwerk ist ein elektromagnetisches mechanisches Gerät oder ein Halbleiterspeichergerät, das das physische Speichermedium für Daten bereitstellt.
+
+
+
+ a| 
+Host
+ a| 
+Ein Host ist ein Server, der E/A an ein Volume auf einem Storage-Array sendet.
+
+
+
+ a| 
+Host-Bus-Adapter (HBA)
+ a| 
+Ein Host-Bus-Adapter (HBA) ist eine Platine, die sich in einem Host befindet und einen oder mehrere Host-Ports enthält.
+
+
+
+ a| 
+Host-Port
+ a| 
+Ein Host-Port ist ein Port an einem Host-Bus-Adapter (HBA), der die physische Verbindung zu einem Controller herstellt und für E/A-Operationen verwendet wird.
+
+
+
+ a| 
+Management-Client
+ a| 
+Ein Managementclient ist der Computer, auf dem ein Browser für den Zugriff auf System Manager installiert ist.
+
+|===
+
+
+== Logische Komponenten
+
+Die Laufwerke im Storage-Array stellen die physische Speicherkapazität für Daten bereit. Verwenden Sie System Manager, um die physische Kapazität in logische Komponenten wie Pools, Volume-Gruppen und Volumes zu konfigurieren. Diese Komponenten sind die Werkzeuge, mit denen Sie Daten auf dem Storage-Array konfigurieren, speichern, warten und erhalten. Die logischen Komponenten eines Storage-Arrays sind in dieser Tabelle beschrieben.
+
+[cols="25h,~"]
+|===
+| Komponente | Beschreibung 
+
+
+ a| 
+Pool
+ a| 
+Ein Pool ist eine Gruppe von Laufwerken, die logisch zusammengefasst sind. Sie können einen Pool verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einem Pool oder einer Volume-Gruppe.)
+
+
+
+ a| 
+Volume-Gruppe
+ a| 
+Eine Volume-Gruppe ist ein Container für Volumes mit gemeinsamen Eigenschaften. Eine Volume-Gruppe hat eine definierte Kapazität und ein definiertes RAID-Level. Sie können eine Volume-Gruppe verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einer Volume-Gruppe oder einem Pool.)
+
+
+
+ a| 
+Volumen
+ a| 
+Ein Volume ist ein Container, in dem Anwendungen, Datenbanken und Dateisysteme Daten speichern. Es ist die logische Komponente, die für den Host erstellt wird, um auf den Speicher des Speichersystems zuzugreifen.
+
+
+
+ a| 
+Logische Einheitennummer (LUN)
+ a| 
+Eine logische Einheitennummer (LUN) ist die Nummer, die dem Adressraum zugewiesen wird, den ein Host für den Zugriff auf ein Volume verwendet. Das Volume wird dem Host als Kapazität in Form einer LUN präsentiert.
+
+Jeder Host verfügt über einen eigenen LUN-Adressraum. Daher kann dieselbe LUN von verschiedenen Hosts verwendet werden, um auf unterschiedliche Volumes zuzugreifen.
+
+|===

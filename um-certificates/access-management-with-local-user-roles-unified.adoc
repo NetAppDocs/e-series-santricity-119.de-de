@@ -1,0 +1,43 @@
+---
+permalink: um-certificates/access-management-with-local-user-roles-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, access management, local, user, roles 
+summary: 'Administratoren können die in SANtricity Unified Manager durchgesetzten RBAC (rollenbasierte Zugriffssteuerung)-Fähigkeiten verwenden. Diese Fähigkeiten werden als lokale Benutzerrollen bezeichnet.' 
+---
+= Zugriffsverwaltung mit lokalen Benutzerrollen in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Administratoren können die in SANtricity Unified Manager durchgesetzten RBAC (rollenbasierte Zugriffssteuerung)-Funktionen verwenden. Diese Funktionen werden als „lokale Benutzerrollen“ bezeichnet.
+
+
+
+== Konfigurationsworkflow
+
+Lokale Benutzerrollen sind im System vorkonfiguriert. Um lokale Benutzerrollen für die Authentifizierung zu verwenden, können Administratoren Folgendes tun:
+
+. Ein Administrator meldet sich mit einem Benutzerprofil, das Security admin-Berechtigungen enthält, bei Unified Manager an.
++
+[NOTE]
+====
+Der `admin` Benutzer hat vollen Zugriff auf alle Funktionen im System.
+
+====
+. Ein Administrator überprüft die Benutzerprofile, die vordefiniert sind und nicht geändert werden können.
+. Optional weist der Administrator jedem Benutzerprofil neue Passwörter zu.
+. Benutzer melden sich mit ihren zugewiesenen Zugangsdaten am System an.
+
+
+
+
+== Management
+
+Bei Verwendung ausschließlich lokaler Benutzerrollen zur Authentifizierung können Administratoren die folgenden Verwaltungsaufgaben durchführen:
+
+* Passwörter ändern.
+* Legen Sie eine Mindestlänge für Passwörter fest.
+* Ermöglichen Sie Benutzern, sich ohne Passwort anzumelden.
+

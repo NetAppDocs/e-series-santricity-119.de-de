@@ -1,0 +1,82 @@
+---
+permalink: sm-settings/access-management-with-saml.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access management, saml 
+summary: 'Für das Zugriffsmanagement können Administratoren die in das Array eingebetteten Security Assertion Markup Language (SAML) 2.0-Funktionen nutzen.' 
+---
+= Konfigurieren Sie das Zugriffsmanagement mit SAML im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Für das Zugriffsmanagement können Administratoren die in das Array eingebetteten Security Assertion Markup Language (SAML) 2.0-Funktionen nutzen.
+
+
+
+== Konfigurationsworkflow
+
+Die SAML-Konfiguration funktioniert wie folgt:
+
+. Ein Administrator meldet sich beim System Manager mit einem Benutzerprofil an, das Security Admin-Berechtigungen enthält.
++
+[NOTE]
+====
+Der `admin` Benutzer hat vollen Zugriff auf alle Funktionen im System Manager.
+
+====
+. Der Administrator geht auf die Registerkarte *SAML* unter Zugriffsverwaltung.
+. Ein Administrator konfiguriert die Kommunikation mit dem Identity Provider (IdP). Ein IdP ist ein externes System, das Anmeldeinformationen von einem Benutzer anfordert und bestimmt, ob der Benutzer erfolgreich authentifiziert wurde. Um die Kommunikation mit dem Storage Array zu konfigurieren, lädt der Administrator die IdP-Metadatendatei vom IdP-System herunter und verwendet dann den System Manager, um die Datei auf das Storage Array hochzuladen.
+. Ein Administrator richtet eine Vertrauensbeziehung zwischen dem Service Provider und dem IdP ein. Ein Service Provider steuert die Benutzerautorisierung; in diesem Fall fungiert der Controller im Storage Array als Service Provider. Zur Konfiguration der Kommunikation verwendet der Administrator den System Manager, um für jeden Controller eine Service Provider-Metadatendatei zu exportieren. Vom IdP-System importiert der Administrator dann diese Metadatendateien in den IdP.
++
+[NOTE]
+====
+Administratoren sollten außerdem sicherstellen, dass der IdP die Möglichkeit bietet, bei der Authentifizierung eine Name ID zurückzugeben.
+
+====
+. Der Administrator ordnet die Rollen des Speichersystems den im IdP definierten Benutzerattributen zu. Dazu verwendet der Administrator System Manager, um die Zuordnungen zu erstellen.
+. Der Administrator testet die SSO-Anmeldung an die IdP-URL. Dieser Test stellt sicher, dass das Speichersystem und der IdP miteinander kommunizieren können.
++
+[CAUTION]
+====
+Sobald SAML aktiviert ist, können Sie es _nicht_ über die Benutzeroberfläche deaktivieren, noch können Sie die IdP-Einstellungen bearbeiten. Wenn Sie die SAML-Konfiguration deaktivieren oder bearbeiten müssen, wenden Sie sich an den Technical Support, um Unterstützung zu erhalten.
+
+====
+. Vom System Manager aus aktiviert der Administrator SAML für das Speichersystem.
+. Benutzer melden sich mit ihren SSO-Zugangsdaten am System an.
+
+
+
+
+== Management
+
+Bei Verwendung von SAML zur Authentifizierung können Administratoren die folgenden Verwaltungsaufgaben durchführen:
+
+* Rollenzuordnungen ändern oder neue erstellen
+* Service Provider-Dateien exportieren
+
+
+
+
+== Zugangsbeschränkungen
+
+Wenn SAML aktiviert ist, können Benutzer den Speicher für dieses Array weder über Unified Manager noch über die ältere Storage Manager-Oberfläche ermitteln oder verwalten.
+
+Darüber hinaus können die folgenden Clients nicht auf Speicherarray-Dienste und -Ressourcen zugreifen:
+
+* Enterprise Management Window (EMW)
+* Software Developer Kits (SDK)-Clients
+* In-Band-Clients
+* Anmeldung mit dem Standard-REST-API-Endpunkt
+
+
+
+
+=== Eingeschränkte Konnektivität bei aktiviertem SAML
+
+Die folgenden Speicherarray-Funktionen bieten nur eingeschränkte Konnektivität mit JSON Web Token Authentifizierung, wenn SAML aktiviert ist.
+
+* Befehlszeilenschnittstelle (CLI)
+* HTTP Basic Authentication REST-API-Clients
+

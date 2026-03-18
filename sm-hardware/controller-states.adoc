@@ -1,0 +1,50 @@
+---
+permalink: sm-hardware/controller-states.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, controller, states, 
+summary: 'Sie können einen Controller in drei verschiedene Zustände versetzen: online, offline und Servicemodus.' 
+---
+= Erfahren Sie mehr über Controller-Zustände im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen Controller in drei verschiedene Zustände versetzen: online, offline und Servicemodus.
+
+
+
+== Online-Status
+
+Der Online-Zustand ist der normale Betriebszustand des Controllers. Das bedeutet, dass der Controller normal arbeitet und für E/A-Operationen zur Verfügung steht.
+
+Wenn Sie einen Controller online schalten, wird sein Status auf optimal gesetzt.
+
+
+
+== Offline-Status
+
+Der Offline-Zustand wird typischerweise verwendet, um einen Controller für den Austausch vorzubereiten, wenn sich zwei Controller im Storage-Array befinden. Ein Controller kann auf zwei Arten in den Offline-Zustand versetzt werden: Sie können einen expliziten Befehl ausführen oder der Controller kann ausfallen. Ein Controller kann den Offline-Zustand nur durch einen weiteren expliziten Befehl oder durch den Austausch des ausgefallenen Controllers verlassen. Sie können einen Controller nur dann offline schalten, wenn sich zwei Controller im Storage-Array befinden.
+
+Wenn sich ein Controller im Offline-Zustand befindet, gelten die folgenden Bedingungen:
+
+* Der Controller ist für E/A nicht verfügbar.
+* Sie können das Speicherarray nicht über diesen Controller verwalten.
+* Alle Volumes, die derzeit von diesem Controller verwaltet werden, werden auf den anderen Controller verschoben.
+* Die Cache-Spiegelung ist deaktiviert und alle Volumes werden auf den Schreib-durch-Cache-Modus umgestellt.
+
+
+
+
+== Servicemodus
+
+Der Service Mode wird üblicherweise nur vom technischen Support verwendet, um alle Speicherarray-Volumes auf einen Controller zu verschieben, damit der andere Controller diagnostiziert werden kann. Ein Controller muss manuell in den Service Mode versetzt und nach Abschluss des Servicevorgangs manuell wieder online geschaltet werden.
+
+Wenn sich ein Controller im Servicemodus befindet, gelten die folgenden Bedingungen:
+
+* Der Controller ist für E/A nicht verfügbar.
+* Der technische Support kann über den seriellen Port oder die Netzwerkverbindung auf den Controller zugreifen, um potenzielle Probleme zu analysieren.
+* Alle Volumes, die derzeit von diesem Controller verwaltet werden, werden auf den anderen Controller verschoben.
+* Die Cache-Spiegelung ist deaktiviert und alle Volumes werden auf den Schreib-durch-Cache-Modus umgestellt.
+

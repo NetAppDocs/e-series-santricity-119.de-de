@@ -1,0 +1,87 @@
+---
+permalink: um-certificates/change-saml-role-mappings.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, change, saml, role, mappings, 
+summary: Wenn Sie zuvor SAML für die Zugriffsverwaltung konfiguriert haben, können Sie die Rollenzuordnungen zwischen den IdP-Gruppen und den vordefinierten Rollen des Storage-Arrays ändern. 
+---
+= SAML-Rollenzuordnungen im SANtricity Unified Manager ändern
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie zuvor SAML für die Zugriffsverwaltung konfiguriert haben, können Sie die Rollenzuordnungen zwischen den IdP-Gruppen und den vordefinierten Rollen des Storage Arrays ändern.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+* Ein IdP-Administrator hat Benutzerattribute und Gruppenzugehörigkeit im IdP-System konfiguriert.
+* SAML ist konfiguriert und aktiviert.
+
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *SAML* aus.
+. Wählen Sie *Role Mapping*.
++
+Das Dialogfeld „Rollenzuordnung“ wird geöffnet.
+
+. Weisen Sie IdP-Benutzerattribute und -Gruppen den vordefinierten Rollen zu. Einer Gruppe können mehrere Rollen zugewiesen sein.
++
+[CAUTION]
+====
+Achten Sie darauf, dass Sie Ihre Berechtigungen nicht entfernen, während SAML aktiviert ist, da Sie sonst den Zugriff auf Unified Manager verlieren.
+
+====
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Zuordnungen*
+
+
+
+ a| 
+Benutzerattribut
+ a| 
+Geben Sie das Attribut (zum Beispiel „member of“) für die SAML-Gruppe an, die zugeordnet werden soll.
+
+
+
+ a| 
+Attributwert
+ a| 
+Geben Sie den Attributwert für die zuzuordnende Gruppe an.
+
+
+
+ a| 
+Rollen
+ a| 
+Klicken Sie in das Feld und wählen Sie eine der Rollen des Speicherarrays aus, die dem Attribut zugeordnet werden soll. Sie müssen jede Rolle, die Sie für diese Gruppe einschließen möchten, einzeln auswählen. Die Rolle Monitor ist in Kombination mit den anderen Rollen erforderlich, um sich beim Unified Manager anzumelden. Mindestens einer Gruppe muss die Rolle Security Admin zugewiesen werden. Die zugeordneten Rollen umfassen die folgenden Berechtigungen:
+
+** *Speicheradministrator* -- Voller lesen/schreiben-Zugriff auf die Speicherobjekte (zum Beispiel Volumes und Disk Pools), jedoch kein Zugriff auf die Sicherheitskonfiguration.
+** *Sicherheitsadministrator* -- Zugriff auf die Sicherheitskonfiguration in Access Management, Zertifikatsverwaltung, Revisionsprotokollverwaltung und die Möglichkeit, die Legacy-Managementoberfläche (SYMbol) ein- oder auszuschalten.
+** *Support admin* -- Zugriff auf alle Hardware-Ressourcen des Storage Arrays, Fehlerdaten, MEL-Ereignisse und Controller-Firmware-Upgrades. Kein Zugriff auf Storage-Objekte oder die Sicherheitskonfiguration.
+** *Monitor* -- Nur Lesezugriff auf alle Speicherobjekte, aber kein Zugriff auf die Sicherheitskonfiguration.
+
+
+|===
+====
++
+
+NOTE: Die Rolle „Monitor“ ist für alle Benutzer, einschließlich des Administrators, erforderlich. Unified Manager funktioniert für keinen Benutzer ordnungsgemäß, wenn die Rolle „Monitor“ nicht vorhanden ist.
+
+. Optional können Sie auf *Weitere Zuordnung hinzufügen* klicken, um weitere Gruppen-zu-Rollen-Zuordnungen einzugeben.
+. Klicken Sie auf *Speichern*.
+
+
+.Ergebnisse
+Nach Abschluss dieser Aufgabe werden alle aktiven Benutzersitzungen beendet. Nur Ihre aktuelle Benutzersitzung bleibt erhalten.

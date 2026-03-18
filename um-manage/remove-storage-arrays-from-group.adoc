@@ -1,0 +1,24 @@
+---
+permalink: um-manage/remove-storage-arrays-from-group.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, remove, storage, arrays, group 
+summary: Sie können ein oder mehrere verwaltete Speicherarrays aus einer Gruppe entfernen, wenn Sie es nicht mehr über eine bestimmte Speichergruppe verwalten möchten. 
+---
+= Entfernen Sie Speicherarrays aus einer Gruppe im SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein oder mehrere verwaltete Speicherarrays aus einer Gruppe entfernen, wenn Sie es nicht mehr über eine bestimmte Speichergruppe verwalten möchten.
+
+.Über diese Aufgabe
+Das Entfernen von Speicherarrays aus einer Gruppe hat keinerlei Auswirkungen auf das Speicherarray oder dessen Daten. Wenn Ihr Speicherarray vom System Manager verwaltet wird, können Sie es weiterhin über Ihren Browser verwalten. Wenn ein Speicherarray versehentlich aus einer Gruppe entfernt wurde, kann es wieder hinzugefügt werden.
+
+.Schritte
+. Auf der Seite „Verwalten“ wählen Sie Menü:Manage Groups[Remove storage arrays from group].
+. Wählen Sie im Dropdown-Menü die Gruppe aus, die die Speicherarrays enthält, die Sie entfernen möchten, und klicken Sie dann auf das Kästchen neben jedem Speicherarray, das Sie aus der Gruppe entfernen möchten.
+. Klicken Sie auf *Entfernen*.
+

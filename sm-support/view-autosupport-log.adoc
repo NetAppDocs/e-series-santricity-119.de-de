@@ -1,0 +1,41 @@
+---
+permalink: sm-support/view-autosupport-log.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, autosupport, log 
+summary: Das AutoSupport-Protokoll liefert Informationen über Status, Versandhistorie und Fehler, die während der Zustellung von AutoSupport-Sendungen aufgetreten sind. 
+---
+= AutoSupport-Protokoll in SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das AutoSupport-Protokoll liefert Informationen über Status, Versandhistorie und Fehler, die während der Zustellung von AutoSupport-Sendungen aufgetreten sind.
+
+.Über diese Aufgabe
+Es können mehrere Protokolldateien vorhanden sein. Wenn die aktuelle Protokolldatei 200 KB erreicht, wird sie archiviert und eine neue Protokolldatei erstellt. Der Name der archivierten Protokolldatei ist  `ASUPMessages.n`, wobei _n_ eine ganze Zahl von 1 bis 9 ist. Wenn mehrere Protokolldateien vorhanden sind, können Sie wählen, ob Sie das aktuellste oder ein vorheriges Protokoll anzeigen möchten.
+
+* *Aktuelles Protokoll* -- Zeigt eine Liste der zuletzt erfassten Ereignisse.
+* *Archiviertes Protokoll* -- Zeigt eine Liste früherer Ereignisse.
+
+
+.Schritte
+. Menü auswählen: Support [Support Center > AutoSupport] Tab.
+. Wählen Sie *Ansicht AutoSupport-Protokoll*.
++
+Es erscheint ein Dialogfeld, in dem das aktuelle AutoSupport-Protokoll aufgelistet ist.
+
+. Wenn Sie frühere AutoSupport-Protokolle anzeigen möchten, wählen Sie die *Archiviert*-Optionsschaltfläche und dann ein Protokoll aus der Dropdown-Liste *AutoSupport-Protokoll auswählen* aus.
++
+Die Option „Archiviert“ wird nur angezeigt, wenn archivierte Protokolle auf dem Storage-Array vorhanden sind.
+
++
+Das ausgewählte AutoSupport-Protokoll wird im Dialogfeld angezeigt.
+
+. *Optional:* Um das AutoSupport-Protokoll zu durchsuchen, geben Sie einen Begriff in das Feld *Suchen* ein und klicken Sie auf *Suchen*.
++
+Klicken Sie erneut auf *Suchen*, um nach weiteren Vorkommen des Begriffs zu suchen.
+
+

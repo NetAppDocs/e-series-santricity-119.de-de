@@ -1,0 +1,61 @@
+---
+permalink: sm-mirroring/role-change-of-a-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, role, change, mirror, consistency, group, secondary, mirror, consistency, group, 
+summary: Sie können die Rolle zwischen gespiegelten Paaren in einer Spiegel-Konsistenzgruppe ändern. Sie können dies tun, indem Sie die primäre Spiegel-Konsistenzgruppe zur sekundären Rolle herabstufen oder die sekundäre Spiegel-Konsistenzgruppe zur primären Rolle hochstufen. 
+---
+= Rollen der Spiegel-Konsistenzgruppe in der SANtricity-Software ändern
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Rolle zwischen gespiegelten Paaren in einer Spiegel-Konsistenzgruppe ändern. Sie können dies tun, indem Sie die primäre Spiegel-Konsistenzgruppe zur sekundären Rolle herabstufen oder die sekundäre Spiegel-Konsistenzgruppe zur primären Rolle hochstufen.
+
+Lesen Sie die folgenden Informationen zum Rollenwechselvorgang:
+
+* Der Rollenwechsel betrifft alle gespiegelten Paare innerhalb der ausgewählten Spiegel-Konsistenzgruppe.
+* Wenn eine Spiegel-Konsistenzgruppe zur sekundären Rolle herabgestuft wird, werden auch alle gespiegelten Paare innerhalb dieser Spiegel-Konsistenzgruppe zur sekundären Rolle herabgestuft und umgekehrt.
+* Wenn die primäre Spiegel-Konsistenzgruppe zur sekundären Rolle herabgestuft wird, haben Hosts, die den Mitgliedsvolumes innerhalb dieser Gruppe zugewiesen wurden, keinen Schreibzugriff mehr auf diese.
+* Wenn eine Spiegel-Konsistenzgruppe zur primären Rolle hochgestuft wird, können nun alle Hosts, die auf die Mitgliedsvolumes innerhalb dieser Gruppe zugreifen, auf diese schreiben.
+* Wenn das lokale Speicherarray nicht mit dem Remote-Speicherarray kommunizieren kann, können Sie den Rollenwechsel auf dem lokalen Speicherarray erzwingen.
+
+
+
+
+== Rollenwechsel erzwingen
+
+Sie können einen Rollenwechsel zwischen Spiegel-Konsistenzgruppen erzwingen, wenn ein Kommunikationsproblem zwischen dem lokalen Speicher-Array und dem Remote-Speicher-Array die Heraufstufung der Mitglieds-Volumes innerhalb der sekundären Spiegel-Konsistenzgruppe oder die Herabstufung der Mitglieds-Volumes innerhalb der primären Spiegel-Konsistenzgruppe verhindert.
+
+Sie können die Spiegel-Konsistenzgruppe auf der sekundären Seite zwingen, in die primäre Rolle zu wechseln. Dann kann der Wiederherstellungshost auf die neu hochgestuften Mitglieds-Volumes innerhalb dieser Spiegel-Konsistenzgruppe zugreifen, und der Geschäftsbetrieb kann fortgesetzt werden.
+
+
+
+== Wann ist eine erzwungene Beförderung zulässig und wann nicht?
+
+Die erzwungene Heraufstufung einer gespiegelten Konsistenzgruppe ist nur zulässig, wenn alle Mitgliedsvolumes der gespiegelten Konsistenzgruppe synchronisiert wurden und konsistente Wiederherstellungspunkte aufweisen.
+
+Die erzwungene Heraufstufung einer gespiegelten Konsistenzgruppe ist unter folgenden Bedingungen nicht zulässig:
+
+* Eines der Mitgliedsvolumes einer Spiegel-Konsistenzgruppe befindet sich im Prozess einer initialen Synchronisierung.
+* Keines der Mitgliedsvolumes einer Spiegel-Konsistenzgruppe verfügt über ein zeitpunktgenaues Image des Wiederherstellungspunkts (beispielsweise aufgrund eines Fehlers mit vollständig reservierter Kapazität).
+* Die Spiegel-Konsistenzgruppe enthält keine Mitgliedsvolumes.
+* Die Konsistenzgruppe für gespiegelte Daten befindet sich im Zustand "Fehlgeschlagen", "Rollenänderung ausstehend" oder "Rollenänderung im Gange", oder wenn eines der zugehörigen Mitglieds-Volumes oder reservierten Kapazitäts-Volumes ausgefallen ist.
+
+
+
+
+== Rollenkonflikt in der Spiegelgruppe
+
+Nach Behebung eines Kommunikationsproblems zwischen den lokalen und entfernten Speichersystemen tritt ein Mirror Group Role Conflict auf. Verwenden Sie den Recovery Guru, um diesen Fehler zu beheben. Eine erzwungene Heraufstufung ist bei der Behebung eines Dual-Role-Konflikts nicht zulässig.
+
+Um den Zustand des Rollenkonflikts der Spiegelgruppe und die anschließenden Wiederherstellungsschritte zu vermeiden, warten Sie, bis die Verbindung zwischen den Speicherarrays betriebsbereit ist, bevor Sie den Rollenwechsel erzwingen.
+
+
+
+== Rollenwechsel im Fortschritt
+
+Wenn zwei Speicherarrays in einer Spiegelkonfiguration die Verbindung verlieren und die primäre Seite einer Spiegel-Konsistenzgruppe zwangsweise zu einer sekundären Rolle herabgestuft wird und die sekundäre Seite einer Spiegel-Konsistenzgruppe zwangsweise zu einer primären Rolle hochgestuft wird, dann werden die Spiegel-Konsistenzgruppen auf beiden Speicherarrays nach Wiederherstellung der Kommunikation in den Zustand „Rollenänderung läuft“ versetzt.
+
+Das System wird den Rollenwechselprozess abschließen, indem es die Änderungsprotokolle überträgt, erneut synchronisiert, den Zustand der Spiegel-Konsistenzgruppe wieder in einen normalen Betriebszustand versetzt und mit periodischen Synchronisierungen fortfährt.

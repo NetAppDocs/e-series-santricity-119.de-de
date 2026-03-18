@@ -1,0 +1,31 @@
+---
+permalink: sm-storage/create-workloads.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, workloads 
+summary: Sie können Workloads für jede Art von Anwendung erstellen. 
+---
+= Erstellen Sie Workloads im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Workloads für jede Art von Anwendung erstellen.
+
+.Über diese Aufgabe
+Eine Workload ist ein Speicherobjekt, das eine Anwendung unterstützt. Sie können eine oder mehrere Workloads oder Instanzen pro Anwendung definieren.
+
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Menü auswählen: Create[Workload].
++
+Das Dialogfeld „Anwendungsworkload erstellen“ wird angezeigt.
+
+. Verwenden Sie die Dropdown-Liste, um den Anwendungstyp auszuwählen, für den Sie die Arbeitslast erstellen möchten, und geben Sie dann einen Arbeitslastnamen ein.
+. Klicken Sie auf *Create*.
+
+
+.Nachdem Sie fertig sind
+Sie sind bereit, die Speicherkapazität zu der von Ihnen erstellten Arbeitslast hinzuzufügen. Verwenden Sie die Option *Volume erstellen*, um ein oder mehrere Volumes für eine Anwendung zu erstellen und jedem Volume eine bestimmte Kapazität zuzuweisen.

@@ -1,0 +1,188 @@
+---
+permalink: sm-storage/create-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, snapshot, volume 
+summary: Sie erstellen ein Snapshot-Volume, um dem Host Zugriff auf ein Snapshot-Image eines Volumes oder einer Snapshot-Konsistenzgruppe bereitzustellen. Sie können das Snapshot-Volume entweder als schreibgeschützt oder als lesen/schreiben festlegen. 
+---
+= Erstellen Sie ein Snapshot-Volume im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie erstellen ein Snapshot-Volume, um dem Host Zugriff auf ein Snapshot-Image eines Volumes oder einer Snapshot-Konsistenzgruppe bereitzustellen. Sie können das Snapshot-Volume entweder als schreibgeschützt oder als lesen/schreiben festlegen.
+
+.Über diese Aufgabe
+Die Sequenz zur Erstellung von Snapshot-Volumes ermöglicht es Ihnen, ein Snapshot-Volume aus einem Snapshot-Image zu erstellen und bietet Optionen zur Zuweisung reservierter Kapazität, falls das Volume lesen/schreiben ist. Ein Snapshot-Volume kann als eines der folgenden bezeichnet werden:
+
+* Ein schreibgeschütztes Snapshot-Volume ermöglicht einer Hostanwendung den Lesezugriff auf eine Kopie der im Snapshot-Image enthaltenen Daten, jedoch ohne die Möglichkeit, das Snapshot-Image zu verändern. Ein schreibgeschütztes Snapshot-Volume hat keine zugeordnete reservierte Kapazität.
+* Ein Snapshot-Volume mit Lese- und Schreibzugriff ermöglicht der Hostanwendung den Schreibzugriff auf eine Kopie der im Snapshot-Image enthaltenen Daten. Es verfügt über eine eigene reservierte Kapazität, die dazu dient, alle nachfolgenden Änderungen, die von der Hostanwendung am Basis-Volume vorgenommen werden, zu speichern, ohne das referenzierte Snapshot-Image zu beeinträchtigen.
+
+
+Der Prozess zur Erstellung eines Snapshot-Volumes ist ein mehrstufiges Verfahren.
+
+
+
+== Schritt 1: Mitglieder für ein Snapshot-Volume überprüfen
+
+Wählen Sie entweder ein Snapshot-Image eines Basisvolumes oder ein Snapshot-Image einer Snapshot-Konsistenzgruppe. Wenn Sie ein Snapshot-Image einer Snapshot-Konsistenzgruppe auswählen, werden die Mitgliedsvolumes der Snapshot-Konsistenzgruppe zur Überprüfung angezeigt.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Wählen Sie die Registerkarte *Snapshot Volumes* aus.
+. Wählen Sie *Create*.
++
+Das Dialogfeld „Snapshot-Volume erstellen“ wird angezeigt.
+
+. Wählen Sie das Snapshot-Image (Volume oder Snapshot-Konsistenzgruppe) aus, das Sie in ein Snapshot-Volume konvertieren möchten, und klicken Sie dann auf *Weiter*. Verwenden Sie eine Texteingabe im Feld *Filter*, um die Liste einzugrenzen.
++
+Wenn die Auswahl ein Snapshot-Konsistenzgruppen-Snapshot-Image war, wird das Dialogfeld „Mitglieder überprüfen“ angezeigt.
+
++
+Überprüfen Sie im Dialogfeld „Mitglieder überprüfen“ die Liste der Volumes, die für die Konvertierung in Snapshot-Volumes ausgewählt sind, und klicken Sie dann auf *Weiter*.
+
+. Gehe zu <<Schritt 2: Snapshot-Volume dem Host zuweisen>>.
+
+
+
+
+== Schritt 2: Snapshot-Volume dem Host zuweisen
+
+Wählen Sie einen bestimmten Host oder Hostcluster aus, um ihn dem Snapshot-Volume zuzuweisen. Durch diese Zuweisung erhält ein Host oder Hostcluster Zugriff auf das Snapshot-Volume. Sie können bei Bedarf auch später einen Host zuweisen.
+
+.Bevor Sie beginnen
+* Gültige Hosts oder Host-Cluster sind auf der Seite „Hosts“ vorhanden.
+* Für den Host müssen Host-Port-Identifikatoren definiert worden sein.
+* Bevor Sie ein DA-fähiges Volume erstellen, vergewissern Sie sich, dass Ihre geplante Hostverbindung die Data Assurance (DA)-Funktion unterstützt. Wenn eine der Hostverbindungen auf den Controllern in Ihrem Storage-Array DA nicht unterstützt, können die zugehörigen Hosts nicht auf Daten auf DA-fähigen Volumes zugreifen.
+
+
+.Über diese Aufgabe
+Beachten Sie bei der Zuweisung von Volumes folgende Richtlinien:
+
+* Das Betriebssystem eines Hosts kann bestimmte Beschränkungen hinsichtlich der Anzahl der Volumes haben, auf die der Host zugreifen kann.
+* Sie können für jedes Snapshot-Volume im Speicherarray eine Hostzuordnung definieren.
+* Zugewiesene Volumes werden von den Controllern im Storage-Array gemeinsam genutzt.
+* Dieselbe logische Einheitennummer (LUN) kann nicht zweimal von einem Host oder einem Hostcluster für den Zugriff auf ein Snapshot-Volume verwendet werden. Sie müssen eine eindeutige LUN verwenden.
+
+
+[NOTE]
+====
+Die Zuweisung eines Volumes zu einem Host schlägt fehl, wenn Sie versuchen, einem Hostcluster ein Volume zuzuweisen, das mit einer bestehenden Zuweisung für einen Host im Hostcluster in Konflikt steht.
+
+====
+.Schritte
+. Wählen Sie im Dialogfeld *Host zuweisen* den Host oder Hostcluster aus, den Sie dem neuen Volume zuweisen möchten. Wenn Sie das Volume erstellen möchten, ohne einen Host zuzuweisen, wählen Sie *Später zuweisen* aus der Dropdown-Liste.
+. Wählen Sie den Zugriffsmodus. Wählen Sie eine der folgenden Optionen:
++
+** *Lesen/Schreiben* -- Diese Option gewährt dem Host lesen/schreiben-Zugriff auf das Snapshot-Volume und erfordert reservierte Kapazität.
+** *Nur lesen* -- Diese Option gewährt dem Host einen Lesezugriff auf das Snapshot-Volume und erfordert keine reservierte Kapazität.
+
+
+. Klicken Sie auf *Weiter*, und führen Sie einen der folgenden Schritte aus:
++
+** Wenn Ihr Snapshot-Volume lesen/schreiben ist, wird das Dialogfeld „Kapazität prüfen“ angezeigt. Gehen Sie zu <<Schritt 3: Kapazität für ein Snapshot-Volume reservieren>>.
+** Wenn Ihr Snapshot-Volume schreibgeschützt ist, wird das Dialogfeld „Priorität bearbeiten“ angezeigt. Gehen Sie zu <<Schritt 4: Einstellungen für ein Snapshot-Volume bearbeiten>>.
+
+
+
+
+
+
+== Schritt 3: Kapazität für ein Snapshot-Volume reservieren
+
+Weisen Sie einem lesen/schreiben-Snapshot-Volume reservierte Kapazität zu. System Manager schlägt Volumes und Kapazität basierend auf den Eigenschaften des Basis-Volumes oder der Snapshot-Konsistenzgruppe vor. Sie können die empfohlene Konfiguration der reservierten Kapazität übernehmen oder den zugewiesenen Speicherplatz anpassen.
+
+.Über diese Aufgabe
+Sie können die reservierte Kapazität für das Snapshot-Volume nach Bedarf erhöhen oder verringern. Wenn Sie feststellen, dass die reservierte Kapazität des Snapshots größer ist als benötigt, können Sie deren Größe reduzieren, um Speicherplatz freizugeben, der von anderen logischen Volumes benötigt wird.
+
+.Schritte
+. Verwenden Sie das Spinnerfeld, um die reservierte Kapazität für das Snapshot-Volume zuzuweisen.
++
+Die Tabelle „Volume Candidate“ zeigt nur die Kandidaten an, die die angegebene reservierte Kapazität unterstützen.
+
++
+Führen Sie eine der folgenden Aktionen aus:
+
++
+** *Übernehmen Sie die Standardeinstellungen*.
++
+Verwenden Sie diese empfohlene Option, um die reservierte Kapazität für das Snapshot-Volume mit den Standardeinstellungen zuzuweisen.
+
+** *Legen Sie Ihre eigenen reservierten Kapazitätseinstellungen fest, um Ihren Datenspeicherbedarf zu decken*.
++
+Wenn Sie die Standardeinstellung für die reservierte Kapazität ändern, klicken Sie auf *Kandidaten aktualisieren*, um die Kandidatenliste für die von Ihnen angegebene reservierte Kapazität zu aktualisieren.
+
++
+Weisen Sie die reservierte Kapazität anhand der folgenden Richtlinien zu.
+
++
+*** Die Standardeinstellung für die reservierte Kapazität beträgt 40% der Kapazität des Basisvolumens, und diese Kapazität ist in der Regel ausreichend.
+*** Der benötigte Speicherplatz variiert, abhängig von der Häufigkeit und Größe der E/A-Schreibvorgänge auf die Volumes sowie der Menge und Dauer der Snapshot-Image-Erfassung.
+
+
+
+
+. *Optional:* Wenn Sie das Snapshot-Volume für eine Snapshot-Konsistenzgruppe erstellen, wird die Option „Kandidat ändern“ in der Tabelle „Reservierte Kapazitätskandidaten“ angezeigt. Klicken Sie auf *Kandidat ändern*, um einen alternativen reservierten Kapazitätskandidaten auszuwählen.
+. Klicken Sie auf *Weiter*, und gehen Sie zu <<Schritt 4: Einstellungen für ein Snapshot-Volume bearbeiten>>.
+
+
+
+
+== Schritt 4: Einstellungen für ein Snapshot-Volume bearbeiten
+
+Ändern Sie die Einstellungen für ein Snapshot-Volume, wie seinen Namen, das Caching, Schwellenwerte für reservierte Kapazitätswarnungen und so weiter.
+
+.Über diese Aufgabe
+Sie können das Volume dem SSD-Cache hinzufügen, um die Nur-Lese-Leistung zu verbessern. SSD-Cache besteht aus einer Gruppe von SSD-Laufwerken, die Sie logisch in Ihrem Storage-Array zusammenfassen.
+
+.Schritte
+. Akzeptieren oder ändern Sie die Einstellungen für das Snapshot-Volume nach Bedarf.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Snapshot-Volume-Einstellungen*
+
+
+
+ a| 
+Name
+ a| 
+Geben Sie den Namen für das Snapshot-Volume an.
+
+
+
+ a| 
+SSD-Cache aktivieren
+ a| 
+Wählen Sie diese Option, um das Nur-Lese-Caching auf SSDs zu aktivieren.
+
+
+
+ a| 
+*Reservierte Kapazitätseinstellungen*
+
+
+
+ a| 
+Benachrichtige mich, wenn...
+ a| 
+*Wird nur bei einem lesen/schreiben Snapshot-Volume angezeigt*.
+
+Verwenden Sie das Drehfeld, um den Prozentsatz einzustellen, bei dem das System eine Warnmeldung sendet, wenn die reservierte Kapazität für eine Snapshot-Gruppe fast voll ist.
+
+Wenn die reservierte Kapazität für die Snapshot-Gruppe den angegebenen Schwellenwert überschreitet, verwenden Sie die Vorabbenachrichtigung, um die reservierte Kapazität zu erhöhen oder unnötige Objekte zu löschen, bevor der verbleibende Speicherplatz aufgebraucht ist.
+
+|===
+====
+. Überprüfen Sie die Konfiguration des Snapshot-Volumes. Klicken Sie auf *Zurück*, um Änderungen vorzunehmen.
+. Wenn Sie mit Ihrer Snapshot-Volume-Konfiguration zufrieden sind, klicken Sie auf *Finish*.
+

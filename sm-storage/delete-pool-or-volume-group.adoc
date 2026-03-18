@@ -1,0 +1,42 @@
+---
+permalink: sm-storage/delete-pool-or-volume-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, pool, volume, group 
+summary: Sie können einen Pool oder eine Volume-Gruppe löschen, um mehr nicht zugewiesene Kapazität zu schaffen, die Sie neu konfigurieren können, um den Speicherbedarf Ihrer Anwendung zu erfüllen. 
+---
+= Einen Pool oder eine Volumengruppe im SANtricity System Manager löschen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen Pool oder eine Volume-Gruppe löschen, um mehr nicht zugewiesene Kapazität zu schaffen, die Sie neu konfigurieren können, um den Speicherbedarf Ihrer Anwendung zu erfüllen.
+
+.Bevor Sie beginnen
+* Sie müssen die Daten auf allen Volumes im Pool oder in der Volume-Gruppe gesichert haben.
+* Sie müssen alle Eingaben/Ausgaben (E/A) gestoppt haben.
+* Sie müssen alle Dateisysteme auf den Volumes aushängen.
+* Sie müssen alle Spiegelungsbeziehungen im Pool oder in der Volume-Gruppe gelöscht haben.
+* Sie müssen alle laufenden Volume-Kopiervorgänge für den Pool oder die Volume-Gruppe gestoppt haben.
+* Der Pool oder die Volumengruppe darf nicht an einem asynchronen Spiegelungsvorgang teilnehmen.
+* Die Laufwerke in der Volume-Gruppe dürfen keine persistente Reservierung haben.
+
+
+.Schritte
+. Menü auswählen:Storage [Pools & Volume Groups].
+. Wählen Sie einen Pool oder eine Volume-Gruppe aus der Liste aus.
++
+Sie können jeweils nur einen Pool oder eine Volumengruppe auswählen. Scrollen Sie in der Liste nach unten, um weitere Pools oder Volumengruppen anzuzeigen.
+
+. Menü auswählen: Uncommon Tasks[Delete] und bestätigen.
+
+
+.Ergebnisse
+System Manager führt die folgenden Aktionen aus:
+
+* Löscht alle Daten im Pool oder in der Volume-Gruppe.
+* Löscht alle Laufwerke, die dem Pool oder der Volume-Gruppe zugeordnet sind.
+* Hebt die Zuordnung der zugehörigen Laufwerke auf, sodass Sie sie in neuen oder bestehenden Pools oder Volumengruppen wiederverwenden können.
+

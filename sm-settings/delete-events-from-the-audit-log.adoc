@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/delete-events-from-the-audit-log.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, events, audit, log, 
+summary: 'Sie können das Revisionsprotokoll von alten Ereignissen löschen, wodurch die Suche in den Ereignissen übersichtlicher wird. Sie haben die Möglichkeit, alte Ereignisse beim Löschen in einer CSV-Datei (Comma-Separated Values) zu speichern.' 
+---
+= Ereignisse aus dem Revisionsprotokoll im SANtricity System Manager löschen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können das Revisionsprotokoll von alten Ereignissen löschen, wodurch die Suche in den Ereignissen übersichtlicher wird. Sie haben die Möglichkeit, alte Ereignisse beim Löschen in einer CSV-Datei (Comma-Separated Values) zu speichern.
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *Revisionsprotokoll* aus.
+. Wählen Sie *Delete*.
++
+Das Dialogfeld „Revisionsprotokoll löschen“ wird geöffnet.
+
+. Wählen Sie die Anzahl der ältesten Ereignisse aus, die Sie löschen möchten, oder geben Sie die Anzahl ein.
+. Wenn Sie die gelöschten Ereignisse in eine CSV-Datei exportieren möchten (empfohlen), lassen Sie das Kontrollkästchen aktiviert. Sie werden aufgefordert, einen Dateinamen und einen Speicherort anzugeben, wenn Sie im nächsten Schritt auf *Löschen* klicken. Andernfalls, wenn Sie die Ereignisse nicht in einer CSV-Datei speichern möchten, deaktivieren Sie das Kontrollkästchen.
+. Klicken Sie auf *Delete*.
++
+Ein Bestätigungsdialogfeld wird geöffnet.
+
+. Geben Sie  `delete` in das Feld ein und klicken Sie dann auf *Löschen*.
++
+Die ältesten Ereignisse werden von der Seite „Revisionsprotokoll“ entfernt.
+
+

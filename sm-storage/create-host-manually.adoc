@@ -1,0 +1,105 @@
+---
+permalink: sm-storage/create-host-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, host, manually 
+summary: Für Hosts, die nicht automatisch erkannt werden können, können Sie einen Host manuell erstellen. Das Erstellen eines Hosts ist einer der erforderlichen Schritte, damit das Storage-Array weiß, welche Hosts daran angeschlossen sind, und um den I/O-Zugriff auf die Volumes zu ermöglichen. 
+---
+= Erstellen Sie einen Host manuell im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Für Hosts, die nicht automatisch erkannt werden können, können Sie einen Host manuell erstellen. Das Erstellen eines Hosts ist einer der erforderlichen Schritte, damit das Storage-Array weiß, welche Hosts daran angeschlossen sind, und um den I/O-Zugriff auf die Volumes zu ermöglichen.
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien, wenn Sie einen Host erstellen:
+
+* Sie müssen die Host-Identifier-Ports definieren, die dem Host zugeordnet sind.
+* Stellen Sie sicher, dass Sie denselben Namen wie den dem Host zugewiesenen Systemnamen angeben.
+* Dieser Vorgang ist nicht erfolgreich, wenn der von Ihnen gewählte Name bereits verwendet wird.
+* Die Länge des Namens darf 30 Zeichen nicht überschreiten.
+
+
+.Schritte
+. Menü auswählen:Storage[Hosts].
+. Klicken Sie auf Menü:Create[Host].
++
+Das Dialogfeld „Host erstellen“ wird angezeigt.
+
+. Wählen Sie die Einstellungen für den Host wie gewünscht aus.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Name
+ a| 
+Geben Sie einen Namen für den neuen Host ein.
+
+
+
+ a| 
+Host-Betriebssystemtyp
+ a| 
+Wählen Sie das Betriebssystem, das auf dem neuen Host ausgeführt wird, aus der Dropdown-Liste aus.
+
+
+
+ a| 
+Host-Schnittstellentyp
+ a| 
+(Optional) Falls Ihr Speichersystem mehr als einen Host-Schnittstellentyp unterstützt, wählen Sie den Host-Schnittstellentyp, den Sie verwenden möchten.
+
+
+
+ a| 
+Host-Ports
+ a| 
+Führen Sie einen der folgenden Schritte aus:
+
+** *E/A-Schnittstelle auswählen*
++
+Im Allgemeinen sollten die Host-Ports angemeldet und in der Dropdown-Liste verfügbar sein. Sie können die Host-Port-Kennungen aus der Liste auswählen.
+
+** *Manuell hinzufügen*
++
+Wenn eine Host-Port-Kennung nicht in der Liste angezeigt wird, bedeutet dies, dass der Host-Port nicht angemeldet ist. Ein HBA-Dienstprogramm oder das iSCSI-Initiator-Dienstprogramm kann verwendet werden, um die Host-Port-Kennungen zu finden und sie dem Host zuzuordnen.
+
++
+Sie können die Host-Port-Kennungen manuell eingeben oder sie (jeweils eine) aus dem Utility in das Feld *Host ports* kopieren/einfügen.
+
++
+Sie müssen jeweils eine Host-Port-Kennung auswählen, um sie dem Host zuzuordnen, können jedoch weiterhin beliebig viele Kennungen auswählen, die dem Host zugeordnet sind. Jede Kennung wird im Feld *Host ports* angezeigt. Falls erforderlich, können Sie eine Kennung auch entfernen, indem Sie das *X* daneben auswählen.
+
+
+
+
+
+ a| 
+CHAP-Initiator
+ a| 
+(Optional) Wenn Sie einen Host-Port mit einem iSCSI-IQN ausgewählt oder manuell eingegeben haben und verlangen möchten, dass ein Host, der versucht, auf das Storage-Array zuzugreifen, sich mit dem Challenge Handshake Authentication Protocol (CHAP) authentifiziert, aktivieren Sie das Kästchen *CHAP initiator*. Führen Sie für jeden iSCSI-Host-Port, den Sie ausgewählt oder manuell eingegeben haben, Folgendes aus:
+
+** Geben Sie dasselbe CHAP-Geheimnis ein, das auf jedem iSCSI-Initiator-Host für die CHAP-Authentifizierung festgelegt wurde. Wenn Sie die gegenseitige CHAP-Authentifizierung verwenden (eine Zwei-Wege-Authentifizierung, die es einem Host ermöglicht, sich gegenüber dem Storage-Array zu authentifizieren und dem Storage-Array, sich gegenüber dem Host zu authentifizieren), müssen Sie das CHAP-Geheimnis auch für das Storage-Array bei der Ersteinrichtung oder durch Ändern der Einstellungen festlegen.
+** Lassen Sie das Feld leer, wenn Sie keine Host-Authentifizierung benötigen.
+
+
+Derzeit ist das einzige von System Manager verwendete iSCSI-Authentifizierungsverfahren CHAP.
+
+|===
+====
+. Klicken Sie auf *Create*.
+
+
+.Ergebnisse
+Nach erfolgreicher Erstellung des Hosts erstellt das System für jeden für den Host konfigurierten Host-Port einen Standardnamen (Benutzerbezeichnung).
+
+Der Standardalias ist <``Hostname_Port Number``>. Zum Beispiel ist der Standardalias für den ersten Port, der für  `host IPT is IPT_1` erstellt wurde.

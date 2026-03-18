@@ -1,0 +1,34 @@
+---
+permalink: sm-interface/home-page.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, home page 
+summary: Die Startseite bietet eine Dashboard-Ansicht für die tägliche Verwaltung Ihres Storage-Arrays. Wenn Sie sich im System Manager anmelden, wird als erstes die Startseite angezeigt. 
+---
+= Erfahren Sie mehr über die Startseite des SANtricity System Managers
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Startseite bietet eine Dashboard-Ansicht für die tägliche Verwaltung Ihres Storage-Arrays. Wenn Sie sich im SANtricity System Manager anmelden, wird als erstes die Startseite angezeigt.
+
+Die Dashboard-Ansicht umfasst vier Übersichtsbereiche mit wichtigen Informationen zum Status und zur Integrität Ihres Storage Arrays. Weitere Informationen finden Sie im Übersichtsbereich.
+
+* *Benachrichtigungen*
++
+Der Bereich „Benachrichtigungen“ zeigt Problembenachrichtigungen an, die den Status des Storage Arrays und seiner Komponenten anzeigen. Darüber hinaus zeigt dieses Portlet automatisierte Warnmeldungen an, die Ihnen bei der Fehlerbehebung helfen können, bevor sich Probleme auf andere Bereiche Ihrer Storage-Umgebung auswirken.
+
+* *Leistung*
++
+Im Bereich „Leistung“ können Sie die Ressourcennutzung im Zeitverlauf vergleichen und gegenüberstellen. Sie können die Leistungskennzahlen eines Storage Arrays für Antwortzeiten (IOPS), Übertragungsraten (MiB/s) und die ausgelastete Rechenleistung (CPU) einsehen.
+
+* *Kapazität*
++
+Der Bereich „Kapazität“ zeigt eine grafische Darstellung der zugewiesenen Kapazität, der freien Speicherkapazität und der nicht zugewiesenen Speicherkapazität in Ihrem Storage-Array.
+
+* *Speicherhierarchie*
++
+Der Bereich „Speicherhierarchie“ bietet eine übersichtliche Ansicht der verschiedenen Hardwarekomponenten und Speicherobjekte, die von Ihrem Speicher-Array verwaltet werden. Klicken Sie auf den Dropdown-Pfeil, um eine bestimmte Aktion für diese Hardwarekomponente oder dieses Speicherobjekt auszuführen.
+
+

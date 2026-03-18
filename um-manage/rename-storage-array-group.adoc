@@ -1,0 +1,31 @@
+---
+permalink: um-manage/rename-storage-array-group.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, rename, storage, array, group 
+summary: Sie können den Namen einer Storage-Array-Gruppe ändern, wenn der aktuelle Name nicht mehr aussagekräftig oder anwendbar ist. 
+---
+= Benennen Sie eine Speicherarray-Gruppe im SANtricity Unified Manager um
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den Namen einer Storage-Array-Gruppe ändern, wenn der aktuelle Name nicht mehr aussagekräftig oder anwendbar ist.
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien.
+
+* Ein Name darf aus Buchstaben, Zahlen und den Sonderzeichen Unterstrich (_), Bindestrich (-) und Raute (#) bestehen. Wenn Sie andere Zeichen wählen, erscheint eine Fehlermeldung. Sie werden aufgefordert, einen anderen Namen zu wählen.
+* Beschränken Sie den Namen auf 30 Zeichen. Alle führenden und nachfolgenden Leerzeichen im Namen werden gelöscht.
+* Verwenden Sie einen einzigartigen, aussagekräftigen Namen, der leicht zu verstehen und zu merken ist.
+* Vermeiden Sie willkürliche Namen oder Namen, die in Zukunft schnell ihre Bedeutung verlieren würden.
+
+
+.Schritte
+. Wählen Sie in der Hauptansicht *Verwalten* aus und anschließend die Speicherarraygruppe, die Sie umbenennen möchten.
+. Menü auswählen: Manage Groups [Rename storage array group].
+. Geben Sie im Feld *Group Name* einen neuen Namen für die Gruppe ein.
+. Klicken Sie auf *Rename.*
+

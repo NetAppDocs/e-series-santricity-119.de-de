@@ -1,0 +1,54 @@
+---
+permalink: um-manage/import-alert-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, alert, settings 
+summary: Sie können Alarmkonfigurationen von einem Speichersystem in andere Speichersysteme importieren. Diese Stapelverarbeitung spart Zeit, wenn Sie mehrere Speichersysteme im Netzwerk konfigurieren müssen. 
+---
+= Alarm-Einstellungen in SANtricity Unified Manager importieren
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Alarmkonfigurationen von einem Speichersystem in andere Speichersysteme importieren. Diese Stapelverarbeitung spart Zeit, wenn Sie mehrere Speichersysteme im Netzwerk konfigurieren müssen.
+
+.Bevor Sie beginnen
+* Benachrichtigungen werden im System Manager für das Storage-Array konfiguriert, das Sie als Quelle verwenden möchten (menu:Settings[Alerts]).
+* Die bestehende Konfiguration der Zielspeicherarrays wird im System Manager gesichert (Menü:Einstellungen[System > Save Storage Array Configuration]).
+
+
+.Über diese Aufgabe
+Sie können E-Mail-, SNMP- oder Syslog-Benachrichtigungen für den Importvorgang auswählen. Die importierten Einstellungen umfassen:
+
+* *E-Mail-Benachrichtigungen* -- Eine Mailserveradresse und die E-Mail-Adressen der Benachrichtigungsempfänger.
+* *Syslog alerts* -- Eine Syslog-Serveradresse und ein UDP-Port.
+* *SNMP-Warnungen* -- Ein Community-Name und eine IP-Adresse für den SNMP-Server.
+
+
+.Schritte
+. Klicken Sie auf der Seite *Verwalten* auf *Import Settings*.
++
+Der Importeinstellungen-Assistent wird geöffnet.
+
+. Im Dialogfeld „Einstellungen auswählen“ wählen Sie entweder *Email alerts*, *SNMP alerts* oder *Syslog alerts* aus und klicken dann auf *Weiter*.
++
+Es öffnet sich ein Dialogfeld zur Auswahl des Quell-Arrays.
+
+. Wählen Sie im Dialogfeld „Quelle auswählen“ das Array mit den Einstellungen aus, die Sie importieren möchten, und klicken Sie dann auf *Next*.
+. Wählen Sie im Dialogfeld „Ziele auswählen“ ein oder mehrere Arrays aus, die die neuen Einstellungen erhalten sollen.
++
+[NOTE]
+====
+Speicherarrays mit Firmware unter 8.50 stehen nicht zur Auswahl. Außerdem wird ein Array in diesem Dialogfeld nicht angezeigt, wenn Unified Manager nicht mit diesem Array kommunizieren kann (zum Beispiel, wenn es offline ist oder wenn es Zertifikats-, Passwort- oder Netzwerkprobleme gibt).
+
+====
+. Klicken Sie auf *Finish*.
++
+Auf der Seite „Vorgänge“ werden die Ergebnisse des Importvorgangs angezeigt. Falls der Vorgang fehlschlägt, können Sie auf die entsprechende Zeile klicken, um weitere Informationen zu sehen.
+
+
+
+.Ergebnisse
+Die Zielspeicherarrays sind nun so konfiguriert, dass sie Benachrichtigungen an Administratoren per E-Mail, SNMP oder Syslog senden.

@@ -1,0 +1,101 @@
+---
+permalink: sm-storage/change-cache-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, cache settings 
+summary: Sie können die Einstellungen für den Read Cache und Write Cache ändern, um die gesamte I/O-Leistung eines Volumes zu beeinflussen. 
+---
+= Ändern Sie die Cache-Einstellungen für ein Volume im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen für den Read Cache und Write Cache ändern, um die gesamte I/O-Leistung eines Volumes zu beeinflussen.
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien, wenn Sie die Cache-Einstellungen für ein Volume ändern:
+
+* Nach dem Öffnen des Dialogfelds „Cache-Einstellungen ändern“ wird möglicherweise ein Symbol neben den ausgewählten Cache-Eigenschaften angezeigt. Dieses Symbol zeigt an, dass der Controller die Zwischenspeicherung vorübergehend ausgesetzt hat.
++
+Diese Aktion kann auftreten, wenn ein neuer Akku geladen wird, wenn ein Controller entfernt wurde oder wenn der Controller eine Diskrepanz in den Cache-Größen festgestellt hat. Nachdem die Bedingung behoben wurde, werden die im Dialogfeld ausgewählten Cache-Eigenschaften aktiv. Wenn die ausgewählten Cache-Eigenschaften nicht aktiv werden, wenden Sie sich an den technischen Support.
+
+* Sie können die Cache-Einstellungen für ein einzelnes Volume oder für mehrere Volumes auf einem Storage-Array ändern. Sie können die Cache-Einstellungen für alle Standard-Volumes oder alle Thin-Volumes gleichzeitig ändern.
+
+
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Wählen Sie ein beliebiges Volume aus und wählen Sie dann menu:More[Cache-Einstellungen ändern].
++
+Das Dialogfeld „Cache-Einstellungen ändern“ wird angezeigt. Alle Volumes des Speichersystems werden in diesem Dialogfeld angezeigt.
+
+. Wählen Sie die Registerkarte *Basic*, um die Einstellungen für Read Caching und Write Caching zu ändern.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Cache-Einstellung | Beschreibung 
+
+
+ a| 
+Lese-Caching
+ a| 
+Der Lesecache ist ein Puffer, der Daten speichert, die von den Laufwerken gelesen wurden. Die Daten für einen Lesevorgang können bereits von einem vorherigen Vorgang im Cache vorhanden sein, wodurch der Zugriff auf die Laufwerke entfällt. Die Daten verbleiben im Lesecache, bis sie gelöscht werden.
+
+
+
+ a| 
+Schreib-Caching
+ a| 
+Der Schreibcache ist ein Puffer, der Daten vom Host speichert, die noch nicht auf die Laufwerke geschrieben wurden. Die Daten verbleiben im Schreibcache, bis sie auf die Laufwerke geschrieben werden. Schreibcaching kann die I/O-Leistung erhöhen.
+
+
+NOTE: Der Cache wird automatisch geleert, nachdem das *Write caching* für ein Volume deaktiviert wurde.
+
+|===
+====
+. Wählen Sie die Registerkarte *Erweitert*, um die erweiterten Einstellungen für Thick Volumes zu ändern. Die erweiterten Cache-Einstellungen sind nur für Thick Volumes verfügbar.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Cache-Einstellung | Beschreibung 
+
+
+ a| 
+Dynamisches Read Cache Prefetch
+ a| 
+Die dynamische Cache-Vorabruffunktion ermöglicht es dem Controller, zusätzliche sequenzielle Datenblöcke in den Cache zu kopieren, während er Datenblöcke von einem Laufwerk in den Cache liest. Dieses Caching erhöht die Wahrscheinlichkeit, dass zukünftige Anforderungen an Daten aus dem Cache erfüllt werden können. Die dynamische Cache-Vorabruffunktion ist wichtig für Multimedia-Anwendungen, die sequenzielle I/O verwenden. Die Rate und Menge der Daten, die in den Cache vorabgerufen werden, passt sich automatisch an die Rate und die Anforderungsgröße der Host-Lesezugriffe an. Zufälliger Zugriff führt nicht dazu, dass Daten in den Cache vorabgerufen werden. Diese Funktion gilt nicht, wenn das Lesecaching deaktiviert ist.
+
+Für ein Thin Volume ist das dynamische Cache-Lese-Prefetching immer deaktiviert und kann nicht geändert werden.
+
+
+
+ a| 
+Schreib-Caching ohne Batterien
+ a| 
+Die Einstellung „Schreibcache ohne Batterien“ ermöglicht es, den Schreibcache fortzusetzen, selbst wenn die Batterien fehlen, defekt, vollständig entladen oder nicht vollständig geladen sind. Die Auswahl von Schreibcache ohne Batterien wird normalerweise nicht empfohlen, da Daten verloren gehen könnten, wenn die Stromversorgung ausfällt. Normalerweise wird der Schreibcache vom Controller vorübergehend deaktiviert, bis die Batterien geladen sind oder eine defekte Batterie ersetzt wurde.
+
+
+CAUTION: *Möglicher Datenverlust* – Wenn Sie diese Option wählen und kein universelles Netzteil zum Schutz besitzen, könnten Sie Daten verlieren. Außerdem könnten Sie Daten verlieren, wenn Sie keine Controller-Batterien haben und die Option *Schreibcache ohne Batterien* aktivieren.
+
+Diese Einstellung ist nur verfügbar, wenn Sie den Schreibcache aktiviert haben. Diese Einstellung ist für Thin Volumes nicht verfügbar.
+
+
+
+ a| 
+Schreib-Caching mit Spiegelung
+ a| 
+Schreibcache mit Spiegelung tritt auf, wenn die in den Cache-Speicher eines Controllers geschriebenen Daten auch in den Cache-Speicher des anderen Controllers geschrieben werden. Daher kann der andere Controller, falls einer ausfällt, alle ausstehenden Schreibvorgänge abschließen. Die Spiegelung des Schreibcaches ist nur verfügbar, wenn Schreibcache aktiviert ist und zwei Controller vorhanden sind. Schreibcache mit Spiegelung ist die Standardeinstellung bei der Volume-Erstellung.
+
+Diese Einstellung ist nur verfügbar, wenn Sie den Schreibcache aktiviert haben. Diese Einstellung ist für Thin Volumes nicht verfügbar.
+
+|===
+====
+. Klicken Sie auf *Speichern*, um die Cache-Einstellungen zu ändern.
+

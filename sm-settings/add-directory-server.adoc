@@ -1,0 +1,174 @@
+---
+permalink: sm-settings/add-directory-server.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, directory, server, 
+summary: Um die Authentifizierung für Access Management zu konfigurieren, können Sie die Kommunikation zwischen dem Storage-Array und einem LDAP-Server herstellen und dann die LDAP-Benutzergruppen den vordefinierten Rollen des Arrays zuordnen. 
+---
+= Fügen Sie einen LDAP-Verzeichnisserver im SANtricity System Manager hinzu
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um die Authentifizierung für Access Management zu konfigurieren, können Sie die Kommunikation zwischen dem Speichersystem und einem LDAP-Server herstellen und dann die LDAP-Benutzergruppen den vordefinierten Rollen des Speichersystems zuordnen.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+* Benutzergruppen müssen in Ihrem Verzeichnisdienst definiert werden.
+* Die Anmeldeinformationen für den LDAP-Server müssen verfügbar sein, einschließlich des Domainnamens, der Server-URL und optional des Benutzernamens und des Passworts des Bind-Kontos.
+* Für LDAPS-Server, die ein sicheres Protokoll verwenden, muss die Zertifikatskette des LDAP-Servers auf Ihrem lokalen Rechner installiert sein.
+
+
+.Über diese Aufgabe
+Das Hinzufügen eines Verzeichnisservers ist ein zweistufiger Prozess. Zuerst geben Sie den Domänennamen und die URL ein. Wenn Ihr Server ein sicheres Protokoll verwendet, müssen Sie auch ein CA-Zertifikat zur Authentifizierung hochladen, falls es von einer nicht standardmäßigen Zertifizierungsstelle signiert wurde. Wenn Sie Anmeldeinformationen für ein Bind-Konto haben, können Sie auch Ihren Benutzernamen und Ihr Passwort eingeben. Als Nächstes ordnen Sie die Benutzergruppen des LDAP-Servers den vordefinierten Rollen des Storage-Arrays zu.
+
+[NOTE]
+====
+Während des Verfahrens zum Hinzufügen eines LDAP-Servers wird die Legacy-Managementoberfläche deaktiviert. Die Legacy-Managementoberfläche (SYMbol) ist eine Methode der Kommunikation zwischen dem Storage-Array und dem Management-Client. Wenn sie deaktiviert ist, verwenden das Storage-Array und der Management-Client eine sicherere Kommunikationsmethode (REST API über https).
+
+====
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie auf der Registerkarte *Verzeichnisdienste* die Option *Verzeichnisserver hinzufügen*.
++
+Das Dialogfeld „Verzeichnisserver hinzufügen“ wird geöffnet.
+
+. Geben Sie auf der Registerkarte Server Settings die Anmeldeinformationen für den LDAP-Server ein.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Konfigurationseinstellungen*
+
+
+
+ a| 
+Domäne(n)
+ a| 
+Geben Sie den Domänennamen des LDAP-Servers ein. Für mehrere Domänen geben Sie die Domänennamen in einer durch Kommas getrennten Liste ein. Der Domänenname wird beim Login (_Benutzername_@_Domäne_) verwendet, um anzugeben, gegen welchen Verzeichnisserver die Authentifizierung erfolgen soll.
+
+
+
+ a| 
+Server-URL
+ a| 
+Geben Sie die URL für den Zugriff auf den LDAP-Server im Format  `ldap[s]://*host*:*port*` ein.
+
+
+
+ a| 
+Zertifikat hochladen (optional)
+ a| 
+
+NOTE: Dieses Feld wird nur angezeigt, wenn im Feld Server URL oben ein LDAPS-Protokoll angegeben ist.
+
+Klicken Sie auf *Durchsuchen* und wählen Sie ein CA-Zertifikat zum Hochladen aus. Dies ist das vertrauenswürdige Zertifikat bzw. die Zertifikatskette, die zur Authentifizierung des LDAP-Servers verwendet wird.
+
+
+
+ a| 
+Konto binden (optional)
+ a| 
+Geben Sie ein schreibgeschütztes Benutzerkonto für Suchabfragen gegen den LDAP-Server und für die Suche innerhalb der Gruppen ein. Geben Sie den Kontonamen in einem LDAP-Format ein. Wenn der Bind-Benutzer beispielsweise "bindacct" heißt, können Sie einen Wert wie "CN=bindacct,CN=Users,DC=cpoc,DC=local" eingeben.
+
+
+
+ a| 
+Bind-Passwort (optional)
+ a| 
+
+NOTE: Dieses Feld erscheint, wenn Sie oben ein Bind-Konto eingeben.
+
+Geben Sie das Passwort für das Bind-Konto ein.
+
+
+
+ a| 
+Testen Sie die Serververbindung, bevor Sie sie hinzufügen
+ a| 
+Aktivieren Sie dieses Kontrollkästchen, wenn Sie sicherstellen möchten, dass das Speichersystem mit der von Ihnen eingegebenen LDAP-Serverkonfiguration kommunizieren kann. Der Test erfolgt, nachdem Sie unten im Dialogfeld auf *Hinzufügen* geklickt haben. Wenn dieses Kontrollkästchen aktiviert ist und der Test fehlschlägt, wird die Konfiguration nicht hinzugefügt. Sie müssen den Fehler beheben oder das Kontrollkästchen deaktivieren, um den Test zu überspringen und die Konfiguration hinzuzufügen.
+
+
+
+ a| 
+**Berechtigungseinstellungen**
+
+
+
+ a| 
+Suchbasis-DN
+ a| 
+Geben Sie den LDAP-Kontext ein, um nach Benutzern zu suchen, typischerweise in der Form  `CN=Users, DC=cpoc, DC=local`.
+
+
+
+ a| 
+Benutzername-Attribut
+ a| 
+Geben Sie das Attribut ein, das an die Benutzer-ID für die Authentifizierung gebunden ist. Zum Beispiel: `sAMAccountName`.
+
+
+
+ a| 
+Gruppenattribut(e)
+ a| 
+Geben Sie eine Liste von Gruppenattributen des Benutzers ein, die für die Zuordnung von Gruppen zu Rollen verwendet wird. Zum Beispiel: `memberOf, managedObjects`.
+
+|===
+====
+. Klicken Sie auf die Registerkarte **Rollenzuordnung**.
+. Weisen Sie LDAP-Gruppen den vordefinierten Rollen zu. Einer Gruppe können mehrere Rollen zugewiesen sein.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Zuordnungen*
+
+
+
+ a| 
+Gruppen-DN
+ a| 
+Geben Sie den individuellen Name (DN) der zuzuordnenden LDAP-Benutzergruppe an. Reguläre Ausdrücke werden unterstützt. Diese Sonderzeichen regulärer Ausdrücke müssen mit einem Backslash (`\`) maskiert werden, wenn sie nicht Teil eines regulären Ausdrucksmusters sind: \.[]{}()<>*+-=!?^$|
+
+
+
+ a| 
+Rollen
+ a| 
+Klicken Sie in das Feld und wählen Sie eine der Rollen des Speicherarrays aus, die dem Gruppen-DN zugeordnet werden soll. Sie müssen jede Rolle, die Sie für diese Gruppe einschließen möchten, einzeln auswählen. Die Monitor-Rolle ist in Kombination mit den anderen Rollen erforderlich, um sich beim SANtricity System Manager anzumelden. Die zugeordneten Rollen umfassen die folgenden Berechtigungen:
+
+** *Speicheradministrator* -- Voller lesen/schreiben-Zugriff auf die Speicherobjekte (zum Beispiel Volumes und Disk Pools), jedoch kein Zugriff auf die Sicherheitskonfiguration.
+** *Sicherheitsadministrator* -- Zugriff auf die Sicherheitskonfiguration in Access Management, Zertifikatsverwaltung, Revisionsprotokollverwaltung und die Möglichkeit, die Legacy-Managementoberfläche (SYMbol) ein- oder auszuschalten.
+** *Support admin* -- Zugriff auf alle Hardware-Ressourcen des Storage Arrays, Fehlerdaten, MEL-Ereignisse und Controller-Firmware-Upgrades. Kein Zugriff auf Storage-Objekte oder die Sicherheitskonfiguration.
+** *Monitor* -- Nur Lesezugriff auf alle Speicherobjekte, aber kein Zugriff auf die Sicherheitskonfiguration.
+
+
+|===
+====
++
+[NOTE]
+====
+Die Rolle „Monitor“ ist für alle Benutzer, einschließlich des Administrators, erforderlich. System Manager funktioniert für keinen Benutzer ordnungsgemäß, wenn die Rolle „Monitor“ nicht vorhanden ist.
+
+====
+. Klicken Sie bei Bedarf auf *Weitere Zuordnung hinzufügen*, um weitere Gruppen-zu-Rollen-Zuordnungen einzugeben.
+. Wenn Sie mit den Zuordnungen fertig sind, klicken Sie auf *Hinzufügen*.
++
+Das System führt eine Validierung durch, um sicherzustellen, dass das Speichersystem und der LDAP-Server miteinander kommunizieren können. Wenn eine Fehlermeldung erscheint, überprüfen Sie die im Dialogfeld eingegebenen Anmeldeinformationen und geben Sie die Informationen bei Bedarf erneut ein.
+
+

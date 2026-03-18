@@ -1,0 +1,71 @@
+---
+permalink: sm-storage/create-host-cluster.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, host, cluster 
+summary: Sie erstellen einen Host-Cluster, wenn zwei oder mehr Hosts E/A-Zugriff auf dieselben Volumes benötigen. 
+---
+= Erstellen Sie einen Hostcluster im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie erstellen einen Host-Cluster, wenn zwei oder mehr Hosts E/A-Zugriff auf dieselben Volumes benötigen.
+
+.Über diese Aufgabe
+Beachten Sie diese Richtlinien, wenn Sie einen Hostcluster erstellen:
+
+* Dieser Vorgang wird nicht gestartet, es sei denn, es sind zwei oder mehr Hosts verfügbar, um den Cluster zu erstellen.
+* Hosts in Hostclustern können unterschiedliche Betriebssysteme haben (heterogen).
+* NVMe-Hosts in Host-Clustern dürfen nicht mit Nicht-NVMe-Hosts gemischt werden.
+* Um ein Data Assurance (DA)-fähiges Volume zu erstellen, muss die Hostverbindung, die Sie verwenden möchten, DA unterstützen.
++
+Wenn eine der Host-Verbindungen auf den Controllern Ihres Storage Arrays DA nicht unterstützt, können die zugehörigen Hosts nicht auf Daten auf DA-fähigen Volumes zugreifen.
+
+* Dieser Vorgang ist nicht erfolgreich, wenn der von Ihnen gewählte Name bereits verwendet wird.
+* Die Länge des Namens darf 30 Zeichen nicht überschreiten.
+
+
+.Schritte
+. Menü auswählen:Storage[Hosts].
+. Menü auswählen: Create[Host Cluster].
++
+Das Dialogfeld „Host Cluster erstellen“ wird angezeigt.
+
+. Wählen Sie die Einstellungen für den Hostcluster wie gewünscht aus.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+Name
+ a| 
+Geben Sie den Namen für den neuen Hostcluster ein.
+
+
+
+ a| 
+Wählen Sie Hosts aus, um den Volumenzugriff freizugeben
+ a| 
+Wählen Sie zwei oder mehr Hosts aus der Dropdown-Liste aus. Nur Hosts, die noch nicht Teil eines Host-Clusters sind, werden in der Liste angezeigt.
+
+|===
+====
+. Klicken Sie auf *Create*.
++
+Wenn die ausgewählten Hosts an Schnittstellentypen mit unterschiedlichen Data Assurance (DA)-Funktionen angeschlossen sind, erscheint ein Dialogfeld mit der Meldung, dass DA auf dem Hostcluster nicht verfügbar ist. Diese Nichtverfügbarkeit verhindert, dass DA-fähige Volumes zum Hostcluster hinzugefügt werden. Wählen Sie *Ja*, um fortzufahren, oder *Nein*, um abzubrechen.
+
++
+DA erhöht die Datenintegrität im gesamten Speichersystem. DA ermöglicht es dem Storage-Array, Fehler zu erkennen, die beim Verschieben von Daten zwischen den Hosts und den Laufwerken auftreten können. Die Verwendung von DA für das neue Volume stellt sicher, dass alle Fehler erkannt werden.
+
+
+
+.Ergebnisse
+Der neue Hostcluster erscheint in der Tabelle mit den zugewiesenen Hosts in den darunter stehenden Zeilen.

@@ -1,0 +1,46 @@
+---
+permalink: sm-settings/edit-mail-server-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, edit, mail, server, alerts, 
+summary: Sie können die Mailserveradresse und die E-Mail-Absenderadresse ändern, die für E-Mail-Benachrichtigungen verwendet werden. 
+---
+= Mailserver für Benachrichtigungen im SANtricity System Manager bearbeiten
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Mailserveradresse und die E-Mail-Absenderadresse ändern, die für E-Mail-Benachrichtigungen verwendet werden.
+
+.Bevor Sie beginnen
+Die Adresse des Mailservers, den Sie ändern, muss verfügbar sein. Die Adresse kann eine IPv4- oder IPv6-Adresse oder eine vollqualifizierte Domain sein.
+
+[NOTE]
+====
+Um eine vollqualifizierte Domain zu verwenden, müssen Sie auf beiden Controllern einen DNS-Server konfigurieren. Sie können einen DNS-Server auf der Hardware-Seite konfigurieren.
+
+====
+.Schritte
+. Menü auswählen: Settings[Alerts].
+. Wählen Sie die Registerkarte *E-Mail* aus.
+. Wählen Sie *Configure Mail Server*.
++
+Das Dialogfeld „Mail Server konfigurieren“ wird geöffnet.
+
+. Bearbeiten Sie die Mailserveradresse, die Absenderinformationen und die Kontaktinformationen.
++
+** *Mailserveradresse* -- Bearbeiten Sie den vollqualifizierte Domainnamen, die IPv4-Adresse oder die IPv6-Adresse des Mailservers.
++
+[NOTE]
+====
+Um eine vollqualifizierte Domain zu verwenden, müssen Sie auf beiden Controllern einen DNS-Server konfigurieren. Sie können einen DNS-Server auf der Hardware-Seite konfigurieren.
+
+====
+** *E-Mail-Absenderadresse* -- Bearbeiten Sie die E-Mail-Adresse, die als Absender der E-Mail verwendet werden soll. Diese Adresse erscheint im Feld „Von“ der E-Mail-Nachricht.
+** *Kontaktinformationen in E-Mail einfügen* -- Um die Kontaktinformationen des Absenders zu bearbeiten, wählen Sie diese Option aus und bearbeiten Sie dann den Namen und die Telefonnummer.
+
+
+. Klicken Sie auf *Speichern*.
+

@@ -1,0 +1,183 @@
+---
+permalink: sm-storage/faq-volumes-workloads.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zu Volumes und Workloads für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was ist ein Volume?
+
+Ein Volume ist ein Container, in dem Anwendungen, Datenbanken und Dateisysteme Daten speichern. Es ist die logische Komponente, die für den Host erstellt wird, um auf den Speicher des Speichersystems zuzugreifen.
+
+Ein Volume wird aus der verfügbaren Kapazität eines Pools oder einer Volume-Gruppe erstellt. Ein Volume hat eine definierte Kapazität. Obwohl ein Volume aus mehr als einem Laufwerk bestehen kann, erscheint ein Volume dem Host als eine logische Komponente.
+
+
+
+== Warum erhalte ich eine Fehlermeldung wegen Kapazitätsüberbelegung, obwohl in einer Volume-Gruppe genügend freie Kapazität zum Erstellen von Volumes vorhanden ist?
+
+Die ausgewählte Volume-Gruppe kann einen oder mehrere freie Kapazitätsbereiche aufweisen. Ein freier Kapazitätsbereich ist die freie Kapazität, die durch das Löschen eines Volumes oder dadurch entstehen kann, dass bei der Volume-Erstellung nicht die gesamte verfügbare freie Kapazität genutzt wird.
+
+Wenn Sie ein Volume in einer Volume-Gruppe erstellen, die über einen oder mehrere freie Kapazitätsbereiche verfügt, ist die Kapazität des Volumes auf den größten freien Kapazitätsbereich in dieser Volume-Gruppe begrenzt. Wenn eine Volume-Gruppe beispielsweise insgesamt 15 GiB freie Kapazität hat und der größte freie Kapazitätsbereich 10 GiB beträgt, ist das größte Volume, das Sie erstellen können, 10 GiB.
+
+Wenn eine Volumengruppe freie Kapazitätsbereiche aufweist, enthält das Diagramm der Volumengruppe einen Link, der die Anzahl der vorhandenen freien Kapazitätsbereiche angibt. Wählen Sie den Link aus, um ein Pop-over anzuzeigen, das die Kapazität jedes Bereichs angibt.
+
+Durch die Konsolidierung freier Kapazität können Sie zusätzliche Volumes aus der maximalen freien Kapazität in einer Volume-Gruppe erstellen. Sie können die vorhandene freie Kapazität in einer ausgewählten Volume-Gruppe mit einer der folgenden Methoden konsolidieren:
+
+* Wenn für eine Volume-Gruppe mindestens ein freier Kapazitätsbereich erkannt wird, erscheint die Empfehlung „Freien Speicherplatz konsolidieren“ auf der Startseite im Benachrichtigungsbereich. Klicken Sie auf den Link *Freien Speicherplatz konsolidieren*, um das Dialogfeld zu öffnen.
+* Sie können auch Menü:Pools & Volume Groups[Ungewöhnliche Aufgaben > Freie Kapazität der Volume Group konsolidieren] auswählen, um das Dialogfeld zu öffnen.
+
+
+Wenn Sie einen bestimmten freien Kapazitätsbereich anstelle des größten freien Kapazitätsbereichs nutzen möchten, verwenden Sie die Befehlszeile (CLI).
+
+
+
+== Wie wirkt sich die von mir gewählte Arbeitslast auf die Volumenerstellung aus?
+
+Bei der Volume-Erstellung werden Sie nach Informationen zur Nutzung einer Workload gefragt. Das System verwendet diese Informationen, um eine optimale Volume-Konfiguration für Sie zu erstellen, die bei Bedarf bearbeitet werden kann. Optional können Sie diesen Schritt in der Volume-Erstellungssequenz überspringen.
+
+Eine Workload ist ein Speicherobjekt, das eine Anwendung unterstützt. Sie können eine oder mehrere Workloads bzw. Instanzen pro Anwendung definieren. Bei einigen Anwendungen konfiguriert das System die Workload so, dass sie Volumes mit ähnlichen zugrunde liegenden Volume-Eigenschaften enthält. Diese Volume-Eigenschaften werden basierend auf dem Typ der Anwendung, die die Workload unterstützt, optimiert. Wenn Sie beispielsweise eine Workload erstellen, die eine Microsoft SQL Server Anwendung unterstützt, und anschließend Volumes für diese Workload erstellen, werden die zugrunde liegenden Volume-Eigenschaften optimiert, um Microsoft SQL Server zu unterstützen.
+
+* *Anwendungsspezifisch* – Beim Erstellen von Volumes mit einer anwendungsspezifischen Arbeitslast empfiehlt das System möglicherweise eine optimierte Volume-Konfiguration, um Konflikte zwischen der Arbeitslast-E/A der Anwendung und anderem Datenverkehr Ihrer Anwendungsinstanz zu minimieren. Volume-Eigenschaften wie E/A-Typ, Segmentgröße, Controller-Zugehörigkeit sowie Lese- und Schreibcache werden automatisch empfohlen und optimiert für Arbeitslasten, die für die folgenden Anwendungstypen erstellt werden.
++
+** Microsoft® SQL Server™
+** Microsoft® Exchange Server™
+** Videoüberwachungsanwendungen
+** VMware ESXi™ (für Volumes, die mit Virtual Machine File System verwendet werden sollen)
++
+Sie können die empfohlene Volume-Konfiguration überprüfen und die vom System empfohlenen Volumes und Eigenschaften mit dem Dialogfeld „Volumes hinzufügen/bearbeiten“ bearbeiten, hinzufügen oder löschen.
+
+
+
+* *Andere* (oder Anwendungen ohne spezifische Unterstützung für die Volume-Erstellung) – Andere Workloads verwenden eine Volume-Konfiguration, die Sie manuell angeben müssen, wenn Sie einen Workload erstellen möchten, der keiner bestimmten Anwendung zugeordnet ist, oder wenn keine integrierte Optimierung für die Anwendung vorhanden ist, die Sie auf dem Storage-Array verwenden möchten. Sie müssen die Volume-Konfiguration manuell im Dialogfeld „Volumes hinzufügen/bearbeiten“ angeben.
+
+
+
+
+== Warum sind diese Volumes keiner Arbeitslast zugeordnet?
+
+Volumes werden keiner Arbeitslast zugeordnet, wenn sie über die Befehlszeile (CLI) erstellt wurden oder wenn sie von einem anderen Speichersystem migriert (importiert/exportiert) wurden.
+
+
+
+== Warum kann ich die ausgewählte Arbeitslast nicht löschen?
+
+Diese Arbeitslast besteht aus einer Gruppe von Volumes, die über die Befehlszeile (CLI) erstellt oder von einem anderen Speichersystem migriert (importiert/exportiert) wurden. Daher sind die Volumes in dieser Arbeitslast keiner anwendungsspezifischen Arbeitslast zugeordnet, sodass die Arbeitslast nicht gelöscht werden kann.
+
+
+
+== Wie helfen mir anwendungsspezifische Workloads bei der Verwaltung meines Storage Arrays?
+
+Die Volumencharakteristika Ihrer anwendungsspezifischen Arbeitslast bestimmen, wie die Arbeitslast mit den Komponenten Ihres Storage-Arrays interagiert und helfen dabei, die Leistung Ihrer Umgebung unter einer gegebenen Konfiguration zu bestimmen.
+
+Eine Anwendung ist Software wie SQL Server oder Exchange. Sie definieren ein oder mehrere Workloads zur Unterstützung jeder Anwendung.
+
+
+
+== Wie hilft die Bereitstellung dieser Informationen bei der Erstellung von Speicher?
+
+Die Informationen zur Arbeitslast werden verwendet, um die Volumeneigenschaften wie E/A-Typ, Segmentgröße und lesen/schreiben-Cache für die ausgewählte Arbeitslast zu optimieren. Diese optimierten Eigenschaften bestimmen, wie Ihre Arbeitslast mit den Komponenten des Speichersystems interagiert.
+
+Anhand der von Ihnen bereitgestellten Workload-Informationen erstellt der System Manager die entsprechenden Volumes und platziert sie auf den verfügbaren Pools oder Volume-Gruppen, die derzeit im System existieren. Das System erstellt die Volumes und optimiert deren Eigenschaften basierend auf den aktuellen Best Practices für den von Ihnen ausgewählten Workload.
+
+Bevor Sie die Erstellung von Volumes für eine bestimmte Arbeitslast abschließen, können Sie die empfohlene Volume-Konfiguration überprüfen und die vom System empfohlenen Volumes und Eigenschaften mithilfe des Dialogfelds Add/Edit Volumes bearbeiten, hinzufügen oder löschen.
+
+Weitere Informationen zu bewährten Vorgehensweisen finden Sie in Ihrer anwendungsspezifischen Dokumentation.
+
+
+
+== Was muss ich tun, um die erweiterte Kapazität zu erkennen?
+
+Wenn Sie die Kapazität für ein Volume erhöhen, erkennt der Host die Erhöhung der Volume-Kapazität möglicherweise nicht sofort.
+
+Die meisten Betriebssysteme erkennen die erweiterte Volume-Kapazität und erweitern sie automatisch, nachdem die Volume-Erweiterung initiiert wurde. Einige tun dies jedoch möglicherweise nicht. Wenn Ihr Betriebssystem die erweiterte Volume-Kapazität nicht automatisch erkennt, müssen Sie möglicherweise einen Datenträger-Scan durchführen oder einen Neustart vornehmen.
+
+Nachdem Sie die Volume-Kapazität erweitert haben, müssen Sie die Dateisystemgröße manuell entsprechend anpassen. Wie Sie dies tun, hängt vom verwendeten Dateisystem ab.
+
+Weitere Einzelheiten entnehmen Sie bitte der Dokumentation Ihres Host-Betriebssystems.
+
+
+
+== Warum sehe ich nicht alle meine Pools und/oder Volumengruppen?
+
+Pools oder Volumengruppen, zu denen Sie das Volumen nicht verschieben können, werden in der Liste nicht angezeigt.
+
+Pools oder Volumengruppen sind aus einem der folgenden Gründe nicht berechtigt:
+
+* Die Data Assurance (DA)-Funktionen eines Pools oder eines Volume Group Pools stimmen nicht überein.
+* Ein Pool oder eine Volumegruppe befindet sich in einem nicht optimalen Zustand.
+* Die Kapazität eines Pools oder einer Volumengruppe ist zu gering.
+
+
+
+
+== Was ist die Segmentgröße?
+
+Ein Segment bezeichnet die Datenmenge in Kilobyte (KiB), die auf einem Laufwerk gespeichert wird, bevor das Storage-Array zum nächsten Laufwerk im Stripe (RAID-Gruppe) wechselt. Die Segmentgröße gilt nur für Volume-Gruppen, nicht für Pools.
+
+Die Segmentgröße wird durch die Anzahl der darin enthaltenen Datenblöcke definiert. Bei der Bestimmung der Segmentgröße müssen Sie wissen, welcher Datentyp in einem Volume gespeichert wird. Wenn eine Anwendung typischerweise kleine, zufällige lesen/schreiben-Vorgänge (IOPS) verwendet, funktioniert eine kleinere Segmentgröße in der Regel besser. Alternativ, wenn die Anwendung große, sequenzielle lesen/schreiben-Vorgänge (Durchsatz) hat, ist eine große Segmentgröße im Allgemeinen besser.
+
+Unabhängig davon, ob eine Anwendung kleine, zufällige lesen/schreiben oder große sequenziell lesen/schreiben nutzt, arbeitet das Storage-Array effizienter, wenn die Segmentgröße größer als die typische Datenblock-Chunksize ist. Dies macht es den Laufwerken normalerweise leichter und schneller, auf die Daten zuzugreifen, was für eine bessere Storage-Array-Performance wichtig ist.
+
+
+
+=== Umgebungen, in denen die IOPS-Performance wichtig ist
+
+In einer Umgebung mit I/O-Operationen pro Sekunde (IOPS) erzielt das Storage-Array eine bessere Leistung, wenn Sie eine Segmentgröße verwenden, die größer ist als die typische Datenblockgröße („Chunk“), die auf ein Laufwerk gelesen/geschrieben wird. Dadurch wird sichergestellt, dass jeder Chunk auf ein Einzellaufwerk geschrieben wird.
+
+
+
+=== Umgebungen, in denen der Durchsatz wichtig ist
+
+In einer Umgebung mit hohem Datendurchsatz sollte die Segmentgröße ein gleichmäßiger Anteil der Gesamtanzahl der Laufwerke für Daten und der typischen Datenblockgröße (I/O-Größe) sein. Dadurch werden die Daten als einzelner Stripe über die Laufwerke in der Volume-Gruppe verteilt, was zu schnelleren lesen/schreiben führt.
+
+
+
+== Was ist bevorzugter Controller-Besitz?
+
+Die bevorzugte Controller-Zugehörigkeit definiert den Controller, der als besitzender oder primärer Controller des Volume bestimmt ist.
+
+Die Zuständigkeit für Controller ist von großer Bedeutung und sollte sorgfältig geplant werden. Controller sollten hinsichtlich der gesamten I/Os möglichst gleichmäßig verteilt sein.
+
+Wenn beispielsweise ein Controller hauptsächlich große, sequenzielle Datenblöcke liest und der andere Controller kleine Datenblöcke mit häufigem lesen/schreiben verarbeitet, unterscheiden sich die Lasten erheblich. Wenn Sie wissen, welche Volumes welchen Datentyp enthalten, können Sie die I/O-Übertragungen gleichmäßig auf beide Controller verteilen.
+
+
+
+== Wann würde ich die Auswahl „Host später zuweisen“ verwenden wollen?
+
+Wenn Sie den Prozess für das Erstellen von Volumes beschleunigen möchten, können Sie den Schritt der Hostzuweisung überspringen, sodass neu erstellte Volumes offline initialisiert werden.
+
+Neu erstellte Datenträger müssen initialisiert werden. Das System kann sie mit einem von zwei Modi initialisieren – entweder einem Immediate Available Format (IAF) Hintergrundinitialisierungsprozess oder einem Offline-Prozess.
+
+Wenn Sie ein Volume einem Host zuordnen, zwingt dies alle initialisierenden Volumes in dieser Gruppe dazu, zur Hintergrundinitialisierung überzugehen. Dieser Hintergrundinitialisierungsprozess ermöglicht gleichzeitige Host-I/O, was mitunter zeitaufwändig sein kann.
+
+Wenn keines der Volumes in einer Volume-Gruppe zugeordnet ist, wird eine Offline-Initialisierung durchgeführt. Der Offline-Prozess ist viel schneller als der Hintergrundprozess.
+
+
+
+== Was muss ich über die Anforderungen an die Host-Blockgröße wissen?
+
+Bei EF300- und EF600-Systemen kann ein Volume so konfiguriert werden, dass es eine Blockgröße von 512 Byte oder 4 KiB (auch „Sektorgröße“ genannt) unterstützt. Sie müssen den korrekten Wert während der Volume-Erstellung festlegen. Wenn möglich, schlägt das System den passenden Standardwert vor.
+
+Bevor Sie die Volumenblockgröße festlegen, lesen Sie die folgenden Einschränkungen und Richtlinien.
+
+* Einige Betriebssysteme und virtuelle Maschinen (insbesondere VMware) benötigen eine Blockgröße von 512 Byte und unterstützen keine 4KiB, daher stellen Sie sicher, dass Sie die Anforderungen des Hosts kennen, bevor Sie ein Volume erstellen. Typischerweise erzielen Sie die beste Leistung, wenn Sie ein Volume so einstellen, dass es eine 4KiB-Blockgröße präsentiert; stellen Sie jedoch sicher, dass Ihr Host 4KiB- (oder „4Kn“-) Blöcke zulässt.
+* Die Art der Laufwerke, die Sie für Ihren Pool oder Ihre Volumengruppe auswählen, bestimmt auch, welche Volumenblockgrößen unterstützt werden, wie folgt:
++
+** Wenn Sie eine Volume-Gruppe mit Laufwerken erstellen, die in 512-Byte-Datenblöcke schreiben, dann können Sie nur Volumes mit 512-Byte-Datenblöcken erstellen.
+** Wenn Sie eine Volume-Gruppe mit Laufwerken erstellen, die in 4KiB-Blöcke schreiben, können Sie Volumes mit entweder 512-Byte- oder 4KiB-Blöcken erstellen.
+
+
+* Verfügt das Array über eine iSCSI Host-Schnittstellenkarte, sind alle Volumes auf 512-Byte-Blöcke beschränkt (unabhängig von der Blockgröße der Volume-Gruppe). Dies ist auf eine spezifische Hardware-Implementierung zurückzuführen.
+* Die Blockgröße kann nach der Festlegung nicht mehr geändert werden. Wenn Sie die Blockgröße ändern müssen, müssen Sie das Volume löschen und neu erstellen.
+

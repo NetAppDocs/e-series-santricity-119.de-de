@@ -1,0 +1,46 @@
+---
+permalink: sm-storage/add-to-workload.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add workload, volume 
+summary: Sie können ein oder mehrere Volumes zu einer bestehenden oder neuen Workload für Volumes hinzufügen, die derzeit keiner Workload zugeordnet sind. 
+---
+= Fügen Sie einem Workload im SANtricity System Manager Volumes hinzu
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein oder mehrere Volumes zu einer bestehenden oder neuen Workload für Volumes hinzufügen, die derzeit keiner Workload zugeordnet sind.
+
+.Über diese Aufgabe
+Volumes werden keiner Arbeitslast zugeordnet, wenn sie über die Befehlszeile (CLI) erstellt wurden oder wenn sie von einem anderen Speichersystem migriert (importiert/exportiert) wurden.
+
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Wählen Sie die Registerkarte *Applications & Workloads* aus.
++
+Die Ansicht „Anwendungen und Workloads" wird angezeigt.
+
+. Wählen Sie *Add to Workload*.
++
+Das Dialogfeld „Arbeitslast auswählen“ wird angezeigt.
+
+. Führen Sie eine der folgenden Aktionen aus:
++
+** *Volumes zu einer bestehenden Arbeitslast hinzufügen* -- Wählen Sie diese Option, um Volumes zu einer bestehenden Arbeitslast hinzuzufügen.
++
+Wählen Sie mithilfe der Dropdown-Liste eine Arbeitslast aus. Der zugehörige Anwendungstyp der Arbeitslast wird den Volumes zugewiesen, die Sie dieser Arbeitslast hinzufügen.
+
+** *Volumes zu einer neuen Arbeitslast hinzufügen* -- Wählen Sie diese Option, um eine neue Arbeitslast für einen Anwendungstyp zu definieren und Volumes zur neuen Arbeitslast hinzuzufügen.
+
+
+. Wählen Sie *Weiter*, um mit der Sequenz „Add to Workload“ fortzufahren.
++
+Das Dialogfeld „Volumes auswählen“ wird angezeigt.
+
+. Wählen Sie die Volumes aus, die Sie zur Arbeitslast hinzufügen möchten.
+. Überprüfen Sie die Volumes, die Sie der ausgewählten Arbeitslast hinzufügen möchten.
+. Wenn Sie mit Ihrer Workload-Konfiguration zufrieden sind, klicken Sie auf *Finish*.
+

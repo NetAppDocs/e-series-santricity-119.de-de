@@ -1,0 +1,35 @@
+---
+permalink: sm-settings/remove-directory-server.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, directory, server, 
+summary: Um die Verbindung zwischen einem Verzeichnisserver und dem Speichersystem zu trennen, können Sie die Serverinformationen auf der Seite „Zugriffsverwaltung“ entfernen. Sie möchten diese Aufgabe möglicherweise ausführen, wenn Sie einen neuen Server konfiguriert haben und anschließend den alten entfernen möchten. 
+---
+= Verzeichnisserver im SANtricity System Manager entfernen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um die Verbindung zwischen einem Verzeichnisserver und dem Speichersystem zu trennen, können Sie die Serverinformationen auf der Seite „Zugriffsverwaltung“ entfernen. Sie möchten diese Aufgabe möglicherweise ausführen, wenn Sie einen neuen Server konfiguriert haben und anschließend den alten entfernen möchten.
+
+.Bevor Sie beginnen
+Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+
+.Über diese Aufgabe
+Nach Abschluss dieser Aufgabe werden alle aktiven Benutzersitzungen beendet. Nur Ihre aktuelle Benutzersitzung bleibt erhalten.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *Directory Services* aus.
+. Wählen Sie aus der Liste den Verzeichnisserver aus, den Sie löschen möchten.
+. Klicken Sie auf *Entfernen*.
++
+Das Dialogfeld „Verzeichnisserver entfernen“ wird geöffnet.
+
+. Geben Sie  `remove` in das Feld ein und klicken Sie dann auf *Entfernen*.
++
+Die Konfigurationseinstellungen des Verzeichnisservers, die Berechtigungseinstellungen und die Rollenzuordnungen werden entfernt. Benutzer können sich nicht mehr mit Anmeldeinformationen dieses Servers anmelden.
+
+

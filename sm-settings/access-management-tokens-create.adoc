@@ -1,0 +1,58 @@
+---
+permalink: sm-settings/access-management-tokens-create.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access management, create tokens 
+summary: Sie können Zugriffstoken erstellen, die zur Authentifizierung bei der REST API oder der Befehlszeile anstelle von Benutzername und Passwort verwendet werden. 
+---
+= Erstellen Sie Zugriffstoken im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Zugriffstoken erstellen, um sich bei der REST-API oder der Befehlszeilenschnittstelle (CLI) anstelle von Benutzername und Passwort zu authentifizieren.
+
+
+NOTE: Tokens haben keine Passwörter, daher müssen Sie sie sorgfältig verwalten.
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie die Registerkarte *Access Tokens* aus.
+. Wählen Sie *Zugriffstoken-Einstellungen anzeigen/bearbeiten*. Stellen Sie im Dialogfeld sicher, dass das Kontrollkästchen *Zugriffstoken aktivieren* aktiviert ist. Klicken Sie auf *Speichern*, um das Dialogfeld zu schließen.
+. Wählen Sie *Create Access Token*.
+. Wählen Sie im Dialogfeld die Dauer aus, für die das Token gültig sein soll.
++
+
+NOTE: Nach Ablauf des Tokens schlagen die Authentifizierungsversuche des Benutzers fehl.
+
+. Klicken Sie auf *Erstellen*.
+. Wählen Sie im Dialogfeld eine der folgenden Optionen aus:
++
+** *Kopieren*, um den Token-Text in die Zwischenablage zu speichern.
+** *Download*, um den Token-Text in einer Datei zu speichern.
++
+
+NOTE: Speichern Sie unbedingt den Token-Text. Dies ist Ihre einzige Möglichkeit, den Text vor dem Schließen des Dialogfelds zu sehen.
+
+
+
+. Klicken Sie auf *Schließen*.
+. Verwenden Sie das Token wie folgt:
++
+** *Rest API*: Um ein Token in einer REST API-Anfrage zu verwenden, fügen Sie einen HTTP-Header zu Ihren Anfragen hinzu. Zum Beispiel:
+`Authorization: Bearer _<access-token-value>_`
+** *Sichere CLI*: Um ein Token in der CLI zu verwenden, fügen Sie den Tokenwert in die Befehlszeile ein oder verwenden Sie den Pfad zu einer Datei, die den Tokenwert enthält. Zum Beispiel:
++
+*** Tokenwert in der Befehlszeile: `-t _access-token-value_`
+*** Pfad zu einer Datei, die den Tokenwert enthält: `-T _access-token-file_`
++
+
+NOTE: Die CLI fordert den Benutzer zur Eingabe eines Zugriffstoken-Werts auf der Befehlszeile auf, wenn kein Benutzername, kein Passwort oder kein Token angegeben ist.
+
+
+
+
+
+

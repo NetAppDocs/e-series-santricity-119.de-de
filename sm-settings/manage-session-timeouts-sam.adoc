@@ -1,0 +1,42 @@
+---
+permalink: sm-settings/manage-session-timeouts-sam.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, manage, session, timeouts, 
+summary: Sie können Zeitüberschreitungen im SANtricity System Manager konfigurieren, sodass inaktive Sitzungen von Benutzern nach einer bestimmten Zeit getrennt werden. 
+---
+= Sitzungs-Zeitüberschreitungen im SANtricity System Manager verwalten
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Zeitüberschreitungen im SANtricity System Manager konfigurieren, sodass die inaktiven Sitzungen von Benutzern nach einer bestimmten Zeit getrennt werden.
+
+.Über diese Aufgabe
+Standardmäßig beträgt die Zeitüberschreitung für System Manager 30 Minuten. Sie können diese Zeit anpassen oder die Zeitüberschreitung für Sitzungen vollständig deaktivieren.
+
+[NOTE]
+====
+Wenn die Zugriffsverwaltung mithilfe der im Array integrierten Security Assertion Markup Language (SAML)-Funktionen konfiguriert ist, kann eine Zeitüberschreitung auftreten, wenn die SSO-Sitzung des Benutzers ihr maximales Limit erreicht. Dies kann vor der System Manager Sitzungs-Zeitüberschreitung auftreten.
+
+====
+.Schritte
+. Menü auswählen:Settings[System].
+. Wählen Sie im Abschnitt „Allgemein“ die Option *Sitzungs-Zeitüberschreitung aktivieren/deaktivieren*.
++
+Das Dialogfeld „Zeitüberschreitung aktivieren/deaktivieren“ wird geöffnet.
+
+. Verwenden Sie die Drehregler, um die Zeit in Minuten zu erhöhen oder zu verringern.
++
+Die minimale Zeitüberschreitung, die Sie für den System Manager festlegen können, beträgt 15 Minuten.
+
++
+[NOTE]
+====
+Um Zeitüberschreitungen für Sitzungen zu deaktivieren, deaktivieren Sie das Kontrollkästchen *Set the length of time...*.
+
+====
+. Klicken Sie auf *Speichern*.
+

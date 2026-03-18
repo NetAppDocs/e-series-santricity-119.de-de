@@ -1,0 +1,141 @@
+---
+permalink: sm-settings/faq-storage-drive-security.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zur Sicherheit von Speicherlaufwerken für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was muss ich wissen, bevor ich einen Sicherheitsschlüssel erstelle?
+
+Ein Sicherheitsschlüssel wird von Controllern und sicherheitsfähigen Laufwerken innerhalb eines Speichersystems gemeinsam genutzt. Wenn ein sicherheitsfähiges Laufwerk aus dem Speichersystem entfernt wird, schützt der Sicherheitsschlüssel die Daten vor unberechtigtem Zugriff.
+
+Sie können Sicherheitsschlüssel mit einer der folgenden Methoden erstellen und verwalten:
+
+* Interne Schlüsselverwaltung im persistenten Speicher des Controllers.
+* Externe Schlüsselverwaltung auf einem externen Schlüsselverwaltungsserver.
+
+
+
+
+=== Interne Schlüsselverwaltung
+
+Interne Schlüssel werden im persistenten Speicher des Controllers an einem nicht zugänglichen Ort gespeichert und „versteckt“. Bevor Sie einen internen Sicherheitsschlüssel erstellen, müssen Sie Folgendes tun:
+
+. Installieren Sie sicherheitsfähige Laufwerke im Storage-Array. Diese Laufwerke können Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein.
+. Stellen Sie sicher, dass die Funktion „Laufwerkssicherheit“ aktiviert ist. Wenden Sie sich gegebenenfalls an Ihren Speicheranbieter, um Anweisungen zur Aktivierung der Funktion „Laufwerkssicherheit“ zu erhalten.
+
+
+Anschließend können Sie einen internen Sicherheitsschlüssel erstellen, indem Sie eine Kennung und eine Passphrase definieren. Die Kennung ist eine Zeichenfolge, die dem Sicherheitsschlüssel zugeordnet ist und auf dem Controller sowie auf allen Laufwerken, die mit dem Schlüssel verknüpft sind, gespeichert wird. Die Passphrase wird verwendet, um den Sicherheitsschlüssel zu Sicherungszwecken zu verschlüsseln. Wenn Sie fertig sind, wird der Sicherheitsschlüssel an einem nicht zugänglichen Ort auf dem Controller gespeichert. Sie können dann sichere Volume-Gruppen oder -Pools erstellen oder die Sicherheit für bestehende Volume-Gruppen und -Pools aktivieren.
+
+
+
+=== Externes Schlüsselmanagement
+
+Externe Schlüssel werden auf einem separaten Schlüsselverwaltungsserver mithilfe des Key Management Interoperability Protocol (KMIP) verwaltet. Bevor Sie einen externen Sicherheitsschlüssel erstellen, müssen Sie Folgendes tun:
+
+. Installieren Sie sicherheitsfähige Laufwerke im Storage-Array. Diese Laufwerke können Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein.
+. Stellen Sie sicher, dass die Funktion „Laufwerkssicherheit“ aktiviert ist. Wenden Sie sich gegebenenfalls an Ihren Speicheranbieter, um Anweisungen zur Aktivierung der Funktion „Laufwerkssicherheit“ zu erhalten.
+. Besorgen Sie sich eine signierte Clientzertifikatsdatei. Ein Clientzertifikat validiert die Controller des Storage Arrays, sodass der Key Management Server deren KMIP-Anfragen vertrauen kann.
++
+.. Zuerst füllen Sie eine Client-Zertifikatsignierungsanforderung (CSR) aus und laden diese herunter. Gehen Sie zu Menü:Einstellungen [Zertifikate > Schlüsselverwaltung > CSR ausfüllen].
+.. Als Nächstes fordern Sie ein signiertes Clientzertifikat von einer Zertifizierungsstelle an, die vom Schlüsselverwaltungsserver als vertrauenswürdig eingestuft wird. (Sie können auch ein Clientzertifikat vom Schlüsselverwaltungsserver erstellen und mithilfe der heruntergeladenen CSR-Datei herunterladen.)
+.. Sobald Sie über eine Clientzertifikatsdatei verfügen, kopieren Sie diese Datei auf den Host, auf dem Sie auf den System Manager zugreifen.
+
+
+. Rufen Sie eine Zertifikatsdatei vom Schlüsselverwaltungsserver ab und kopieren Sie diese auf den Host, von dem aus Sie auf System Manager zugreifen. Ein Schlüsselverwaltungsserverzertifikat validiert den Schlüsselverwaltungsserver, sodass das Storage-Array seiner IP-Adresse vertrauen kann. Sie können ein Stamm-, Zwischen- oder Serverzertifikat für den Schlüsselverwaltungsserver verwenden.
+
+
+Anschließend können Sie einen externen Schlüssel erstellen, indem Sie die IP-Adresse des Schlüsselverwaltungsservers und die für die KMIP-Kommunikation verwendete Portnummer festlegen. Während dieses Vorgangs laden Sie außerdem Zertifikatsdateien. Wenn Sie fertig sind, verbindet sich das System mit dem Schlüsselverwaltungsserver mit den von Ihnen eingegebenen Anmeldedaten. Anschließend können Sie sichere Volume-Gruppen oder Pools erstellen oder die Sicherheit für bestehende Volume-Gruppen und Pools aktivieren.
+
+
+
+== Warum muss ich eine Passphrase festlegen?
+
+Die Passphrase dient zum Verschlüsseln und Entschlüsseln der auf dem lokalen Verwaltungsclient gespeicherten Sicherheitsschlüsseldatei. Ohne die Passphrase kann der Sicherheitsschlüssel nicht entschlüsselt und verwendet werden, um Daten von einem sicherheitsaktivierten Laufwerk zu entsperren, wenn es in einem anderen Speicher-Array neu installiert wird.
+
+
+
+== Warum ist es wichtig, Sicherheitsschlüsselinformationen aufzuzeichnen?
+
+Wenn Sie die Sicherheitsschlüsselinformationen verlieren und keine Sicherungskopie besitzen, können Sie Daten verlieren, wenn Sie sicherheitsfähige Laufwerke versetzen oder einen Controller aufrüsten. Sie benötigen den Sicherheitsschlüssel, um die Daten auf den Laufwerken zu entsperren.
+
+Notieren Sie sich unbedingt die Kennung des Sicherheitsschlüssels, die zugehörige Passphrase und den Speicherort auf dem lokalen Rechner, an dem die Sicherheitsschlüsseldatei gespeichert wurde.
+
+
+
+== Was muss ich wissen, bevor ich einen Sicherheitsschlüssel sichere?
+
+Wenn Ihr ursprünglicher Sicherheitsschlüssel beschädigt wird und Sie keine Sicherung haben, verlieren Sie den Zugriff auf die Daten auf den Laufwerken, wenn diese von einem Storage-Array auf ein anderes migriert werden.
+
+Bevor Sie einen Sicherheitsschlüssel sichern, beachten Sie diese Richtlinien:
+
+* Stellen Sie sicher, dass Sie die Sicherheitskennung und die Passphrase der ursprünglichen Schlüsseldatei kennen.
++
+[NOTE]
+====
+Nur interne Schlüssel verwenden Kennungen. Beim Erstellen der Kennung wurden automatisch zusätzliche Zeichen generiert und an beide Enden der Kennungszeichenfolge angehängt. Die generierten Zeichen gewährleisten, dass die Kennung eindeutig ist.
+
+====
+* Sie erstellen eine neue Passphrase für die Sicherung. Diese Passphrase muss nicht mit der Passphrase übereinstimmen, die beim Erstellen oder letzten Ändern des ursprünglichen Schlüssels verwendet wurde. Die Passphrase wird nur auf die Sicherung angewendet, die Sie erstellen.
++
+[NOTE]
+====
+Die Passphrase für Drive Security darf nicht mit dem Administratorpasswort des Storage Arrays verwechselt werden. Die Passphrase für Drive Security schützt Backups eines Sicherheitsschlüssels. Das Administratorpasswort schützt das gesamte Storage Array vor unberechtigtem Zugriff.
+
+====
+* Die Sicherungsdatei Ihres Sicherheitsschlüssels wird auf Ihren Verwaltungsclient heruntergeladen. Der Pfad für die heruntergeladene Datei kann vom Standard-Download-Speicherort Ihres Browsers abhängen. Stellen Sie sicher, dass Sie festhalten, wo Ihre Sicherheitsschlüsselinformationen gespeichert sind.
+
+
+
+
+== Was muss ich wissen, bevor ich sichere Laufwerke entsperre?
+
+Um die Daten von einem mit Sicherheitsfunktionen ausgestatteten Laufwerk zu entsperren, müssen Sie dessen Sicherheitsschlüssel importieren.
+
+Beachten Sie vor dem Entsperren von sicherheitsaktivierten Laufwerken die folgenden Richtlinien:
+
+* Das Speichersystem muss bereits über einen Sicherheitsschlüssel verfügen. Die migrierten Laufwerke werden für das Zielspeichersystem neu verschlüsselt.
+* Für die Laufwerke, die Sie migrieren, müssen Sie die Sicherheitsschlüsselkennung und die Passphrase kennen, die zur Sicherheitsschlüsseldatei gehört.
+* Die Sicherheitsschlüsseldatei muss auf dem Managementclient (dem System mit einem Browser, das für den Zugriff auf System Manager verwendet wird) verfügbar sein.
+* Wenn Sie ein gesperrtes NVMe-Laufwerk zurücksetzen, müssen Sie die Sicherheits-ID des Laufwerks eingeben. Um die Sicherheits-ID zu finden, müssen Sie das Laufwerk physisch ausbauen und die PSID-Zeichenfolge (maximal 32 Zeichen) auf dem Etikett des Laufwerks suchen. Stellen Sie sicher, dass das Laufwerk wieder eingebaut ist, bevor Sie mit dem Vorgang beginnen.
+
+
+
+
+== Was ist lesen/schreiben-Zugänglichkeit?
+
+Das Fenster „Laufwerkseinstellungen“ enthält Informationen zu den Sicherheitsattributen des Laufwerks. „Lesen/Schreiben zugänglich“ ist eines der Attribute, das angezeigt wird, wenn die Daten eines Laufwerks gesperrt sind.
+
+Um die Sicherheitsattribute des Laufwerks anzuzeigen, rufen Sie die Seite Hardware auf. Wählen Sie ein Laufwerk aus, klicken Sie auf *Einstellungen anzeigen* und dann auf *Weitere Einstellungen anzeigen*. Am unteren Rand der Seite ist der Wert des Attributs Read/Write Accessible *Ja*, wenn das Laufwerk entsperrt ist. Der Wert des Attributs Read/Write Accessible ist *Nein, ungültiger Sicherheitsschlüssel*, wenn das Laufwerk gesperrt ist. Sie können ein sicheres Laufwerk entsperren, indem Sie einen Sicherheitsschlüssel importieren (gehen Sie zu Menü:Einstellungen[System > Gesperrte Laufwerke entsperren]).
+
+
+
+== Was muss ich über die Validierung des Sicherheitsschlüssels wissen?
+
+Nach der Erstellung eines Sicherheitsschlüssels sollten Sie die Schlüsseldatei validieren, um sicherzustellen, dass sie nicht beschädigt ist.
+
+Falls die Validierung fehlschlägt, führen Sie Folgendes aus:
+
+* Wenn die Kennung des Sicherheitsschlüssels nicht mit der Kennung auf dem Controller übereinstimmt, suchen Sie die richtige Sicherheitsschlüsseldatei und versuchen Sie dann die Validierung erneut.
+* Wenn der Controller den Sicherheitsschlüssel zur Validierung nicht entschlüsseln kann, haben Sie möglicherweise die Passphrase falsch eingegeben. Überprüfen Sie die Passphrase, geben Sie sie gegebenenfalls erneut ein, und versuchen Sie dann die Validierung erneut. Wenn die Fehlermeldung erneut erscheint, wählen Sie eine Sicherungskopie der Schlüsseldatei (falls verfügbar) aus und versuchen Sie die Validierung erneut.
+* Wenn Sie den Sicherheitsschlüssel weiterhin nicht validieren können, ist die Originaldatei möglicherweise beschädigt. Erstellen Sie eine neue Sicherungskopie des Schlüssels und validieren Sie diese Kopie.
+
+
+
+
+== Worin besteht der Unterschied zwischen internem und externem Security Key Management?
+
+Wenn Sie die Funktion „Laufwerkssicherheit“ implementieren, können Sie einen internen Sicherheitsschlüssel oder einen externen Sicherheitsschlüssel verwenden, um Daten zu sperren, wenn ein sicherheitsfähiges Laufwerk aus dem Storage-Array entfernt wird.
+
+Ein Sicherheitsschlüssel ist eine Zeichenfolge, die von den sicherheitsfähigen Laufwerken und Controllern in einem Speichersystem gemeinsam genutzt wird. Interne Schlüssel werden im persistenten Speicher des Controllers aufbewahrt. Externe Schlüssel werden auf einem separaten Schlüsselverwaltungsserver mithilfe eines Key Management Interoperability Protocol (KMIP) verwaltet.

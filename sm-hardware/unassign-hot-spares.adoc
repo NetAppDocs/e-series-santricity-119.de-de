@@ -1,0 +1,43 @@
+---
+permalink: sm-hardware/unassign-hot-spares.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, hot, spare, unassign, 
+summary: Sie können ein Hot-Spare-Laufwerk wieder in ein nicht zugewiesenes Laufwerk umwandeln. 
+---
+= Hot-Spare-Geräte im SANtricity System Manager zuweisen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Hot-Spare-Laufwerk wieder in ein nicht zugewiesenes Laufwerk umwandeln.
+
+.Bevor Sie beginnen
+Das Hot-Spare-Gerät muss sich im Optimal-, Standby-Status befinden.
+
+.Über diese Aufgabe
+Sie können ein Hot-Spare-Laufwerk, das aktuell ein ausgefallenes Laufwerk ersetzt, nicht zuweisen. Wenn sich das Hot-Spare-Laufwerk nicht im optimalen Status befindet, befolgen Sie die Anweisungen von Recovery Guru, um etwaige Probleme zu beheben, bevor Sie versuchen, das Laufwerk zuzuweisen.
+
+.Schritte
+. Wählen Sie *Hardware* aus.
+. Wenn die Grafik die Controller anzeigt, klicken Sie auf die Registerkarte *Drives*.
++
+Die Grafik ändert sich, um die Laufwerke anstelle der Controller anzuzeigen.
+
+. Wählen Sie das Hot-Spare-Laufwerk (in Rosa angezeigt) aus, dessen Zuweisung Sie aufheben möchten.
++
+Wenn diagonale Linien durch den rosa Laufwerksschacht verlaufen, ist das Hot Spare derzeit in Gebrauch und kann nicht freigegeben werden.
+
++
+Das Kontextmenü des Laufwerks wird geöffnet.
+
+. Wählen Sie in der Dropdown-Liste des Laufwerks die Option *Hot Spare aufheben*.
++
+Im Dialogfeld werden alle Volumengruppen angezeigt, die von der Entfernung dieses Hot Spare betroffen sind und ob andere Hot Spares sie schützen.
+
+. Bestätigen Sie den Vorgang zum Aufheben der Zuweisung.
+
+
+.Ergebnisse
+Das Laufwerk wird wieder in den Status Nicht zugewiesen (grau dargestellt) zurückversetzt.

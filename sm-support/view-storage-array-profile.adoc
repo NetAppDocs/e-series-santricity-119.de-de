@@ -1,0 +1,107 @@
+---
+permalink: sm-support/view-storage-array-profile.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, storage, array, profile 
+summary: Das Speicherarray-Profil enthält eine Beschreibung aller Komponenten und Eigenschaften des Speicherarrays. 
+---
+= Das Profil eines Speicherarrays im SANtricity System Manager anzeigen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das Speicherarray-Profil enthält eine Beschreibung aller Komponenten und Eigenschaften des Speicherarrays.
+
+.Über diese Aufgabe
+Sie können das Speicherarray-Profil als Hilfe während der Wiederherstellung oder als Übersicht über die aktuelle Konfiguration des Speicherarrays verwenden. Sie sollten eine Kopie des Speicherarray-Profils auf dem Management-Client speichern und eine ausgedruckte Kopie des Speicherarray-Profils beim Speicherarray aufbewahren. Erstellen Sie eine neue Kopie des Speicherarray-Profils, wenn sich Ihre Konfiguration ändert.
+
+.Schritte
+. Menü auswählen: Support[Support Center > Support Resources] Tab.
+. Scrollen Sie nach unten zu *Detaillierte Informationen zum Speicherarray starten* und wählen Sie dann *Storage Array Profile* aus.
++
+Der Bericht erscheint auf Ihrem Bildschirm.
+
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Abschnitt | Beschreibung 
+
+
+ a| 
+Speicherarray
+ a| 
+Zeigt alle Optionen an, die Sie konfigurieren können, sowie die statischen Systemoptionen für Ihr Storage-Array. Zu diesen Optionen gehören die Anzahl der Controller, Laufwerksschächte, Laufwerke, Festplattenpools, Volumengruppen, Volumes und Hot-Spare-Laufwerke; die maximal zulässige Anzahl an Laufwerksschächten, Laufwerken, Solid State Disks (SSDs) und Volumes; die Anzahl der Snapshot-Gruppen, Snapshot-Images, Snapshot-Volumes und Konsistenzgruppen; Informationen zu Funktionen; Informationen zu Firmware-Versionen; Informationen zur Gehäuseseriennummer; AutoSupport-Status und AutoSupport-Zeitplaninformationen; die Einstellungen für die automatische Support-Datenerfassung und die geplante Support-Datenerfassung; die World-Wide Identifier (WWID) des Storage-Arrays; sowie die Einstellungen für Medienscan und Cache.
+
+
+
+ a| 
+Storage
+ a| 
+Zeigt eine Liste aller Speichergeräte im Speicherarray an. Je nach Konfiguration Ihres Speicherarrays werden im Abschnitt Speicher möglicherweise diese Unterabschnitte angezeigt.
+
+** *Disk Pools* -- Zeigt eine Liste aller Disk Pools im Storage-Array an.
+** *Volume Groups* -- Zeigt eine Liste aller Volume Groups im Storage-Array. Volumes und freie Kapazität werden in der Reihenfolge ihrer Erstellung aufgelistet.
+** *Volumes* -- Zeigt eine Liste aller Volumes im Speichersystem. Die angezeigten Informationen umfassen den Volume-Namen, den Volume-Status, die Kapazität, das RAID-Level, die Volume-Gruppe bzw. den Datenträgerpool, den Laufwerkstyp und weitere Details.
+** *Fehlende Volumes* – Zeigt eine Liste aller Volumes im Storage-Array an, die aktuell den Status „fehlend“ aufweisen. Die angezeigten Informationen enthalten den World Wide Identifier (WWID) für jedes fehlende Volume.
+
+
+
+
+ a| 
+Copy Services
+ a| 
+Zeigt eine Liste aller Kopierdienste, die für das Storage-Array verwendet werden. Abhängig von Ihrer Storage-Array-Konfiguration kann der Abschnitt Kopierdienste diese Unterabschnitte anzeigen:
+
+** *Volume Copies* – Zeigt eine Liste aller Kopierpaare im Speichersystem. Die angezeigten Informationen umfassen die Anzahl der Kopien, die Namen der Kopierpaare, den Status, den Startzeitstempel und weitere Details.
+** *Snapshot Groups* -- Zeigt eine Liste aller Snapshot-Gruppen im Speicherarray an.
+** *Snapshot Images* -- Zeigt eine Liste aller Snapshots im Speicherarray an.
+** *Snapshot Volumes* -- Zeigt eine Liste aller Snapshot Volumes im Storage-Array an.
+** *Konsistenzgruppen* -- Zeigt eine Liste aller Konsistenzgruppen im Speicherarray.
+** *Mitgliedsvolumes* -- Zeigt eine Liste aller Konsistenzgruppen-Mitgliedsvolumes im Speicherarray an.
+** *Spiegelgruppen* -- Zeigt eine Liste aller gespiegelten Volumes.
+** *Reservierte Kapazität* -- Zeigt eine Liste aller reservierten Kapazitätsvolumes im Storage-Array an.
+
+
+
+
+ a| 
+Hostzuweisungen
+ a| 
+Zeigt eine Liste der Hostzuweisungen im Storage-Array. Die aufgeführten Informationen umfassen den Volume-Namen, die logische Einheitennummer (LUN), die Controller-ID, den Hostnamen oder Host-Cluster-Namen und den Volume-Status. Zusätzliche aufgeführte Informationen umfassen Topologiedefinitionen und Hosttypdefinitionen.
+
+
+
+ a| 
+Hardware
+ a| 
+Zeigt eine Liste aller Hardware im Storage-Array. Je nach Konfiguration Ihres Storage-Arrays werden im Abschnitt Hardware möglicherweise diese Unterabschnitte angezeigt.
+
+** *Controller* -- Zeigt eine Liste aller Controller im Speichersystem an und enthält den Standort, Status und die Konfiguration des Controllers. Zusätzlich werden Informationen zu Laufwerkskanälen, Hostkanälen und Ethernet-Ports angezeigt.
+** *Laufwerke* -- Zeigt eine Liste aller Laufwerke im Storage-Array. Die Laufwerke sind in der Reihenfolge Fach-ID, Schubladen-ID, Steckplatz-ID aufgeführt. Die aufgeführten Informationen umfassen die Fach-ID, die Schubladen-ID, die Steckplatz-ID, den Status, die Bruttokapazität, den Medientyp, den Schnittstellentyp, die aktuelle Datenrate, die Produkt-ID und die Firmware-Version für jedes Laufwerk. Der Abschnitt Laufwerke enthält außerdem Informationen zum Laufwerkskanal, zur Hot-Spare-Abdeckung und zur Verschleißlebensdauer (nur für SSD-Laufwerke). Die Verschleißlebensdauerinformationen beinhalten den Prozentsatz der genutzten Ausdauer, also die bisher auf die SSD-Laufwerke geschriebene Datenmenge geteilt durch das theoretische Gesamtschreiblimit der Laufwerke.
+** *Laufwerkskanäle* -- Zeigt Informationen zu allen Laufwerkskanälen im Storage-Array an. Die angezeigten Informationen umfassen den Kanalstatus, den Verbindungsstatus (falls zutreffend), die Anzahl der Laufwerke und die kumulierte Fehleranzahl.
+** *Einschübe* -- Zeigt Informationen zu allen Einschüben des Speichersystems. Die angezeigten Informationen umfassen Laufwerkstypen und Statusinformationen für jede Komponente des Einschubs. Zu den Einschubkomponenten können Akkupacks, Small Form-factor Pluggable (SFP) Transceiver, Power-Fan-Module oder Input/Output Module (IOM) Module gehören. Der Abschnitt Hardware zeigt außerdem die Sicherheitsschlüsselkennung an, falls das Speichersystem einen Sicherheitsschlüssel verwendet.
+
+
+
+
+ a| 
+Features
+ a| 
+Zeigt eine Liste der installierten Funktionspakete und die maximal zulässige Anzahl von Snapshot-Gruppen, Snapshots (Legacy) und Volumes pro Host oder Host-Cluster an. Die Informationen im Abschnitt Funktionen umfassen auch Drive Security; das heißt, ob das Storage-Array security enabled oder security disabled ist.
+
+|===
+====
+. Um das Speicherarray-Profil zu durchsuchen, geben Sie einen Suchbegriff in das Textfeld *Find* ein und klicken Sie dann auf *Find*.
++
+Alle übereinstimmenden Begriffe sind hervorgehoben. Um alle Ergebnisse nacheinander durchzublättern, klicken Sie weiterhin auf *Suchen*.
+
+. Um das Speicherarray-Profil zu speichern, klicken Sie auf *Save*.
++
+Die Datei wird im Download-Ordner Ihres Browsers mit dem Namen  `storage-array-profile.txt` gespeichert.
+
+

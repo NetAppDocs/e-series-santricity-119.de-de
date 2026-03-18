@@ -1,0 +1,48 @@
+---
+permalink: sm-storage/disable-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, disable, snapshot, volume 
+summary: Sie können ein Snapshot-Volume oder ein Snapshot-Volume in einer Snapshot-Konsistenzgruppe deaktivieren, wenn Sie es nicht mehr benötigen oder die Nutzung vorübergehend einstellen möchten. 
+---
+= Deaktivieren eines Snapshot-Volumes im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein Snapshot-Volume oder ein Snapshot-Volume in einer Snapshot-Konsistenzgruppe deaktivieren, wenn Sie es nicht mehr benötigen oder die Nutzung vorübergehend einstellen möchten.
+
+.Über diese Aufgabe
+Verwenden Sie die Option „Disable“, wenn eine der folgenden Bedingungen zutrifft:
+
+* Sie sind vorerst mit dem Snapshot-Volume oder dem Snapshot-Konsistenzgruppen-Volume fertig.
+* Sie beabsichtigen, das Snapshot-Volume oder das Snapshot Konsistenzgruppe-Snapshot-Volume (das als Read-Write gekennzeichnet ist) zu einem späteren Zeitpunkt neu zu erstellen und möchten die zugehörige reservierte Kapazität beibehalten, damit Sie es nicht erneut erstellen müssen.
+* Sie möchten die Leistung des Speicherarrays steigern, indem Sie die Schreibaktivität auf einem Read-Write-Snapshot-Volume stoppen.
+
+
+Wenn das Snapshot-Volume oder das Snapshot-Konsistenzgruppen-Snapshot-Volume als Lese-/Schreibzugriff festgelegt ist, können Sie mit dieser Option auch alle weiteren Schreibvorgänge auf dem zugehörigen reservierten Kapazitäts-Volume stoppen. Wenn Sie das Snapshot-Volume oder das Snapshot-Konsistenzgruppen-Snapshot-Volume neu erstellen möchten, müssen Sie ein Snapshot-Image vom selben Basis-Volume auswählen.
+
+[NOTE]
+====
+Wenn das Snapshot-Volume oder das Snapshot-Konsistenzgruppen-Snapshot-Volume Teil einer Online-Kopierbeziehung ist, können Sie die Option „Deaktivieren“ für das Volume nicht ausführen.
+
+====
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Wählen Sie die Registerkarte *Snapshot Volumes* aus.
++
+System Manager zeigt alle Snapshot-Volumes an, die mit dem Speicherarray verknüpft sind.
+
+. Wählen Sie das Snapshot-Volume aus, das Sie deaktivieren möchten, und wählen Sie dann menu:Uncommon Tasks[Disable].
+. Bestätigen Sie, dass Sie die Operation durchführen möchten, und klicken Sie dann auf *Disable*.
+
+
+.Ergebnisse
+* Das Snapshot-Volume bleibt mit seinem Basis-Volume verknüpft.
+* Das Snapshot-Volume behält seinen World Wide Name (WWN).
+* Wenn Lese-/Schreibzugriff besteht, behält das Snapshot-Volume seine zugehörige reservierte Kapazität.
+* Das Snapshot-Volume behält alle Hostzuweisungen und Zugriffsrechte bei. Lese- und Schreibanfragen schlagen jedoch fehl.
+* Das Snapshot-Volume verliert seine Verknüpfung mit seinem Snapshot-Image.
+

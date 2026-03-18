@@ -1,0 +1,45 @@
+---
+permalink: sm-settings/enable-certificate-revocation-checking.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, certificate, revocation checking, 
+summary: 'Sie können automatische Prüfungen auf widerrufene Zertifikate aktivieren, sodass ein Online Certificate Status Protocol (OCSP)-Server Benutzer daran hindert, unsichere Verbindungen herzustellen.' 
+---
+= Aktivieren Sie die Zertifikatssperrprüfung im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können automatische Prüfungen auf widerrufene Zertifikate aktivieren, sodass ein Online Certificate Status Protocol (OCSP)-Server Benutzer daran hindert, unsichere Verbindungen herzustellen.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Zertifikatsfunktionen nicht angezeigt.
+* Auf beiden Controllern ist ein DNS-Server konfiguriert, der die Verwendung eines vollqualifizierten Domainnamens für den OCSP-Server ermöglicht. Diese Aufgabe ist auf der Hardware-Seite verfügbar.
+* Wenn Sie Ihren eigenen OCSP-Server angeben möchten, müssen Sie die URL dieses Servers kennen.
+
+
+.Über diese Aufgabe
+Die automatische Widerrufsprüfung ist hilfreich in Fällen, in denen die CA ein Zertifikat zu Unrecht ausgestellt hat oder ein privater Schlüssel kompromittiert wurde.
+
+Bei dieser Aufgabe können Sie einen OCSP-Server konfigurieren oder den in der Zertifikatsdatei angegebenen Server verwenden. Der OCSP-Server bestimmt, ob die CA Zertifikate vor deren planmäßigem Ablaufdatum widerrufen hat, und blockiert dann den Benutzer am Zugriff auf eine Website, wenn das Zertifikat widerrufen wurde.
+
+.Schritte
+. Menü auswählen: Settings[Certificates].
+. Wählen Sie die Registerkarte *Trusted* aus.
++
+[NOTE]
+====
+Sie können die Überprüfung des Widerrufs auch auf der Registerkarte *Schlüsselverwaltung* aktivieren.
+
+====
+. Klicken Sie auf *Uncommon Tasks* und wählen Sie dann im Dropdown-Menü *Enable Revocation Checking* aus.
+. Wählen Sie *I want to enable revocation checking*, damit ein Häkchen im Kontrollkästchen erscheint und zusätzliche Felder im Dialogfeld angezeigt werden.
+. Im Feld *OCSP-Responderadresse* können Sie optional eine URL für einen OCSP-Responder-Server eingeben. Wenn Sie keine Adresse eingeben, verwendet das System die URL des OCSP-Servers aus der Zertifikatsdatei.
+. Klicken Sie auf *Adresse testen*, um sicherzustellen, dass das System eine Verbindung zur angegebenen URL herstellen kann.
+. Klicken Sie auf *Speichern*.
+
+
+.Ergebnisse
+Wenn das Speichersystem versucht, eine Verbindung zu einem Server mit einem widerrufenen Zertifikat herzustellen, wird die Verbindung verweigert und ein Ereignis protokolliert.

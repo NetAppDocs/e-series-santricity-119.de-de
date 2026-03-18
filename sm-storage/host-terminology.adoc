@@ -1,0 +1,95 @@
+---
+permalink: sm-storage/host-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, host, terms 
+summary: Erfahren Sie, wie die Host-Begriffe auf Ihr Storage-Array zutreffen. 
+---
+= Erfahren Sie mehr über die Host-Terminologie in SANtricity-Software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie die Host-Begriffe auf Ihr Storage-Array zutreffen.
+
+[cols="25h,~"]
+|===
+| Komponente | Definition 
+
+
+ a| 
+Host
+ a| 
+Ein Host ist ein Server, der E/A an ein Volume auf einem Storage-Array sendet.
+
+
+
+ a| 
+Hostname
+ a| 
+Der Hostname sollte dem Systemnamen des Hosts entsprechen.
+
+
+
+ a| 
+Host-Cluster
+ a| 
+Ein Hostcluster ist eine Gruppe von Hosts. Sie erstellen einen Hostcluster, um es einfach zu machen, denselben Volumes mehreren Hosts zuzuweisen.
+
+
+
+ a| 
+Host-Schnittstellenprotokoll
+ a| 
+Ein Host-Schnittstellenprotokoll ist die Verbindung (z. B. Fibre Channel, iSCSI usw.) zwischen den Controllern und den Hosts.
+
+
+
+ a| 
+HBA oder Network Interface Card (NIC)
+ a| 
+Ein Host-Bus-Adapter (HBA) ist eine Platine, die sich in einem Host befindet und einen oder mehrere Host-Ports enthält.
+
+
+
+ a| 
+Host-Port
+ a| 
+Ein Host-Port ist ein Port an einem Host-Bus-Adapter (HBA), der die physische Verbindung zu einem Controller herstellt und für E/A-Operationen verwendet wird.
+
+
+
+ a| 
+Host-Port-Kennung
+ a| 
+Ein Host-Port-Identifikator ist ein weltweit eindeutiger Name, der jedem Host-Port auf einem Host-Bus-Adapter (HBA) zugeordnet ist.
+
+* Internet Small Computer System Interface (iSCSI) Hostport-Kennungen müssen zwischen 1 und 233 Zeichen lang sein. iSCSI Hostport-Kennungen werden im Standard-IQN-Format angezeigt (z. B. `iqn.xxx.com.xxx:8b3ad`).
+* Nicht-iSCSI-Hostportkennungen wie Fibre Channel und Serial Attached SCSI (SAS) werden nach jeweils zwei Zeichen durch Doppelpunkte getrennt angezeigt (z. B. `xx:yy:zz`). Fibre Channel-Hostportkennungen müssen 16 Zeichen lang sein.
+
+
+
+
+ a| 
+Host-Betriebssystemtyp
+ a| 
+Der Host-Betriebssystemtyp ist eine Konfigurationseinstellung, die festlegt, wie die Controller im Storage-Array auf I/O abhängig vom Betriebssystem (oder dessen Variante) des Hosts reagieren. Dies wird auch manchmal kurz als _Hosttyp_ bezeichnet.
+
+
+
+ a| 
+Controller-Host-Port
+ a| 
+Ein Controller-Host-Port ist ein Port am Controller, der die physische Verbindung zu einem Host herstellt und für I/O-Operationen verwendet wird.
+
+
+
+ a| 
+LUN
+ a| 
+Eine logische Einheitennummer (LUN) ist die Nummer, die dem Adressraum zugewiesen wird, den ein Host für den Zugriff auf ein Volume verwendet. Das Volume wird dem Host als Kapazität in Form einer LUN präsentiert.
+
+Jeder Host verfügt über einen eigenen LUN-Adressraum. Daher kann dieselbe LUN von verschiedenen Hosts verwendet werden, um auf unterschiedliche Volumes zuzugreifen.
+
+|===

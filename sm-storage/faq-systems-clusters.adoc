@@ -1,0 +1,200 @@
+---
+permalink: sm-storage/faq-systems-clusters.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zu Hostsystemen und Hostclustern für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Was sind Hosts und Host-Cluster?
+
+Ein Host ist ein Server, der E/A an ein Volume auf einem Storage-Array sendet. Ein Hostcluster ist eine Gruppe von Hosts. Sie erstellen einen Hostcluster, um es einfach zu machen, denselben Volumes mehreren Hosts zuzuweisen.
+
+Sie definieren einen Host separat. Er kann entweder eine unabhängige Einheit sein oder einem Hostcluster hinzugefügt werden. Sie können einem einzelnen Host Volumes zuweisen, oder ein Host kann Teil eines Hostclusters sein, der den Zugriff auf ein oder mehrere Volumes mit anderen Hosts im Hostcluster teilt.
+
+Der Hostcluster ist eine logische Einheit, die Sie im SANtricity System Manager erstellen. Sie müssen dem Hostcluster Hosts hinzufügen, bevor Sie Volumes zuweisen können.
+
+
+
+== Warum müsste ich einen Host-Cluster erstellen?
+
+Sie müssen einen Hostcluster erstellen, wenn Sie möchten, dass zwei oder mehr Hosts gemeinsam auf denselben Satz von Volumes zugreifen. Normalerweise ist auf den einzelnen Hosts Clustering-Software installiert, um den Volume-Zugriff zu koordinieren.
+
+
+
+== Woran erkenne ich, welcher Host-Betriebssystemtyp korrekt ist?
+
+Das Feld „Host-Betriebssystemtyp“ enthält das Betriebssystem des Hosts. Sie können den empfohlenen Hosttyp aus der Drop-down-Liste auswählen.
+
+Die im Dropdown-Menü angezeigten Hosttypen hängen vom Speicherarray-Modell und der Firmware-Version ab. Die neuesten Versionen zeigen die gängigsten Optionen zuerst an, da diese am wahrscheinlichsten geeignet sind. Das Erscheinen in dieser Liste bedeutet nicht, dass die Option vollständig unterstützt wird.
+
+[NOTE]
+====
+Weitere Informationen zur Host-Unterstützung finden Sie in der  https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitätsmatrix-Tool"^].
+
+====
+Einige der folgenden Hosttypen könnten in der Liste erscheinen:
+
+[cols="35h,~"]
+|===
+| Host-Betriebssystemtyp | Betriebssystem (OS) und Multipath-Treiber 
+
+
+ a| 
+Linux DM-MP (Kernel 3.10 oder höher)
+ a| 
+Unterstützt Linux-Betriebssysteme mit einer Device Mapper Multipath-Failover-Lösung mit Kernel 3.10 oder neuer.
+
+
+
+ a| 
+VMware ESXi
+ a| 
+Unterstützt VMware ESXi Betriebssysteme, die die Native Multipathing Plug-in (NMP) Architektur unter Verwendung des VMware integrierten Storage Array Type Policy Moduls SATP_ALUA ausführen.
+
+
+
+ a| 
+Windows (geclustert oder nicht geclustert)
+ a| 
+Unterstützt Windows-Cluster- oder Nicht-Cluster-Konfigurationen, auf denen der ATTO-Multipathing-Treiber nicht ausgeführt wird.
+
+
+
+ a| 
+ATTO Cluster (alle Betriebssysteme)
+ a| 
+Unterstützt alle Clusterkonfigurationen unter Verwendung des Multipathing-Treibers von ATTO Technology, Inc.
+
+
+
+ a| 
+Linux (Veritas DMP)
+ a| 
+Unterstützt Linux-Betriebssysteme mit einer Veritas DMP Multipathing-Lösung.
+
+
+
+ a| 
+Linux (ATTO)
+ a| 
+Unterstützt Linux-Betriebssysteme mit einem Multipathing-Treiber von ATTO Technology, Inc.
+
+
+
+ a| 
+Mac OS (ATTO)
+ a| 
+Unterstützt Mac OS-Versionen mit einem Multipathing-Treiber von ATTO Technology, Inc.
+
+
+
+ a| 
+Windows (ATTO)
+ a| 
+Unterstützt Windows-Betriebssysteme mit einem Multipathing-Treiber von ATTO Technology, Inc.
+
+
+
+ a| 
+Switched Virtual Connection
+ a| 
+Unterstützt eine IBM Switched Virtual Connection-Konfiguration.
+
+
+
+ a| 
+Werkseinstellung
+ a| 
+Für den Erststart des Speichersystems reserviert. Wenn Ihr Host-Betriebssystemtyp auf Werkseinstellung gesetzt ist, ändern Sie ihn so, dass er dem Host-Betriebssystem und dem Multipath-Treiber entspricht, die auf dem angeschlossenen Host ausgeführt werden.
+
+
+
+ a| 
+Linux DM-MP (Kernel 3.9 oder früher)
+ a| 
+Unterstützt Linux-Betriebssysteme mit einer Device Mapper Multipath-Failover-Lösung mit einem Kernel der Version 3.9 oder früher.
+
+
+
+ a| 
+Window Clustered (veraltet)
+ a| 
+Wenn Ihr Host-Betriebssystemtyp auf diesen Wert eingestellt ist, verwenden Sie stattdessen die Einstellung Windows (clustered oder non-clustered).
+
+|===
+
+
+== Was sind HBAs und Adapteranschlüsse?
+
+Ein Hostbusadapter (HBA) ist eine Platine, die in einem Host verbaut ist und einen oder mehrere Host-Ports enthält. Ein Host-Port ist ein Anschluss an einem Hostbusadapter (HBA), der die physische Verbindung zu einem Controller herstellt und für I/O-Operationen verwendet wird.
+
+Die Adapteranschlüsse des HBA werden als Host-Ports bezeichnet. Die meisten HBAs verfügen über entweder einen oder zwei Host-Ports. Der HBA besitzt eine eindeutige World Wide Identifier (WWID), und jeder HBA-Host-Port hat eine eindeutige WWID. Die Host-Port-Kennungen werden verwendet, um den entsprechenden HBA mit dem physischen Host zu verknüpfen, wenn Sie den Host manuell über SANtricity System Manager erstellen.
+
+
+
+== Wie ordne ich die Host-Ports einem Host zu?
+
+Wenn Sie einen Host manuell erstellen, müssen Sie zuerst das entsprechende Host-Bus-Adapter (HBA)-Dienstprogramm verwenden, das auf dem Host verfügbar ist, um die Host-Port-Kennungen zu ermitteln, die jedem im Host installierten HBA zugeordnet sind.
+
+Wenn Sie diese Informationen haben, wählen Sie die Host-Port-Kennungen aus, die sich beim Speicher-Array angemeldet haben, aus der im Dialogfeld „Host erstellen“ bereitgestellten Liste aus.
+
+[NOTE]
+====
+Achten Sie darauf, die korrekten Host-Port-Kennungen für den Host auszuwählen, den Sie erstellen. Wenn Sie die falschen Host-Port-Kennungen zuordnen, kann dies zu unbeabsichtigtem Zugriff von einem anderen Host auf diese Daten führen.
+
+====
+
+
+== Wie erstelle ich CHAP-Secrets?
+
+Wenn Sie die Challenge Handshake Authentication Protocol (CHAP) Authentifizierung auf einem beliebigen iSCSI-Host einrichten, der mit dem Storage Array verbunden ist, müssen Sie dieses Initiator-CHAP-Geheimnis für jeden iSCSI-Host erneut eingeben.
+
+Hierfür können Sie den System Manager entweder im Rahmen des Vorgangs Create Host oder über die Option View/Edit Settings verwenden.
+
+Wenn Sie die CHAP-Gegenseitige Authentifizierung verwenden, müssen Sie außerdem auf der Seite „Einstellungen“ ein Ziel-CHAP-Geheimnis für das Speichersystem definieren und dieses Ziel-CHAP-Geheimnis auf jedem iSCSI-Host erneut eingeben.
+
+
+
+== Was ist der Standard-Cluster?
+
+Der Standardcluster ist eine systemdefinierte Einheit, die es jedem nicht zugeordneten Host-Port-Identifikator, der sich im Storage-Array angemeldet hat, ermöglicht, auf die dem Standardcluster zugewiesenen Volumes zuzugreifen. Ein nicht zugeordneter Host-Port-Identifikator ist ein Host-Port, der logisch keinem bestimmten Host zugeordnet ist, aber physisch in einem Host installiert und im Storage-Array angemeldet ist.
+
+[NOTE]
+====
+Wenn Sie möchten, dass Hosts spezifischen Zugriff auf bestimmte Volumes im Storage-Array haben, dürfen Sie den Standardcluster _nicht_ verwenden. Stattdessen müssen Sie die Host-Port-Identifikatoren ihren entsprechenden Hosts zuordnen. Diese Aufgabe kann manuell während des Create Host-Vorgangs durchgeführt werden. Dann weisen Sie die Volumes entweder einem einzelnen Host oder einem Hostcluster zu.
+
+====
+Den Standardcluster sollten Sie _nur_ in besonderen Situationen verwenden, in denen Ihre externe Speicherumgebung es ermöglicht, dass alle Hosts und alle angemeldeten Host-Port-Kennungen, die mit dem Storage Array verbunden sind, Zugriff auf alle Volumes (All-Access-Modus) haben, ohne dass die Hosts dem Storage Array oder der Benutzeroberfläche explizit bekannt gemacht werden müssen.
+
+Anfangs können Sie Volumes nur über die Befehlszeile (CLI) dem Standardcluster zuweisen. Nachdem Sie jedoch mindestens ein Volume dem Standardcluster zugewiesen haben, wird diese Entität (genannt Default Cluster) in der Benutzeroberfläche angezeigt, wo Sie diese Entität dann verwalten können.
+
+
+
+== Was ist Host-Konnektivitätsberichterstattung?
+
+Wenn die Host-Konnektivitätsberichterstattung aktiviert ist, überwacht das Storage-Array kontinuierlich die Verbindung zwischen den Controllern und den konfigurierten Hosts und benachrichtigt Sie, wenn die Verbindung unterbrochen wird.
+
+Verbindungsunterbrechungen können auftreten, wenn ein Kabel locker, beschädigt oder nicht vorhanden ist oder ein anderes Problem mit dem Host vorliegt. In diesen Situationen kann das System eine Recovery Guru-Meldung öffnen:
+
+* *Host-Redundanz verloren* -- Öffnet sich, wenn einer der Controller nicht mit dem Host kommunizieren kann.
+* *Falscher Hosttyp* -- Öffnet sich, wenn der Typ des Hosts im Speichersystem falsch angegeben ist, was zu Failover-Problemen führen kann.
+
+
+Sie sollten die Meldungen zur Host-Konnektivität in Situationen deaktivieren, in denen ein Neustart des Controllers länger dauern könnte als die Verbindung-Zeitüberschreitung. Durch Deaktivieren dieser Funktion werden Recovery Gurus-Meldungen unterdrückt.
+
+[NOTE]
+====
+Durch Deaktivieren der Host-Konnektivitätsberichterstattung wird auch der automatische Lastausgleich deaktiviert, der die Ressourcennutzung des Controllers überwacht und ausgleicht. Wenn Sie die Host-Konnektivitätsberichterstattung jedoch wieder aktivieren, wird die automatische Lastausgleichsfunktion nicht automatisch wieder aktiviert.
+
+====

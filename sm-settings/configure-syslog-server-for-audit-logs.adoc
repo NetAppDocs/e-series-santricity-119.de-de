@@ -1,0 +1,53 @@
+---
+permalink: sm-settings/configure-syslog-server-for-audit-logs.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, syslog, server, audit, logs, 
+summary: Wenn Sie Revisionsprotokolle auf einem externen Syslog-Server archivieren möchten, können Sie die Kommunikation zwischen diesem Server und dem Storage-Array konfigurieren. Nach dem Verbindungsaufbau werden die Revisionsprotokolle automatisch auf dem Syslog-Server gespeichert. 
+---
+= Konfigurieren Sie den Syslog-Server für Revisionsprotokolle im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie Revisionsprotokolle auf einem externen Syslog-Server archivieren möchten, können Sie die Kommunikation zwischen diesem Server und dem Storage-Array konfigurieren. Nach dem Verbindungsaufbau werden die Revisionsprotokolle automatisch auf dem Syslog-Server gespeichert.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem Benutzerprofil angemeldet sein, das über Security admin-Berechtigungen verfügt. Andernfalls werden die Access Management-Funktionen nicht angezeigt.
+* Die Adresse, das Protokoll und die Portnummer des Syslog-Servers müssen verfügbar sein. Die Serveradresse kann eine vollqualifizierte Domain, eine IPv4-Adresse oder eine IPv6-Adresse sein.
+* Wenn Ihr Server ein sicheres Protokoll (zum Beispiel TLS) verwendet, muss ein Certificate Authority (CA)-Zertifikat auf Ihrem lokalen System verfügbar sein. CA-Zertifikate identifizieren Website-Betreiber für sichere Verbindungen zwischen Servern und Clients.
+
+
+.Schritte
+. Menü auswählen: Einstellungen[Access Management].
+. Wählen Sie auf der Registerkarte „Revisionsprotokoll“ die Option *Syslog-Server konfigurieren*.
++
+Das Dialogfeld „Syslog-Server konfigurieren“ wird geöffnet.
+
+. Klicken Sie auf *Add*.
++
+Das Dialogfeld „Syslog-Server hinzufügen“ wird geöffnet.
+
+. Geben Sie die Informationen für den Server ein und klicken Sie dann auf *Hinzufügen*.
++
+** *Serveradresse* -- Geben Sie eine vollqualifizierte Domain, eine IPv4-Adresse oder eine IPv6-Adresse ein.
+** *Protokoll* -- Wählen Sie ein Protokoll aus der Dropdown-Liste (zum Beispiel TLS, UDP oder TCP).
+** *Zertifikat hochladen (optional)* – Wenn Sie das TLS-Protokoll ausgewählt und noch kein signiertes CA-Zertifikat hochgeladen haben, klicken Sie auf *Durchsuchen*, um eine Zertifikatsdatei hochzuladen. Revisionsprotokolle werden ohne ein vertrauenswürdiges Zertifikat nicht auf einem Syslog-Server archiviert.
++
+[NOTE]
+====
+Wenn das Zertifikat später ungültig wird, schlägt der TLS-Handschlag fehl. Infolgedessen wird eine Fehlermeldung im Revisionsprotokoll protokolliert und es werden keine Meldungen mehr an den Syslog-Server gesendet. Um dieses Problem zu beheben, müssen Sie das Zertifikat auf dem Syslog-Server reparieren und dann zu Menü:Einstellungen[Audit Log > Syslog-Server konfigurieren > Alle testen] gehen.
+
+====
+** *Port* -- Geben Sie die Portnummer für den Syslog-Empfänger ein. Nachdem Sie auf *Hinzufügen* geklickt haben, öffnet sich das Dialogfeld „Syslog-Server konfigurieren“ und zeigt Ihren konfigurierten Syslog-Server auf der Seite an.
+
+
+. Um die Serververbindung mit dem Storage-Array zu testen, wählen Sie *Test All*.
+
+
+.Ergebnisse
+Nach der Konfiguration werden alle neuen Revisionsprotokolle an den Syslog-Server gesendet. Frühere Protokolle werden nicht übertragen. Um die Syslog-Einstellungen für Warnmeldungen weiter zu konfigurieren, siehe  https://docs.netapp.com/us-en/e-series-santricity/sm-settings/configure-syslog-server-for-alerts.html["Syslog-Server für Warnmeldungen konfigurieren"].
+
+ NOTE: If multiple syslog servers are configured, all configured syslog servers will receive an audit log.

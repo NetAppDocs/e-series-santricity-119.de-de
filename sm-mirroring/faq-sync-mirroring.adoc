@@ -1,0 +1,231 @@
+---
+permalink: sm-mirroring/faq-sync-mirroring.html 
+sidebar: sidebar 
+keywords:  
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen. 
+---
+= FAQ zur synchronen Spiegelung für SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage suchen.
+
+
+
+== Worin unterscheidet sich asynchrones Spiegeln von synchronem Spiegeln?
+
+Die Funktion „Asynchrone Spiegelung“ unterscheidet sich von der Funktion „Synchrone Spiegelung“ in einem wesentlichen Punkt: Sie erfasst den Zustand des Quellvolumes zu einem bestimmten Zeitpunkt und kopiert nur die Daten, die sich seit der letzten Image-Erfassung geändert haben.
+
+Bei synchroner Spiegelung wird der Zustand des primären Volumes nicht zu einem bestimmten Zeitpunkt erfasst, sondern alle Änderungen, die am primären Volume vorgenommen wurden, werden auf das sekundäre Volume übertragen. Das sekundäre Volume ist jederzeit identisch mit dem primären Volume, da bei dieser Art der Spiegelung bei jedem Schreibvorgang auf dem primären Volume auch ein Schreibvorgang auf dem sekundären Volume erfolgt. Der Host erhält erst dann eine Bestätigung über den erfolgreichen Schreibvorgang, wenn das sekundäre Volume erfolgreich mit den Änderungen, die am primären Volume vorgenommen wurden, aktualisiert wurde.
+
+Bei asynchroner Spiegelung ist das entfernte Speicherarray nicht vollständig mit dem lokalen Speicherarray synchronisiert, sodass bei einem Ausfall des lokalen Speicherarrays und einem Wechsel auf das entfernte Speicherarray einige Transaktionen verloren gehen könnten.
+
+Vergleich zwischen Spiegelungsfunktionen:
+
+[cols="1a,1a"]
+|===
+| Asynchrone Spiegelung | Synchrone Spiegelung 
+
+
+ a| 
+*Replikationsmethode*
+
+
+
+ a| 
+* *Point-in-Time*
++
+Die Spiegelung erfolgt bedarfsgesteuert oder automatisch nach einem benutzerdefinierten Zeitplan. Zeitpläne können mit einer Granularität von Minuten definiert werden. Die Mindestzeit zwischen Synchronisierungen beträgt 10 Minuten.
+
+
+ a| 
+* *Kontinuierlich*
++
+Die Spiegelung wird automatisch kontinuierlich ausgeführt, wobei Daten von jedem Schreibvorgang des Hosts kopiert werden.
+
+
+
+
+
+ a| 
+*Reservierte Kapazität*
+
+
+
+ a| 
+* *Mehrere*
++
+Für jedes gespiegelte Paar ist ein reserviertes Kapazitätsvolume erforderlich.
+
+
+ a| 
+* *Einzel*
++
+Für alle gespiegelten Volumes ist ein einzelnes reserviertes Kapazitätsvolume erforderlich.
+
+
+
+
+
+ a| 
+*Kommunikation*
+
+
+
+ a| 
+* *iSCSI und Fibre Channel*
++
+Unterstützt iSCSI- und Fibre-Channel-Schnittstellen zwischen Storage Arrays.
+
+
+ a| 
+* *Fibre Channel*
++
+Unterstützt nur Fibre Channel-Schnittstellen zwischen Speicherarrays.
+
+
+
+
+
+ a| 
+*Distanz*
+
+
+
+ a| 
+* *Unbegrenzt*
++
+Unterstützung für praktisch unbegrenzte Entfernungen zwischen dem lokalen Speichersystem und dem entfernten Speichersystem, wobei die Entfernung typischerweise nur durch die Leistungsfähigkeit des Netzwerks und der Kanalerweiterungstechnologie begrenzt ist.
+
+
+ a| 
+* *Eingeschränkt*
++
+Typischerweise muss sich der Speicher innerhalb von etwa 10 km (6.2 Meilen) vom lokalen Speichersystem befinden, um die Anforderungen an Latenz und Anwendungsleistung zu erfüllen.
+
+
+
+|===
+
+
+== Synchrone Spiegelung – Warum sehe ich nicht alle meine Volumes?
+
+Wenn Sie ein primäres Volume für ein gespiegeltes Paar auswählen, zeigt eine Liste alle in Frage kommenden Volumes an.
+
+Alle Volumes, die nicht zur Verwendung berechtigt sind, werden in dieser Liste nicht angezeigt. Volumes sind möglicherweise aus einem der folgenden Gründe nicht berechtigt:
+
+* Das Volume ist ein nicht standardmäßiges Volume, wie zum Beispiel ein Snapshot-Volume oder ein Thin-Volume.
+* Das Volume ist nicht optimal.
+* Das Volume nimmt bereits an einer Spiegelungsbeziehung teil.
+
+
+
+
+== Synchrone Spiegelung – Warum werden mir nicht alle Volumes auf dem Remote-System angezeigt?
+
+Wenn Sie ein sekundäres Volume auf dem Remote-Speicherarray auswählen, zeigt eine Liste alle für dieses gespiegelte Paar geeigneten Volumes an.
+
+Alle Volumes, die nicht zur Verwendung berechtigt sind, werden in dieser Liste nicht angezeigt. Volumes sind möglicherweise aus einem der folgenden Gründe nicht berechtigt:
+
+* Das Volume ist ein nicht standardmäßiges Volume, wie zum Beispiel ein Snapshot-Volume oder ein Thin-Volume.
+* Das Volume ist nicht optimal.
+* Das Volume nimmt bereits an einer Spiegelungsbeziehung teil.
+* Wenn Sie Data Assurance (DA) verwenden, müssen das primäre Volume und das sekundäre Volume die gleichen DA-Einstellungen haben.
++
+** Wenn das primäre Volume DA-fähig ist, muss das sekundäre Volume ebenfalls DA-fähig sein.
+** Wenn das primäre Volume nicht DA-fähig ist, darf das sekundäre Volume nicht DA-fähig sein.
+
+
+
+
+
+
+== Synchrone Spiegelung – Was muss ich vor dem Erstellen eines gespiegelten Paares wissen?
+
+Sie konfigurieren gespiegelte Paare in der SANtricity Unified Manager-Oberfläche und verwalten die Paare anschließend im SANtricity System Manager.
+
+Bevor Sie ein Spiegelpaar erstellen, beachten Sie diese Richtlinien:
+
+* Sie müssen über zwei Speicherarrays verfügen.
+* Jedes Speicherarray muss über zwei Controller verfügen.
+* Jeder Controller im primären Array und im sekundären Array muss über einen konfigurierten Ethernet-Management-Port verfügen und mit Ihrem Netzwerk verbunden sein.
+* Ihre lokalen und entfernten Speichersysteme sind über ein Fibre Channel Fabric miteinander verbunden.
+* Die Speichersysteme haben eine Mindest-Firmware-Version von 7.84. (Sie können jeweils unterschiedliche Betriebssystemversionen ausführen.)
+* Sie müssen das Passwort für die lokalen und entfernten Speicherarrays kennen.
+* Sie müssen über ausreichend freien Speicherplatz auf dem entfernten Speichersystem verfügen, um ein sekundäres Volume zu erstellen, das gleich groß oder größer ist als das primäre Volume, das Sie spiegeln möchten.
+* Sie haben den Web Services Proxy und den Unified Manager installiert. Gespiegelte Paare sind in der Unified Manager-Oberfläche konfiguriert.
+* Die beiden Speicherarrays werden im Unified Manager erkannt.
+
+
+
+
+== Welchen Einfluss hat die Synchronisierungspriorität auf die Synchronisierungsraten?
+
+Die Synchronisierungspriorität definiert, wie viel Verarbeitungszeit im Verhältnis zur Systemleistung für Synchronisierungsaktivitäten zugewiesen wird.
+
+Der Controller, dem das primäre Volume gehört, führt diesen Vorgang im Hintergrund aus. Gleichzeitig verarbeitet der Controller lokale E/A-Schreibvorgänge auf dem primären Volume sowie zugehörige Remote-Schreibvorgänge auf dem sekundären Volume. Da die Resynchronisierung Controller-Verarbeitungsressourcen von der E/A-Aktivität abzieht, kann sie die Leistung der Host-Anwendung beeinträchtigen.
+
+Beachten Sie diese Richtlinien, um Ihnen zu helfen, einzuschätzen, wie lange eine Synchronisierungspriorität dauern kann und wie sich die Synchronisierungsprioritäten auf die Systemleistung auswirken können.
+
+.Über Synchronisierungsprioritätsraten
+[%collapsible]
+====
+Diese Prioritätsraten sind verfügbar:
+
+* Niedrigster
+* Niedrig
+* Mittel
+* Hoch
+* Höchste
+
+
+Die niedrigste Prioritätsrate unterstützt die Systemleistung, aber die Resynchronisierung dauert länger. Die höchste Prioritätsrate unterstützt die Resynchronisierung, aber die Systemleistung kann beeinträchtigt werden.
+
+====
+Diese Richtlinien geben die Unterschiede zwischen den Prioritäten ungefähr wieder.
+
+[cols="35h,~"]
+|===
+| Prioritätsrate für die vollständige Synchronisierung | Verstrichene Zeit im Vergleich zur höchsten Synchronisationsrate 
+
+
+ a| 
+Niedrigster
+ a| 
+Ungefähr achtmal so lange wie bei der höchsten Prioritätsrate.
+
+
+
+ a| 
+Niedrig
+ a| 
+Ungefähr sechsmal so lange wie bei der höchsten Prioritätsrate.
+
+
+
+ a| 
+Mittel
+ a| 
+Ungefähr dreieinhalb Mal so lang wie bei der höchsten Prioritätsrate.
+
+
+
+ a| 
+Hoch
+ a| 
+Etwa doppelt so lange wie bei der höchsten Prioritätsrate.
+
+|===
+Volumengröße und Host-E/A-Last beeinflussen die Vergleiche der Synchronisierungszeiten.
+
+
+
+== Warum wird die Verwendung einer manuellen Synchronisierungsrichtlinie empfohlen?
+
+Eine manuelle Resynchronisierung wird empfohlen, da sie es Ihnen ermöglicht, den Resynchronisierungsprozess so zu steuern, dass die beste Möglichkeit zur Wiederherstellung von Daten besteht.
+
+Wenn Sie eine automatische Resynchronisierungsrichtlinie verwenden und während der Resynchronisierung zeitweilige Kommunikationsprobleme auftreten, könnten Daten auf dem sekundären Volume vorübergehend beschädigt werden. Wenn die Resynchronisierung abgeschlossen ist, werden die Daten korrigiert.

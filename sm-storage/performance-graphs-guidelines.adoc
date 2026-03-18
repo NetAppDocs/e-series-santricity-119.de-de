@@ -1,0 +1,103 @@
+---
+permalink: sm-storage/performance-graphs-guidelines.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, performance, 
+summary: Die Seite „Performance“ bietet Diagramme und Tabellen mit Daten, die es Ihnen ermöglichen, die Leistung des Storage-Arrays in mehreren wichtigen Bereichen zu beurteilen. 
+---
+= Erfahren Sie mehr über Leistungsdiagramme und Richtlinien im SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Leistungsseite bietet Diagramme und Tabellen mit Daten, die es Ihnen ermöglichen, die Leistung des Storage-Arrays in mehreren wichtigen Bereichen zu beurteilen.
+
+Leistungsfunktionen ermöglichen Ihnen die Ausführung dieser Aufgaben:
+
+* Zeigen Sie Leistungsdaten in nahezu Echtzeit an, um festzustellen, ob ein Speichersystem Probleme aufweist.
+* Exportieren Sie Leistungsdaten, um eine historische Übersicht eines Storage Arrays zu erstellen und festzustellen, wann ein Problem aufgetreten ist oder was die Ursache dafür war.
+* Wählen Sie die Objekte, Leistungskennzahlen und den Zeitraum aus, die Sie anzeigen möchten.
+* Kennzahlen vergleichen.
+
+
+Sie können Leistungsdaten in drei Formaten anzeigen:
+
+* *Grafische Echtzeitdarstellung* -- Zeichnet Leistungsdaten nahezu in Echtzeit auf einem Diagramm auf.
+* *Nahezu Echtzeit-Tabellendarstellung* -- Listet Leistungsdaten in einer Tabelle nahezu in Echtzeit auf.
+* *Exportierte CSV-Datei* -- Ermöglicht das Speichern tabellarischer Leistungsdaten in einer Datei mit durch Kommas getrennten Werten zur weiteren Anzeige und Analyse.
+
+
+
+
+== Merkmale von Leistungsdatenformaten
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+| *Art der Leistungsüberwachung* | *Abtastintervall* | *Angezeigte Dauer* | *Maximale Anzahl der angezeigten Objekte* | *Fähigkeit, Daten zu speichern* 
+
+
+ a| 
+Grafisch in Echtzeit, live
+
+Echtzeitgrafische, historische
+ a| 
+10 Sekunden (live)
+
+5 min (historisch)
+
+Angezeigte Datenpunkte hängen vom ausgewählten Zeitraum ab
+ a| 
+Der Standardzeitrahmen beträgt 1 Stunde.
+
+Auswahl:
+
+* 5 Minuten
+* 1 Stunde
+* 8 Stunden
+* 1 Tag
+* 7 Tage
+* 30 Tage
+
+ a| 
+5
+ a| 
+Nein
+
+
+
+ a| 
+Nahezu Echtzeit-Tabellenansicht (Tabellenansicht)
+ a| 
+10 Sekunden - 1 Stunde
+ a| 
+Aktuellster Wert
+ a| 
+Unbegrenzt
+ a| 
+Ja
+
+
+
+ a| 
+Kommagetrennte Werte (CSV) file
+ a| 
+Abhängig vom ausgewählten Zeitraum
+ a| 
+Abhängig vom ausgewählten Zeitraum
+ a| 
+Unbegrenzt
+ a| 
+Ja
+
+|===
+
+
+== Richtlinien zur Anzeige von Leistungsdaten
+
+* Die Leistungsdatenerfassung ist immer aktiviert. Es gibt keine Option, sie zu deaktivieren.
+* Jedes Mal, wenn das Abtastintervall abläuft, wird das Speicherarray abgefragt und die Daten werden aktualisiert.
+* Bei grafischen Daten unterstützt der 5-Minuten-Zeitraum eine Aktualisierung alle 10 Sekunden, gemittelt über 5 Minuten. Alle anderen Zeiträume werden alle 5 Minuten aktualisiert, gemittelt über den ausgewählten Zeitraum.
+* Leistungsdaten in den grafischen Ansichten werden in Echtzeit aktualisiert. Leistungsdaten in der Tabellenansicht werden nahezu in Echtzeit aktualisiert.
+* Ändert sich ein überwachtes Objekt während der Datenerfassung, verfügt es möglicherweise nicht über eine vollständige Reihe von Datenpunkten, die den ausgewählten Zeitraum abdecken. Beispielsweise können sich Volume-Sets ändern, wenn Volumes erstellt, gelöscht, zugewiesen oder die Zuweisung aufgehoben wird; oder Laufwerke können hinzugefügt, entfernt oder ausgefallen sein.
+

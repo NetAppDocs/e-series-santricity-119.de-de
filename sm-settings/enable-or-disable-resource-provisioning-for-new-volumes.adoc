@@ -1,0 +1,44 @@
+---
+permalink: sm-settings/enable-or-disable-resource-provisioning-for-new-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, disable, resource, provisioning, 
+summary: Wenn Sie die Standardfunktion für die Ressourcenbereitstellung zuvor deaktiviert haben, können Sie zu den Einstellungen gehen und sie für alle neuen SSD-Volume-Gruppen oder -Pools, die Sie erstellen, wieder aktivieren. Sie können die Einstellung auch wieder deaktivieren. 
+---
+= Aktivieren oder deaktivieren Sie die Ressourcenbereitstellung für neue Volumengruppen oder Pools im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie die Standardfunktion für die Ressourcenbereitstellung zuvor deaktiviert haben, können Sie sie für alle neuen SSD-Volume-Gruppen oder Pools, die Sie erstellen, wieder aktivieren. Sie können die Einstellung auch wieder deaktivieren.
+
+Die Ressourcenbereitstellung ist eine Funktion der Speicherarrays EF300 und EF600, die es ermöglicht, Volumes ohne Hintergrundinitialisierung sofort zu nutzen. Alle dem Volume zugewiesenen Laufwerksblöcke werden deallokiert (nicht zugeordnet), was die Lebensdauer der SSDs verbessern und die maximale Schreibleistung erhöhen kann.
+
+
+NOTE: Standardmäßig ist die Ressourcenbereitstellung auf Systemen aktiviert, auf denen die Laufwerke DULBE unterstützen.
+
+.Bevor Sie beginnen
+* Sie müssen über ein EF300- oder EF600-Speicherarray verfügen.
+* Sie müssen SSD-Volume-Gruppen oder -Pools haben, bei denen alle Laufwerke die NVMe Deallocated or Unwritten Logical Block Error Enable (DULBE) Fehlerbehebungsfunktion unterstützen.
++
+
+NOTE: DULBE wird auf EF300C oder EF600C Storage-Arrays derzeit nicht unterstützt.
+
+
+
+.Über diese Aufgabe
+Wenn Sie die Ressourcenbereitstellung für neue Volumengruppen oder Pools wieder aktivieren, sind nur neu erstellte Volumengruppen und Pools betroffen. Alle bestehenden Volumengruppen und Pools mit aktivierter Ressourcenbereitstellung bleiben unverändert.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Scrollen Sie nach unten zu *Zusätzliche Einstellungen* und klicken Sie dann auf *Ressourcenbereitgestellte Volumes aktivieren/deaktivieren*.
++
+Die Einstellungsbeschreibung gibt an, ob die Ressourcenbereitstellung derzeit aktiviert oder deaktiviert ist.
+
+. Bestätigen Sie den Vorgang im Dialogfeld.
+
+
+.Ergebnisse
+Das Aktivieren oder Deaktivieren der Ressourcenbereitstellung wirkt sich nur auf neue SSD-Pools oder Volumengruppen aus, die Sie erstellen. Bestehende Pools oder Volumengruppen bleiben unverändert.

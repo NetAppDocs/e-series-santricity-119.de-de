@@ -1,0 +1,30 @@
+---
+permalink: sm-mirroring/view-unsynchronized-data-amount-between-mirror-consistency-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, unsynchronized, data, mirror, consistency, groups, 
+summary: Sie können die Menge der nicht synchronisierten Daten zwischen den Konsistenzgruppen für Spiegelungen auf dem lokalen Storage-Array und auf dem Remote-Storage-Array anzeigen. Solange sich die Konsistenzgruppe für Spiegelungen im Status „Unsynchronisiert“ befindet, findet keine Spiegelungsaktivität statt. 
+---
+= Anzeigen der Menge nicht synchronisierter Daten zwischen Spiegel-Konsistenzgruppen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Menge der nicht synchronisierten Daten zwischen den Konsistenzgruppen für Spiegelungen auf dem lokalen Storage-Array und auf dem Remote-Storage-Array anzeigen. Solange sich die Konsistenzgruppe für Spiegelungen im Status „Unsynchronisiert“ befindet, findet keine Spiegelungsaktivität statt.
+
+.Über diese Aufgabe
+Sie können diese Aufgabe ausführen, wenn die ausgewählte Konsistenzgruppe gespiegelte Paare enthält und die Synchronisierung derzeit nicht läuft.
+
+.Schritte
+. Menü auswählen:Storage[Asynchronous Mirroring].
+. Wählen Sie die Registerkarte *Mirror Consistency Groups* aus.
++
+Die Tabelle „Mirror Consistency Group“ wird angezeigt und zeigt alle mit dem Speicherarray verknüpften Mirror Consistency Groups an.
+
+. Klicken Sie auf Menü:More[Unsynchronisierte Datenmenge anzeigen].
++
+Falls nicht synchronisierte Daten vorhanden sind, spiegeln die Tabellenwerte dies wider. Die Spalte Datenmenge gibt die Menge der nicht synchronisierten Daten in MiB an.
+
+

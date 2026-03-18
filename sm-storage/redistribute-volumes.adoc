@@ -1,0 +1,38 @@
+---
+permalink: sm-storage/redistribute-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, redistribute, volumes 
+summary: Sie verteilen Volumes neu, um Volumes ihren bevorzugten Controller-Besitzern wieder zuzuordnen. Typischerweise verschieben Multipath-Treiber Volumes von ihrem bevorzugten Controller-Besitzer, wenn ein Problem auf dem Datenpfad zwischen Host und Storage-Array auftritt. 
+---
+= Volumes im SANtricity System Manager neu verteilen
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie verteilen Volumes neu, um Volumes ihren bevorzugten Controller-Besitzern wieder zuzuordnen. Typischerweise verschieben Multipath-Treiber Volumes von ihrem bevorzugten Controller-Besitzer, wenn ein Problem auf dem Datenpfad zwischen Host und Storage-Array auftritt.
+
+.Bevor Sie beginnen
+* Die Volumes, die Sie neu verteilen möchten, werden nicht verwendet oder es treten E/A-Fehler auf.
+* Auf allen Hosts, die die Volumes verwenden, die Sie umverteilen möchten, muss ein Multipath-Treiber installiert sein, andernfalls treten E/A-Fehler auf.
++
+Wenn Sie Volumes ohne Multipath-Treiber auf den Hosts neu verteilen möchten, muss alle E/A-Aktivität auf den Volumes _während der Neuverteilungsoperation_ gestoppt werden, um Anwendungsfehler zu vermeiden.
+
+
+
+.Über diese Aufgabe
+Die meisten Multipath-Treiber auf Hosts versuchen, auf jedes Volume über einen Pfad zu dessen bevorzugtem Controller-Besitzer zuzugreifen. Wenn dieser bevorzugte Pfad jedoch nicht verfügbar ist, übernimmt der Multipath-Treiber auf dem Host einen alternativen Pfad. Dieses Failover kann dazu führen, dass die Volume-Eigentümerschaft auf den alternativen Controller wechselt. Nachdem Sie die Ursache für das Failover behoben haben, verschieben einige Hosts die Volume-Eigentümerschaft möglicherweise automatisch zurück zum bevorzugten Controller-Besitzer, aber in manchen Fällen müssen Sie die Volumes manuell neu verteilen.
+
+.Schritte
+. Menü auswählen: Storage[Volumes].
+. Menü auswählen: More [Volumes neu verteilen].
++
+Das Dialogfeld „Volumes neu verteilen“ wird angezeigt. Alle Volumes auf dem Storage-Array, deren bevorzugter Controller-Besitzer nicht mit dem aktuellen Besitzer übereinstimmt, werden in diesem Dialogfeld angezeigt.
+
+. Wählen Sie ein oder mehrere Volumes aus, die Sie neu verteilen möchten, und bestätigen Sie, dass Sie den Vorgang ausführen möchten.
+
+
+.Ergebnisse
+System Manager verschiebt die ausgewählten Volumes zu ihren bevorzugten Controller-Besitzern, oder es wird möglicherweise ein Dialogfeld „Volumes unnötigerweise neu verteilen“ angezeigt.

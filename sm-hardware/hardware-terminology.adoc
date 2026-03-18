@@ -1,0 +1,496 @@
+---
+permalink: sm-hardware/hardware-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hardware, terms 
+summary: Erfahren Sie, wie die Hardwarebegriffe auf Ihr Storage-Array zutreffen. 
+---
+= Erfahren Sie mehr über die in der SANtricity Software verwendete Hardware-Terminologie
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die folgenden Hardwarebegriffe gelten für Speicherarrays.
+
+.Allgemeine Hardwarebegriffe:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Komponente | Beschreibung 
+
+
+ a| 
+Einschub
+ a| 
+Ein Einbauschacht ist ein Steckplatz im Shelf, in den ein Laufwerk oder eine andere Komponente eingebaut wird.
+
+
+
+ a| 
+Controller
+ a| 
+Ein Controller besteht aus einer Platine, Firmware und Software. Er steuert die Laufwerke und implementiert die System Manager-Funktionen.
+
+
+
+ a| 
+Controller-Shelf
+ a| 
+Ein Controller-Gehäuse enthält eine Reihe von Laufwerken und einen oder mehrere Controller-Einschübe. Ein Controller-Einschub enthält die Controller, Host-Schnittstellenkarten (HICs) und Batterien.
+
+
+
+ a| 
+Laufwerk
+ a| 
+Ein Laufwerk ist ein elektromagnetisches mechanisches Gerät oder ein Halbleiterspeichergerät, das das physische Speichermedium für Daten bereitstellt.
+
+
+
+ a| 
+Laufwerksshelf
+ a| 
+Ein Laufwerksschacht, auch Erweiterungsschacht genannt, enthält mehrere Laufwerke und zwei Eingabe-/Ausgabemodule (IOMs). Die IOMs enthalten SAS-Anschlüsse, die einen Laufwerksschacht mit einem Controller-Schacht oder mit anderen Laufwerksschächten verbinden.
+
+
+
+ a| 
+IOM (ESM)
+ a| 
+Ein IOM ist ein Eingabe-/Ausgabemodul, das SAS-Ports für die Verbindung des Laufwerksgehäuses mit dem Controllergehäuse enthält. In früheren Controllermodellen wurde das IOM als Environmental Service Module (ESM) bezeichnet.
+
+
+
+ a| 
+Power-/Fan-Canister
+ a| 
+Ein Netzteil-/Lüftergehäuse ist eine Einheit, die in ein Regal eingeschoben wird. Es enthält ein Netzteil und einen integrierten Lüfter.
+
+
+
+ a| 
+SFP
+ a| 
+Ein SFP ist ein Small Form-factor Pluggable (SFP) Transceiver.
+
+
+
+ a| 
+Shelf
+ a| 
+Ein Shelf ist ein in einem Schrank oder Rack installiertes Gehäuse. Es enthält die Hardwarekomponenten für das Storage-Array. Es gibt zwei Arten von Shelfs: ein Controller-Shelf und ein Laufwerks-Shelf. Ein Controller-Shelf enthält Controller und Laufwerke. Ein Laufwerks-Shelf enthält Eingabe-/Ausgabemodule (IOMs) und Laufwerke.
+
+
+
+ a| 
+Speicherarray
+ a| 
+Ein Storage-Array umfasst die Gehäuse, Controller, Laufwerke, Software und Firmware.
+
+|===
+====
+.Controller-Begriffe:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Komponente | Beschreibung 
+
+
+ a| 
+Controller
+ a| 
+Ein Controller besteht aus einer Platine, Firmware und Software. Er steuert die Laufwerke und implementiert die System Manager-Funktionen.
+
+
+
+ a| 
+Controller-Shelf
+ a| 
+Ein Controller-Gehäuse enthält eine Reihe von Laufwerken und einen oder mehrere Controller-Einschübe. Ein Controller-Einschub enthält die Controller, Host-Schnittstellenkarten (HICs) und Batterien.
+
+
+
+ a| 
+DHCP
+ a| 
+Dynamic Host Configuration Protocol (DHCP) ist ein Protokoll, das in Internet Protocol (IP)-Netzwerken zur dynamischen Verteilung von Netzwerkkonfigurationsparametern wie IP-Adressen verwendet wird.
+
+
+
+ a| 
+DNS
+ a| 
+Das Domain Name System (DNS) ist ein Namenssystem für Geräte, die mit dem Internet oder einem privaten Netzwerk verbunden sind. Der DNS-Server verwaltet ein Verzeichnis von Domainnamen und übersetzt diese in Internet Protocol (IP)-Adressen.
+
+
+
+ a| 
+Duplex-Konfigurationen
+ a| 
+Duplex ist eine Konfiguration mit zwei Controllern innerhalb des Storage-Arrays. Duplex-Systeme sind hinsichtlich Controllern, logischen Volume-Pfaden und Festplattenpfaden vollständig redundant. Fällt ein Controller aus, übernimmt der andere dessen I/O, um die Verfügbarkeit aufrechtzuerhalten. Duplex-Systeme verfügen außerdem über redundante Lüfter und Netzteile.
+
+
+
+ a| 
+Vollduplex-/Halbduplex-Verbindungen
+ a| 
+Vollduplex und Halbduplex bezeichnen Verbindungsmodi. Im Vollduplex-Modus können zwei Geräte gleichzeitig in beide Richtungen kommunizieren. Im Halbduplex-Modus können Geräte jeweils nur in eine Richtung kommunizieren (ein Gerät sendet eine Nachricht, während das andere Gerät sie empfängt).
+
+
+
+ a| 
+HIC
+ a| 
+Eine Host-Schnittstellenkarte (HIC) kann optional in einem Controller-Gehäuse installiert werden. Host-Ports, die im Controller integriert sind, werden als Baseboard-Host-Ports bezeichnet. Host-Ports, die in die HIC integriert sind, werden als HIC-Ports bezeichnet.
+
+
+
+ a| 
+ICMP PING-Antwort
+ a| 
+Internet Control Message Protocol (ICMP) ist ein Protokoll, das von Betriebssystemen vernetzter Computer zum Versenden von Nachrichten verwendet wird. ICMP-Nachrichten bestimmen, ob ein Host erreichbar ist und wie lange es dauert, Pakete zu und von diesem Host zu senden.
+
+
+
+ a| 
+MAC-Adresse
+ a| 
+Media access control identifiers (MAC-Adressen) werden von Ethernet verwendet, um zwischen separaten logischen Kanälen zu unterscheiden, die zwei Ports auf derselben physischen Transportnetzwerkschnittstelle verbinden.
+
+
+
+ a| 
+Management-Client
+ a| 
+Ein Managementclient ist der Computer, auf dem ein Browser für den Zugriff auf System Manager installiert ist.
+
+
+
+ a| 
+MTU
+ a| 
+Eine Maximum Transmission Unit (MTU) ist das größte Paket oder der größte Frame, der in einem Netzwerk gesendet werden kann.
+
+
+
+ a| 
+NTP
+ a| 
+Network Time Protocol (NTP) ist ein Netzwerkprotokoll zur Taktsynchronisierung zwischen Computersystemen in Datennetzwerken.
+
+
+
+ a| 
+Simplex-Konfigurationen
+ a| 
+Simplex ist eine Konfiguration mit einem einzelnen Controller-Modul innerhalb des Storage-Arrays. Ein Simplex-System bietet keine Controller- oder Festplattenpfadredundanz, verfügt aber über redundante Lüfter und Netzteile.
+
+
+
+ a| 
+VLAN
+ a| 
+Ein virtuelles lokales Netzwerk (VLAN) ist ein logisches Netzwerk, das sich so verhält, als wäre es physisch von anderen Netzwerken getrennt, die von denselben Geräten (Switches, Routern usw.) unterstützt werden.
+
+|===
+====
+.Festplattenbegriffe:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Komponente | Beschreibung 
+
+
+ a| 
+DA
+ a| 
+Data Assurance (DA) ist eine Funktion, die Fehler erkennt und korrigiert, die beim Datentransfer von den Controllern zu den Laufwerken auftreten können. Data Assurance kann auf Pool- oder Volume-Gruppenebene aktiviert werden, wobei Hosts eine DA-fähige I/O-Schnittstelle wie Fibre Channel verwenden.
+
+
+
+ a| 
+Laufwerksicherheitsfunktion
+ a| 
+Die Laufwerkssicherheit ist eine Funktion von Speichersystemen, die eine zusätzliche Sicherheitsebene mit entweder Full Disk Encryption (FDE)-Festplatten oder Federal Information Processing Standard (FIPS)-Festplatten bietet. Wenn diese Festplatten mit der Laufwerkssicherheitsfunktion verwendet werden, ist ein Sicherheitsschlüssel für den Zugriff auf ihre Daten erforderlich. Wenn die Festplatten physisch aus dem Array entfernt werden, können sie erst wieder betrieben werden, wenn sie in ein anderes Array installiert werden; zu diesem Zeitpunkt befinden sie sich im Sicherheits-Locked-Zustand, bis der korrekte Sicherheitsschlüssel bereitgestellt wird.
+
+
+
+ a| 
+Laufwerksshelf
+ a| 
+Ein Laufwerksschacht, auch Erweiterungsschacht genannt, enthält mehrere Laufwerke und zwei Eingabe-/Ausgabemodule (IOMs). Die IOMs enthalten SAS-Anschlüsse, die einen Laufwerksschacht mit einem Controller-Schacht oder mit anderen Laufwerksschächten verbinden.
+
+
+
+ a| 
+DULBE
+ a| 
+Deallocated or Unwritten Logical Block Error (DULBE) ist eine Option auf NVMe-Laufwerken, die es dem EF300- oder EF600-Speicherarray ermöglicht, ressourcenbereitgestellte Volumes zu unterstützen.
+
+
+
+ a| 
+FDE-Laufwerke
+ a| 
+Festplatten mit vollständiger Festplattenverschlüsselung (FDE) führen die Verschlüsselung auf der Festplatte auf Hardwareebene durch. Die Festplatte enthält einen ASIC-Chip, der Daten beim Schreiben verschlüsselt und beim Lesen wieder entschlüsselt.
+
+
+
+ a| 
+FIPS-Laufwerke
+ a| 
+FIPS-Laufwerke verwenden Federal Information Processing Standards (FIPS) 140-2 Level 2. Sie sind im Wesentlichen FDE-Laufwerke, die den Standards der US-Regierung für starke Verschlüsselungsalgorithmen und -methoden entsprechen. FIPS-Laufwerke haben höhere Sicherheitsstandards als FDE-Laufwerke.
+
+
+
+ a| 
+HDD
+ a| 
+Festplattenlaufwerke (HDDs) sind Datenspeichergeräte, die rotierende Metallscheiben mit einer magnetischen Beschichtung verwenden.
+
+
+
+ a| 
+Hot-Spare-Laufwerke
+ a| 
+Hot-Spare-Laufwerke fungieren als Standby-Laufwerke in RAID-1-, RAID-5- oder RAID-6-Volume-Gruppen. Sie sind voll funktionsfähige Laufwerke, die keine Daten enthalten. Fällt ein Laufwerk in der Volume-Gruppe aus, rekonstruiert der Controller die Daten des ausgefallenen Laufwerks automatisch auf ein Hot-Spare-Laufwerk.
+
+
+
+ a| 
+NVMe
+ a| 
+Non-Volatile Memory Express (NVMe) ist eine Schnittstelle für Flash-basierte Speichergeräte, wie SSD-Laufwerke. NVMe reduziert den I/O-Overhead und beinhaltet Leistungsverbesserungen im Vergleich zu früheren logischen Geräteschnittstellen.
+
+
+
+ a| 
+SAS
+ a| 
+Serial Attached SCSI (SAS) ist ein Punkt-zu-Punkt-Serialprotokoll, das Controller direkt mit Festplatten verbindet.
+
+
+
+ a| 
+Sicherheitsfähige Laufwerke
+ a| 
+Sicherheitsfähige Laufwerke können entweder Full Disk Encryption (FDE)-Laufwerke oder Federal Information Processing Standard (FIPS)-Laufwerke sein, die Daten beim Schreiben verschlüsseln und beim Lesen entschlüsseln. Diese Laufwerke gelten als sicher-_capable_, da sie mithilfe der Funktion „Laufwerkssicherheit“ für zusätzliche Sicherheit eingesetzt werden können. Wenn die Funktion „Laufwerkssicherheit“ für die mit diesen Laufwerken verwendeten Volume-Gruppen und Pools aktiviert ist, werden die Laufwerke secure-_enabled_.
+
+
+
+ a| 
+Sicherheitsfähige Laufwerke
+ a| 
+Sicherheitsfähige Laufwerke werden mit der Funktion Drive Security verwendet. Wenn Sie die Funktion Drive Security aktivieren und dann Drive Security auf einen Pool oder eine Volumengruppe mit secure-_capable_ Laufwerken anwenden, werden die Laufwerke secure__-enabled__. Lese- und Schreibzugriff ist nur über einen Controller möglich, der mit dem korrekten Sicherheitsschlüssel konfiguriert ist. Diese zusätzliche Sicherheit verhindert unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Speicher-Array entfernt wurde.
+
+
+
+ a| 
+SSD
+ a| 
+Solid-State-Disks (SSDs) sind Datenspeichergeräte, die Solid-State-Speicher (Flash) zur dauerhaften Speicherung von Daten verwenden. SSDs emulieren herkömmliche Festplatten und sind mit denselben Schnittstellen wie Festplatten erhältlich.
+
+|===
+====
+.iSCSI-Begriffe:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+CHAP
+ a| 
+Das Challenge Handshake Authentication Protocol (CHAP) validiert die Identität von Targets und Initiatoren während der ersten Verbindung. Die Authentifizierung basiert auf einem gemeinsamen Sicherheitsschlüssel, dem sogenannten CHAP .
+
+
+
+ a| 
+Controller
+ a| 
+Ein Controller besteht aus einer Platine, Firmware und Software. Er steuert die Laufwerke und implementiert die System Manager-Funktionen.
+
+
+
+ a| 
+DHCP
+ a| 
+Dynamic Host Configuration Protocol (DHCP) ist ein Protokoll, das in Internet Protocol (IP)-Netzwerken zur dynamischen Verteilung von Netzwerkkonfigurationsparametern wie IP-Adressen verwendet wird.
+
+
+
+ a| 
+IB
+ a| 
+InfiniBand (IB) ist ein Kommunikationsstandard für die Datenübertragung zwischen Hochleistungsservern und Speichersystemen.
+
+
+
+ a| 
+ICMP PING-Antwort
+ a| 
+Internet Control Message Protocol (ICMP) ist ein Protokoll, das von Betriebssystemen vernetzter Computer zum Versenden von Nachrichten verwendet wird. ICMP-Nachrichten bestimmen, ob ein Host erreichbar ist und wie lange es dauert, Pakete zu und von diesem Host zu senden.
+
+
+
+ a| 
+IQN
+ a| 
+Ein iSCSI Qualified Name (IQN) Identifier ist ein eindeutiger Name für einen iSCSI-Initiator oder ein iSCSI-Ziel.
+
+
+
+ a| 
+iSER
+ a| 
+iSCSI Extensions for RDMA (iSER) ist ein Protokoll, das das iSCSI-Protokoll für den Betrieb über RDMA-Transporte wie InfiniBand oder Ethernet erweitert.
+
+
+
+ a| 
+iSNS
+ a| 
+Internet Storage Name Service (iSNS) ist ein Protokoll, das die automatische Erkennung, Verwaltung und Konfiguration von iSCSI- und Fibre-Channel-Geräten in TCP/IP-Netzwerken ermöglicht.
+
+
+
+ a| 
+MAC-Adresse
+ a| 
+Media access control identifiers (MAC-Adressen) werden von Ethernet verwendet, um zwischen separaten logischen Kanälen zu unterscheiden, die zwei Ports auf derselben physischen Transportnetzwerkschnittstelle verbinden.
+
+
+
+ a| 
+Management-Client
+ a| 
+Ein Managementclient ist der Computer, auf dem ein Browser für den Zugriff auf System Manager installiert ist.
+
+
+
+ a| 
+MTU
+ a| 
+Eine Maximum Transmission Unit (MTU) ist das größte Paket oder der größte Frame, der in einem Netzwerk gesendet werden kann.
+
+
+
+ a| 
+RDMA
+ a| 
+Remote Direct Memory Access (RDMA) ist eine Technologie, die es vernetzten Computern ermöglicht, Daten im Hauptspeicher auszutauschen, ohne dass das Betriebssystem eines der beiden Computer beteiligt ist.
+
+
+
+ a| 
+Unbenannte Erkennungssitzung
+ a| 
+Wenn die Option für unbenannte Erkennungssitzungen aktiviert ist, müssen iSCSI-Initiatoren den Ziel-IQN nicht angeben, um die Informationen des Controllers abzurufen.
+
+|===
+====
+.NVMe-Begriffe:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Begriff | Beschreibung 
+
+
+ a| 
+InfiniBand
+ a| 
+InfiniBand (IB) ist ein Kommunikationsstandard für die Datenübertragung zwischen Hochleistungsservern und Speichersystemen.
+
+
+
+ a| 
+Namensraum
+ a| 
+Ein Namespace ist NVM-Speicher, der für Blockzugriff formatiert ist. Er ist analog zu einer logischen Einheit in SCSI, die sich auf ein Volume im Speicherarray bezieht.
+
+
+
+ a| 
+Namespace-ID
+ a| 
+Die Namespace-ID ist der eindeutige Bezeichner des NVMe-Controllers für den Namespace und kann auf einen Wert zwischen 1 und 255 gesetzt werden. Sie ist analog zu einer logischen Einheitennummer (LUN) in SCSI.
+
+
+
+ a| 
+NQN
+ a| 
+NVMe Qualified Name (NQN) wird verwendet, um das entfernte Speicherziel (das Speicherarray) zu identifizieren.
+
+
+
+ a| 
+NVM
+ a| 
+Nichtflüchtiger Speicher (NVM) ist ein persistenter Speicher, der in vielen Arten von Speichergeräten verwendet wird.
+
+
+
+ a| 
+NVMe
+ a| 
+Non-Volatile Memory Express (NVMe) ist eine Schnittstelle für Flash-basierte Speichergeräte, wie SSD-Laufwerke. NVMe reduziert den I/O-Overhead und beinhaltet Leistungsverbesserungen im Vergleich zu früheren logischen Geräteschnittstellen.
+
+
+
+ a| 
+NVMe-oF
+ a| 
+Non-Volatile Memory Express over Fabrics (NVMe-oF) ist eine Spezifikation, die es ermöglicht, NVMe-Befehle und Daten über ein Netzwerk zwischen einem Host und einem Speicher zu übertragen.
+
+
+
+ a| 
+NVMe-Controller
+ a| 
+Ein NVMe-Controller wird während des Host-Verbindungsprozesses erstellt. Er stellt einen Zugriffspfad zwischen einem Host und den Namespaces im Speicherarray bereit.
+
+
+
+ a| 
+NVMe-Warteschlange
+ a| 
+Eine Warteschlange wird zum Übermitteln von Befehlen und Nachrichten über die NVMe-Schnittstelle verwendet.
+
+
+
+ a| 
+NVMe-Subsystem
+ a| 
+Das Speicherarray mit einer NVMe-Hostverbindung.
+
+
+
+ a| 
+RDMA
+ a| 
+Remote Direct Memory Access (RDMA) ermöglicht eine direktere Datenübertragung in und aus einem Server, indem ein Transportprotokoll in der Netzwerkkarte (NIC) Hardware implementiert wird.
+
+
+
+ a| 
+RoCE
+ a| 
+RDMA over Converged Ethernet (RoCE) ist ein Netzwerkprotokoll, das den Remote Direct Memory Access (RDMA) über ein Ethernet-Netzwerk ermöglicht.
+
+
+
+ a| 
+SSD
+ a| 
+Solid-State-Disks (SSDs) sind Datenspeichergeräte, die Solid-State-Speicher (Flash) zur dauerhaften Speicherung von Daten verwenden. SSDs emulieren herkömmliche Festplatten und sind mit denselben Schnittstellen wie Festplatten erhältlich.
+
+|===
+====

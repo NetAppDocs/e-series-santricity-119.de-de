@@ -1,0 +1,30 @@
+---
+permalink: sm-settings/edit-key-management-server-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, edit, key, management, server, settings, 
+summary: Wenn Sie die externe Schlüsselverwaltung konfiguriert haben, können Sie die Einstellungen des Key Management Servers jederzeit einsehen und bearbeiten. 
+---
+= Bearbeiten Sie die Einstellungen des Schlüsselverwaltungsservers im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie die externe Schlüsselverwaltung konfiguriert haben, können Sie die Einstellungen des Key Management Servers jederzeit einsehen und bearbeiten.
+
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *Sicherheitsschlüsselverwaltung* wählen Sie *Schlüsselverwaltungsserver-Einstellungen anzeigen/bearbeiten*.
+. Bearbeiten Sie die Informationen in den folgenden Feldern:
++
+** *Adresse des Schlüsselverwaltungsservers* -- Geben Sie den vollqualifizierten Domainnamen oder die IP-Adresse (IPv4 oder IPv6) des für die Schlüsselverwaltung verwendeten Servers ein.
+** *Portnummer für die Schlüsselverwaltung* -- Geben Sie die Portnummer ein, die für die Key Management Interoperability Protocol (KMIP) Kommunikation verwendet wird.
++
+*Optional:* Sie können einen weiteren Schlüsselserver hinzufügen, indem Sie auf *Add Key Server* klicken.
+
+
+
+. Klicken Sie auf *Speichern*.
+

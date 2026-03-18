@@ -1,0 +1,80 @@
+---
+permalink: sm-storage/change-the-settings-for-a-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, settings, snapshot, consistency group 
+summary: Ändern Sie die Einstellungen für eine Snapshot Konsistenzgruppe, wenn Sie deren Namen, automatische Löschungseinstellungen oder die maximal zulässige Anzahl von Snapshot-Images ändern möchten. 
+---
+= Ändern Sie die Einstellungen für eine Snapshot-Konsistenzgruppe im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ändern Sie die Einstellungen für eine Snapshot Konsistenzgruppe, wenn Sie deren Namen, automatische Löschungseinstellungen oder die maximal zulässige Anzahl von Snapshot-Images ändern möchten.
+
+.Schritte
+. Menü auswählen:Storage[Snapshots].
+. Klicken Sie auf die Registerkarte *Snapshot Consistency Groups*.
+. Wählen Sie die Snapshot Konsistenzgruppe aus, die Sie bearbeiten möchten, und klicken Sie dann auf *Einstellungen anzeigen/bearbeiten*.
++
+Das Dialogfeld „Konsistenzgruppe für Snapshot-Einstellungen“ wird angezeigt.
+
+. Passen Sie die Einstellungen für die Snapshot-Konsistenzgruppe gegebenenfalls an.
++
+.Felddetails
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Einstellung | Beschreibung 
+
+
+ a| 
+*Snapshot-Konsistenzgruppe-Einstellungen*
+
+
+
+ a| 
+Name
+ a| 
+Sie können den Namen der Snapshot Konsistenzgruppe ändern.
+
+
+
+ a| 
+Automatische Löschung
+ a| 
+Lassen Sie das Kästchen aktiviert, wenn Sie möchten, dass Snapshot-Bilder nach Erreichen des festgelegten Limits automatisch gelöscht werden; verwenden Sie das Drehfeld, um das Limit zu ändern. Wenn Sie dieses Kästchen deaktivieren, wird die Erstellung von Snapshot-Bildern nach 32 Bildern gestoppt.
+
+
+
+ a| 
+Grenzwert für Snapshot-Bilder
+ a| 
+Sie können die maximale Anzahl der für eine Snapshot-Gruppe zulässigen Snapshot-Images ändern.
+
+
+
+ a| 
+Snapshot-Zeitplan
+ a| 
+Dieses Feld gibt an, ob ein Zeitplan mit der Snapshot Konsistenzgruppe verknüpft ist.
+
+
+
+ a| 
+*Zugehörige Objekte*
+
+
+
+ a| 
+Mitgliedervolumes
+ a| 
+Sie können die Anzahl der Mitgliedsvolumes anzeigen, die der Snapshot-Konsistenzgruppe zugeordnet sind.
+
+|===
+====
+. Klicken Sie auf *Speichern*.
+

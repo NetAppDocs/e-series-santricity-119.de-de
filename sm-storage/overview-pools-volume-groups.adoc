@@ -1,0 +1,64 @@
+---
+permalink: sm-storage/overview-pools-volume-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, pools, volume groups 
+summary: Sie können logische Speicherkapazität aus einer Teilmenge nicht zugewiesener Laufwerke in Ihrem Storage-Array erstellen. Diese logische Kapazität kann je nach den Anforderungen Ihrer Umgebung entweder als Pool oder als Volume-Gruppe vorliegen. 
+---
+= Erfahren Sie mehr über Pools und Volumengruppen im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können logische Speicherkapazität aus einer Teilmenge nicht zugewiesener Laufwerke in Ihrem Storage-Array erstellen. Diese logische Kapazität kann je nach den Anforderungen Ihrer Umgebung entweder als Pool oder als Volume-Gruppe vorliegen.
+
+
+
+== Was sind Pools und Volume-Gruppen?
+
+Ein _Pool_ ist eine Gruppe logisch zusammengefasster Laufwerke. Eine _Volume-Gruppe_ ist ein Container für Volumes mit gemeinsamen Eigenschaften. Sie können entweder einen Pool oder eine Volume-Gruppe verwenden, um Volumes zu erstellen, auf die ein Host zugreifen kann.
+
+Mehr erfahren:
+
+* link:how-pools-and-volume-groups-work.html["Wie Pools und Volume-Gruppen funktionieren"]
+* link:capacity-terminology.html["Kapazitätsterminologie"]
+* link:decide-to-use-a-pool-or-volume-group.html["Entscheiden Sie, ob Sie einen Pool oder eine Volume-Gruppe verwenden"]
+
+
+
+
+== Wie erstellen Sie Pools?
+
+Sie können den System Manager so einstellen, dass er automatisch Pools erstellt, sobald er nicht zugewiesene Kapazität in einem Storage-Array erkennt. Alternativ können Sie, wenn die automatische Erstellung nicht die optimale Konfiguration ermitteln kann, Pools manuell über das Menü:Storage[Pools & Volume Groups] erstellen.
+
+Mehr erfahren:
+
+* link:automatic-versus-manual-pool-creation.html["Automatische versus manuelle Poolerstellung"]
+* link:create-pool-automatically.html["Pool automatisch erstellen"]
+* link:create-pool-manually.html["Pool manuell erstellen"]
+* link:add-capacity-to-a-pool-or-volume-group.html["Fügen Sie einem Pool oder einer Volume-Gruppe Kapazität hinzu"]
+
+
+
+
+== Wie erstellen Sie Volumengruppen?
+
+Sie können Volumengruppen über das Menü Storage [Pools & Volume Groups] erstellen.
+
+Mehr erfahren:
+
+* link:create-volume-group.html["Erstellen Sie eine Volume-Gruppe"]
+* link:add-capacity-to-a-pool-or-volume-group.html["Fügen Sie einem Pool oder einer Volume-Gruppe Kapazität hinzu"]
+
+
+
+
+== Verwandte Informationen
+
+Erfahren Sie mehr über Konzepte im Zusammenhang mit Pools und Volume-Gruppen:
+
+* link:how-reserved-capacity-works.html["Wie reservierte Kapazität funktioniert"]
+* link:how-ssd-cache-works.html["Wie SSD-Cache funktioniert"]
+

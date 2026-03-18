@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/configure-nvme-over-infiniband-ports-system.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, nvme, over, InfiniBand, ports, 
+summary: Wenn Ihr Controller über eine NVMe over InfiniBand-Verbindung verfügt, können Sie die NVMe-Port-Einstellungen auf der Systemseite konfigurieren. 
+---
+= Konfigurieren Sie NVMe über InfiniBand-Ports im SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Ihr Controller über eine NVMe over InfiniBand-Verbindung verfügt, können Sie die NVMe-Port-Einstellungen auf der Systemseite konfigurieren.
+
+.Bevor Sie beginnen
+* Ihr Controller muss über einen NVMe over InfiniBand Host-Port verfügen; andernfalls sind die NVMe over InfiniBand Einstellungen im System Manager nicht verfügbar.
+* Sie müssen die IP-Adresse der Hostverbindung kennen.
+
+
+[NOTE]
+====
+Die NVMe over InfiniBand-Einstellungen und -Funktionen werden nur angezeigt, wenn der Controller Ihres Storage Arrays einen NVMe over InfiniBand-Port enthält.
+
+====
+.Schritte
+. Menü auswählen:Settings[System].
+. Unter *NVMe over InfiniBand settings* wählen Sie *Configure NVMe over InfiniBand ports*.
+. Wählen Sie den Controller mit dem NVMe over InfiniBand Port aus, den Sie konfigurieren möchten. Klicken Sie auf *Next*.
+. Wählen Sie den HIC-Port, den Sie konfigurieren möchten, aus der Dropdown-Liste aus und geben Sie dann die IP-Adresse ein.
++
+Wenn Sie ein EF600-Speicherarray mit einem 200Gb-fähigen HIC konfigurieren, zeigt dieses Dialogfeld zwei IP-Adressfelder an, eines für einen physischen Port (extern) und eines für einen virtuellen Port (intern). Sie sollten beiden Ports eine eindeutige IP-Adresse zuweisen. Diese Einstellungen ermöglichen es dem Host, einen Pfad zwischen jedem Port herzustellen und dem HIC, maximale Leistung zu erzielen. Wenn Sie dem virtuellen Port keine IP-Adresse zuweisen, arbeitet der HIC mit etwa der halben Geschwindigkeit.
+
+. Klicken Sie auf *Finish*.
+. Setzen Sie den NVMe over InfiniBand-Port zurück, indem Sie auf *Ja* klicken.
+
