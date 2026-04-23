@@ -21,7 +21,7 @@ Sie können SANtricity System Manager für einige allgemeine Array-Einstellungen
 Array-Einstellungen umfassen:
 
 * link:cache-settings-and-performance.html["Cache-Einstellungen und Leistung"]
-* link:automatic-load-balancing-overview.html"["Automatischer Lastausgleich"]
+* link:automatic-load-balancing-overview.html["Automatischer Lastausgleich"]
 * link:how-add-on-features-work.html["Zusatzfunktionen"]
 * link:overview-drive-security.html["Laufwerkssicherheit"]
 
