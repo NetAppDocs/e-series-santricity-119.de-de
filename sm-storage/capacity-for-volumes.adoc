@@ -16,6 +16,7 @@ Die Laufwerke Ihres Storage Arrays stellen die physische Speicherkapazität für
 
 
 
+[[using-capacity-to-create-and-expand-volumes]]
 == Kapazität verwenden, um Volumen zu erstellen und zu erweitern
 
 Sie können Volumes entweder aus der nicht zugewiesenen Kapazität oder aus der freien Kapazität in einem Pool oder einer Volume-Gruppe erstellen.
@@ -28,6 +29,7 @@ Nach der Erweiterung der Volume-Kapazität müssen Sie die Dateisystemgröße ma
 
 
 
+[[capacity-types-for-thick-volumes-and-thin-volumes]]
 == Kapazitätstypen für Thick Volumes und Thin Volumes
 
 Sie können entweder Thick Volumes oder Thin Volumes erstellen. Die gemeldete Kapazität und die zugewiesene Kapazität sind bei Thick Volumes identisch, bei Thin Volumes jedoch unterschiedlich.
@@ -49,6 +51,7 @@ SANtricity System Manager bietet keine Option zum Erstellen von Thin Volumes. We
 ====
 
 
+[[capacity-limits-for-thick-volumes]]
 == Kapazitätsgrenzen für Thick Volumes
 
 Die Mindestkapazität für ein Thick Volume beträgt 1 MiB, und die maximale Kapazität wird durch die Anzahl und Kapazität der Laufwerke im Pool oder der Volume-Gruppe bestimmt.
@@ -65,6 +68,7 @@ Beim Erstellen eines Volumes wird automatisch zusätzlicher Speicherplatz für d
 
 
 
+[[capacity-limits-for-thin-volumes]]
 == Kapazitätsgrenzen für Thin Volumes
 
 Sie können Thin Volumes mit einer großen gemeldeten Kapazität und einer relativ kleinen zugewiesenen Kapazität erstellen, was für die Speichernutzung und Effizienz vorteilhaft ist. Thin Volumes können die Speicherverwaltung vereinfachen, da die zugewiesene Kapazität mit den sich ändernden Anforderungen der Anwendung erhöht werden kann, ohne die Anwendung zu unterbrechen, was eine bessere Speichernutzung ermöglicht.

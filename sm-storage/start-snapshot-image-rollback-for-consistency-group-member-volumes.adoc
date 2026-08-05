@@ -34,6 +34,7 @@ Der Prozess zum Starten des Rollbacks eines Snapshot-Images einer Snapshot-Konsi
 
 
 
+[[step-1-select-members]]
 == Schritt 1: Mitglieder auswählen
 
 Sie müssen die Mitgliedsvolumes auswählen, die zurückgesetzt werden sollen.
@@ -56,6 +57,7 @@ Das Dialogfeld „Rollback starten“ wird angezeigt.
 
 
 
+[[step-2-review-capacity]]
 == Schritt 2: Kapazität überprüfen
 
 Wenn Sie Mitgliedsvolumes ausgewählt haben, die mehr als einem reservierten Kapazitätsobjekt zugeordnet sind, wie z. B. einer Snapshot-Gruppe und einem reservierten Kapazitätsvolume, können Sie die reservierte Kapazität für die zurückgesetzten Volume(s) überprüfen und erhöhen.
@@ -77,6 +79,7 @@ Das Dialogfeld „Priorität bearbeiten“ wird angezeigt.
 
 
 
+[[step-3-edit-priority]]
 == Schritt 3: Priorität bearbeiten
 
 Sie können die Priorität des Rollback-Vorgangs bei Bedarf bearbeiten.

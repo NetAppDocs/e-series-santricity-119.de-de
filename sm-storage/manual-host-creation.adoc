@@ -15,6 +15,7 @@ Das Erstellen eines Hosts ist einer der erforderlichen Schritte, damit das Speic
 
 
 
+[[manual-creation]]
 == Manuelle Erstellung
 
 Die manuelle Host-Erstellung ermöglicht es Ihnen, sicherzustellen, dass die von den Speicherarray-Controllern erkannten Host-Port-Kennungen korrekt den Hosts zugeordnet werden.

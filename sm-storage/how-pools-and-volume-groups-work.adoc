@@ -36,6 +36,7 @@ Sie können Pools oder Volumengruppen auf demselben Speichersystem haben, aber e
 
 
 
+[[pools]]
 == Pools
 
 Pools dienen dazu, physische Festplatten zu einem großen Speicherbereich zusammenzufassen und diesen mit erweitertem RAID-Schutz zu versehen. Ein Pool erstellt aus der Gesamtzahl der dem Pool zugewiesenen Festplatten zahlreiche virtuelle RAID-Sets und verteilt die Daten gleichmäßig auf alle beteiligten Festplatten. Fällt eine Festplatte aus oder wird eine hinzugefügt, gleicht System Manager die Daten dynamisch auf alle aktiven Festplatten aus.
@@ -44,12 +45,14 @@ Pools fungieren als zusätzliche RAID-Ebene und virtualisieren die zugrundeliege
 
 
 
+[[drive-matching]]
 === Laufwerksübereinstimmung
 
 Sie können für die Verwendung in Pools entweder HDDs oder SSDs auswählen; jedoch müssen, wie bei Volumengruppen, alle Laufwerke im Pool dieselbe Technologie verwenden. Die Controller wählen automatisch aus, welche Laufwerke eingeschlossen werden, daher müssen Sie sicherstellen, dass Sie über eine ausreichende Anzahl von Laufwerken für die von Ihnen gewählte Technologie verfügen.
 
 
 
+[[managing-failed-drives]]
 === Verwaltung ausgefallener Laufwerke
 
 Pools verfügen über eine Mindestkapazität von 11 Laufwerken; allerdings ist die Kapazität eines Laufwerks als Reservekapazität für den Fall eines Laufwerksausfalls reserviert. Diese Reservekapazität wird als "`preservation capacity.`" bezeichnet.
@@ -60,6 +63,7 @@ Nachdem der Pool erstellt wurde, können Sie den Wert der Erhaltungskapazität a
 
 
 
+[[volume-groups]]
 == Volume-Gruppen
 
 Volume-Gruppen definieren, wie die Kapazität im Speichersystem Volumes zugeteilt wird. Festplatten werden in RAID-Gruppen organisiert und Volumes befinden sich über die Festplatten in einer RAID-Gruppe verteilt. Daher geben die Konfigurationseinstellungen der Volume-Gruppe an, welche Festplatten Teil der Gruppe sind und welches RAID-Level verwendet wird.
@@ -68,6 +72,7 @@ Beim Erstellen einer Volume-Gruppe wählen die Controller die in die Gruppe aufz
 
 
 
+[[drive-matching]]
 === Laufwerksübereinstimmung
 
 Die Laufwerke in der Volume-Gruppe müssen hinsichtlich Größe und Leistung aufeinander abgestimmt sein. Wenn kleinere und größere Laufwerke in der Volume-Gruppe vorhanden sind, werden alle Laufwerke als die mit der kleinsten Kapazität erkannt. Wenn langsamere und schnellere Laufwerke in der Volume-Gruppe vorhanden sind, werden alle Laufwerke mit der langsamsten Geschwindigkeit erkannt. Diese Faktoren beeinflussen die Leistung und die Gesamtkapazität des Speichersystems.
@@ -76,6 +81,7 @@ Unterschiedliche Laufwerkstechnologien (HDD und SSD) können nicht kombiniert we
 
 
 
+[[managing-failed-drives]]
 === Verwaltung ausgefallener Laufwerke
 
 Volume-Gruppen verwenden Hot-Spare-Laufwerke als Standby, falls ein Laufwerk in RAID 1/10-, RAID 3-, RAID 5- oder RAID 6-Volumes innerhalb einer Volume-Gruppe ausfällt. Ein Hot-Spare-Laufwerk enthält keine Daten und bietet eine zusätzliche Redundanzebene für Ihr Storage-Array.

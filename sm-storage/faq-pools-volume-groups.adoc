@@ -16,12 +16,14 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-is-a-volume-group]]
 == Was ist eine Volumengruppe?
 
 Eine Volume-Gruppe ist ein Container für Volumes mit gemeinsamen Eigenschaften. Eine Volume-Gruppe hat eine definierte Kapazität und ein definiertes RAID-Level. Sie können eine Volume-Gruppe verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einer Volume-Gruppe oder einem Pool.)
 
 
 
+[[what-is-a-pool]]
 == Was ist ein Pool?
 
 Ein Pool ist eine Gruppe von Laufwerken, die logisch zusammengefasst sind. Sie können einen Pool verwenden, um ein oder mehrere Volumes zu erstellen, auf die ein Host zugreifen kann. (Sie erstellen Volumes entweder aus einem Pool oder einer Volume-Gruppe.)
@@ -32,6 +34,7 @@ Bei Pools werden Daten automatisch neu verteilt, um das Gleichgewicht zu erhalte
 
 
 
+[[what-is-reserved-capacity]]
 == Was ist reservierte Kapazität?
 
 Reservierte Kapazität ist die physisch zugewiesene Kapazität, die Daten für Kopierdienstobjekte wie Snapshot-Images, Konsistenzgruppenmitglied-Volumes und gespiegelte Paar-Volumes speichert.
@@ -40,6 +43,7 @@ Das reservierte Kapazitäts-Volume, das mit einem Copy-Service-Vorgang verknüpf
 
 
 
+[[what-is-fdefips-security]]
 == Was ist FDE/FIPS-Sicherheit?
 
 FDE/FIPS-Sicherheit bezieht sich auf sicherheitsfähige Laufwerke, die Daten beim Schreiben verschlüsseln und beim Lesen mithilfe eines eindeutigen Verschlüsselungsschlüssels entschlüsseln. Diese sicherheitsfähigen Laufwerke verhindern unbefugten Zugriff auf die Daten eines Laufwerks, das physisch aus dem Speicher-Array entfernt wurde.
@@ -53,6 +57,7 @@ Für Volumes, die FIPS-Unterstützung benötigen, verwenden Sie ausschließlich 
 ====
 
 
+[[what-is-redundancy-check]]
 == Was ist Redundanzprüfung?
 
 Eine Redundanzprüfung ermittelt, ob die Daten auf einem Volume in einem Pool oder einer Volume-Gruppe konsistent sind. Redundanzdaten werden verwendet, um Informationen auf einem Ersatzlaufwerk schnell zu rekonstruieren, falls eines der Laufwerke im Pool oder in der Volume-Gruppe ausfällt.
@@ -71,6 +76,7 @@ Die sofortige Durchführung einer Redundanzprüfung für denselben Pool oder die
 ====
 
 
+[[what-are-the-differences-between-pools-and-volume-groups]]
 == Worin bestehen die Unterschiede zwischen Pools und Volumengruppen?
 
 Ein Pool ist ähnlich wie eine Volume Group, mit den folgenden Unterschieden.
@@ -84,6 +90,7 @@ Ein Pool ist ähnlich wie eine Volume Group, mit den folgenden Unterschieden.
 
 
 
+[[why-would-i-want-to-manually-configure-a-pool]]
 == Warum sollte ich einen Pool manuell konfigurieren wollen?
 
 Die folgenden Beispiele beschreiben, warum Sie einen Pool manuell konfigurieren möchten.
@@ -103,6 +110,7 @@ So fügen Sie einem bestehenden Pool manuell Laufwerke hinzu: Wählen Sie auf de
 
 
 
+[[why-are-capacity-alerts-important]]
 == Warum sind Kapazitätswarnungen wichtig?
 
 Kapazitätswarnungen zeigen an, wann einem Pool Laufwerke hinzugefügt werden müssen. Ein Pool benötigt ausreichend freie Kapazität, um Speicherarray-Operationen erfolgreich durchzuführen. Sie können Unterbrechungen dieser Operationen verhindern, indem Sie SANtricity System Manager so konfigurieren, dass Warnungen gesendet werden, wenn die freie Kapazität eines Pools einen bestimmten Prozentsatz erreicht oder überschreitet.
@@ -116,6 +124,7 @@ Wenn die freie Kapazität im Pool den angegebenen Prozentsatz erreicht, wird ein
 ====
 
 
+[[why-cant-i-increase-my-preservation-capacity]]
 == Warum kann ich meine Aufbewahrungskapazität nicht erhöhen?
 
 Wenn Sie Volumes auf der gesamten verfügbaren nutzbaren Kapazität erstellt haben, können Sie die Aufbewahrungskapazität möglicherweise nicht erhöhen.
@@ -131,6 +140,7 @@ Die Erhaltungskapazität wird als Anzahl von Laufwerken angegeben, auch wenn die
 ====
 
 
+[[is-there-a-limit-on-the-number-of-drives-i-can-remove-from-a-pool]]
 == Gibt es eine Begrenzung für die Anzahl der Laufwerke, die ich aus einem Pool entfernen kann?
 
 SANtricity System Manager legt Grenzwerte für die Anzahl der Laufwerke fest, die Sie aus einem Pool entfernen können.
@@ -142,12 +152,14 @@ SANtricity System Manager legt Grenzwerte für die Anzahl der Laufwerke fest, di
 
 
 
+[[what-media-types-are-supported-for-a-drive]]
 == Welche Medientypen werden für ein Laufwerk unterstützt?
 
 Die folgenden Medientypen werden unterstützt: Hard Disk Drive (HDD) und Solid State Disk (SSD).
 
 
 
+[[why-are-some-drives-not-showing-up]]
 == Warum werden einige Laufwerke nicht angezeigt?
 
 Im Dialogfeld „Kapazität hinzufügen“ sind nicht alle Laufwerke verfügbar, um einem bestehenden Pool oder einer bestehenden Volumengruppe Kapazität hinzuzufügen.
@@ -176,6 +188,7 @@ Die Kapazität kann in Ihrem Speichersystem durch Hinzufügen neuer Laufwerke od
 ====
 
 
+[[how-do-i-maintain-shelfdrawer-loss-protection]]
 == Wie kann ich den Schutz vor Regal-/Schubladenverlust aufrechterhalten?
 
 Um den Verlustschutz für Regale/Schubladen in einem Pool oder einer Volumengruppe aufrechtzuerhalten, verwenden Sie die in der folgenden Tabelle angegebenen Kriterien.
@@ -240,6 +253,7 @@ Schutz vor Shelf-/Schubladenverlust ist nicht gewährleistet, wenn ein Laufwerk 
 ====
 
 
+[[what-is-the-optimal-drive-positioning-for-pools-and-volume-groups]]
 == Was ist die optimale Positionierung der Laufwerke für Pools und Volumengruppen?
 
 Beim Erstellen von Pools und Volumengruppen stellen Sie sicher, dass die Laufwerksauswahl zwischen den oberen und unteren Laufwerksschächten ausgewogen ist.
@@ -248,12 +262,14 @@ Bei den Controllern EF600 und EF300 sind die Laufwerksschächte 0–11 an eine P
 
 
 
+[[what-raid-level-is-best-for-my-application]]
 == Welche RAID-Stufe ist für meine Anwendung am besten?
 
 Um die Leistung einer Volume-Gruppe zu maximieren, müssen Sie das passende RAID-Level auswählen. Sie können das passende RAID-Level bestimmen, indem Sie die Lese- und Schreibprozentsätze der Anwendungen kennen, die auf die Volume-Gruppe zugreifen. Verwenden Sie die Seite „Leistung“, um diese Prozentsätze zu erhalten.
 
 
 
+[[raid-levels-and-application-performance]]
 === RAID-Level und Anwendungsleistung
 
 RAID verwendet eine Reihe von Konfigurationen, sogenannte _Levels_, um festzulegen, wie Benutzer- und Redundanzdaten auf die Laufwerke geschrieben und von ihnen abgerufen werden. Jedes RAID-Level bietet unterschiedliche Leistungsmerkmale. Anwendungen mit einem hohen Leseanteil werden mit RAID 5-Volumes oder RAID 6-Volumes aufgrund der herausragenden Leseleistung der RAID 5- und RAID 6-Konfigurationen eine gute Leistung erzielen.
@@ -382,6 +398,7 @@ Sie können den RAID-Level eines Pools nicht ändern. Die Benutzeroberfläche ko
 ====
 
 
+[[raid-levels-and-data-protection]]
 === RAID-Level und Datenschutz
 
 RAID 1, RAID 5 und RAID 6 schreiben Redundanzdaten auf die Laufwerksmedien, um Fehlertoleranz zu gewährleisten. Die Redundanzdaten können eine Kopie der Daten (gespiegelte Daten) oder ein aus den Daten abgeleiteter Fehlerkorrekturcode sein. Sie können die Redundanzdaten verwenden, um Informationen auf einem Ersatzlaufwerk schnell wiederherzustellen, falls ein Laufwerk ausfällt.
@@ -390,6 +407,7 @@ Sie konfigurieren ein einzelnes RAID-Level über eine einzelne Volume-Gruppe. Al
 
 
 
+[[what-is-data-assurance]]
 == Was ist Data Assurance?
 
 Data Assurance (DA) implementiert den T10 Protection Information (PI)-Standard, der die Datenintegrität erhöht, indem er Fehler erkennt und korrigiert, die bei der Übertragung von Daten entlang des I/O-Pfads auftreten könnten.
@@ -402,12 +420,14 @@ Stellen Sie sicher, dass Sie diese DA-fähigen Volumes einem Host mit einer E/A-
 
 
 
+[[what-is-secure-capable-drive-security]]
 == Was ist secure-capable (Drive Security)?
 
 Die Laufwerkssicherheit ist eine Funktion, die unbefugten Zugriff auf Daten auf gesicherten Laufwerken verhindert, wenn diese aus dem Speicher-Array entfernt werden. Diese Laufwerke können entweder Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein.
 
 
 
+[[what-do-i-need-to-know-about-increasing-reserved-capacity]]
 == Was muss ich über die Erhöhung der reservierten Kapazität wissen?
 
 Normalerweise sollten Sie die Kapazität erhöhen, wenn Sie eine Warnung erhalten, dass die reservierte Kapazität in Gefahr ist, voll zu werden. Sie können die reservierte Kapazität nur in Schritten von 8 GiB erhöhen.
@@ -425,6 +445,7 @@ Bei Snapshot-Operationen beträgt die reservierte Kapazität üblicherweise 40 P
 
 
 
+[[why-cant-i-choose-another-amount-to-decrease-by]]
 == Warum kann ich keinen anderen Betrag zur Verringerung auswählen?
 
 Sie können die reservierte Kapazität nur um den Betrag verringern, um den Sie sie erhöht haben. Reservierte Kapazität für Mitgliedsvolumes kann nur in der umgekehrten Reihenfolge entfernt werden, in der sie hinzugefügt wurden.
@@ -443,6 +464,7 @@ Sie können die reservierte Kapazität für ein schreibgeschütztes Snapshot-Vol
 
 
 
+[[why-do-i-need-reserved-capacity-for-each-member-volume]]
 == Warum benötige ich reservierte Kapazität für jedes Mitgliedsvolumen?
 
 Jedes Mitgliedsvolume in einer Snapshot-Konsistenzgruppe muss über eine eigene reservierte Kapazität verfügen, um Änderungen der Hostanwendung am Basisvolume zu speichern, ohne das referenzierte Konsistenzgruppen-Snapshot-Image zu beeinträchtigen. Die reservierte Kapazität ermöglicht der Hostanwendung Schreibzugriff auf eine Kopie der Daten im als schreibbar gekennzeichneten Mitgliedsvolume.
@@ -453,6 +475,7 @@ Während der Erstellung eines Konsistenzgruppe-Snapshot-Volumes, das als Lese-/S
 
 
 
+[[how-do-i-view-and-interpret-all-ssd-cache-statistics]]
 == Wie kann ich alle SSD-Cache-Statistiken anzeigen und interpretieren?
 
 Sie können nominale Statistiken und detaillierte Statistiken für SSD-Cache anzeigen. Nominale Statistiken sind eine Teilmenge der detaillierten Statistiken.
@@ -461,6 +484,7 @@ Die detaillierten Statistiken können nur angezeigt werden, wenn Sie alle SSD-St
 
 
 
+[[nominal-statistics]]
 === Nominale Statistiken
 
 Um SSD-Cache-Statistiken anzuzeigen, wählen Sie Menü:Speicher[Pools & Volume-Gruppen]. Wählen Sie den SSD-Cache aus, für den Sie Statistiken anzeigen möchten, und wählen Sie dann Menü:Mehr[Statistiken anzeigen]. Die nominalen Statistiken werden im Dialogfeld „SSD-Cache-Statistiken anzeigen“ angezeigt.
@@ -513,6 +537,7 @@ Die Menge an SSD-Cache-Speicher, die Daten von aktivierten Volumes enthält, wir
 |===
 
 
+[[detailed-statistics]]
 === Detaillierte Statistiken
 
 Die detaillierten Statistiken bestehen aus den nominalen Statistiken sowie zusätzlichen Statistiken. Diese zusätzlichen Statistiken werden zusammen mit den nominalen Statistiken gespeichert, aber im Gegensatz zu den nominalen Statistiken werden sie nicht im Dialogfeld „SSD-Cache-Statistiken anzeigen“ angezeigt. Sie können die detaillierten Statistiken erst nach dem Exportieren der Statistiken in eine  `.csv` Datei einsehen.
@@ -637,6 +662,7 @@ Die Anzahl der zugewiesenen Bytes im SSD-Cache, die Daten von Basis-Volumes enth
 |===
 
 
+[[what-is-optimization-capacity-for-pools]]
 == Was ist die Optimierungskapazität für Pools?
 
 SSD-Laufwerke haben eine längere Lebensdauer und eine bessere maximale Schreibleistung, wenn ein Teil ihrer Kapazität nicht zugewiesen ist.
@@ -652,6 +678,7 @@ Der Schieberegler „Zusätzliche Optimierungskapazität“ ist nur für EF600 u
 ====
 
 
+[[what-is-optimization-capacity-for-volume-groups]]
 == Was ist die Optimierungskapazität für Volume-Gruppen?
 
 SSD-Laufwerke haben eine längere Lebensdauer und eine bessere maximale Schreibleistung, wenn ein Teil ihrer Kapazität nicht zugewiesen ist.
@@ -667,6 +694,7 @@ Der Schieberegler „Zusätzliche Optimierungskapazität“ ist nur für EF600 u
 ====
 
 
+[[what-is-resource-provisioning-capable]]
 == Was kann die Ressourcenbereitstellung leisten?
 
 Resource Provisioning ist eine Funktion, die in den Storage-Arrays EF300 und EF600 verfügbar ist und es ermöglicht, Volumes sofort ohne Hintergrundinitialisierungsprozess zu verwenden.
@@ -680,6 +708,7 @@ NOTE: DULBE wird auf EF300C oder EF600C Storage-Arrays derzeit nicht unterstütz
 
 
 
+[[what-do-i-need-to-know-about-the-resource-provisioned-volumes-feature]]
 == Was muss ich über die Funktion „Resource-Provisioned Volumes“ wissen?
 
 Resource Provisioning ist eine Funktion, die in den Storage-Arrays EF300 und EF600 verfügbar ist und es ermöglicht, Volumes sofort ohne Hintergrundinitialisierungsprozess zu verwenden.

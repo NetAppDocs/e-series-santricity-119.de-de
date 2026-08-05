@@ -46,6 +46,7 @@ Der Prozess zur Erstellung synchroner Spiegelpaare ist ein mehrstufiges Verfahre
 
 
 
+[[step-1-select-the-primary-volume]]
 == Schritt 1: Wählen Sie das primäre Volume aus
 
 In diesem Schritt wählen Sie das primäre Volume aus, das in der synchronen Spiegelbeziehung verwendet werden soll. Wenn Sie ein primäres Volume auf dem lokalen Storage-Array auswählen, zeigt das System eine Liste aller für dieses gespiegelte Paar geeigneten Volumes an. Alle Volumes, die nicht verwendet werden können, werden in dieser Liste nicht angezeigt. Das von Ihnen ausgewählte Volume übernimmt die primäre Rolle in der Spiegelbeziehung.
@@ -62,6 +63,7 @@ Der Assistent zum Erstellen eines synchronen Spiegelpaares wird geöffnet.
 
 
 
+[[step-2-select-the-secondary-volume]]
 == Schritt 2: Wählen Sie das sekundäre Volume
 
 In diesem Schritt wählen Sie das sekundäre Volume aus, das in der Spiegelbeziehung verwendet werden soll. Wenn Sie ein sekundäres Volume auf dem Remote-Speicherarray auswählen, zeigt das System eine Liste aller für dieses gespiegelte Paar geeigneten Volumes an. Alle Volumes, die nicht verwendet werden können, werden in dieser Liste nicht angezeigt. Das von Ihnen ausgewählte Volume übernimmt die sekundäre Rolle in der Spiegelbeziehung.
@@ -91,6 +93,7 @@ Wenn ein sekundäres Volume mit einer größeren Kapazität als das primäre Vol
 
 
 
+[[step-3-select-synchronization-settings]]
 == Schritt 3: Synchronisierungseinstellungen auswählen
 
 In diesem Schritt legen Sie die Einstellungen fest, die bestimmen, wie Daten nach einer Kommunikationsunterbrechung synchronisiert werden. Sie können die Priorität festlegen, mit der der Controller-Eigentümer des primären Volumes die Daten nach einer Kommunikationsunterbrechung mit dem sekundären Volume resynchronisiert. Sie müssen außerdem die Resynchronisierungsrichtlinie auswählen, entweder manuell oder automatisch.

@@ -52,6 +52,7 @@ Während des Anmeldevorgangs führt das System die folgenden Hintergrundaufgaben
 
 
 
+[[tasks-available-in-system-manager]]
 == Im System Manager verfügbare Aufgaben
 
 Der Zugriff auf Aufgaben hängt von den einem Benutzer zugewiesenen Rollen ab, die Folgendes umfassen:
@@ -66,6 +67,7 @@ Nicht verfügbare Aufgaben sind entweder ausgegraut oder werden in der Benutzero
 
 
 
+[[limitations-in-unified-manager-and-storage-manager]]
 == Einschränkungen in Unified Manager und Storage Manager
 
 Wenn SAML für ein Storage Array konfiguriert ist, können Benutzer den Storage für dieses Array weder vom Unified Manager noch von den älteren Storage Manager-Oberflächen aus entdecken oder verwalten.

@@ -15,6 +15,7 @@ Mit SANtricity Unified Manager können Sie Einstellungen von einem Storage-Array
 
 
 
+[[settings-available-for-import]]
 == Einstellungen für den Import verfügbar
 
 Die folgenden Konfigurationen können in mehrere Arrays importiert werden:
@@ -40,6 +41,7 @@ Die folgenden Konfigurationen können in mehrere Arrays importiert werden:
 
 
 
+[[configuration-workflow]]
 == Konfigurationsworkflow
 
 Um Einstellungen zu importieren, folgen Sie diesem Arbeitsablauf:

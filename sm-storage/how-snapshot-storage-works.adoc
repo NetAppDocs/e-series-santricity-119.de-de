@@ -15,6 +15,7 @@ Die Snapshot-Funktion verwendet die Copy-on-Write-Technologie, um Snapshot-Bilde
 
 
 
+[[how-snapshot-images-are-used]]
 == Wie Snapshot-Images verwendet werden
 
 Ein Snapshot-Image ist eine logische, schreibgeschützte Kopie des Volume-Inhalts, die zu einem bestimmten Zeitpunkt erfasst wird. Sie können Snapshots zum Schutz vor Datenverlust verwenden.
@@ -23,6 +24,7 @@ Snapshot-Images sind auch für Testumgebungen nützlich. Durch das Erstellen ein
 
 
 
+[[snapshot-creation]]
 == Snapshot-Erstellung
 
 Wenn Snapshots erstellt werden, speichert die Snapshots-Funktion die Bilddaten wie folgt:
@@ -42,6 +44,7 @@ image::../media/sam1130-dwg-snapshots-cow-overview.gif[Snapshot-Übersicht]
 
 
 
+[[snapshot-restoration]]
 == Snapshot-Wiederherstellung
 
 Um Daten auf ein Basisvolume wiederherzustellen, können Sie entweder ein Snapshot-Volume oder ein Snapshot-Image verwenden:

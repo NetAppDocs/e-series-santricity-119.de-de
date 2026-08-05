@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-data-am-i-collecting]]
 == Welche Daten erhebe ich?
 
 Die AutoSupport-Funktion und die manuelle Support-Datenerfassungsfunktion bieten Möglichkeiten, Daten in einem Kundensupportpaket für die Fernfehlerbehebung und Problemanalyse durch den technischen Support zu erfassen.
@@ -24,6 +25,7 @@ Das Kundensupport-Paket fasst alle Arten von Informationen über das Speichersys
 
 
 
+[[what-does-unreadable-sectors-data-show-me]]
 == Was zeigen mir die Daten zu unlesbaren Sektoren?
 
 Sie können detaillierte Daten über nicht lesbare Sektoren anzeigen, die auf den Laufwerken in Ihrem Storage-Array erkannt wurden.
@@ -104,6 +106,7 @@ Zeigt einen der folgenden Fehlertypen an:
 |===
 
 
+[[what-is-a-health-image]]
 == Was ist ein Gesundheitsbild?
 
 Ein Gesundheitsabbild ist ein Rohdaten-Dump aus dem Prozessorspeicher des Controllers, den der technische Support zur Diagnose eines Problems mit dem Controller verwenden kann.
@@ -112,6 +115,7 @@ Die Firmware erstellt automatisch ein Health-Image, wenn sie bestimmte Fehler er
 
 
 
+[[what-do-the-autosupport-features-do]]
 == Was bewirken die AutoSupport-Funktionen?
 
 Die AutoSupport-Funktion besteht aus drei Einzelfunktionen, die Sie separat aktivieren.
@@ -123,6 +127,7 @@ Die AutoSupport-Funktion besteht aus drei Einzelfunktionen, die Sie separat akti
 
 
 
+[[what-type-of-data-is-collected-through-the-autosupport-feature]]
 == Welche Art von Daten werden durch die AutoSupport-Funktion erfasst?
 
 Die AutoSupport-Funktion enthält drei Standard-Dispatch-Typen: Ereignis-Dispatches, geplante Dispatches und On-Demand- sowie Remote-Diagnose-Dispatches.
@@ -157,6 +162,7 @@ Die AutoSupport-Funktion versendet automatisch mehrere Meldungen in regelmäßig
 
 
 
+[[how-do-i-configure-the-delivery-method-for-the-autosupport-feature]]
 == Wie konfiguriere ich die Auslieferungsmethode für die AutoSupport-Funktion?
 
 Die AutoSupport-Funktion unterstützt die Protokolle HTTPS und SMTP für die Übermittlung von AutoSupport-Meldungen an den technischen Support.
@@ -213,6 +219,7 @@ Wenn der Konfigurationstest fehlschlägt, überprüfen Sie Ihre Konfigurationsei
 
 
 
+[[what-is-configuration-data]]
 == Was sind Konfigurationsdaten?
 
 Wenn Sie die Option „Konfigurationsdaten sammeln“ auswählen, speichert das System den aktuellen Zustand der RAID-Konfigurationsdatenbank.
@@ -221,6 +228,7 @@ Die RAID-Konfigurationsdatenbank enthält alle Daten für Volumengruppen und Fes
 
 
 
+[[what-do-i-need-to-know-before-upgrading-the-santricity-os-software]]
 == Was muss ich vor dem Upgrade der SANtricity OS Software wissen?
 
 Bevor Sie die Software und Firmware Ihres Controllers aktualisieren, beachten Sie bitte die folgenden Punkte.
@@ -268,6 +276,7 @@ CAUTION: Nehmen Sie während des Upgrades keine Änderungen am Storage Array vor
 
 
 
+[[what-do-i-need-to-know-before-suspending-iom-auto-synchronization]]
 == Was muss ich wissen, bevor ich die automatische IOM-Synchronisierung aussetze?
 
 Durch das Aussetzen der IOM-Autosynchronisierung wird verhindert, dass die IOM-Firmware beim nächsten Upgrade der SANtricity OS-Controller-Software aktualisiert wird.
@@ -276,6 +285,7 @@ Normalerweise werden Controller-Software und IOM-Firmware als Paket aktualisiert
 
 
 
+[[why-is-my-firmware-upgrade-progressing-so-slowly]]
 == Warum verläuft mein Firmware-Upgrade so langsam?
 
 Der Fortschritt des Firmware-Upgrades hängt von der Gesamtlast des Systems ab.
@@ -284,6 +294,7 @@ Während eines Online-Upgrades der Laufwerk-Firmware, wenn während des schnelle
 
 
 
+[[what-do-i-need-to-know-before-upgrading-drive-firmware]]
 == Was muss ich vor dem Upgrade der Laufwerk-Firmware wissen?
 
 Bevor Sie ein Upgrade der Laufwerk-Firmware durchführen, beachten Sie bitte die folgenden Punkte.
@@ -298,6 +309,7 @@ Bevor Sie ein Upgrade der Laufwerk-Firmware durchführen, beachten Sie bitte die
 
 
 
+[[how-do-i-choose-which-type-of-upgrade-to-perform]]
 == Wie wähle ich aus, welchen Upgradetyp ich durchführen soll?
 
 Sie wählen die Art des Upgrades, das auf dem Laufwerk durchgeführt werden soll, abhängig vom Zustand des Pools oder der Volume-Gruppe.

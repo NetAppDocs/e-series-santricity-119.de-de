@@ -29,6 +29,7 @@ Der Benachrichtigungsprozess funktioniert wie folgt:
 
 
 
+[[alerts-configuration]]
 == Konfiguration der Benachrichtigungen
 
 Sie können Benachrichtigungen im Einrichtungsassistenten (nur für E-Mail-Benachrichtigungen) oder auf der Seite Benachrichtigungen konfigurieren. Um die aktuelle Konfiguration zu überprüfen, gehen Sie zu menu:Einstellungen[Benachrichtigungen].
@@ -41,6 +42,7 @@ Die Kachel „Warnungen“ zeigt die Warnkonfiguration an, die eine der folgende
 
 
 
+[[alerts-information]]
 == Warnmeldungsinformationen
 
 Warnmeldungen können die folgenden Arten von Informationen enthalten:

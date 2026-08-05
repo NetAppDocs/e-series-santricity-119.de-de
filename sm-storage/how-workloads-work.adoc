@@ -19,6 +19,7 @@ Während der Volume-Erstellung werden Sie vom System aufgefordert, Fragen zur Nu
 
 
 
+[[types-of-workloads]]
 == Arten von Arbeitslasten
 
 Sie können zwei Arten von Workloads erstellen: Anwendungsspezifisch und Sonstige.
@@ -39,6 +40,7 @@ Sie können die empfohlene Volume-Konfiguration überprüfen und die vom System 
 
 
 
+[[application-and-workload-views]]
 == Anwendungs- und Workload-Ansichten
 
 Um Anwendungen und Workloads anzuzeigen, starten Sie SANtricity System Manager. Über diese Oberfläche können Sie Informationen zu einem anwendungsspezifischen Workload auf verschiedene Arten anzeigen:

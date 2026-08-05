@@ -15,6 +15,7 @@ Bevor Sie eine Speicherkonfiguration von einem Storage Array in ein anderes impo
 
 
 
+[[shelves]]
 == Shelfs
 
 * Die Regale, auf denen die Controller untergebracht sind, müssen auf dem Quell- und Ziel-Array identisch sein.
@@ -24,6 +25,7 @@ Bevor Sie eine Speicherkonfiguration von einem Storage Array in ein anderes impo
 
 
 
+[[controllers]]
 == Controller
 
 * Der Controllertyp kann zwischen Quell- und Ziel-Array unterschiedlich sein (zum Beispiel beim Import von einem E2800 zu einem E5700), aber der RBOD-Gehäusetyp muss identisch sein.
@@ -34,6 +36,7 @@ Bevor Sie eine Speicherkonfiguration von einem Storage Array in ein anderes impo
 
 
 
+[[status]]
 == Status
 
 * Die Zielarrays müssen sich im Optimal-Status befinden.
@@ -42,6 +45,7 @@ Bevor Sie eine Speicherkonfiguration von einem Storage Array in ein anderes impo
 
 
 
+[[storage]]
 == Storage
 
 * Die Laufwerkskapazität kann zwischen Quell- und Ziel-Array variieren, solange die Volume-Kapazität auf dem Ziel-Array größer ist als auf dem Quell-Array. (Ein Ziel-Array könnte neuere, größere Laufwerke haben, die durch den Replikationsvorgang nicht vollständig zu Volumes konfiguriert werden.)

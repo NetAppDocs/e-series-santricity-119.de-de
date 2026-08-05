@@ -24,6 +24,7 @@ Beispielsweise gehört ein primäres Volume Controller A, und dann ändern Sie d
 
 
 
+[[controller-resets]]
 == Controller-Resets
 
 Ein Controller-Reset verursacht eine Änderung der Volume-Zugehörigkeit auf der primären Seite vom bevorzugten Controller-Besitzer zum alternativen Controller im Speicherarray.

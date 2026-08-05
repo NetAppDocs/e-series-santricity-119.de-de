@@ -25,6 +25,7 @@ Die Ermittlung von Arrays ist ein mehrstufiger Prozess.
 
 
 
+[[step-1-enter-network-address]]
 == Schritt 1: Netzwerkadresse eingeben
 
 Sie geben einen Netzwerkadressbereich ein, um im lokalen Subnetzwerk zu suchen. Alle erfolgreich erreichten Storage-Arrays werden auf der Discover-Seite angezeigt und können Ihrer Management-Domäne hinzugefügt werden.
@@ -57,6 +58,7 @@ Unified Manager führt eine Überprüfung der Anmeldeinformationen für jedes Ar
 
 
 
+[[step-2-resolve-self-signed-certificates-during-discovery]]
 == Schritt 2: Selbstsignierte Zertifikate während der Erkennung beheben
 
 Im Rahmen des Erkennungsprozesses überprüft das System, ob die Speicherarrays Zertifikate von einer vertrauenswürdigen Quelle verwenden.
@@ -73,6 +75,7 @@ Im Rahmen des Erkennungsprozesses überprüft das System, ob die Speicherarrays 
 
 
 
+[[step-3-resolve-untrusted-certificates-during-discovery]]
 == Schritt 3: Nicht vertrauenswürdige Zertifikate während der Erkennung beheben
 
 Nicht vertrauenswürdige Zertifikate treten auf, wenn ein Speichersystem versucht, eine sichere Verbindung zum Unified Manager herzustellen, die Verbindung aber nicht als sicher bestätigt werden kann. Während des Erkennungsvorgangs des Speichersystems können Sie nicht vertrauenswürdige Zertifikate beheben, indem Sie ein Zertifikat einer Zertifizierungsstelle (CA) (oder ein von einer CA signiertes Zertifikat) importieren, das von einer vertrauenswürdigen Drittpartei ausgestellt wurde.
@@ -109,6 +112,7 @@ Jedes Speichersystem mit ungelösten Problemen bezüglich nicht vertrauenswürdi
 
 
 
+[[step-4-provide-passwords]]
 == Schritt 4: Passwörter eingeben
 
 Sie müssen die Passwörter für die Speicherarrays eingeben, die Sie Ihrer Management-Domäne hinzufügen möchten.

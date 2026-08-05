@@ -16,6 +16,7 @@ Sie können ein Volume als Container erstellen, in dem Anwendungen, Datenbanken 
 
 
 
+[[what-are-volumes-and-workloads]]
 == Was sind Volumes und Workloads?
 
 Ein _Volume_ ist die logische Komponente, die mit einer bestimmten Kapazität erstellt wird, damit der Host darauf zugreifen kann. Obwohl ein Volume aus mehr als einem Laufwerk bestehen kann, erscheint ein Volume dem Host als eine logische Komponente. Sobald ein Volume definiert ist, können Sie es einer Arbeitslast hinzufügen. Eine _Arbeitslast_ ist ein Speicherobjekt, das eine Anwendung wie SQL Server oder Exchange unterstützt und mit dem Sie den Speicher für diese Anwendung optimieren können.
@@ -31,6 +32,7 @@ Mehr erfahren:
 
 
 
+[[how-do-you-create-volumes-and-workloads]]
 == Wie erstellen Sie Volumes und Workloads?
 
 Zuerst erstellen Sie eine Arbeitslast. Gehen Sie zum Menü:Storage[Volumes] und öffnen Sie einen Assistenten, der Sie durch die Schritte führt. Als Nächstes erstellen Sie ein Volume aus der in einem Pool oder einer Volume-Gruppe verfügbaren Kapazität und weisen dann die von Ihnen erstellte Arbeitslast zu.
@@ -45,6 +47,7 @@ Mehr erfahren:
 
 
 
+[[related-information]]
 == Verwandte Informationen
 
 Erfahren Sie mehr über Konzepte im Zusammenhang mit Volumes:

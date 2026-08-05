@@ -15,6 +15,7 @@ Die Funktion „Asynchrone Spiegelung“ bietet einen auf Controller-Ebene befin
 
 
 
+[[what-is-asynchronous-mirroring]]
 == Was ist asynchrone Spiegelung?
 
 _Asynchrone Spiegelung_ erfasst den Zustand des primären Volumes zu einem bestimmten Zeitpunkt und kopiert nur die Daten, die sich seit der letzten Image-Erfassung geändert haben. Der primäre Standort kann sofort aktualisiert werden und der sekundäre Standort kann aktualisiert werden, sobald die Bandbreite es zulässt. Die Informationen werden zwischengespeichert und später gesendet, sobald Netzwerkressourcen verfügbar sind.
@@ -32,6 +33,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-configure-asynchronous-mirroring]]
 == Wie konfiguriere ich asynchrone Spiegelung?
 
 Sie müssen die Unified Manager-Oberfläche verwenden, um die initiale Spiegelungskonfiguration zwischen den Arrays durchzuführen. Sobald sie konfiguriert ist, können Sie gespiegelte Paare und Konsistenzgruppen im System Manager verwalten.
@@ -45,6 +47,7 @@ Mehr erfahren:
 
 
 
+[[related-information]]
 == Verwandte Informationen
 
 Erfahren Sie mehr über Konzepte im Zusammenhang mit asynchroner Spiegelung:

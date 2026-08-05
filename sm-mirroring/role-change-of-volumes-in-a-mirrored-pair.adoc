@@ -28,6 +28,7 @@ Lesen Sie die folgenden Informationen zum Rollenwechselvorgang:
 
 
 
+[[force-role-change]]
 == Rollenwechsel erzwingen
 
 Sie können einen Rollenwechsel zwischen Volumes in einem gespiegelten Paar erzwingen, wenn ein Kommunikationsproblem zwischen dem lokalen Speicherarray und dem entfernten Speicherarray die Heraufstufung des sekundären Volumes oder die Herabstufung des primären Volumes verhindert.
@@ -41,6 +42,7 @@ Wenn das Remote-Speicherarray wiederhergestellt ist und alle Kommunikationsprobl
 ====
 
 
+[[when-is-a-forced-promotion-allowed-and-not-allowed]]
 == Wann ist eine erzwungene Beförderung zulässig und wann nicht?
 
 Eine erzwungene Promotion eines Volumes in einem gespiegelten Paar ist unter folgenden Bedingungen nicht zulässig:
@@ -51,6 +53,7 @@ Eine erzwungene Promotion eines Volumes in einem gespiegelten Paar ist unter fol
 
 
 
+[[role-change-in-progress-state]]
 == Rollenwechsel im Fortschritt
 
 Wenn zwei Speicherarrays in einer Spiegelkonfiguration die Verbindung verlieren und das primäre Volume eines gespiegelten Paares zwangsweise zu einer sekundären Rolle herabgestuft und das sekundäre Volume eines gespiegelten Paares zwangsweise zu einer primären Rolle hochgestuft wird, dann werden die Volumes auf beiden Speicherarrays nach Wiederherstellung der Kommunikation in den Zustand „Rollenänderung wird durchgeführt“ versetzt.

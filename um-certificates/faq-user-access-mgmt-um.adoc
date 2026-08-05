@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[why-cant-i-log-in]]
 == Warum kann ich mich nicht anmelden?
 
 Falls beim Anmeldeversuch eine Fehlermeldung erscheint, überprüfen Sie diese möglichen Ursachen.
@@ -30,6 +31,7 @@ Anmeldefehler können aus einem dieser Gründe auftreten:
 
 
 
+[[what-do-i-need-to-know-before-adding-a-directory-server]]
 == Was muss ich wissen, bevor ich einen Verzeichnisserver hinzufüge?
 
 Bevor Sie einen Verzeichnisserver in Access Management hinzufügen, müssen Sie bestimmte Voraussetzungen erfüllen.
@@ -41,6 +43,7 @@ Bevor Sie einen Verzeichnisserver in Access Management hinzufügen, müssen Sie 
 
 
 
+[[what-do-i-need-to-know-about-mapping-to-storage-array-roles]]
 == Was muss ich über die Zuordnung zu Speicherarray-Rollen wissen?
 
 Bevor Sie Gruppen Rollen zuordnen, überprüfen Sie die Richtlinien.
@@ -66,6 +69,7 @@ Wenn Sie einen LDAP (Lightweight Directory Access Protocol)-Server und Verzeichn
 
 
 
+[[saml]]
 === SAML
 
 Wenn Sie die im Speichersystem integrierten Security Assertion Markup Language (SAML)-Funktionen nutzen, stellen Sie sicher, dass:
@@ -83,12 +87,14 @@ Wenn Sie die im Speichersystem integrierten Security Assertion Markup Language (
 
 
 
+[[what-do-i-need-to-know-before-configuring-and-enabling-saml]]
 == Was muss ich wissen, bevor ich SAML konfiguriere und aktiviere?
 
 Bevor Sie die Security Assertion Markup Language (SAML)-Funktionen für die Authentifizierung konfigurieren und aktivieren, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen und die SAML-Beschränkungen verstehen.
 
 
 
+[[requirements]]
 === Anforderungen
 
 Bevor Sie beginnen, stellen Sie sicher, dass:
@@ -103,6 +109,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass:
 
 
 
+[[restrictions]]
 === Einschränkungen
 
 Zusätzlich zu den oben genannten Anforderungen stellen Sie bitte sicher, dass Sie die folgenden Einschränkungen verstehen:
@@ -124,6 +131,7 @@ Zusätzlich zu den oben genannten Anforderungen stellen Sie bitte sicher, dass S
 
 
 
+[[what-are-the-local-users]]
 == Was sind die lokalen Nutzer?
 
 Lokale Benutzer sind im System vordefiniert und verfügen über spezifische Berechtigungen.

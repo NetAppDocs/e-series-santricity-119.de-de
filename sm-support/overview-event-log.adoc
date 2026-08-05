@@ -17,6 +17,7 @@ Das Ereignisprotokoll kann als ergänzendes Diagnosetool zum Recovery Guru verwe
 
 
 
+[[event-categories]]
 == Ereigniskategorien
 
 Die Ereignisse im Ereignisprotokoll sind mit unterschiedlichen Status kategorisiert. Ereignisse, bei denen Sie Maßnahmen ergreifen müssen, haben die folgenden Status:
@@ -32,6 +33,7 @@ Ereignisse, die lediglich der Information dienen und keine sofortige Aktion erfo
 
 
 
+[[critical-events]]
 == Kritische Ereignisse
 
 Kritische Ereignisse weisen auf ein Problem mit dem Storage-Array hin. Wenn Sie das kritische Ereignis sofort beheben, können Sie möglicherweise den Verlust des Datenzugriffs verhindern.

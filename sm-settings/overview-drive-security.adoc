@@ -16,6 +16,7 @@ Sie können die Laufwerkssicherheit und die Schlüsselverwaltung auf der Seite �
 
 
 
+[[what-is-drive-security]]
 == Was ist Laufwerkssicherheit?
 
 _Drive Security_ ist eine Funktion, die unbefugten Zugriff auf Daten auf sicherheitsaktivierten Laufwerken verhindert, wenn diese aus dem Storage-Array entfernt werden. Diese Laufwerke können entweder Full Disk Encryption (FDE) Laufwerke oder Federal Information Processing Standard (FIPS) Laufwerke sein. Wenn FDE- oder FIPS-Laufwerke physisch aus dem Array entfernt werden, können sie erst wieder betrieben werden, wenn sie in ein anderes Array eingesetzt werden. Zu diesem Zeitpunkt befinden sich die Laufwerke im Security Locked-Zustand, bis der korrekte Sicherheitsschlüssel bereitgestellt wird. Ein _security key_ ist eine Zeichenfolge, die zwischen diesen Laufwerkstypen und den Controllern in einem Storage-Array geteilt wird.
@@ -29,6 +30,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-configure-key-management]]
 == Wie konfiguriere ich die Schlüsselverwaltung?
 
 Um Drive Security zu implementieren, müssen entweder FDE-Laufwerke oder FIPS-Laufwerke im Array installiert sein. Um die Schlüsselverwaltung für diese Laufwerke zu konfigurieren, gehen Sie zu menu:Settings[System > Security key management], wo Sie entweder einen internen Schlüssel aus dem persistenten Speicher des Controllers oder einen externen Schlüssel von einem Schlüsselverwaltungsserver erstellen können. Abschließend aktivieren Sie Drive Security für Pools und Volumengruppen, indem Sie „secure-capable“ in den Volumeneinstellungen auswählen.
@@ -43,6 +45,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-unlock-drives]]
 == Wie kann ich Laufwerke entsperren?
 
 Wenn Sie die Schlüsselverwaltung konfiguriert haben und anschließend secure-fähige Laufwerke von einem Storage-Array in ein anderes verschieben, müssen Sie den Security Key dem neuen Storage-Array neu zuweisen, um Zugriff auf die verschlüsselten Daten auf den Laufwerken zu erhalten.
@@ -55,6 +58,7 @@ Mehr erfahren:
 
 
 
+[[related-information]]
 == Verwandte Informationen
 
 Erfahren Sie mehr über Aufgaben im Zusammenhang mit dem Schlüsselmanagement:

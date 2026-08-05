@@ -15,6 +15,7 @@ Sie können Ihre physische und virtualisierte Infrastruktur verwalten, indem Sie
 
 
 
+[[types-of-storage-array-groups]]
 == Arten von Speicherarray-Gruppen
 
 * *Alle Gruppen*

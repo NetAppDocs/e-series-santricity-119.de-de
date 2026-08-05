@@ -22,6 +22,7 @@ Die Authentifizierung zwischen den Controllern und einem Key Management Server i
 
 
 
+[[step-1-complete-and-submit-csr-for-authentication-with-a-key-management-server]]
 == Schritt 1: CSR ausfüllen und zur Authentifizierung bei einem Schlüsselverwaltungsserver einreichen
 
 Sie müssen zunächst eine Zertifikatsignierungsanforderungsdatei (CSR) erstellen und dann die CSR verwenden, um ein signiertes Clientzertifikat von einer Zertifizierungsstelle (CA) anzufordern, die vom Schlüsselverwaltungsserver als vertrauenswürdig eingestuft wird. Sie können auch ein Clientzertifikat vom Schlüsselverwaltungsserver mithilfe der heruntergeladenen CSR-Datei erstellen und herunterladen. Ein Clientzertifikat validiert die Controller des Storage-Arrays, sodass der Schlüsselverwaltungsserver deren Key Management Interoperability Protocol (KMIP)-Anfragen vertrauen kann.
@@ -56,6 +57,7 @@ NOTE: Es ist üblich, dass der Schlüsselverwaltungsserver über eine Funktion v
 
 
 
+[[step-2-import-certificates-for-the-key-management-server]]
 == Schritt 2: Zertifikate für den Schlüsselverwaltungsserver importieren
 
 Im nächsten Schritt importieren Sie Zertifikate für die Authentifizierung zwischen dem Speichersystem und dem Schlüsselverwaltungsserver. Es gibt zwei Arten von Zertifikaten: Das Clientzertifikat validiert die Controller des Speichersystems, während das Zertifikat des Schlüsselverwaltungsservers den Server validiert. Sie müssen sowohl die Clientzertifikatsdatei für die Controller als auch die Serverzertifikatsdatei für den Schlüsselverwaltungsserver laden.

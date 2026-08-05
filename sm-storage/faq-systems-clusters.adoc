@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-are-hosts-and-host-clusters]]
 == Was sind Hosts und Host-Cluster?
 
 Ein Host ist ein Server, der E/A an ein Volume auf einem Storage-Array sendet. Ein Hostcluster ist eine Gruppe von Hosts. Sie erstellen einen Hostcluster, um es einfach zu machen, denselben Volumes mehreren Hosts zuzuweisen.
@@ -26,12 +27,14 @@ Der Hostcluster ist eine logische Einheit, die Sie im SANtricity System Manager 
 
 
 
+[[why-would-i-need-to-create-a-host-cluster]]
 == Warum müsste ich einen Host-Cluster erstellen?
 
 Sie müssen einen Hostcluster erstellen, wenn Sie möchten, dass zwei oder mehr Hosts gemeinsam auf denselben Satz von Volumes zugreifen. Normalerweise ist auf den einzelnen Hosts Clustering-Software installiert, um den Volume-Zugriff zu koordinieren.
 
 
 
+[[how-do-i-know-which-host-operating-system-type-is-correct]]
 == Woran erkenne ich, welcher Host-Betriebssystemtyp korrekt ist?
 
 Das Feld „Host-Betriebssystemtyp“ enthält das Betriebssystem des Hosts. Sie können den empfohlenen Hosttyp aus der Drop-down-Liste auswählen.
@@ -135,6 +138,7 @@ Wenn Ihr Host-Betriebssystemtyp auf diesen Wert eingestellt ist, verwenden Sie s
 |===
 
 
+[[what-are-hbas-and-adapter-ports]]
 == Was sind HBAs und Adapteranschlüsse?
 
 Ein Hostbusadapter (HBA) ist eine Platine, die in einem Host verbaut ist und einen oder mehrere Host-Ports enthält. Ein Host-Port ist ein Anschluss an einem Hostbusadapter (HBA), der die physische Verbindung zu einem Controller herstellt und für I/O-Operationen verwendet wird.
@@ -143,6 +147,7 @@ Die Adapteranschlüsse des HBA werden als Host-Ports bezeichnet. Die meisten HBA
 
 
 
+[[how-do-i-match-the-host-ports-to-a-host]]
 == Wie ordne ich die Host-Ports einem Host zu?
 
 Wenn Sie einen Host manuell erstellen, müssen Sie zuerst das entsprechende Host-Bus-Adapter (HBA)-Dienstprogramm verwenden, das auf dem Host verfügbar ist, um die Host-Port-Kennungen zu ermitteln, die jedem im Host installierten HBA zugeordnet sind.
@@ -156,6 +161,7 @@ Achten Sie darauf, die korrekten Host-Port-Kennungen für den Host auszuwählen,
 ====
 
 
+[[how-do-i-create-chap-secrets]]
 == Wie erstelle ich CHAP-Secrets?
 
 Wenn Sie die Challenge Handshake Authentication Protocol (CHAP) Authentifizierung auf einem beliebigen iSCSI-Host einrichten, der mit dem Storage Array verbunden ist, müssen Sie dieses Initiator-CHAP-Geheimnis für jeden iSCSI-Host erneut eingeben.
@@ -166,6 +172,7 @@ Wenn Sie die CHAP-Gegenseitige Authentifizierung verwenden, müssen Sie außerde
 
 
 
+[[what-is-the-default-cluster]]
 == Was ist der Standard-Cluster?
 
 Der Standardcluster ist eine systemdefinierte Einheit, die es jedem nicht zugeordneten Host-Port-Identifikator, der sich im Storage-Array angemeldet hat, ermöglicht, auf die dem Standardcluster zugewiesenen Volumes zuzugreifen. Ein nicht zugeordneter Host-Port-Identifikator ist ein Host-Port, der logisch keinem bestimmten Host zugeordnet ist, aber physisch in einem Host installiert und im Storage-Array angemeldet ist.
@@ -181,6 +188,7 @@ Anfangs können Sie Volumes nur über die Befehlszeile (CLI) dem Standardcluster
 
 
 
+[[what-is-host-connectivity-reporting]]
 == Was ist Host-Konnektivitätsberichterstattung?
 
 Wenn die Host-Konnektivitätsberichterstattung aktiviert ist, überwacht das Storage-Array kontinuierlich die Verbindung zwischen den Controllern und den konfigurierten Hosts und benachrichtigt Sie, wenn die Verbindung unterbrochen wird.

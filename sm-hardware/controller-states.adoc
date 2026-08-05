@@ -15,6 +15,7 @@ Sie können einen Controller in drei verschiedene Zustände versetzen: online, o
 
 
 
+[[online-state]]
 == Online-Status
 
 Der Online-Zustand ist der normale Betriebszustand des Controllers. Das bedeutet, dass der Controller normal arbeitet und für E/A-Operationen zur Verfügung steht.
@@ -23,6 +24,7 @@ Wenn Sie einen Controller online schalten, wird sein Status auf optimal gesetzt.
 
 
 
+[[offline-state]]
 == Offline-Status
 
 Der Offline-Zustand wird typischerweise verwendet, um einen Controller für den Austausch vorzubereiten, wenn sich zwei Controller im Storage-Array befinden. Ein Controller kann auf zwei Arten in den Offline-Zustand versetzt werden: Sie können einen expliziten Befehl ausführen oder der Controller kann ausfallen. Ein Controller kann den Offline-Zustand nur durch einen weiteren expliziten Befehl oder durch den Austausch des ausgefallenen Controllers verlassen. Sie können einen Controller nur dann offline schalten, wenn sich zwei Controller im Storage-Array befinden.
@@ -37,6 +39,7 @@ Wenn sich ein Controller im Offline-Zustand befindet, gelten die folgenden Bedin
 
 
 
+[[service-mode]]
 == Servicemodus
 
 Der Service Mode wird üblicherweise nur vom technischen Support verwendet, um alle Speicherarray-Volumes auf einen Controller zu verschieben, damit der andere Controller diagnostiziert werden kann. Ein Controller muss manuell in den Service Mode versetzt und nach Abschluss des Servicevorgangs manuell wieder online geschaltet werden.

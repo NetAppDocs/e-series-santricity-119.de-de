@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-if-alerts-are-disabled]]
 == Was passiert, wenn Benachrichtigungen deaktiviert sind?
 
 Wenn Sie möchten, dass Administratoren Benachrichtigungen über wichtige Ereignisse erhalten, die im Speichersystem auftreten, müssen Sie eine Benachrichtigungsmethode konfigurieren.
@@ -24,6 +25,7 @@ Für Speicher-Arrays, die mit SANtricity System Manager verwaltet werden, konfig
 
 
 
+[[how-do-i-configure-snmp-or-syslog-alerts]]
 == Wie konfiguriere ich SNMP- oder syslog-Warnungen?
 
 Zusätzlich zu E-Mail-Benachrichtigungen können Sie Benachrichtigungen so konfigurieren, dass sie per Simple Network Management Protocol (SNMP)-Traps oder per Syslog-Meldungen gesendet werden.
@@ -32,6 +34,7 @@ Um SNMP- oder Syslog-Warnungen zu konfigurieren, gehen Sie zu menu:Settings[Aler
 
 
 
+[[why-are-timestamps-inconsistent-between-the-array-and-alerts]]
 == Warum sind die Zeitstempel zwischen dem Array und den Benachrichtigungen inkonsistent?
 
 Wenn das Speichersystem Warnmeldungen sendet, wird die Zeitzone des Zielservers oder -hosts, der die Warnmeldungen empfängt, nicht berücksichtigt. Stattdessen verwendet das Speichersystem die lokale Zeit (GMT), um den Zeitstempel für den Warnmeldungsdatensatz zu erstellen. Daher können Inkonsistenzen zwischen den Zeitstempeln des Speichersystems und des Servers oder Hosts, der eine Warnmeldung empfängt, auftreten.

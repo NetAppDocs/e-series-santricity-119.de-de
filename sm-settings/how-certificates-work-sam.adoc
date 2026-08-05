@@ -24,6 +24,7 @@ Obwohl von Zertifizierungsstellen signierte Zertifikate einen besseren Schutz bi
 ====
 
 
+[[signed-certificates]]
 == Unterzeichnete Zertifikate
 
 Ein signiertes Zertifikat wird von einer Zertifizierungsstelle (CA), einer vertrauenswürdigen Drittorganisation, validiert. Signierte Zertifikate enthalten Angaben zum Inhaber der Entität (typischerweise eines Servers oder einer Website), zum Ausstellungs- und Ablaufdatum des Zertifikats, zu gültigen Domains der Entität sowie eine digitale Signatur aus Buchstaben und Zahlen.
@@ -39,6 +40,7 @@ Die Zertifizierungsstelle (CA) ergreift während des Antragsverfahrens Maßnahme
 
 
 
+[[self-signed-certificates]]
 == Selbstsignierte Zertifikate
 
 Jeder Controller im Speicher-Array verfügt über ein vorinstalliertes, selbstsigniertes Zertifikat. Ein selbstsigniertes Zertifikat ähnelt einem CA-signierten Zertifikat, mit dem Unterschied, dass es vom Inhaber der Entität und nicht von einer dritten Partei validiert wird. Wie ein CA-signiertes Zertifikat enthält ein selbstsigniertes Zertifikat seinen eigenen privaten Schlüssel und stellt außerdem sicher, dass Daten verschlüsselt und über eine HTTPS-Verbindung zwischen Server und Client gesendet werden. Ein selbstsigniertes Zertifikat verwendet jedoch nicht dieselbe Vertrauenskette wie ein CA-signiertes Zertifikat.
@@ -47,6 +49,7 @@ Selbstsignierte Zertifikate werden von Browsern nicht als "`trusted`" eingestuft
 
 
 
+[[certificates-used-for-key-management-server]]
 == Für den Schlüsselverwaltungsserver verwendete Zertifikate
 
 Wenn Sie einen externen Schlüsselverwaltungsserver mit der Drive Security-Funktion verwenden, können Sie auch Zertifikate für die Authentifizierung zwischen diesem Server und den Controllern verwalten.

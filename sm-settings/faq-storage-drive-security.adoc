@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-do-i-need-to-know-before-creating-a-security-key]]
 == Was muss ich wissen, bevor ich einen Sicherheitsschlüssel erstelle?
 
 Ein Sicherheitsschlüssel wird von Controllern und sicherheitsfähigen Laufwerken innerhalb eines Speichersystems gemeinsam genutzt. Wenn ein sicherheitsfähiges Laufwerk aus dem Speichersystem entfernt wird, schützt der Sicherheitsschlüssel die Daten vor unberechtigtem Zugriff.
@@ -28,6 +29,7 @@ Sie können Sicherheitsschlüssel mit einer der folgenden Methoden erstellen und
 
 
 
+[[internal-key-management]]
 === Interne Schlüsselverwaltung
 
 Interne Schlüssel werden im persistenten Speicher des Controllers an einem nicht zugänglichen Ort gespeichert und „versteckt“. Bevor Sie einen internen Sicherheitsschlüssel erstellen, müssen Sie Folgendes tun:
@@ -40,6 +42,7 @@ Anschließend können Sie einen internen Sicherheitsschlüssel erstellen, indem 
 
 
 
+[[external-key-management]]
 === Externes Schlüsselmanagement
 
 Externe Schlüssel werden auf einem separaten Schlüsselverwaltungsserver mithilfe des Key Management Interoperability Protocol (KMIP) verwaltet. Bevor Sie einen externen Sicherheitsschlüssel erstellen, müssen Sie Folgendes tun:
@@ -60,12 +63,14 @@ Anschließend können Sie einen externen Schlüssel erstellen, indem Sie die IP-
 
 
 
+[[why-do-i-need-to-define-a-pass-phrase]]
 == Warum muss ich eine Passphrase festlegen?
 
 Die Passphrase dient zum Verschlüsseln und Entschlüsseln der auf dem lokalen Verwaltungsclient gespeicherten Sicherheitsschlüsseldatei. Ohne die Passphrase kann der Sicherheitsschlüssel nicht entschlüsselt und verwendet werden, um Daten von einem sicherheitsaktivierten Laufwerk zu entsperren, wenn es in einem anderen Speicher-Array neu installiert wird.
 
 
 
+[[why-is-it-important-to-record-security-key-information]]
 == Warum ist es wichtig, Sicherheitsschlüsselinformationen aufzuzeichnen?
 
 Wenn Sie die Sicherheitsschlüsselinformationen verlieren und keine Sicherungskopie besitzen, können Sie Daten verlieren, wenn Sie sicherheitsfähige Laufwerke versetzen oder einen Controller aufrüsten. Sie benötigen den Sicherheitsschlüssel, um die Daten auf den Laufwerken zu entsperren.
@@ -74,6 +79,7 @@ Notieren Sie sich unbedingt die Kennung des Sicherheitsschlüssels, die zugehör
 
 
 
+[[what-do-i-need-to-know-before-backing-up-a-security-key]]
 == Was muss ich wissen, bevor ich einen Sicherheitsschlüssel sichere?
 
 Wenn Ihr ursprünglicher Sicherheitsschlüssel beschädigt wird und Sie keine Sicherung haben, verlieren Sie den Zugriff auf die Daten auf den Laufwerken, wenn diese von einem Storage-Array auf ein anderes migriert werden.
@@ -99,6 +105,7 @@ Die Passphrase für Drive Security darf nicht mit dem Administratorpasswort des 
 
 
 
+[[what-do-i-need-to-know-before-unlocking-secure-drives]]
 == Was muss ich wissen, bevor ich sichere Laufwerke entsperre?
 
 Um die Daten von einem mit Sicherheitsfunktionen ausgestatteten Laufwerk zu entsperren, müssen Sie dessen Sicherheitsschlüssel importieren.
@@ -113,6 +120,7 @@ Beachten Sie vor dem Entsperren von sicherheitsaktivierten Laufwerken die folgen
 
 
 
+[[what-is-readwrite-accessibility]]
 == Was ist lesen/schreiben-Zugänglichkeit?
 
 Das Fenster „Laufwerkseinstellungen“ enthält Informationen zu den Sicherheitsattributen des Laufwerks. „Lesen/Schreiben zugänglich“ ist eines der Attribute, das angezeigt wird, wenn die Daten eines Laufwerks gesperrt sind.
@@ -121,6 +129,7 @@ Um die Sicherheitsattribute des Laufwerks anzuzeigen, rufen Sie die Seite Hardwa
 
 
 
+[[what-do-i-need-to-know-about-validating-the-security-key]]
 == Was muss ich über die Validierung des Sicherheitsschlüssels wissen?
 
 Nach der Erstellung eines Sicherheitsschlüssels sollten Sie die Schlüsseldatei validieren, um sicherzustellen, dass sie nicht beschädigt ist.
@@ -134,6 +143,7 @@ Falls die Validierung fehlschlägt, führen Sie Folgendes aus:
 
 
 
+[[what-is-the-difference-between-internal-security-key-and-external-security-key-management]]
 == Worin besteht der Unterschied zwischen internem und externem Security Key Management?
 
 Wenn Sie die Funktion „Laufwerkssicherheit“ implementieren, können Sie einen internen Sicherheitsschlüssel oder einen externen Sicherheitsschlüssel verwenden, um Daten zu sperren, wenn ein sicherheitsfähiges Laufwerk aus dem Storage-Array entfernt wird.

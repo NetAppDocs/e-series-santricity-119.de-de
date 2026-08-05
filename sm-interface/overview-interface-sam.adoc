@@ -15,6 +15,7 @@ SANtricity System Manager ist eine webbasierte Schnittstelle, mit der Sie ein St
 
 
 
+[[home-page]]
 == Startseite
 
 Die Startseite bietet eine Dashboard-Ansicht für die tägliche Verwaltung Ihres Storage-Arrays. Wenn Sie sich im System Manager anmelden, wird als erstes die Startseite angezeigt.
@@ -55,6 +56,7 @@ Der Bereich „Speicherhierarchie“ bietet eine übersichtliche Ansicht der ver
 |===
 
 
+[[interface-settings]]
 == Schnittstelleneinstellungen
 
 Sie können Anzeigeeinstellungen und andere Einstellungen über die Hauptschnittstelle ändern.
@@ -86,6 +88,7 @@ Greifen Sie über das Dropdown-Menü in der oberen rechten Ecke der Benutzerober
 |===
 
 
+[[user-logins-and-passwords]]
 == Benutzeranmeldungen und Passwörter
 
 Der aktuell im System angemeldete Benutzer wird oben rechts in der Benutzeroberfläche angezeigt.

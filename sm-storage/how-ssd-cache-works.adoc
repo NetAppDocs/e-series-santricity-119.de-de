@@ -15,6 +15,7 @@ Die SSD-Cache-Funktion ist eine Controller-basierte Lösung, die die am häufigs
 
 
 
+[[ssd-cache-versus-primary-cache]]
 == SSD-Cache versus primärer Cache
 
 SSD-Cache ist ein sekundärer Cache, der zusammen mit dem primären Cache im dynamischen Direktzugriffsspeicher (DRAM) des Controllers verwendet wird.
@@ -35,6 +36,7 @@ Die internen RAID-Volumes werden für interne Cache-Verarbeitungszwecke verwende
 
 
 
+[[how-ssd-cache-is-used]]
 == Wie SSD-Cache verwendet wird
 
 Intelligentes Caching platziert Daten auf einem Laufwerk mit geringerer Latenz, sodass Antworten auf zukünftige Anfragen nach diesen Daten viel schneller erfolgen können. Fordert ein Programm Daten an, die sich im Cache befinden (ein sogenannter „Cache-Treffer“), kann das Laufwerk mit geringerer Latenz diese Transaktion ausführen. Andernfalls tritt ein „Cache-Miss“ auf und die Daten müssen vom ursprünglichen, langsameren Laufwerk abgerufen werden. Je mehr Cache-Treffer auftreten, desto besser wird die Gesamtleistung.
@@ -52,6 +54,7 @@ Wenn die CPU gelesene Daten verarbeiten muss, folgt sie den folgenden Schritten:
 
 
 
+[[improved-performance]]
 == Verbesserte Leistung
 
 Durch das Kopieren der am häufigsten aufgerufenen Daten (Hot Spot) in den SSD-Cache wird ein effizienterer Festplattenbetrieb, geringere Latenz und beschleunigte Lese- und Schreibgeschwindigkeiten ermöglicht. Die Verwendung von Hochleistungs-SSDs zum Zwischenspeichern von Daten aus HDD-Volumes verbessert die I/O-Leistung und die Reaktionszeiten.
@@ -60,12 +63,14 @@ Einfache Volume-I/O-Mechanismen werden verwendet, um Daten in den SSD-Cache zu v
 
 
 
+[[ssd-cache-and-the-drive-security-feature]]
 == SSD-Cache und die Laufwerkssicherheitsfunktion
 
 Um SSD-Cache auf einem Volume zu verwenden, das auch Drive Security (sicher aktiviert) nutzt, müssen die Drive Security-Funktionen des Volumes und des SSD-Caches übereinstimmen. Wenn sie nicht übereinstimmen, wird das Volume nicht sicher aktiviert.
 
 
 
+[[implement-ssd-cache]]
 == SSD-Cache implementieren
 
 Um SSD-Cache zu implementieren, gehen Sie wie folgt vor:

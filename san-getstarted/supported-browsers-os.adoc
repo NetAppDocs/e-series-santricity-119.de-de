@@ -15,6 +15,7 @@ SANtricity software unterstützt verschiedene Typen von Browsern und Betriebssys
 
 
 
+[[browsers]]
 == Browser
 
 Folgende Browser und Versionen werden unterstützt.
@@ -58,6 +59,7 @@ Für Unified Manager muss der Web Services Proxy installiert und für den Browse
 ====
 
 
+[[operating-systems]]
 == Betriebssysteme
 
 Folgende Betriebssysteme und Versionen werden unterstützt.

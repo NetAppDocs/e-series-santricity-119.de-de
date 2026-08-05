@@ -15,6 +15,7 @@ Die Funktion „Einstellungen importieren“ ermöglicht es Ihnen, eine Stapelop
 
 
 
+[[what-settings-can-be-imported]]
 == Welche Einstellungen können importiert werden?
 
 Sie können Alarmierungsmethoden, AutoSupport Konfigurationen, Directory Services-Konfigurationen, Speicherkonfigurationen (wie Volumengruppen und Pools) und Systemeinstellungen (wie automatischer Lastausgleich) importieren.
@@ -27,6 +28,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-perform-a-batch-import]]
 == Wie führe ich einen Batch-Import durch?
 
 Öffnen Sie auf dem als Quelle zu verwendenden Storage-Array den System Manager und konfigurieren Sie die gewünschten Einstellungen. Gehen Sie anschließend im Unified Manager zur Seite Manage und importieren Sie die Einstellungen in ein oder mehrere Arrays.

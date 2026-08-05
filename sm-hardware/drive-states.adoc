@@ -15,6 +15,7 @@ SANtricity System Manager meldet verschiedene Zustände für Laufwerke.
 
 
 
+[[accessibility-states]]
 == Barrierefreiheitsstatus
 
 [cols="25h,~"]
@@ -63,6 +64,7 @@ Das Laufwerk reagiert nicht auf Befehle.
 |===
 
 
+[[role-states]]
 == Rollenstatus
 
 [cols="25h,~"]
@@ -99,6 +101,7 @@ Das Laufwerk ist keinem Pool oder keiner Volume-Gruppe zugeordnet.
 |===
 
 
+[[availability-states]]
 == Verfügbarkeitsstatus
 
 [cols="25h,~"]

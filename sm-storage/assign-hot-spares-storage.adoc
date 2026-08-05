@@ -64,6 +64,7 @@ Das Laufwerk wird auf der Hardware-Seite rosa angezeigt, was darauf hinweist, da
 
 
 
+[[results]]
 == Ergebnisse
 
 Wenn ein Laufwerk innerhalb einer RAID 1-, RAID 5- oder RAID 6-Volumegruppe ausfällt, verwendet der Controller automatisch Redundanzdaten, um die Daten vom ausgefallenen Laufwerk auf das Hot Spare wiederherzustellen.

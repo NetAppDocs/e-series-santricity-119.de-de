@@ -24,12 +24,14 @@ Hot-Spare-Laufwerke sind nicht bestimmten Volume-Gruppen zugeordnet. Sie können
 
 
 
+[[how-to-identify-hot-spares]]
 == So identifizieren Sie Hot Spares
 
 Sie können Hot-Spare-Laufwerke über den Initialisierungsassistenten oder von der Hardware-Seite aus zuweisen. Um festzustellen, ob Hot-Spare-Laufwerke zugewiesen sind, gehen Sie zur Hardware-Seite und suchen Sie nach Laufwerksschächten, die in Pink angezeigt werden.
 
 
 
+[[how-hot-spare-coverage-works]]
 == Wie die Hot-Spare-Abdeckung funktioniert
 
 Die Hot-Spare-Abdeckung funktioniert wie folgt:
@@ -49,6 +51,7 @@ Hot-Spare-Laufwerke können nicht für Pools verwendet werden, da diese eine and
 
 
 
+[[considerations-for-hot-spare-drive-capacity]]
 == Überlegungen zur Hot-Spare-Laufwerkskapazität
 
 Wählen Sie eine Festplatte mit einer Kapazität, die gleich oder größer ist als die Gesamtkapazität der Festplatte, die Sie schützen möchten. Wenn Sie beispielsweise eine 18-GiB-Festplatte mit einer konfigurierten Kapazität von 8 GiB haben, können Sie eine 9-GiB- oder größere Festplatte als Hot-Spare verwenden. Weisen Sie im Allgemeinen einer Festplatte nur dann die Rolle als Hot-Spare zu, wenn ihre Kapazität gleich oder größer ist als die Kapazität der größten Festplatte im Storage-Array.
@@ -60,12 +63,14 @@ Falls keine Hot-Spare-Laufwerke mit der gleichen physikalischen Kapazität verf�
 ====
 
 
+[[considerations-for-media-and-interface-types]]
 == Überlegungen zu Medien- und Schnittstellentypen
 
 Das als Hot-Spare verwendete Laufwerk muss denselben Medientyp und denselben Schnittstellentyp wie die Laufwerke aufweisen, die es schützen soll. Beispielsweise kann ein HDD-Laufwerk nicht als Hot-Spare für SSD-Laufwerke dienen.
 
 
 
+[[considerations-for-secure-capable-drives]]
 == Überlegungen zu sicherheitsfähigen Laufwerken
 
 Ein sicheres Laufwerk, wie FDE oder FIPS, kann als Hot-Spare für Laufwerke mit oder ohne Sicherheitsfunktionen dienen. Ein Laufwerk, das nicht sicherheitsfähig ist, kann jedoch nicht als Hot-Spare für Laufwerke mit Sicherheitsfunktionen dienen.
@@ -79,6 +84,7 @@ Wenn Sie die Funktion „Laufwerkssicherheit“ aktivieren und anschließend ein
 ====
 
 
+[[recommended-number-of-hot-spare-drives]]
 == Empfohlene Anzahl von Hot-Spare-Laufwerken
 
 Wenn Sie den Initial Setup-Assistenten verwendet haben, um automatisch Hot-Spare-Laufwerke zu erstellen, erstellt System Manager für jeweils 30 Laufwerke eines bestimmten Medientyps und Schnittstellentyps ein Hot-Spare-Laufwerk. Andernfalls können Sie Hot-Spare-Laufwerke manuell in den Volume-Gruppen des Storage Arrays erstellen.

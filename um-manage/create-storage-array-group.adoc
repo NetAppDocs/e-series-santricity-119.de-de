@@ -18,6 +18,7 @@ Das Konfigurieren von Gruppen ist ein zweistufiges Verfahren.
 
 
 
+[[step-1-create-group]]
 == Schritt 1: Gruppe erstellen
 
 Zuerst erstellen Sie eine Gruppe. Die Speichergruppe definiert, welche Laufwerke den Speicher bereitstellen, aus dem das Volume besteht.
@@ -31,6 +32,7 @@ Zuerst erstellen Sie eine Gruppe. Die Speichergruppe definiert, welche Laufwerke
 
 
 
+[[step-2-add-storage-array-to-group]]
 == Schritt 2: Speicherarray zur Gruppe hinzufügen
 
 Sie können einer benutzerdefinierten Gruppe ein oder mehrere Storage-Arrays hinzufügen.

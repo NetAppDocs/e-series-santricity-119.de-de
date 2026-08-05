@@ -16,6 +16,7 @@ Verwenden Sie den Einrichtungsassistenten, um Ihr Storage-Array zu konfigurieren
 
 
 
+[[first-time-setup]]
 == Ersteinrichtung
 
 Beim ersten Öffnen des System Manager startet der Setup-Assistent. Der Setup-Assistent fordert Sie auf, grundlegende Konfigurationsaufgaben durchzuführen, wie die Benennung Ihres Storage Arrays, die Konfiguration Ihrer Hosts, die Auswahl von Anwendungen und die Erstellung von Speicherpools.
@@ -32,6 +33,7 @@ Wenn Sie den Assistenten abbrechen, können Sie ihn nicht manuell neu starten. D
 
 
 
+[[terminology]]
 == Terminologie
 
 Der Einrichtungsassistent verwendet die folgenden Begriffe.

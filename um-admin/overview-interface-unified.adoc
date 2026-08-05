@@ -15,12 +15,14 @@ SANtricity Unified Manager ist eine webbasierte Schnittstelle, mit der Sie mehre
 
 
 
+[[main-page]]
 == Hauptseite
 
 Wenn Sie sich bei Unified Manager anmelden, öffnet sich die Hauptseite mit *Verwalten – Alle*. Auf dieser Seite können Sie durch eine Liste der in Ihrem Netzwerk erkannten Speicherarrays scrollen, deren Status anzeigen und Operationen an einem einzelnen Array oder an einer Gruppe von Arrays durchführen.
 
 
 
+[[navigation-sidebar]]
 == Navigationsseitenleiste
 
 Sie können auf die Funktionen und Merkmale des Unified Manager über die Navigationsleiste zugreifen.
@@ -71,12 +73,14 @@ Technische Supportoptionen, Ressourcen und Kontakte anzeigen.
 |===
 
 
+[[interface-settings-and-help]]
 == Benutzeroberflächeneinstellungen und Hilfe
 
 Oben rechts in der Benutzeroberfläche können Sie auf Hilfe und andere Dokumentationen zugreifen. Sie können außerdem auf Verwaltungsoptionen zugreifen, die über das Dropdown-Menü neben Ihrem Anmeldenamen verfügbar sind.
 
 
 
+[[user-logins-and-passwords]]
 == Benutzeranmeldungen und Passwörter
 
 Der aktuell im System angemeldete Benutzer wird oben rechts in der Benutzeroberfläche angezeigt.

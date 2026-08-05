@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-settings-will-be-imported]]
 == Welche Einstellungen werden importiert?
 
 Die Funktion „Einstellungen importieren“ ist ein Stapelverarbeitungsvorgang, der Konfigurationen von einem Storage-Array auf mehrere Storage-Arrays lädt. Die Einstellungen, die während dieses Vorgangs importiert werden, hängen davon ab, wie das Quell-Storage-Array im SANtricity System Manager konfiguriert ist.
@@ -33,6 +34,7 @@ Die folgenden Einstellungen können in mehrere Speicherarrays importiert werden:
 
 
 
+[[why-dont-i-see-all-of-my-storage-arrays]]
 == Warum werden nicht alle meine Speicherarrays angezeigt?
 
 Während des Importvorgangs der Einstellungen sind einige Ihrer Speicherarrays möglicherweise nicht im Zielauswahldialogfeld verfügbar.

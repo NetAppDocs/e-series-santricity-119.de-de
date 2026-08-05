@@ -24,6 +24,7 @@ Die Verwendung von CA-signierten Zertifikaten ist ein dreistufiges Verfahren.
 
 
 
+[[step-1-complete-csrs-for-the-controllers]]
 == Schritt 1: CSRs für die Controller ausfüllen
 
 Sie müssen zuerst eine Zertifikatsignierungsanforderungsdatei (CSR) für jeden Controller im Speicherarray generieren.
@@ -85,6 +86,7 @@ Bei einem einzelnen Controller wird eine CSR-Datei auf Ihr lokales System herunt
 
 
 
+[[step-2-submit-the-csr-files]]
 == Schritt 2: Reichen Sie die CSR-Dateien ein
 
 Nachdem Sie die Zertifikatsignierungsanforderungsdateien (CSR-Dateien) erstellt haben, senden Sie die Dateien an eine Zertifizierungsstelle (CA). E-Series Systeme benötigen das PEM-Format (Base64-ASCII-Kodierung) für signierte Zertifikate, das die folgenden Dateitypen umfasst: pem, .crt, .cer oder .key.
@@ -103,6 +105,7 @@ Nachdem Sie die Zertifikatsignierungsanforderungsdateien (CSR-Dateien) erstellt 
 
 
 
+[[step-3-import-signed-certificates-for-controllers]]
 == Schritt 3: Signierte Zertifikate für Controller importieren
 
 Nachdem Sie signierte Zertifikate von der Zertifizierungsstelle (CA) erhalten haben, importieren Sie die Dateien für die Controller.

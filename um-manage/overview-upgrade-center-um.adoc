@@ -16,12 +16,14 @@ Im Upgrade Center können Sie SANtricity OS Software und NVSRAM Upgrades für me
 
 
 
+[[how-do-upgrades-work]]
 == Wie funktionieren Upgrades?
 
 Sie laden die neueste OS-Software herunter und aktualisieren anschließend ein oder mehrere Arrays.
 
 
 
+[[upgrade-workflow]]
 === Upgrade-Workflow
 
 Die folgenden Schritte bieten einen allgemeinen Arbeitsablauf für die Durchführung von Software-Upgrades.
@@ -46,6 +48,7 @@ Sie können auch festlegen, dass die Software zu einem späteren Zeitpunkt aktiv
 
 
 
+[[immediate-or-staged-upgrade]]
 === Sofortiges oder gestaffeltes Upgrade
 
 Sie können das Upgrade sofort aktivieren oder es für einen späteren Zeitpunkt vorbereiten. Sie könnten sich aus folgenden Gründen dafür entscheiden, die Aktivierung später durchzuführen:
@@ -58,6 +61,7 @@ Um die bereitgestellte Software zu aktivieren, gehen Sie zu menu:Support[Upgrade
 
 
 
+[[health-check]]
 === Gesundheitscheck
 
 Ein Health-Check wird als Teil des Upgrade-Prozesses durchgeführt, aber Sie können auch vor Beginn separat einen Health-Check ausführen (gehen Sie zu Menü:Upgrade Center[Pre-Upgrade Health Check]).
@@ -77,18 +81,21 @@ Die Systemprüfung beurteilt alle Komponenten des Speichersystems, um sicherzust
 
 
 
+[[what-do-i-need-to-know-before-upgrading]]
 == Was muss ich vor dem Upgrade wissen?
 
 Bevor Sie mehrere Storage-Arrays aufrüsten, überprüfen Sie die wichtigsten Überlegungen im Rahmen Ihrer Planung.
 
 
 
+[[current-versions]]
 === Aktuelle Versionen
 
 Sie können die aktuellen SANtricity OS Softwareversionen auf der Seite „Manage“ des Unified Manager für jedes erkannte Storage Array einsehen. Die Version wird in der Spalte „SANtricity OS Software“ angezeigt. Die Informationen zur Controller-Firmware und zum NVSRAM sind in einem Popup-Dialogfeld verfügbar, wenn Sie in jeder Zeile auf die SANtricity OS-Version klicken.
 
 
 
+[[other-components-requiring-upgrade]]
 === Weitere Komponenten, die ein Upgrade erfordern
 
 Im Rahmen des Upgrade-Prozesses müssen Sie möglicherweise auch den Multipath-/Failover-Treiber des Hosts oder den HBA-Treiber aktualisieren, damit der Host korrekt mit den Controllern interagieren kann.
@@ -97,6 +104,7 @@ Informationen zur Kompatibilität finden Sie in der https://imt.netapp.com/matri
 
 
 
+[[dual-controllers]]
 === Dualcontroller
 
 Wenn ein Speichersystem zwei Controller enthält und ein Multipath-Treiber installiert ist, kann das Speichersystem die E/A-Verarbeitung während des Upgrades fortsetzen. Während des Upgrades läuft folgender Prozess ab:

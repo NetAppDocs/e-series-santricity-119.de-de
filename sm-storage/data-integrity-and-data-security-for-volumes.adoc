@@ -15,6 +15,7 @@ Sie können Volumes so aktivieren, dass sie die Data Assurance (DA)-Funktion und
 
 
 
+[[data-assurance]]
 == Datenintegrität
 
 Data Assurance (DA) implementiert den T10 Protection Information (PI)-Standard, der die Datenintegrität erhöht, indem Fehler erkannt und korrigiert werden, die während der Übertragung von Daten entlang des E/A-Pfades auftreten können. Die typische Verwendung der Data Assurance-Funktion prüft den Abschnitt des E/A-Pfades zwischen den Controllern und den Laufwerken. DA-Funktionen werden auf Pool- und Volume-Gruppenebene präsentiert.
@@ -23,24 +24,28 @@ Wenn diese Funktion aktiviert ist, fügt das Speichersystem jedem Datenblock im 
 
 
 
+[[drive-security]]
 == Laufwerkssicherheit
 
 Drive Security ist eine Funktion, die unbefugten Zugriff auf Daten auf sicherheitsfähigen Laufwerken verhindert, wenn diese aus dem Speicher-Array entfernt werden. Diese Laufwerke können entweder Full Disk Encryption (FDE) Laufwerke oder Laufwerke sein, die gemäß Federal Information Processing Standards 140-2 Level 2 (FIPS drives) zertifiziert sind.
 
 
 
+[[how-drive-security-works-at-the-drive-level]]
 === Wie die Laufwerkssicherheit auf Laufwerksebene funktioniert
 
 Ein sicheres Laufwerk, entweder FDE oder FIPS, verschlüsselt Daten beim Schreiben und entschlüsselt Daten beim Lesen. Diese Verschlüsselung und Entschlüsselung beeinträchtigt weder die Leistung noch den Arbeitsablauf des Benutzers. Jedes Laufwerk verfügt über einen eigenen, eindeutigen Verschlüsselungsschlüssel, der niemals vom Laufwerk übertragen werden kann.
 
 
 
+[[how-drive-security-works-at-the-volume-level]]
 === Wie Drive Security auf Volume-Ebene funktioniert
 
 Wenn Sie einen Pool oder eine Volumengruppe aus sicherheitsfähigen Laufwerken erstellen, können Sie die Laufwerkssicherheit auch für diese Pools oder Volumengruppen aktivieren. Die Option „Laufwerkssicherheit“ macht die Laufwerke sowie die zugehörigen Volumengruppen und Pools sicher-_enabled_. Ein Pool oder eine Volumengruppe kann sowohl sicherheitsfähige als auch nicht sicherheitsfähige Laufwerke enthalten, jedoch müssen alle Laufwerke sicherheitsfähig sein, um ihre Verschlüsselungsfunktionen nutzen zu können.
 
 
 
+[[how-to-implement-drive-security]]
 === So implementieren Sie Drive Security
 
 Um Drive Security zu implementieren, führen Sie die folgenden Schritte aus.

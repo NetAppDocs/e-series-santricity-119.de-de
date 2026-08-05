@@ -15,6 +15,7 @@ Erfahren Sie, wie die Volumenbegriffe auf Ihr Storage-Array zutreffen.
 
 
 
+[[all-volume-types]]
 == Alle Volumentypen
 
 [cols="25h,~"]
@@ -215,6 +216,7 @@ Die Einstellung „Schreibcache ohne Batterien“ ermöglicht es, den Schreibcac
 |===
 
 
+[[specific-to-thin-volumes]]
 == Speziell für Thin Volumes
 
 [NOTE]

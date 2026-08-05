@@ -15,6 +15,7 @@ Sie können ein Volume zum SSD-Cache hinzufügen, um die Leseleistung zu verbess
 
 
 
+[[volumes]]
 == Volumes
 
 Einfache Volume-I/O-Mechanismen werden verwendet, um Daten in den SSD-Cache zu verschieben und aus dem SSD-Cache zu lesen. Nachdem die Daten zwischengespeichert und auf den SSDs gespeichert wurden, werden nachfolgende Lesevorgänge dieser Daten im SSD-Cache durchgeführt, wodurch der Zugriff auf das HDD-Volume entfällt.
@@ -34,6 +35,7 @@ Jedes Volume, das dem SSD-Cache eines Controllers zugewiesen ist, ist nicht für
 ====
 
 
+[[drive-security-feature]]
 == Laufwerksicherheitsfunktion
 
 Um SSD-Cache auf einem Volume zu verwenden, das auch Drive Security (sicher aktiviert) nutzt, müssen die Drive Security-Funktionen des Volumes und des SSD-Caches übereinstimmen. Wenn sie nicht übereinstimmen, wird das Volume nicht sicher aktiviert.

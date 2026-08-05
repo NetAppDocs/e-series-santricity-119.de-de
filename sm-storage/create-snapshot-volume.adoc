@@ -25,6 +25,7 @@ Der Prozess zur Erstellung eines Snapshot-Volumes ist ein mehrstufiges Verfahren
 
 
 
+[[step-1-review-members-for-a-snapshot-volume]]
 == Schritt 1: Mitglieder für ein Snapshot-Volume überprüfen
 
 Wählen Sie entweder ein Snapshot-Image eines Basisvolumes oder ein Snapshot-Image einer Snapshot-Konsistenzgruppe. Wenn Sie ein Snapshot-Image einer Snapshot-Konsistenzgruppe auswählen, werden die Mitgliedsvolumes der Snapshot-Konsistenzgruppe zur Überprüfung angezeigt.
@@ -48,6 +49,7 @@ Wenn die Auswahl ein Snapshot-Konsistenzgruppen-Snapshot-Image war, wird das Dia
 
 
 
+[[step-2-assign-snapshot-volume-to-host]]
 == Schritt 2: Snapshot-Volume dem Host zuweisen
 
 Wählen Sie einen bestimmten Host oder Hostcluster aus, um ihn dem Snapshot-Volume zuzuweisen. Durch diese Zuweisung erhält ein Host oder Hostcluster Zugriff auf das Snapshot-Volume. Sie können bei Bedarf auch später einen Host zuweisen.
@@ -90,6 +92,7 @@ Die Zuweisung eines Volumes zu einem Host schlägt fehl, wenn Sie versuchen, ein
 
 
 
+[[step-3-reserve-capacity-for-a-snapshot-volume]]
 == Schritt 3: Kapazität für ein Snapshot-Volume reservieren
 
 Weisen Sie einem lesen/schreiben-Snapshot-Volume reservierte Kapazität zu. System Manager schlägt Volumes und Kapazität basierend auf den Eigenschaften des Basis-Volumes oder der Snapshot-Konsistenzgruppe vor. Sie können die empfohlene Konfiguration der reservierten Kapazität übernehmen oder den zugewiesenen Speicherplatz anpassen.
@@ -130,6 +133,7 @@ Weisen Sie die reservierte Kapazität anhand der folgenden Richtlinien zu.
 
 
 
+[[step-4-edit-settings-for-a-snapshot-volume]]
 == Schritt 4: Einstellungen für ein Snapshot-Volume bearbeiten
 
 Ändern Sie die Einstellungen für ein Snapshot-Volume, wie seinen Namen, das Caching, Schwellenwerte für reservierte Kapazitätswarnungen und so weiter.

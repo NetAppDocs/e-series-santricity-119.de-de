@@ -15,12 +15,14 @@ Bevor SANtricity Unified Manager Speicherressourcen anzeigen und verwalten kann,
 
 
 
+[[discovering-multiple-storage-arrays]]
 == Ermittlung mehrerer Speicherarrays
 
 Wenn Sie mehrere Arrays ermitteln möchten, geben Sie einen Netzwerk-IP-Adressbereich ein und dann versucht Unified Manager, einzelne Verbindungen zu jeder IP-Adresse in diesem Bereich herzustellen. Jedes erfolgreich erreichte Speicherarray wird auf der Seite „Erkennen“ angezeigt und kann Ihrer Verwaltungsdomäne hinzugefügt werden.
 
 
 
+[[discovering-a-single-storage-array]]
 == Auffinden eines einzelnen Speicherarrays
 
 Wenn Sie die Erkennung eines einzelnen Arrays auswählen, geben Sie die einzelne IP-Adresse eines der Controller im Speicherarray ein und dann wird das einzelne Speicherarray hinzugefügt.
@@ -32,12 +34,14 @@ Unified Manager erkennt und zeigt nur die einzelne IP-Adresse oder die IP-Adress
 ====
 
 
+[[user-credentials]]
 == Benutzerdaten
 
 Im Rahmen des Erkennungsprozesses müssen Sie das Administratorkennwort für jedes Speicherarray angeben, das Sie hinzufügen möchten.
 
 
 
+[[web-services-certificates]]
 == Webdienstzertifikate
 
 Im Rahmen des Erkennungsprozesses überprüft Unified Manager, ob die erkannten Speicherarrays Zertifikate einer vertrauenswürdigen Quelle verwenden. Unified Manager verwendet zwei Arten der zertifikatsbasierten Authentifizierung für alle Verbindungen, die er mit dem Browser herstellt:

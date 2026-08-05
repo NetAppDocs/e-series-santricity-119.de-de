@@ -15,6 +15,7 @@ Sie erstellen Pools automatisch oder manuell, um physischen Speicher zu gruppier
 
 
 
+[[automatic-creation]]
 == Automatische Erstellung
 
 Die automatische Poolerstellung wird initiiert, wenn der System Manager nicht zugewiesene Kapazität in einem Storage-Array erkennt. Wenn nicht zugewiesene Kapazität erkannt wird, fordert der System Manager Sie automatisch auf, einen oder mehrere Pools zu erstellen oder die nicht zugewiesene Kapazität einem bestehenden Pool hinzuzufügen oder beides.
@@ -35,6 +36,7 @@ Alle Laufwerke in einem Pool müssen vom gleichen Laufwerktyp (HDD oder SSD) sei
 
 
 
+[[manual-creation]]
 == Manuelle Erstellung
 
 Möglicherweise möchten Sie einen Pool manuell erstellen, wenn die automatische Erstellung nicht die beste Konfiguration ermitteln kann. Diese Situation kann aus einem der folgenden Gründe auftreten:

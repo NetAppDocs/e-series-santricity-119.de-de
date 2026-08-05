@@ -30,6 +30,7 @@ Sie können Leistungsdaten in drei Formaten anzeigen:
 
 
 
+[[characteristics-of-performance-data-formats]]
 == Merkmale von Leistungsdatenformaten
 
 [cols="1a,1a,1a,1a,1a"]
@@ -93,6 +94,7 @@ Ja
 |===
 
 
+[[guidelines-for-viewing-performance-data]]
 == Richtlinien zur Anzeige von Leistungsdaten
 
 * Die Leistungsdatenerfassung ist immer aktiviert. Es gibt keine Option, sie zu deaktivieren.

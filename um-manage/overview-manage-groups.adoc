@@ -15,6 +15,7 @@ Auf der Seite „Manage Groups“ können Sie eine Reihe von Speicherarray-Grupp
 
 
 
+[[what-are-array-groups]]
 == Was sind Array-Gruppen?
 
 Sie können Ihre physische und virtualisierte Infrastruktur verwalten, indem Sie eine Gruppe von Speichersystemen erstellen. Sie möchten möglicherweise Speichersysteme gruppieren, um Überwachungs- oder Berichtsaufgaben einfacher auszuführen.
@@ -27,6 +28,7 @@ Es gibt zwei Arten von Gruppen:
 
 
 
+[[how-do-i-configure-groups]]
 == Wie konfiguriere ich Gruppen?
 
 Auf der Seite Manage Groups können Sie eine Gruppe erstellen und dann Arrays zu dieser Gruppe hinzufügen.

@@ -16,6 +16,7 @@ Wenn Sie die Spiegelung konfigurieren möchten, beachten Sie die folgenden Anfor
 
 
 
+[[unified-manager]]
 == Unified Manager
 
 * Der Web Services Proxy-Dienst muss ausgeführt werden.
@@ -25,6 +26,7 @@ Wenn Sie die Spiegelung konfigurieren möchten, beachten Sie die folgenden Anfor
 
 
 
+[[storage-arrays]]
 == Speicherarrays
 
 [NOTE]
@@ -44,6 +46,7 @@ Synchrones Spiegeln ist auf dem Speicherarray EF600/EF600C oder EF300/EF300C nic
 
 
 
+[[connectivity-requirements]]
 == Konnektivitätsanforderungen
 
 Die Spiegelung über eine FC-Schnittstelle (asynchron oder synchron) erfordert Folgendes:
@@ -78,6 +81,7 @@ Die iSCSI-Intercontroller-Kommunikation muss einen Host-Connect-Port und nicht d
 ====
 
 
+[[mirrored-volume-candidates]]
 == Kandidaten für gespiegelte Volumes
 
 * RAID-Level, Caching-Parameter und Segmentgröße können auf den primären und sekundären Volumes eines gespiegelten Paares unterschiedlich sein.
@@ -101,6 +105,7 @@ NOTE: Für EF600- und EF300-Controller müssen das primäre und das sekundäre V
 
 
 
+[[reserved-capacity]]
 == Reservierte Kapazität
 
 Asynchrone Spiegelung:
@@ -117,6 +122,7 @@ Synchrone Spiegelung:
 
 
 
+[[drive-security-feature]]
 == Laufwerksicherheitsfunktion
 
 * Wenn Sie sichere Laufwerke verwenden, müssen das primäre Volume und das sekundäre Volume über kompatible Sicherheitseinstellungen verfügen. Diese Einschränkung wird nicht erzwungen; daher müssen Sie dies selbst überprüfen.

@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-is-automatic-load-balancing]]
 == Was ist automatischer Lastausgleich?
 
 Die Funktion „Automatischer Lastausgleich“ bietet einen automatisierten I/O-Ausgleich und stellt sicher, dass der eingehende I/O-Datenverkehr von den Hosts dynamisch verwaltet und auf beide Controller ausgeglichen wird.
@@ -37,6 +38,7 @@ Jedes Volume, das dem SSD-Cache eines Controllers zugewiesen ist, ist nicht für
 ====
 
 
+[[what-is-controller-cache]]
 == Was ist Controller-Cache?
 
 Der Controller-Cache ist ein physischer Speicherbereich, der zwei Arten von E/A (Ein-/Ausgabe)-Operationen optimiert: zwischen den Controllern und Hosts und zwischen den Controllern und Festplatten.
@@ -60,6 +62,7 @@ Der Controller-Cache beeinflusst die Gesamtleistung des Storage-Arrays auf versc
 ====
 
 
+[[what-is-cache-flushing]]
 == Was ist Cache-Flushing?
 
 Wenn die Menge an nicht geschriebenen Daten im Cache einen bestimmten Wert erreicht, schreibt der Controller die zwischengespeicherten Daten regelmäßig auf ein Laufwerk. Dieser Schreibvorgang wird als "Flushing" bezeichnet.
@@ -79,6 +82,7 @@ Der altersbasierte Algorithmus legt den Zeitraum fest, in dem Schreibdaten im Ca
 ====
 
 
+[[what-is-cache-block-size]]
 == Was ist die Cache-Blockgröße?
 
 Der Controller des Storage-Arrays organisiert seinen Cache in „Blöcken“, das sind Speicherbereiche, die 8, 16 oder 32 KiB groß sein können. Alle Volumes auf dem Storage-System teilen sich denselben Cache-Bereich; daher können die Volumes nur eine Cache-Blockgröße haben.
@@ -87,6 +91,7 @@ Anwendungen verwenden unterschiedliche Blockgrößen, die sich auf die Storage-P
 
 
 
+[[when-should-i-synchronize-storage-array-clocks]]
 == Wann sollte ich die Uhren des Speicherarrays synchronisieren?
 
 Sie sollten die Controller-Uhren im Storage-Array manuell synchronisieren, wenn Sie feststellen, dass die in SANtricity System Manager angezeigten Zeitstempel nicht mit den Zeitstempeln in Ihrem Management-Client (dem Computer, der über den Browser auf SANtricity System Manager zugreift) übereinstimmen. Diese Aufgabe ist nur erforderlich, wenn NTP (Network Time Protocol) in SANtricity System Manager nicht aktiviert ist.

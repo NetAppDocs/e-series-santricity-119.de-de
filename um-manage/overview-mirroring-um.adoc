@@ -20,6 +20,7 @@ Die synchrone Spiegelung ist auf dem EF600/EF600C oder EF300/EF300C Speichersyst
 ====
 
 
+[[what-is-mirroring]]
 == Was ist Spiegelung?
 
 SANtricity applications umfassen zwei Arten der Spiegelung – asynchron und synchron. Asynchrone Spiegelung kopiert Datenvolumen auf Anforderung oder nach einem Zeitplan, wodurch Ausfallzeiten, die durch Datenbeschädigung oder -verlust entstehen könnten, minimiert oder vermieden werden. Synchrone Spiegelung repliziert Datenvolumen in Echtzeit, um eine kontinuierliche Verfügbarkeit sicherzustellen.
@@ -32,6 +33,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-configure-mirroring]]
 == Wie konfiguriere ich die Spiegelung?
 
 Sie konfigurieren asynchrone oder synchrone Spiegelung im Unified Manager und verwenden dann den System Manager, um die Synchronisierungen zu verwalten.

@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-if-i-dont-see-all-of-my-hardware-components]]
 == Was ist, wenn ich nicht alle meine Hardwarekomponenten sehe?
 
 Wenn im Dialogfeld „Hardware überprüfen“ nicht alle Ihre Hardwarekomponenten angezeigt werden, könnte dies bedeuten, dass ein Laufwerksschacht nicht richtig angeschlossen ist oder dass ein inkompatibler Schacht im Storage-Array installiert ist.
@@ -24,6 +25,7 @@ Verifizieren Sie, dass alle Laufwerksschächte korrekt angeschlossen sind. Wenn 
 
 
 
+[[what-if-i-dont-see-all-of-my-hosts]]
 == Was ist, wenn ich nicht alle meine Hosts sehe?
 
 Wenn Sie Ihre verbundenen Hosts nicht sehen, ist die automatische Erkennung fehlgeschlagen, die Hosts sind nicht ordnungsgemäß verbunden oder es sind derzeit keine Hosts verbunden.
@@ -36,6 +38,7 @@ Sie können Hosts später konfigurieren, sobald die Einrichtung abgeschlossen is
 
 
 
+[[how-does-identifying-applications-help-me-manage-my-storage-array]]
 == Wie hilft mir die Identifizierung von Anwendungen bei der Verwaltung meines Storage-Arrays?
 
 Wenn Sie Anwendungen identifizieren, empfiehlt SANtricity System Manager automatisch eine Volume-Konfiguration, die den Speicher basierend auf dem Anwendungstyp optimiert.
@@ -44,6 +47,7 @@ Durch die Optimierung von Volumes nach Anwendung können Datenspeichervorgänge 
 
 
 
+[[what-is-a-workload]]
 == Was ist eine Arbeitsbelastung?
 
 Für einige Anwendungen in Ihrem Netzwerk, wie SQL Server oder Exchange, können Sie eine Arbeitslast definieren, die den Speicher für diese Anwendung optimiert.
@@ -54,6 +58,7 @@ Bei der Volume-Erstellung werden Sie vom System aufgefordert, Fragen zur Nutzung
 
 
 
+[[how-do-i-configure-the-delivery-method-for-autosupport]]
 == Wie konfiguriere ich die Zustellungsmethode für AutoSupport?
 
 Um auf die Konfigurationsaufgaben für AutoSupport-Zustellungsmethoden zuzugreifen, gehen Sie zu Menü:Support[Support Center] und klicken Sie dann auf die *AutoSupport*-Registerkarte.
@@ -62,6 +67,7 @@ Folgende Protokolle werden unterstützt: HTTPS und SMTP.
 
 
 
+[[how-do-i-know-if-i-should-accept-the-recommended-pool-configuration]]
 == Woran erkenne ich, ob ich die empfohlene Poolkonfiguration akzeptieren sollte?
 
 Ob Sie die empfohlene Poolkonfiguration akzeptieren, hängt von einigen Faktoren ab.
@@ -77,6 +83,7 @@ Wenn Sie eine dieser Fragen mit Ja beantwortet haben, sollten Sie die empfohlene
 
 
 
+[[santricity-system-manager-has-not-detected-any-hosts-what-do-i-do]]
 == SANtricity System Manager hat keine Hosts erkannt. Was soll ich tun?
 
 Wenn Sie Ihre verbundenen Hosts nicht sehen, ist die automatische Erkennung fehlgeschlagen, die Hosts sind nicht ordnungsgemäß verbunden oder es sind derzeit keine Hosts verbunden.

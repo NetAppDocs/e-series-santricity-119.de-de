@@ -21,6 +21,7 @@ Die Erstellung eines Volumens ist ein mehrstufiges Verfahren.
 
 
 
+[[step-1-select-host-for-a-volume]]
 == Schritt 1: Host für ein Volume auswählen
 
 Sie erstellen Volumes, um einer anwendungsspezifischen Arbeitslast Speicherkapazität hinzuzufügen und die erstellten Volumes für einen bestimmten Host oder Hostcluster sichtbar zu machen. Darüber hinaus bietet die Volume-Erstellungssequenz Optionen, um jedem Volume, das Sie erstellen möchten, eine bestimmte Kapazität zuzuweisen.
@@ -61,6 +62,7 @@ Das Dialogfeld „Arbeitslast auswählen“ wird angezeigt.
 
 
 
+[[step-2-select-a-workload-for-a-volume]]
 == Schritt 2: Wählen Sie eine Arbeitslast für ein Volume aus
 
 Wählen Sie eine Arbeitslast aus, um die Speicher-Array-Konfiguration für eine bestimmte Anwendung anzupassen, wie zum Beispiel Microsoft SQL Server, Microsoft Exchange, Videoüberwachungsanwendungen oder VMware. Sie können „Andere Anwendung“ auswählen, wenn die Anwendung, die Sie auf diesem Speicher-Array verwenden möchten, nicht aufgeführt ist.
@@ -93,6 +95,7 @@ Wählen Sie einen der Einträge unter „Other“, falls die Anwendung, die Sie 
 
 
 
+[[step-3-add-or-edit-volumes]]
 == Schritt 3: Volumes hinzufügen oder bearbeiten
 
 System Manager schlägt möglicherweise eine Volume-Konfiguration basierend auf der von Ihnen ausgewählten Anwendung oder Arbeitslast vor. Diese Volume-Konfiguration ist basierend auf dem Typ der Anwendung, die die Arbeitslast unterstützt, optimiert. Sie können die empfohlene Volume-Konfiguration übernehmen oder sie bei Bedarf bearbeiten. Wenn Sie eine der „Other“-Anwendungen ausgewählt haben, müssen Sie die Volumes und Eigenschaften, die Sie erstellen möchten, manuell angeben.
@@ -330,6 +333,7 @@ Ressource bereitgestellt (EF300 und EF600 only)
 
 
 
+[[step-4-review-volume-configuration]]
 == Schritt 4: Überprüfen Sie die Volumenkonfiguration
 
 Überprüfen Sie eine Zusammenfassung der Volumes, die Sie erstellen möchten, und nehmen Sie alle notwendigen Änderungen vor.

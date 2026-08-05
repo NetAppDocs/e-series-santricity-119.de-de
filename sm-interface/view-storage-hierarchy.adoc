@@ -17,6 +17,7 @@ Um die Speicherhierarchie anzuzeigen, gehen Sie zur Startseite und klicken Sie a
 
 
 
+[[physical-components]]
 == Physikalische Komponenten
 
 Die physikalischen Komponenten eines Speicherarrays werden in dieser Tabelle beschrieben.
@@ -81,6 +82,7 @@ Ein Managementclient ist der Computer, auf dem ein Browser für den Zugriff auf 
 |===
 
 
+[[logical-components]]
 == Logische Komponenten
 
 Die Laufwerke im Storage-Array stellen die physische Speicherkapazität für Daten bereit. Verwenden Sie System Manager, um die physische Kapazität in logische Komponenten wie Pools, Volume-Gruppen und Volumes zu konfigurieren. Diese Komponenten sind die Werkzeuge, mit denen Sie Daten auf dem Storage-Array konfigurieren, speichern, warten und erhalten. Die logischen Komponenten eines Storage-Arrays sind in dieser Tabelle beschrieben.

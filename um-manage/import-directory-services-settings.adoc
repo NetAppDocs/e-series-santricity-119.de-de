@@ -47,6 +47,7 @@ Auf der Seite „Vorgänge“ werden die Ergebnisse des Importvorgangs angezeigt
 
 
 
+[[results]]
 == Ergebnisse
 
 Die Zielspeicherarrays sind jetzt mit denselben Verzeichnisdiensten wie das Quellarray konfiguriert.

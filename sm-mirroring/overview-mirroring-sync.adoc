@@ -20,6 +20,7 @@ Diese Funktion ist auf dem EF600/EF600C oder EF300/EF300C Speichersystem nicht v
 ====
 
 
+[[what-is-synchronous-mirroring]]
 == Was ist synchrones Spiegeln?
 
 _Synchrones Spiegeln_ repliziert Datenvolumes in Echtzeit, um eine kontinuierliche Verfügbarkeit zu gewährleisten. Storage-Array-Controller verwalten den Spiegelungsvorgang, der für Host-Maschinen und Softwareanwendungen transparent ist.
@@ -37,6 +38,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-configure-synchronous-mirroring]]
 == Wie konfiguriere ich synchrones Spiegeln?
 
 Sie müssen die Unified Manager-Oberfläche verwenden, um die initiale Spiegelungskonfiguration zwischen den Arrays durchzuführen. Sobald sie konfiguriert ist, können Sie gespiegelte Paare im System Manager verwalten.
@@ -50,6 +52,7 @@ Mehr erfahren:
 
 
 
+[[related-information]]
 == Verwandte Informationen
 
 Erfahren Sie mehr über Konzepte im Zusammenhang mit synchroner Spiegelung:

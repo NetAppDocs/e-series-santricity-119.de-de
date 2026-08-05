@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[why-cant-i-log-in]]
 == Warum kann ich mich nicht anmelden?
 
 Wenn beim Versuch, sich bei SANtricity System Manager anzumelden, ein Fehler auftritt, überprüfen Sie diese möglichen Ursachen.
@@ -39,6 +40,7 @@ Anmeldefehler bei einem entfernten Storage-Array für Spiegelungsaufgaben könne
 
 
 
+[[what-do-i-need-to-know-before-adding-a-directory-server]]
 == Was muss ich wissen, bevor ich einen Verzeichnisserver hinzufüge?
 
 Bevor Sie einen Verzeichnisserver in Access Management hinzufügen, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen.
@@ -50,6 +52,7 @@ Bevor Sie einen Verzeichnisserver in Access Management hinzufügen, stellen Sie 
 
 
 
+[[what-do-i-need-to-know-about-mapping-to-storage-array-roles]]
 == Was muss ich über die Zuordnung zu Speicherarray-Rollen wissen?
 
 Bevor Sie Gruppen Rollen zuordnen, beachten Sie die folgenden Richtlinien.
@@ -64,6 +67,7 @@ Die im Speichersystem integrierten RBAC (rollenbasierte Zugriffssteuerung)-Funkt
 
 
 
+[[directory-services]]
 === Verzeichnisdienste
 
 Wenn Sie einen LDAP (Lightweight Directory Access Protocol)-Server und Verzeichnisdienste verwenden, stellen Sie sicher, dass:
@@ -80,6 +84,7 @@ Wenn Sie einen LDAP (Lightweight Directory Access Protocol)-Server und Verzeichn
 
 
 
+[[saml]]
 === SAML
 
 Wenn Sie die im Speichersystem integrierten Security Assertion Markup Language (SAML)-Funktionen nutzen, stellen Sie sicher, dass:
@@ -97,12 +102,14 @@ Wenn Sie die im Speichersystem integrierten Security Assertion Markup Language (
 
 
 
+[[which-external-management-tools-may-be-affected-by-this-change]]
 == Welche externen Managementtools könnten von dieser Änderung betroffen sein?
 
 Wenn Sie bestimmte Änderungen im SANtricity System Manager vornehmen, wie zum Beispiel das Wechseln der Managementoberfläche oder die Verwendung von SAML als Authentifizierungsverfahren, kann die Nutzung einiger externer Tools und Funktionen eingeschränkt sein.
 
 
 
+[[management-interface]]
 === Managementoberfläche
 
 Tools, die direkt mit der Legacy Managementoberfläche (SYMbol) kommunizieren, wie beispielsweise der SANtricity SMI-S Provider oder OnCommand Insight (OCI), funktionieren nicht, sofern die Einstellung für die Legacy Managementoberfläche nicht aktiviert ist. Außerdem können Sie keine Legacy-CLI-Befehle verwenden oder Spiegelungsvorgänge durchführen, wenn diese Einstellung deaktiviert ist.
@@ -111,6 +118,7 @@ Wenden Sie sich für weitere Informationen an den technischen Support.
 
 
 
+[[saml-authentication]]
 === SAML-Authentifizierung
 
 Wenn SAML aktiviert ist, können die folgenden Clients nicht auf Speicherarray-Services und -Ressourcen zugreifen:
@@ -127,12 +135,14 @@ Wenden Sie sich für weitere Informationen an den technischen Support.
 
 
 
+[[what-do-i-need-to-know-before-configuring-and-enabling-saml]]
 == Was muss ich wissen, bevor ich SAML konfiguriere und aktiviere?
 
 Bevor Sie die Security Assertion Markup Language (SAML)-Funktionen für die Authentifizierung konfigurieren und aktivieren, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen und die SAML-Beschränkungen verstehen.
 
 
 
+[[requirements]]
 === Anforderungen
 
 Bevor Sie beginnen, stellen Sie sicher, dass:
@@ -147,6 +157,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass:
 
 
 
+[[restrictions]]
 === Einschränkungen
 
 Zusätzlich zu den oben genannten Anforderungen stellen Sie bitte sicher, dass Sie die folgenden Einschränkungen verstehen:
@@ -168,6 +179,7 @@ Zusätzlich zu den oben genannten Anforderungen stellen Sie bitte sicher, dass S
 
 
 
+[[what-types-of-events-are-recorded-in-the-audit-log]]
 == Welche Arten von Ereignissen werden im Revisionsprotokoll aufgezeichnet?
 
 Das Revisionsprotokoll kann Änderungsereignisse oder sowohl Änderungs- als auch Nur-Lese-Ereignisse aufzeichnen.
@@ -180,6 +192,7 @@ Je nach Richtlinieneinstellungen werden die folgenden Ereignistypen angezeigt:
 
 
 
+[[what-do-i-need-to-know-before-configuring-a-syslog-server]]
 == Was muss ich wissen, bevor ich einen Syslog-Server konfiguriere?
 
 Sie können Revisionsprotokolle auf einem externen Syslog-Server archivieren.
@@ -195,6 +208,7 @@ Bevor Sie einen Syslog-Server konfigurieren, beachten Sie die folgenden Richtlin
 
 
 
+[[the-syslog-server-is-no-longer-receiving-audit-logs-what-do-i-do]]
 == Der Syslog-Server empfängt keine Revisionsprotokolle mehr. Was soll ich tun?
 
 Wenn Sie einen Syslog-Server mit dem TLS-Protokoll konfiguriert haben, kann der Server keine Nachrichten empfangen, falls das Zertifikat aus irgendeinem Grund ungültig wird. Eine Fehlermeldung über das ungültige Zertifikat wird im Revisionsprotokoll angezeigt.

@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[why-does-the-cannot-access-other-controller-dialog-box-appear]]
 == Warum wird das Dialogfeld „Zugriff auf anderen Controller nicht möglich“ angezeigt?
 
 Wenn Sie bestimmte Vorgänge im Zusammenhang mit CA-Zertifikaten durchführen (zum Beispiel das Importieren eines Zertifikats), sehen Sie möglicherweise ein Dialogfeld, das Sie auffordert, ein selbstsigniertes Zertifikat für den zweiten Controller zu akzeptieren.
@@ -32,6 +33,7 @@ Wenn dieses Dialogfeld erneut erscheint und Sie eine Zertifikatsaufgabe nicht ab
 
 
 
+[[how-do-i-know-what-certificates-need-to-be-uploaded-to-santricity-system-manager-for-external-key-management]]
 == Wie erkenne ich, welche Zertifikate in SANtricity System Manager für die externe Schlüsselverwaltung hochgeladen werden müssen?
 
 Für die externe Schlüsselverwaltung importieren Sie zwei Arten von Zertifikaten zur Authentifizierung zwischen dem Speichersystem und dem Schlüsselverwaltungsserver, damit die beiden Entitäten einander vertrauen können.
@@ -46,6 +48,7 @@ Ein Zertifikat des Schlüsselverwaltungsservers validiert den Schlüsselverwaltu
 
 
 
+[[what-do-i-need-to-know-about-certificate-revocation-checking]]
 == Was muss ich über die Überprüfung des Zertifikatswiderrufs wissen?
 
 SANtricity System Manager ermöglicht es Ihnen, mithilfe eines Online Certificate Status Protocol (OCSP)-Servers nach widerrufenen Zertifikaten zu suchen, anstatt Zertifikatssperrlisten (CRLs) hochzuladen.
@@ -61,6 +64,7 @@ Die Angabe einer OCSP-Responderadresse im System Manager oder in der Befehlszeil
 ====
 
 
+[[what-types-of-servers-will-revocation-checking-be-enabled-for]]
 == Für welche Servertypen wird die Widerrufsprüfung aktiviert?
 
 Das Speichersystem führt eine Sperrprüfung durch, wann immer es eine Verbindung zu einem AutoSupport Server, einem External Key Management Server (EKMS), einem Lightweight Directory Access Protocol over SSL (LDAPS) Server oder einem Syslog Server herstellt.

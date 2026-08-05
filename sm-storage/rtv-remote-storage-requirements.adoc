@@ -15,6 +15,7 @@ Bevor Sie die Funktion „Remote Storage“ verwenden, lesen Sie die folgenden A
 
 
 
+[[supported-protocols]]
 == Unterstützte Protokolle
 
 Folgende Protokolle werden unterstützt:
@@ -27,6 +28,7 @@ Aktuelle Support- und Konfigurationsinformationen zum E-Series Storage-System fi
 
 
 
+[[hardware-requirements]]
 == Hardwareanforderungen
 
 Das E-Series Storage-System muss Folgendes umfassen:
@@ -44,6 +46,7 @@ Das Remote-System kann entweder ein E-Series Storage-System oder ein System eine
 
 
 
+[[restrictions]]
 == Einschränkungen
 
 Die Funktion „Remote Storage“ unterliegt folgenden Einschränkungen:

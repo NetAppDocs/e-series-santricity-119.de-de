@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[how-does-asynchronous-mirroring-differ-from-synchronous-mirroring]]
 == Worin unterscheidet sich asynchrones Spiegeln von synchronem Spiegeln?
 
 Die Funktion „Asynchrone Spiegelung“ unterscheidet sich von der Funktion „Synchrone Spiegelung“ in einem wesentlichen Punkt: Sie erfasst den Zustand des Quellvolumes zu einem bestimmten Zeitpunkt und kopiert nur die Daten, die sich seit der letzten Image-Erfassung geändert haben.
@@ -112,6 +113,7 @@ Typischerweise muss sich der Speicher innerhalb von etwa 10 km (6.2 Meilen) vom 
 |===
 
 
+[[why-cant-i-access-my-chosen-mirroring-feature]]
 == Warum kann ich nicht auf die von mir gewählte Spiegelungsfunktion zugreifen?
 
 Die Spiegelung wird in der SANtricity Unified Manager-Oberfläche konfiguriert.
@@ -137,6 +139,7 @@ Anweisungen zur Konfiguration finden Sie unter:
 
 
 
+[[what-do-i-need-to-know-before-creating-a-mirror-consistency-group]]
 == Was muss ich wissen, bevor ich eine Konsistenzgruppe erstelle?
 
 Beachten Sie diese Richtlinien, bevor Sie eine Konsistenzgruppe erstellen.
@@ -167,6 +170,7 @@ Achten Sie außerdem darauf, dass die folgenden Anforderungen für Speicherarray
 
 
 
+[[asynchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair]]
 == Asynchrone Spiegelung – Was muss ich vor dem Erstellen eines Spiegelpaares wissen?
 
 Sie konfigurieren gespiegelte Paare in der SANtricity Unified Manager-Oberfläche und verwalten die Paare anschließend im SANtricity System Manager.
@@ -187,6 +191,7 @@ Bevor Sie ein Spiegelpaar erstellen, beachten Sie diese Richtlinien.
 
 
 
+[[what-do-i-need-to-know-before-increasing-my-reserved-capacity-on-a-mirrored-pair-volume]]
 == Was muss ich wissen, bevor ich meine reservierte Kapazität auf einem gespiegelten Paar-Volume erhöhe?
 
 Normalerweise sollten Sie die reservierte Kapazität erhöhen, wenn Sie eine Warnung erhalten, dass die reservierte Kapazität für ein gespiegeltes Paar fast voll ist. Sie können die reservierte Kapazität nur in Schritten von 8 GiB erhöhen.
@@ -208,6 +213,7 @@ Wenn auf keinem Pool oder keiner Volume-Gruppe freie Kapazität vorhanden ist, k
 
 
 
+[[why-cant-i-increase-reserved-capacity-with-my-requested-amount]]
 == Warum kann ich die reservierte Kapazität nicht mit dem von mir angeforderten Betrag erhöhen?
 
 Sie können die reservierte Kapazität nur in Schritten von 4 GiB erhöhen.
@@ -226,6 +232,7 @@ Bei asynchronen Spiegelungsvorgängen beträgt die reservierte Kapazität üblic
 
 
 
+[[why-would-i-change-this-percentage]]
 == Warum sollte ich diesen Prozentsatz ändern?
 
 Die reservierte Kapazität beträgt typischerweise 40 Prozent des Basisvolumens für Snapshot-Operationen und 20 Prozent des Basisvolumens für asynchrone Spiegelungsoperationen.
@@ -240,6 +247,7 @@ Generell wählen Sie einen höheren Prozentsatz für die reservierte Kapazität,
 
 
 
+[[why-do-i-see-more-than-one-reserved-capacity-candidate]]
 == Warum sehe ich mehr als einen Kandidaten für reservierte Kapazität?
 
 Wenn es in einem Pool oder einer Volume-Gruppe mehr als ein Volume gibt, das den von Ihnen für das Speicherobjekt ausgewählten Kapazitätsprozentsatz erfüllt, werden mehrere Kandidaten angezeigt.
@@ -248,6 +256,7 @@ Sie können die Liste der empfohlenen Kandidaten aktualisieren, indem Sie den Pr
 
 
 
+[[why-do-i-see-not-available-values-displayed-in-the-table]]
 == Warum werden in der Tabelle Werte als Nicht verfügbar angezeigt?
 
 Die Tabelle listet Nicht verfügbar-Werte auf, wenn die auf dem entfernten Speicherarray befindlichen Daten nicht angezeigt werden können.
@@ -256,6 +265,7 @@ Um die Daten des Remote-Speicherarrays anzuzeigen, starten Sie System Manager ü
 
 
 
+[[why-dont-i-see-all-of-my-pools-and-volume-groups]]
 == Warum sehe ich nicht alle meine Pools und Volume-Gruppen?
 
 Wenn Sie ein sekundäres Volume für das asynchrone Spiegelpaar erstellen, zeigt das System eine Liste aller berechtigten Pools und Volume-Gruppen für dieses asynchrone Spiegelpaar an. Jeder Pool oder jede Volume-Gruppe, die nicht berechtigt ist, verwendet zu werden, wird in dieser Liste nicht angezeigt.
@@ -269,6 +279,7 @@ Pools oder Volumengruppen sind aus einem der folgenden Gründe möglicherweise n
 
 
 
+[[asynchronous-mirroring-why-dont-i-see-all-my-volumes]]
 == Asynchrone Spiegelung – Warum sehe ich nicht alle meine Volumes?
 
 Wenn Sie ein primäres Volume für ein gespiegeltes Paar auswählen, zeigt eine Liste alle in Frage kommenden Volumes an.
@@ -285,6 +296,7 @@ NOTE: Für EF600- und EF300-Controller müssen das primäre und das sekundäre V
 
 
 
+[[asynchronous-mirroring-why-dont-i-see-all-the-volumes-on-the-remote-storage-array]]
 == Asynchrone Spiegelung – Warum sehe ich nicht alle Volumes auf dem entfernten Speichersystem?
 
 Wenn Sie ein sekundäres Volume auf dem Remote-Speicherarray auswählen, zeigt eine Liste alle für dieses gespiegelte Paar geeigneten Volumes an.
@@ -304,6 +316,7 @@ Alle Volumes, die nicht zur Verwendung berechtigt sind, werden in dieser Liste n
 
 
 
+[[why-would-i-update-my-remote-storage-arrays-ip-address]]
 == Warum sollte ich die IP-Adresse meines Remote-Speichersystems aktualisieren?
 
 Sie aktualisieren die IP-Adresse Ihres Remote-Speicherarrays, wenn sich die IP-Adresse eines iSCSI-Ports ändert und das lokale Speicherarray nicht mit dem Remote-Speicherarray kommunizieren kann.

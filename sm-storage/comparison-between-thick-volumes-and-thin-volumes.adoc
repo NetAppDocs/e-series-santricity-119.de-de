@@ -50,6 +50,7 @@ Dünne Volumes
 |===
 
 
+[[thin-volume-restrictions]]
 == Beschränkungen für Thin Volumes
 
 Dünne Volumes unterstützen alle Operationen wie dicke Volumes, mit den folgenden Ausnahmen:

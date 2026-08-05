@@ -23,6 +23,7 @@ Der Prozess zur Erstellung einer Snapshot-Konsistenzgruppe ist ein mehrstufiges 
 
 
 
+[[step-1-add-members-to-snapshot-consistency-group]]
 == Schritt 1: Mitglieder zur Snapshot-Konsistenzgruppe hinzufügen
 
 Wählen Sie Mitglieder aus, um eine Sammlung von Volumes festzulegen, die die Snapshot-Konsistenzgruppe bilden. Alle Aktionen, die Sie an der Snapshot-Konsistenzgruppe durchführen, werden einheitlich auf die ausgewählten Mitgliedsvolumes ausgeweitet.
@@ -43,6 +44,7 @@ Das Dialogfeld „Snapshot-Konsistenzgruppe erstellen“ wird angezeigt.
 
 
 
+[[step-2-reserve-capacity-for-snapshot-consistency-group]]
 == Schritt 2: Kapazität für die Snapshot-Konsistenzgruppe reservieren
 
 Ordnen Sie der Snapshot-Konsistenzgruppe reservierte Kapazität zu. System Manager schlägt die Volumes und die Kapazität basierend auf den Eigenschaften der Snapshot-Konsistenzgruppe vor. Sie können die empfohlene Konfiguration der reservierten Kapazität übernehmen oder den zugewiesenen Speicher anpassen.
@@ -74,6 +76,7 @@ Weisen Sie die reservierte Kapazität anhand der folgenden Richtlinien zu.
 
 
 
+[[step-3-edit-settings-for-snapshot-consistency-group]]
 == Schritt 3: Einstellungen für die Snapshot-Konsistenzgruppe bearbeiten
 
 Akzeptieren Sie die automatischen Löscheinstellungen oder wählen Sie diese aus und legen Sie Schwellenwerte für Warnungen zur reservierten Kapazität für die Snapshot-Konsistenzgruppe fest.

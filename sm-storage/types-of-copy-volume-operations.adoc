@@ -19,6 +19,7 @@ Die Offline- und Online-Kopiervorgänge werden unten beschrieben.
 
 
 
+[[offline-copy-volume-operation]]
 == Offline Copy Volume-Vorgang
 
 Die Offline-Kopierbeziehung besteht zwischen einem Quell-Volume und einem Ziel-Volume. Eine Offline-Kopie liest Daten vom Quell-Volume und kopiert sie auf ein Ziel-Volume, während alle Aktualisierungen des Quell-Volumes mit der laufenden Kopie ausgesetzt werden. Alle Aktualisierungen des Quell-Volumes werden ausgesetzt, um zu verhindern, dass auf dem Ziel-Volume chronologische Inkonsistenzen entstehen.
@@ -49,6 +50,7 @@ Journaling-Dateisystem
 |===
 
 
+[[online-copy-volume-operation]]
 == Online Copy Volume-Vorgang
 
 Die Online Copy Volume-Beziehung besteht zwischen einem Snapshot-Volume und einem Ziel-Volume. Sie können eine Copy Volume-Operation starten, während das Quell-Volume online und für Daten-Schreibvorgänge verfügbar ist. Diese Funktion wird erreicht, indem ein Snapshot des Volumes erstellt und dieser Snapshot als tatsächliches Quell-Volume für die Kopie verwendet wird.

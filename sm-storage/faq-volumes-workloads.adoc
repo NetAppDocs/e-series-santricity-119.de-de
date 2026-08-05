@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-is-a-volume]]
 == Was ist ein Volume?
 
 Ein Volume ist ein Container, in dem Anwendungen, Datenbanken und Dateisysteme Daten speichern. Es ist die logische Komponente, die für den Host erstellt wird, um auf den Speicher des Speichersystems zuzugreifen.
@@ -24,6 +25,7 @@ Ein Volume wird aus der verfügbaren Kapazität eines Pools oder einer Volume-Gr
 
 
 
+[[why-am-i-seeing-a-capacity-over-allocation-error-when-i-have-enough-free-capacity-in-a-volume-group-to-create-volumes]]
 == Warum erhalte ich eine Fehlermeldung wegen Kapazitätsüberbelegung, obwohl in einer Volume-Gruppe genügend freie Kapazität zum Erstellen von Volumes vorhanden ist?
 
 Die ausgewählte Volume-Gruppe kann einen oder mehrere freie Kapazitätsbereiche aufweisen. Ein freier Kapazitätsbereich ist die freie Kapazität, die durch das Löschen eines Volumes oder dadurch entstehen kann, dass bei der Volume-Erstellung nicht die gesamte verfügbare freie Kapazität genutzt wird.
@@ -42,6 +44,7 @@ Wenn Sie einen bestimmten freien Kapazitätsbereich anstelle des größten freie
 
 
 
+[[how-does-my-selected-workload-impact-volume-creation]]
 == Wie wirkt sich die von mir gewählte Arbeitslast auf die Volumenerstellung aus?
 
 Bei der Volume-Erstellung werden Sie nach Informationen zur Nutzung einer Workload gefragt. Das System verwendet diese Informationen, um eine optimale Volume-Konfiguration für Sie zu erstellen, die bei Bedarf bearbeitet werden kann. Optional können Sie diesen Schritt in der Volume-Erstellungssequenz überspringen.
@@ -64,18 +67,21 @@ Sie können die empfohlene Volume-Konfiguration überprüfen und die vom System 
 
 
 
+[[why-arent-these-volumes-associated-with-a-workload]]
 == Warum sind diese Volumes keiner Arbeitslast zugeordnet?
 
 Volumes werden keiner Arbeitslast zugeordnet, wenn sie über die Befehlszeile (CLI) erstellt wurden oder wenn sie von einem anderen Speichersystem migriert (importiert/exportiert) wurden.
 
 
 
+[[why-cant-i-delete-the-selected-workload]]
 == Warum kann ich die ausgewählte Arbeitslast nicht löschen?
 
 Diese Arbeitslast besteht aus einer Gruppe von Volumes, die über die Befehlszeile (CLI) erstellt oder von einem anderen Speichersystem migriert (importiert/exportiert) wurden. Daher sind die Volumes in dieser Arbeitslast keiner anwendungsspezifischen Arbeitslast zugeordnet, sodass die Arbeitslast nicht gelöscht werden kann.
 
 
 
+[[how-do-application-specific-workloads-help-me-manage-my-storage-array]]
 == Wie helfen mir anwendungsspezifische Workloads bei der Verwaltung meines Storage Arrays?
 
 Die Volumencharakteristika Ihrer anwendungsspezifischen Arbeitslast bestimmen, wie die Arbeitslast mit den Komponenten Ihres Storage-Arrays interagiert und helfen dabei, die Leistung Ihrer Umgebung unter einer gegebenen Konfiguration zu bestimmen.
@@ -84,6 +90,7 @@ Eine Anwendung ist Software wie SQL Server oder Exchange. Sie definieren ein ode
 
 
 
+[[how-does-providing-this-information-help-create-storage]]
 == Wie hilft die Bereitstellung dieser Informationen bei der Erstellung von Speicher?
 
 Die Informationen zur Arbeitslast werden verwendet, um die Volumeneigenschaften wie E/A-Typ, Segmentgröße und lesen/schreiben-Cache für die ausgewählte Arbeitslast zu optimieren. Diese optimierten Eigenschaften bestimmen, wie Ihre Arbeitslast mit den Komponenten des Speichersystems interagiert.
@@ -96,6 +103,7 @@ Weitere Informationen zu bewährten Vorgehensweisen finden Sie in Ihrer anwendun
 
 
 
+[[what-do-i-need-to-do-to-recognize-the-expanded-capacity]]
 == Was muss ich tun, um die erweiterte Kapazität zu erkennen?
 
 Wenn Sie die Kapazität für ein Volume erhöhen, erkennt der Host die Erhöhung der Volume-Kapazität möglicherweise nicht sofort.
@@ -108,6 +116,7 @@ Weitere Einzelheiten entnehmen Sie bitte der Dokumentation Ihres Host-Betriebssy
 
 
 
+[[why-dont-i-see-all-my-pools-andor-volume-groups]]
 == Warum sehe ich nicht alle meine Pools und/oder Volumengruppen?
 
 Pools oder Volumengruppen, zu denen Sie das Volumen nicht verschieben können, werden in der Liste nicht angezeigt.
@@ -121,6 +130,7 @@ Pools oder Volumengruppen sind aus einem der folgenden Gründe nicht berechtigt:
 
 
 
+[[what-is-segment-size]]
 == Was ist die Segmentgröße?
 
 Ein Segment bezeichnet die Datenmenge in Kilobyte (KiB), die auf einem Laufwerk gespeichert wird, bevor das Storage-Array zum nächsten Laufwerk im Stripe (RAID-Gruppe) wechselt. Die Segmentgröße gilt nur für Volume-Gruppen, nicht für Pools.
@@ -131,18 +141,21 @@ Unabhängig davon, ob eine Anwendung kleine, zufällige lesen/schreiben oder gro
 
 
 
+[[environments-where-iops-performance-is-important]]
 === Umgebungen, in denen die IOPS-Performance wichtig ist
 
 In einer Umgebung mit I/O-Operationen pro Sekunde (IOPS) erzielt das Storage-Array eine bessere Leistung, wenn Sie eine Segmentgröße verwenden, die größer ist als die typische Datenblockgröße („Chunk“), die auf ein Laufwerk gelesen/geschrieben wird. Dadurch wird sichergestellt, dass jeder Chunk auf ein Einzellaufwerk geschrieben wird.
 
 
 
+[[environments-where-throughput-is-important]]
 === Umgebungen, in denen der Durchsatz wichtig ist
 
 In einer Umgebung mit hohem Datendurchsatz sollte die Segmentgröße ein gleichmäßiger Anteil der Gesamtanzahl der Laufwerke für Daten und der typischen Datenblockgröße (I/O-Größe) sein. Dadurch werden die Daten als einzelner Stripe über die Laufwerke in der Volume-Gruppe verteilt, was zu schnelleren lesen/schreiben führt.
 
 
 
+[[what-is-preferred-controller-ownership]]
 == Was ist bevorzugter Controller-Besitz?
 
 Die bevorzugte Controller-Zugehörigkeit definiert den Controller, der als besitzender oder primärer Controller des Volume bestimmt ist.
@@ -153,6 +166,7 @@ Wenn beispielsweise ein Controller hauptsächlich große, sequenzielle Datenblö
 
 
 
+[[when-would-i-want-to-use-the-assign-host-later-selection]]
 == Wann würde ich die Auswahl „Host später zuweisen“ verwenden wollen?
 
 Wenn Sie den Prozess für das Erstellen von Volumes beschleunigen möchten, können Sie den Schritt der Hostzuweisung überspringen, sodass neu erstellte Volumes offline initialisiert werden.
@@ -165,6 +179,7 @@ Wenn keines der Volumes in einer Volume-Gruppe zugeordnet ist, wird eine Offline
 
 
 
+[[what-do-i-need-to-know-about-host-block-size-requirements]]
 == Was muss ich über die Anforderungen an die Host-Blockgröße wissen?
 
 Bei EF300- und EF600-Systemen kann ein Volume so konfiguriert werden, dass es eine Blockgröße von 512 Byte oder 4 KiB (auch „Sektorgröße“ genannt) unterstützt. Sie müssen den korrekten Wert während der Volume-Erstellung festlegen. Wenn möglich, schlägt das System den passenden Standardwert vor.

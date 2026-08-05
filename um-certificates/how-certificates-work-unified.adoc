@@ -15,6 +15,7 @@ Zertifikate sind digitale Dateien, die Online-Entitäten wie Websites und Server
 
 
 
+[[signed-certificates]]
 == Unterzeichnete Zertifikate
 
 Zertifikate gewährleisten, dass die Webkommunikation verschlüsselt, privat und unverändert ausschließlich zwischen dem angegebenen Server und Client übertragen wird. Mit Unified Manager können Sie Zertifikate für den Browser auf einem Host-Managementsystem und die Controller in den erkannten Storage-Arrays verwalten.
@@ -39,6 +40,7 @@ Die Zertifizierungsstelle (CA) ergreift während des Antragsverfahrens Maßnahme
 
 
 
+[[self-signed-certificates]]
 == Selbstsignierte Zertifikate
 
 Jeder Controller im Speichersystem verfügt über ein vorinstalliertes, selbstsigniertes Zertifikat. Ein selbstsigniertes Zertifikat ähnelt einem CA-signierten Zertifikat, mit dem Unterschied, dass es vom Inhaber der Entität und nicht von einer dritten Partei validiert wird. Wie ein CA-signiertes Zertifikat enthält auch ein selbstsigniertes Zertifikat einen eigenen privaten Schlüssel und gewährleistet, dass Daten verschlüsselt und über eine HTTPS-Verbindung zwischen Server und Client gesendet werden.
@@ -47,12 +49,14 @@ Selbstsignierte Zertifikate werden von Browsern nicht als "`trusted`" eingestuft
 
 
 
+[[certificates-for-unified-manager]]
 == Zertifikate für Unified Manager
 
 Die Unified Manager-Oberfläche wird zusammen mit dem Web Services Proxy auf einem Hostsystem installiert. Wenn Sie einen Browser öffnen und versuchen, eine Verbindung zu Unified Manager herzustellen, überprüft der Browser, ob der Host eine vertrauenswürdige Quelle ist, indem er nach einem digitalen Zertifikat sucht. Findet der Browser kein von einer Zertifizierungsstelle (CA) signiertes Zertifikat für den Server, wird eine Warnmeldung angezeigt. Von dort aus können Sie die Website weiterhin aufrufen, um das selbstsignierte Zertifikat für diese Sitzung zu akzeptieren. Oder Sie können signierte, digitale Zertifikate von einer CA beziehen, sodass die Warnmeldung nicht mehr angezeigt wird.
 
 
 
+[[certificates-for-controllers]]
 == Zertifikate für Controller
 
 Während einer Unified Manager-Sitzung werden möglicherweise zusätzliche Sicherheitsmeldungen angezeigt, wenn Sie versuchen, auf einen Controller zuzugreifen, der kein von einer CA signiertes Zertifikat besitzt. In diesem Fall können Sie dem selbstsignierten Zertifikat dauerhaft vertrauen oder die CA-signierten Zertifikate für die Controller importieren, damit der Web Services Proxy Server eingehende Clientanfragen von diesen Controllern authentifizieren kann.

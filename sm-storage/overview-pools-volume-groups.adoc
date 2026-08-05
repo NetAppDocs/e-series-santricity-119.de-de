@@ -16,6 +16,7 @@ Sie können logische Speicherkapazität aus einer Teilmenge nicht zugewiesener L
 
 
 
+[[what-are-pools-and-volume-groups]]
 == Was sind Pools und Volume-Gruppen?
 
 Ein _Pool_ ist eine Gruppe logisch zusammengefasster Laufwerke. Eine _Volume-Gruppe_ ist ein Container für Volumes mit gemeinsamen Eigenschaften. Sie können entweder einen Pool oder eine Volume-Gruppe verwenden, um Volumes zu erstellen, auf die ein Host zugreifen kann.
@@ -29,6 +30,7 @@ Mehr erfahren:
 
 
 
+[[how-do-you-create-pools]]
 == Wie erstellen Sie Pools?
 
 Sie können den System Manager so einstellen, dass er automatisch Pools erstellt, sobald er nicht zugewiesene Kapazität in einem Storage-Array erkennt. Alternativ können Sie, wenn die automatische Erstellung nicht die optimale Konfiguration ermitteln kann, Pools manuell über das Menü:Storage[Pools & Volume Groups] erstellen.
@@ -43,6 +45,7 @@ Mehr erfahren:
 
 
 
+[[how-do-you-create-volume-groups]]
 == Wie erstellen Sie Volumengruppen?
 
 Sie können Volumengruppen über das Menü Storage [Pools & Volume Groups] erstellen.
@@ -55,6 +58,7 @@ Mehr erfahren:
 
 
 
+[[related-information]]
 == Verwandte Informationen
 
 Erfahren Sie mehr über Konzepte im Zusammenhang mit Pools und Volume-Gruppen:

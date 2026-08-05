@@ -15,6 +15,7 @@ Sie konfigurieren asynchrone oder synchrone Spiegelung im SANtricity Unified Man
 
 
 
+[[asynchronous-mirroring-workflow]]
 == Asynchroner Spiegelungs-Workflow
 
 Die asynchrone Spiegelung umfasst den folgenden Arbeitsablauf:
@@ -45,6 +46,7 @@ Da asynchrone Replizierung periodisch erfolgt, kann das System die geänderten B
 
 
 
+[[synchronous-mirroring-workflow]]
 == Synchroner Spiegelungs-Workflow
 
 Die synchrone Spiegelung umfasst den folgenden Arbeitsablauf:

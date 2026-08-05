@@ -16,12 +16,14 @@ Verwenden Sie das Upgrade Center, um die neueste Software und Firmware herunterz
 
 
 
+[[controller-upgrade-overview]]
 == Übersicht zum Controller-Upgrade
 
 Sie können die Software und Firmware Ihres Speichersystems für alle neuesten Funktionen und Fehlerbehebungen aktualisieren.
 
 
 
+[[components-included-in-the-os-controller-upgrade]]
 === Im Upgrade des OS-Controllers enthaltene Komponenten
 
 Mehrere Komponenten des Speicherarrays enthalten Software oder Hardware, die Sie möglicherweise gelegentlich upgraden möchten.
@@ -43,12 +45,14 @@ Im Rahmen des Upgrade-Prozesses müssen möglicherweise auch der Multipath-/Fail
 
 
 
+[[when-to-stop-io]]
 === Wann sollte die I/O gestoppt werden?
 
 Wenn Ihr Speichersystem zwei Controller enthält und ein Multipath-Treiber installiert ist, kann das Speichersystem die E/A-Verarbeitung während des Upgrades fortsetzen. Während des Upgrades gibt Controller A alle seine Volumes an Controller B ab, führt das Upgrade durch, übernimmt seine Volumes und alle Volumes von Controller B zurück und führt dann das Upgrade von Controller B durch.
 
 
 
+[[pre-upgrade-health-check]]
 === Gesundheitscheck vor dem Upgrade
 
 Im Rahmen des Upgrade-Prozesses wird eine Vorabprüfung des Systemzustands durchgeführt. Die Vorabprüfung bewertet alle Komponenten des Storage-Arrays, um sicherzustellen, dass das Upgrade durchgeführt werden kann. Die folgenden Bedingungen können das Upgrade verhindern:
@@ -68,12 +72,14 @@ Sie können den Vorab-Gesundheitscheck auch separat ausführen, ohne ein Upgrade
 
 
 
+[[drive-upgrade-overview]]
 == Übersicht zum Upgrade der Laufwerk-Firmware
 
 Die Laufwerk-Firmware steuert die Low-Level-Betriebseigenschaften eines Laufwerks. Die Laufwerkshersteller veröffentlichen regelmäßig Updates für die Laufwerk-Firmware, um neue Funktionen hinzuzufügen, die Leistung zu verbessern und Fehler zu beheben.
 
 
 
+[[online-and-offline-drive-firmware-upgrades]]
 === Online- und Offline-Upgrade der Laufwerk-Firmware
 
 Es gibt zwei Arten von Upgrade der Laufwerk-Firmware: online und offline.
@@ -113,6 +119,7 @@ Die folgenden Laufwerke MÜSSEN die Offline-Methode verwenden:
 
 
 
+[[compatibility]]
 === Kompatibilität
 
 Jede Laufwerksfirmwaredatei enthält Informationen über den Laufwerkstyp, auf dem die Firmware ausgeführt wird. Sie können die angegebene Firmwaredatei nur auf ein kompatibles Laufwerk herunterladen. System Manager prüft die Kompatibilität automatisch während des Upgrade-Prozesses.

@@ -15,6 +15,7 @@ Für Access Management können Administratoren RBAC (rollenbasierte Zugriffssteu
 
 
 
+[[configuration-workflow]]
 == Konfigurationsworkflow
 
 Für das Speichersystem sind lokale Benutzerrollen vorkonfiguriert. Um lokale Benutzerrollen für die Authentifizierung zu verwenden, können Administratoren Folgendes tun:
@@ -33,6 +34,7 @@ Der `admin` Benutzer hat vollen Zugriff auf alle Funktionen im System.
 
 
 
+[[management]]
 == Management
 
 Bei Verwendung ausschließlich lokaler Benutzerrollen zur Authentifizierung können Administratoren die folgenden Verwaltungsaufgaben durchführen:

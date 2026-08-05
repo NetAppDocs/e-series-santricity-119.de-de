@@ -15,6 +15,7 @@ Mit der Zertifikatsverwaltung können Sie Zertifikatsignierungsanforderungen (CS
 
 
 
+[[what-are-certificates]]
 == Was sind Zertifikate?
 
 _Zertifikate_ sind digitale Dateien, die Online-Entitäten wie Websites und Server für die sichere Kommunikation im Internet identifizieren. Es gibt zwei Arten von Zertifikaten: Ein _signiertes Zertifikat_ wird von einer Zertifizierungsstelle (CA) validiert, während ein _selbstsigniertes Zertifikat_ vom Inhaber der Entität selbst und nicht von einem Dritten validiert wird.
@@ -27,6 +28,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-configure-certificates]]
 == Wie konfiguriere ich Zertifikate?
 
 Über die Zertifikatsverwaltung können Sie Zertifikate für die Managementstation konfigurieren, auf der Unified Manager gehostet wird, und auch Zertifikate für die Controller in den Arrays importieren.

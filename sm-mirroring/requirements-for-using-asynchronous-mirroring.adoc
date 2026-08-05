@@ -16,6 +16,7 @@ Wenn Sie asynchrone Spiegelung nutzen möchten, beachten Sie die folgenden Anfor
 
 
 
+[[unified-manager]]
 == Unified Manager
 
 Um die Spiegelung zwischen zwei Arrays zu aktivieren und zu konfigurieren, müssen Sie die Unified Manager Oberfläche verwenden. Unified Manager wird zusammen mit dem Web Services Proxy auf einem Hostsystem installiert.
@@ -27,6 +28,7 @@ Um die Spiegelung zwischen zwei Arrays zu aktivieren und zu konfigurieren, müss
 
 
 
+[[storage-arrays]]
 == Speicherarrays
 
 * Sie müssen über zwei Speicherarrays verfügen.
@@ -41,6 +43,7 @@ Um die Spiegelung zwischen zwei Arrays zu aktivieren und zu konfigurieren, müss
 
 
 
+[[supported-connections]]
 == Unterstützte Verbindungen
 
 Die asynchrone Spiegelung kann entweder FC- oder iSCSI-Verbindungen oder beide für die Kommunikation zwischen lokalen und entfernten Speichersystemen nutzen. Beim Erstellen einer Spiegel-Konsistenzgruppe kann der Administrator entweder FC oder iSCSI für diese Gruppe auswählen, wenn beide mit dem entfernten Speicher-Array verbunden sind. Es gibt kein Failover von einem Kanaltyp zum anderen.
@@ -92,6 +95,7 @@ E4000 unterstützt keine asynchrone Spiegelung bei Verwendung des iSCSI-Protokol
 ====
 
 
+[[mirrored-volume-candidates]]
 == Kandidaten für gespiegelte Volumes
 
 * RAID-Level, Caching-Parameter und Segmentgröße können auf dem primären und sekundären Volume eines asynchronen gespiegelten Paars unterschiedlich sein.
@@ -114,6 +118,7 @@ NOTE: Für EF600- und EF300-Controller müssen das primäre und das sekundäre V
 
 
 
+[[reserved-capacity]]
 == Reservierte Kapazität
 
 * Für ein primäres Volume und ein sekundäres Volume in einem gespiegelten Paar wird ein reserviertes Kapazitätsvolumen benötigt, um Protokollierungs-Schreibinformationen zu protokollieren und sich von Controller-Resets und anderen vorübergehenden Unterbrechungen erholen zu können.
@@ -128,6 +133,7 @@ NOTE: Für EF600- und EF300-Controller müssen das primäre und das sekundäre V
 
 
 
+[[drive-security-feature]]
 == Laufwerksicherheitsfunktion
 
 * Wenn Sie sichere Laufwerke verwenden, müssen das primäre Volume und das sekundäre Volume über kompatible Sicherheitseinstellungen verfügen. Diese Einschränkung wird nicht erzwungen; daher müssen Sie dies selbst überprüfen.

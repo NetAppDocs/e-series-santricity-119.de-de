@@ -15,6 +15,7 @@ Administratoren können einen LDAP (Lightweight Directory Access Protocol)-Serve
 
 
 
+[[configuration-workflow]]
 == Konfigurationsworkflow
 
 Wenn im Netzwerk ein LDAP-Server und ein Verzeichnisdienst verwendet werden, funktioniert die Konfiguration wie folgt:
@@ -35,6 +36,7 @@ Der `admin` Benutzer hat vollen Zugriff auf alle Funktionen im System.
 
 
 
+[[management]]
 == Management
 
 Bei der Verwendung von Verzeichnisdiensten zur Authentifizierung können Administratoren die folgenden Verwaltungsaufgaben durchführen:

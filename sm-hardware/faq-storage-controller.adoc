@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-is-auto-negotiation]]
 == Was ist Auto-Negotiation?
 
 Auto-negotiation ist die Fähigkeit einer Netzwerkschnittstelle, ihre eigenen Verbindungsparameter (Geschwindigkeit und Duplex) automatisch mit einer anderen Netzwerkschnittstelle abzustimmen.
@@ -29,6 +30,7 @@ Schlägt die automatische Aushandlung fehl, versucht der Controller, eine Verbin
 ====
 
 
+[[what-is-ipv6-stateless-address-auto-configuration]]
 == Was ist die zustandslose Adressautokonfiguration von IPv6?
 
 Bei der zustandslosen Autokonfiguration erhalten Hosts keine Adressen und andere Konfigurationsinformationen von einem Server.
@@ -49,12 +51,14 @@ Geräte führen diese Schritte aus, wenn sie die zustandslose automatische Konfi
 
 
 
+[[which-do-i-choose-dhcp-or-manual-configuration]]
 == Welche Option soll ich wählen – DHCP oder manuelle Konfiguration?
 
 Die Standardmethode zur Netzwerkkonfiguration ist das Dynamic Host Configuration Protocol (DHCP). Verwenden Sie diese Option immer, es sei denn, Ihr Netzwerk verfügt nicht über einen DHCP-Server.
 
 
 
+[[what-is-a-dhcp-server]]
 == Was ist ein DHCP-Server?
 
 Dynamic Host Configuration Protocol (DHCP) ist ein Protokoll, das die Aufgabe der Zuweisung einer Internet Protocol (IP)-Adresse automatisiert.
@@ -65,6 +69,7 @@ Ohne DHCP gibt ein Netzwerkadministrator diese IP-Adressen manuell ein. Mit DHCP
 
 
 
+[[how-do-i-configure-my-dhcp-server]]
 == Wie konfiguriere ich meinen DHCP Server?
 
 Sie müssen einen Dynamic Host Configuration Protocol (DHCP)-Server so konfigurieren, dass er statische Internet Protocol (IP)-Adressen für die Controller in Ihrem Storage-Array verwendet.
@@ -75,6 +80,7 @@ Informationen darüber, wie Sie statische Adressen zuweisen, finden Sie in der D
 
 
 
+[[why-do-i-need-to-change-the-controller-network-configuration]]
 == Warum muss ich die Netzwerkkonfiguration des Controllers ändern?
 
 Sie müssen die Netzwerkkonfiguration für jeden Controller festlegen – seine Internet Protocol (IP)-Adresse, Subnetzmaske und Gateway – wenn Sie Out-of-Band-Management verwenden.
@@ -83,6 +89,7 @@ Sie können die Netzwerkkonfiguration mithilfe eines Dynamic Host Configuration 
 
 
 
+[[where-do-i-get-the-network-configuration]]
 == Wo erhalte ich die Netzwerkkonfiguration?
 
 Sie können die Internetprotokoll-(IP-)Adresse, die Subnetzmaske (subnet mask) und die Gateway-Informationen von Ihrem Netzwerkadministrator erhalten.
@@ -91,6 +98,7 @@ Sie benötigen diese Informationen, wenn Sie Ports auf den Controllern konfiguri
 
 
 
+[[what-are-icmp-ping-responses]]
 == Was sind ICMP PING-Antworten?
 
 Internet Control Message Protocol (ICMP) ist eines der Protokolle der TCP/IP-Suite.
@@ -99,6 +107,7 @@ Die `ICMP echo request` und die(`ICMP echo reply` Meldungen sind allgemein als `
 
 
 
+[[when-should-i-refresh-the-port-configuration]]
 == Wann sollte ich die Portkonfiguration aktualisieren?
 
 Aktualisieren Sie den DHCP-Server jedes Mal, wenn der Server geändert oder aktualisiert wird und sich die DHCP-Informationen für das aktuelle Storage-Array und das Storage-Array, das Sie verwenden möchten, geändert haben.
@@ -112,6 +121,7 @@ Das Aktualisieren einer Portkonfiguration ist destruktiv für alle iSCSI-Verbind
 ====
 
 
+[[what-should-i-do-after-configuring-the-management-ports]]
 == Was sollte ich nach der Konfiguration der Management-Ports tun?
 
 Wenn Sie die IP-Adresse für das Speicherarray geändert haben, möchten Sie möglicherweise die globale Array-Ansicht im SANtricity Unified Manager aktualisieren.
@@ -122,6 +132,7 @@ Falls Sie noch den SANtricity Storage Manager verwenden, gehen Sie zum Enterpris
 
 
 
+[[why-is-the-storage-system-in-non-optimal-mode]]
 == Warum befindet sich das Speichersystem im nicht optimalen Modus?
 
 Ein Speichersystem im nicht optimalen Modus befindet sich aufgrund eines Invalid System Configuration-Zustands. Trotz dieses Zustands wird der normale E/A-Zugriff auf vorhandene Volumes vollständig unterstützt; allerdings werden einige Operationen vom SANtricity System Manager unterbunden.

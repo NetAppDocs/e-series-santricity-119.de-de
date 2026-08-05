@@ -24,6 +24,7 @@ Lesen Sie die folgenden Informationen zum Rollenwechselvorgang:
 
 
 
+[[force-role-change]]
 == Rollenwechsel erzwingen
 
 Sie können einen Rollenwechsel zwischen Spiegel-Konsistenzgruppen erzwingen, wenn ein Kommunikationsproblem zwischen dem lokalen Speicher-Array und dem Remote-Speicher-Array die Heraufstufung der Mitglieds-Volumes innerhalb der sekundären Spiegel-Konsistenzgruppe oder die Herabstufung der Mitglieds-Volumes innerhalb der primären Spiegel-Konsistenzgruppe verhindert.
@@ -32,6 +33,7 @@ Sie können die Spiegel-Konsistenzgruppe auf der sekundären Seite zwingen, in d
 
 
 
+[[when-is-a-forced-promotion-allowed-and-not-allowed]]
 == Wann ist eine erzwungene Beförderung zulässig und wann nicht?
 
 Die erzwungene Heraufstufung einer gespiegelten Konsistenzgruppe ist nur zulässig, wenn alle Mitgliedsvolumes der gespiegelten Konsistenzgruppe synchronisiert wurden und konsistente Wiederherstellungspunkte aufweisen.
@@ -46,6 +48,7 @@ Die erzwungene Heraufstufung einer gespiegelten Konsistenzgruppe ist unter folge
 
 
 
+[[mirror-group-role-conflict]]
 == Rollenkonflikt in der Spiegelgruppe
 
 Nach Behebung eines Kommunikationsproblems zwischen den lokalen und entfernten Speichersystemen tritt ein Mirror Group Role Conflict auf. Verwenden Sie den Recovery Guru, um diesen Fehler zu beheben. Eine erzwungene Heraufstufung ist bei der Behebung eines Dual-Role-Konflikts nicht zulässig.
@@ -54,6 +57,7 @@ Um den Zustand des Rollenkonflikts der Spiegelgruppe und die anschließenden Wie
 
 
 
+[[role-change-in-progress-state]]
 == Rollenwechsel im Fortschritt
 
 Wenn zwei Speicherarrays in einer Spiegelkonfiguration die Verbindung verlieren und die primäre Seite einer Spiegel-Konsistenzgruppe zwangsweise zu einer sekundären Rolle herabgestuft wird und die sekundäre Seite einer Spiegel-Konsistenzgruppe zwangsweise zu einer primären Rolle hochgestuft wird, dann werden die Spiegel-Konsistenzgruppen auf beiden Speicherarrays nach Wiederherstellung der Kommunikation in den Zustand „Rollenänderung läuft“ versetzt.

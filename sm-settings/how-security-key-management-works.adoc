@@ -24,6 +24,7 @@ Sie können Sicherheitsschlüssel mit einer der folgenden Methoden erstellen und
 
 
 
+[[internal-key-management]]
 == Interne Schlüsselverwaltung
 
 Interne Schlüssel werden im persistenten Speicher des Controllers an einem nicht zugänglichen Ort verwaltet und „“. Zur Implementierung der internen Schlüsselverwaltung führen Sie die folgenden Schritte aus:
@@ -37,6 +38,7 @@ Der Sicherheitsschlüssel wird auf dem Controller an einem versteckten, nicht zu
 
 
 
+[[external-key-management]]
 == Externes Schlüsselmanagement
 
 Externe Schlüssel werden auf einem separaten Schlüsselverwaltungsserver mithilfe des Key Management Interoperability Protocol (KMIP) verwaltet. Zur Implementierung der externen Schlüsselverwaltung führen Sie die folgenden Schritte aus:

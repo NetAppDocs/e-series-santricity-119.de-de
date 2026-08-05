@@ -16,6 +16,7 @@ Die Supportseite bietet Zugriff auf technische Supportressourcen.
 
 
 
+[[what-support-tasks-are-available]]
 == Welche Supportaufgaben sind verfügbar?
 
 Im Support können Sie technische Supportkontakte einsehen, Diagnosen durchführen, AutoSupport konfigurieren, das Ereignisprotokoll anzeigen und Software-Upgrades durchführen.
@@ -29,6 +30,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-contact-technical-support]]
 == Wie kontaktiere ich den technischen Support?
 
 Klicken Sie auf der Hauptseite auf Menü: Support [Support Center > Support Resources-Tab]. Die technischen Support-Kontaktinformationen sind oben rechts in der Benutzeroberfläche aufgeführt.

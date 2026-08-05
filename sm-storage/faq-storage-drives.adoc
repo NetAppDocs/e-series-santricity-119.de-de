@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-is-a-hot-spare-drive]]
 == Was ist ein Hot Spare-Laufwerk?
 
 Hot-Spare-Laufwerke fungieren als Standby-Laufwerke in RAID-1-, RAID-5- oder RAID-6-Volume-Gruppen. Sie sind voll funktionsfähige Laufwerke, die keine Daten enthalten. Fällt ein Laufwerk in der Volume-Gruppe aus, rekonstruiert der Controller die Daten des ausgefallenen Laufwerks automatisch auf ein Hot-Spare-Laufwerk.
@@ -31,6 +32,7 @@ Hot-Spare-Laufwerke werden bei Pools nicht unterstützt. Anstelle von Hot-Spare-
 ====
 
 
+[[what-is-preservation-capacity]]
 == Was ist Erhaltungskapazität?
 
 Die Reservekapazität ist die Menge an Kapazität (Anzahl der Laufwerke), die in einem Pool reserviert ist, um potenzielle Laufwerksausfälle zu unterstützen.
@@ -41,6 +43,7 @@ Pools nutzen während der Rekonstruktion die Preservation Capacity, während Vol
 
 
 
+[[why-would-i-logically-replace-a-drive]]
 == Warum sollte ich ein Laufwerk logisch austauschen?
 
 Wenn ein Laufwerk ausfällt oder Sie es aus einem anderen Grund ersetzen möchten und Sie ein nicht zugewiesenes Laufwerk in Ihrem Speicher-Array haben, können Sie das ausgefallene Laufwerk logisch durch das nicht zugewiesene Laufwerk ersetzen. Wenn Sie kein nicht zugewiesenes Laufwerk haben, können Sie das Laufwerk stattdessen physisch ersetzen.
@@ -49,6 +52,7 @@ Die Daten vom Originallaufwerk werden auf das Ersatzlaufwerk kopiert oder rekons
 
 
 
+[[where-can-i-view-the-status-of-a-drive-undergoing-reconstruction]]
 == Wo kann ich den Status eines Laufwerks einsehen, das sich in der Rekonstruktion befindet?
 
 Sie können den Status der Laufwerksrekonstruktion im Dashboard „Laufende Vorgänge“ einsehen.

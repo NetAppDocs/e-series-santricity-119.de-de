@@ -15,6 +15,7 @@ Für das Zugriffsmanagement können Administratoren die in das Array eingebettet
 
 
 
+[[configuration-workflow]]
 == Konfigurationsworkflow
 
 Die SAML-Konfiguration funktioniert wie folgt:
@@ -49,6 +50,7 @@ Sobald SAML aktiviert ist, können Sie es _nicht_ über die Benutzeroberfläche 
 
 
 
+[[management]]
 == Management
 
 Bei Verwendung von SAML zur Authentifizierung können Administratoren die folgenden Verwaltungsaufgaben durchführen:
@@ -59,6 +61,7 @@ Bei Verwendung von SAML zur Authentifizierung können Administratoren die folgen
 
 
 
+[[access-restrictions]]
 == Zugangsbeschränkungen
 
 Wenn SAML aktiviert ist, können Benutzer den Speicher für dieses Array nicht über die ältere Storage Manager Schnittstelle ermitteln oder verwalten.

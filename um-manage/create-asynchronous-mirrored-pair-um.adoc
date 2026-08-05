@@ -40,6 +40,7 @@ Der Prozess zur Erstellung eines asynchronen Spiegelpaares ist ein mehrstufiges 
 
 
 
+[[step-1-create-or-select-a-mirror-consistency-group]]
 == Schritt 1: Erstellen oder Auswählen einer Konsistenzgruppe für Spiegelungen
 
 In diesem Schritt erstellen Sie eine neue Spiegel-Konsistenzgruppe oder wählen eine vorhandene aus. Eine Spiegel-Konsistenzgruppe ist ein Container für das primäre und das sekundäre Volume (das gespiegelte Paar) und legt die gewünschte Resynchronisierungsmethode (manuell oder automatisch) für alle Paare in der Gruppe fest.
@@ -95,6 +96,7 @@ Wenn Unified Manager die Spiegelkonsistenzgruppe auf dem lokalen Storage-Array e
 
 
 
+[[step-2-select-the-primary-volume]]
 == Schritt 2: Wählen Sie das primäre Volume aus
 
 In diesem Schritt wählen Sie das primäre Volume aus, das in der Spiegelbeziehung verwendet werden soll, und weisen ihm die reservierte Kapazität zu. Wenn Sie ein primäres Volume auf dem lokalen Storage-Array auswählen, zeigt das System eine Liste aller für dieses gespiegelte Paar geeigneten Volumes an. Alle Volumes, die nicht verwendet werden können, werden in dieser Liste nicht angezeigt.
@@ -123,6 +125,7 @@ Beachten Sie die folgenden Richtlinien:
 
 
 
+[[step-3-select-the-secondary-volume]]
 == Schritt 3: Wählen Sie das sekundäre Volume
 
 In diesem Schritt wählen Sie das sekundäre Volume aus, das in der Spiegelbeziehung verwendet werden soll, und weisen ihm die reservierte Kapazität zu. Wenn Sie ein sekundäres Volume auf dem Remote-Speicherarray auswählen, zeigt das System eine Liste aller für dieses gespiegelte Paar geeigneten Volumes an. Alle Volumes, die nicht verwendet werden können, werden in dieser Liste nicht angezeigt.

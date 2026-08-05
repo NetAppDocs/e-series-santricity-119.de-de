@@ -24,6 +24,7 @@ Die Standardeinstellungen für den Cache erfüllen die Anforderungen der meisten
 
 
 
+[[storage-array-cache-settings]]
 == Cache-Einstellungen des Storage-Arrays
 
 Für alle Volumes im Speicherarray können Sie auf der Systemseite die folgenden Werte angeben:
@@ -34,6 +35,7 @@ Für alle Volumes im Speicherarray können Sie auf der Systemseite die folgenden
 
 
 
+[[volume-cache-settings]]
 == Volume-Cache-Einstellungen
 
 Für einzelne Volumes in einem Speicherarray können Sie die folgenden Werte auf der Seite Volumes (Menü:Storage[Volumes]) angeben:

@@ -16,6 +16,7 @@ Diese FAQ kann Ihnen helfen, wenn Sie nur eine schnelle Antwort auf eine Frage s
 
 
 
+[[what-are-the-supported-browsers]]
 == Welche Browser werden unterstützt?
 
 SANtricity System Manager unterstützt diese Browserversionen.
@@ -54,12 +55,14 @@ Microsoft Edge
 |===
 
 
+[[what-are-the-keyboard-shortcuts]]
 == Was sind die Tastenkombinationen?
 
 Sie können sich im SANtricity System Manager ausschließlich mit der Tastatur bewegen.
 
 
 
+[[overall-navigation]]
 === Gesamtnavigation
 
 [cols="1a,1a"]
@@ -117,6 +120,7 @@ Eingeben
 |===
 
 
+[[table-navigation]]
 === Tabellennavigation
 
 [cols="1a,1a"]
@@ -146,6 +150,7 @@ Drücken Sie die Tabulatortaste, um eine Spaltenüberschrift auszuwählen, und d
 |===
 
 
+[[calendar-navigation]]
 === Kalendernavigation
 
 [cols="1a,1a"]
@@ -245,6 +250,7 @@ Escape
 |===
 
 
+[[how-do-performance-statistics-for-individual-volumes-relate-to-the-total]]
 == Wie stehen die Leistungsstatistiken für einzelne Volumes im Verhältnis zur Gesamtstatistik?
 
 Die Statistiken für Pools und Volumengruppen werden durch Aggregation aller Volumes, einschließlich reservierter Kapazitätsvolumes, berechnet.
@@ -255,6 +261,7 @@ Für Anwendungs- und Arbeitslaststatistiken werden jedoch nur die sichtbaren Vol
 
 
 
+[[why-does-data-display-as-zero-in-the-graphs-and-table]]
 == Warum werden Daten in den Diagrammen und der Tabelle als Null angezeigt?
 
 Wird in den Diagrammen und Tabellen für einen Datenpunkt eine Null angezeigt, bedeutet dies, dass für das Objekt zu diesem Zeitpunkt keine I/O-Aktivität vorliegt. Diese Situation kann auftreten, weil der Host keine I/O an dieses Objekt initiiert oder es ein Problem mit dem Objekt selbst gibt.
@@ -315,6 +322,7 @@ Speicherarray
 |===
 
 
+[[what-does-the-latency-graph-show]]
 == Was zeigt das Latenzdiagramm?
 
 Das Latenzdiagramm liefert Latenzstatistiken in Millisekunden (ms) für Volumes, Volume-Gruppen, Pools, Anwendungen und Workloads. Dieses Diagramm wird in den Registerkarten „Logische Ansicht“, „Physische Ansicht“ und „Anwendungs- und Workload-Ansicht“ angezeigt.
@@ -328,6 +336,7 @@ Latenz bezeichnet jede Verzögerung, die beim Lesen oder Schreiben von Daten auf
 
 
 
+[[what-does-the-iops-graph-show]]
 == Was zeigt das IOPS-Diagramm?
 
 Das IOPS-Diagramm zeigt Statistiken zu Ein-/Ausgabeoperationen pro Sekunde an. Auf der Startseite zeigt dieses Diagramm Statistiken für das Speichersystem an. In den Registerkarten „Logische Ansicht“, „Physische Ansicht“ und „Anwendungs- und Workload-Ansicht“ der Leistungskachel zeigt dieses Diagramm Statistiken für das Speichersystem, Volumes, Volume-Gruppen, Pools, Anwendungen und Workloads an.
@@ -341,6 +350,7 @@ IOPS ist die Abkürzung für _Ein-/Ausgabe (I/O)-Operationen pro Sekunde_. Beweg
 
 
 
+[[what-does-the-mibs-graph-show]]
 == Was zeigt das MiB/s-Diagramm?
 
 Das MiB/s-Diagramm zeigt Übertragungsgeschwindigkeitsstatistiken in Mebibyte pro Sekunde an. Auf der Startseite zeigt dieses Diagramm Statistiken für das Storage-Array an. In den Registerkarten „Logische Ansicht“, „Physische Ansicht“ und „Anwendungs- & Workload-Ansicht“ der Leistungskachel zeigt dieses Diagramm Statistiken für das Storage-Array, Volumes, Volume-Gruppen, Pools, Anwendungen und Workloads an.
@@ -354,6 +364,7 @@ MiB/s ist die Abkürzung für  oder 1.048.576 Byte pro Sekunde. Bewegen Sie den 
 
 
 
+[[what-does-the-cpu-graph-show]]
 == Was zeigt das CPU-Diagramm?
 
 Das CPU-Diagramm zeigt Statistiken zur Verarbeitungskapazität für jeden Controller (Controller A und Controller B) an. CPU ist die Abkürzung für _central processing unit_. Auf der Startseite zeigt dieses Diagramm Statistiken für das Speichersystem an. Auf der Registerkarte „Physische Ansicht“ der Leistungskachel zeigt dieses Diagramm Statistiken für das Speichersystem und die Laufwerke an.
@@ -362,6 +373,7 @@ Das CPU-Diagramm zeigt den Prozentsatz der CPU-Verarbeitungskapazität, der für
 
 
 
+[[what-does-the-headroom-graph-show]]
 == Was zeigt das Headroom-Diagramm?
 
 Das Headroom-Diagramm bezieht sich auf die verbleibende Leistungskapazität der Speicherarray-Controller. Dieses Diagramm ist auf der Startseite und auf der Registerkarte „Physische Ansicht“ der Leistungskachel sichtbar.
@@ -370,6 +382,7 @@ Das Headroom-Diagramm zeigt die verbleibende Leistungskapazität der physischen 
 
 
 
+[[where-can-i-find-more-information-about-display-preferences]]
 == Wo finde ich weitere Informationen zu den Anzeigepräferenzen?
 
 Informationen zu den verfügbaren Anzeigeoptionen finden Sie:

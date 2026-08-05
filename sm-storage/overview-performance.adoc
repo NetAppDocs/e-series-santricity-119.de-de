@@ -15,6 +15,7 @@ Die Leistungsseite bietet Ihnen einfache Möglichkeiten, die Performance Ihres S
 
 
 
+[[what-can-i-learn-from-performance-data]]
 == Was kann ich aus Leistungsdaten lernen?
 
 Die Leistungsdiagramme und -tabellen zeigen Leistungsdaten in nahezu Echtzeit an, was Ihnen hilft festzustellen, ob ein Storage-Array Probleme aufweist. Sie können außerdem Leistungsdaten speichern, um eine historische Ansicht eines Storage-Arrays zu erstellen und zu erkennen, wann ein Problem begonnen hat oder was ein Problem verursacht hat.
@@ -27,6 +28,7 @@ Mehr erfahren:
 
 
 
+[[how-can-i-view-performance-data]]
 == Wie kann ich Leistungsdaten einsehen?
 
 Leistungsdaten sind auf der Startseite und auf der Storage-Seite verfügbar.

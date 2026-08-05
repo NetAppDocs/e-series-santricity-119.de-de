@@ -15,6 +15,7 @@ Sie können den Komponentenstatus auf der Seite „Hardware“ überprüfen und 
 
 
 
+[[which-components-can-i-manage]]
 == Welche Komponenten kann ich verwalten?
 
 Sie können den Komponentenstatus überprüfen und einige Funktionen im Zusammenhang mit diesen Komponenten ausführen:
@@ -32,6 +33,7 @@ Mehr erfahren:
 
 
 
+[[how-do-i-view-hardware-components]]
 == Wie kann ich Hardwarekomponenten anzeigen?
 
 Wechseln Sie zur Seite „Hardware“, die eine grafische Darstellung der physischen Komponenten des Storage-Arrays bietet. Sie können zwischen der Vorder- und Rückansicht der Array-Einschübe wechseln, indem Sie entweder die Registerkarte *Drives* oder *Controllers* oben rechts in der Einschubansicht auswählen.

@@ -15,6 +15,7 @@ Solid-State-Disks (SSDs) sind Datenspeichergeräte, die Solid-State-Speicher (Fl
 
 
 
+[[advantages-of-ssds]]
 == Vorteile von SSDs
 
 Zu den Vorteilen von SSDs gegenüber Festplatten gehören:
@@ -29,18 +30,21 @@ Zu den Vorteilen von SSDs gegenüber Festplatten gehören:
 
 
 
+[[identifying-ssds]]
 == Identifizierung von SSDs
 
 Auf der Hardware-Seite können Sie die SSDs in der Frontansicht des Shelfs finden. Suchen Sie nach Laufwerksschächten, die ein Blitzsymbol anzeigen, was darauf hinweist, dass eine SSD installiert ist.
 
 
 
+[[volume-groups]]
 == Volume-Gruppen
 
 Alle Laufwerke in einer Volume-Gruppe müssen vom gleichen Medientyp sein (entweder alle SSDs oder alle Festplatten). Volume-Gruppen können keine Mischung aus Medientypen oder Schnittstellentypen enthalten.
 
 
 
+[[caching]]
 == Caching
 
 Der Schreibcache des Controllers ist für SSDs immer aktiviert. Schreibcache verbessert die Leistung und verlängert die Lebensdauer der SSD.
