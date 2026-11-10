@@ -5425,7 +5425,6 @@
   <block id="945ae7820c24188a29edbd29e427962f" category="paragraph">Kapazitätserweiterung (Kapazität hinzufügen)</block>
   <block id="bd3fd623256db562bebda3e697d43452" category="paragraph">Kapazitätsreduzierung</block>
   <block id="dca785ddf6462cb2ce8d0332432fef85" category="paragraph">Gemischte Laufwerkstypen (HDD, SSD) werden weder für Pools noch für Volume-Gruppen unterstützt.</block>
-  <block id="28777dded0f4b7a62c3138973e35582c" category="summary">Mit der Option „Kapazität verringern“ können Sie die reservierte Kapazität für die folgenden Speicherobjekte verringern: Snapshot-Gruppe, Snapshot-Volume und Konsistenzgruppe-Mitglieds-Volume. Sie können die reservierte Kapazität nur um den Betrag verringern, um den Sie sie zuvor erhöht haben.</block>
   <block id="37e9db9b7a1415532978e5e59b0e1792" category="doc">Reduzieren Sie die reservierte Kapazität im SANtricity System Manager</block>
   <block id="115acc53492ff3d71c7e0717c01220a6" category="paragraph">Mit der Option „Kapazität verringern“ können Sie die reservierte Kapazität für die folgenden Speicherobjekte verringern: Snapshot-Gruppe, Snapshot-Volume und Konsistenzgruppenmitglied-Volume. Sie können die reservierte Kapazität nur um den Betrag verringern, um den Sie sie erhöht haben.</block>
   <block id="1d76cca7e5eb092d02723fdb9a2c1272" category="list-text">Das Speicherobjekt muss mehr als ein reserviertes Kapazitätsvolume enthalten.</block>
@@ -9049,4 +9048,9 @@
   <block id="24c9cd56861c16e2290412c4fe4d5a8f" category="list-text">IOM12C - v0112</block>
   <block id="818d5ca9647738ea76069fc99cf59499" category="list-text">IOM12G - v0212</block>
   <block id="9133a8b23ddd677242ee6747a18b0e24" category="list-text">DCM3 - v01.12.09.02</block>
+  <block id="fb2a0888f91c24b63218fe88807bbba3" category="summary">Ein Controller kann in drei verschiedene Zustände versetzt werden: Online, Offline und Servicemodus.</block>
+  <block id="49390b5788f909c095a9221fc5028cc6" category="summary">Sie können für ein Volume verschiedene Aktionen durchführen, darunter das Erhöhen der Kapazität, das Löschen, Kopieren, Initialisieren und Umverteilen sowie das Ändern des Eigentümers, der Cache-Einstellungen und der Medienscan-Einstellungen.</block>
+  <block id="5fde626ba0e89d16805ea6acf1d0ad24" category="summary">Mit der Option „Kapazität verringern“ können Sie die reservierte Kapazität für Snapshot-Gruppen, Snapshot-Volumes und Mitglied-Volumes von Konsistenzgruppen verringern. Sie können die reservierte Kapazität nur um die Beträge verringern, um die Sie sie erhöht haben.</block>
+  <block id="9587f27e2d9da9b950f8b3a7d00fbad9" category="section-title">Neue Funktionen in Version 11.90R7</block>
+  <block id="7e2382649b16a571eb0ec2a8e1b78824" category="paragraph">Diese Version enthält ausschließlich Fehlerbehebungen und keine neuen Funktionen. Weitere Informationen zu den Änderungen in dieser Version finden Sie in der E-Series SANtricity OS 11.90R7 README.</block>
 </blocks>
